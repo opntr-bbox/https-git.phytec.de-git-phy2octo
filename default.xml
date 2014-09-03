@@ -15,7 +15,6 @@
 
   <project remote="phytec" name="" path="sources/phy2octo">
 	<copyfile dest="HOWTO" src="doc/HOWTO"/>
-	<copyfile dest="phyLinux" src="phylinux/phyLinux"/>
   </project>
 
 </manifest>
