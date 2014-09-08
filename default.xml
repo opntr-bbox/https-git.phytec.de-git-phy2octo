@@ -7,7 +7,7 @@
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
 	<remote name="fsl" fetch="git://github.com/Freescale"/>
-	<remote name="angstrom" fetch="git://github.com/Angstrom-distribution/meta-angstrom.git"/>
+	<remote name="angstrom" fetch="git://github.com/Angstrom-distribution"/>
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
 	<project name="meta-phytec" remote="git.phytec" path="sources/meta-phytec"/>
