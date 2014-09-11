@@ -18,6 +18,5 @@
 	<project name="meta-qt5/meta-qt5.git" remote="github" path="sources/meta-qt5"/>
 	<project name="phy2octo" path="sources/phy2octo">
 		<copyfile dest="HOWTO" src="doc/HOWTO"/>
-		<copyfile dest="phyLinux" src="phylinux/phyLinux"/>
 	</project>
 </manifest>
