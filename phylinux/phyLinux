@@ -1,233 +1,90 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
+import argparse, os, subprocess
 
-phylinuxdir = 'phylinx'         # name of repo's private directory
-PHYLINUX_MAIN = 'main.py'       # main script
-MIN_PYTHON_VERSION = (2, 6)     # minimum supported python version
+phylinux_version = "0.1"
+repo_install_path = "/usr/local/bin"
+pyhtec_repo_url = "git://git.phytec.de/phy2octo"
 
-import errno
-import optparse
-import os
-import re
-import shutil
-import stat
-import subprocess
-import sys
+def which(program):
+    def is_exe(fpath):
+        return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
-if sys.version_info[0] == 3:
-  import urllib.request
-  import urllib.error
-else:
-  import imp
-  import urllib2
-  urllib = imp.new_module('urllib')
-  urllib.request = urllib2
-  urllib.error = urllib2
-
-
-def _print(*objects, **kwargs):
-  sep = kwargs.get('sep', ' ')
-  end = kwargs.get('end', '\n')
-  out = kwargs.get('file', sys.stdout)
-  out.write(sep.join(objects) + end)
-
-
-# Python version check
-ver = sys.version_info
-if ver[0] == 3:
-  _print('warning: Python 3 support is currently experimental. YMMV.\n'
-         'Please use Python 2.6 - 2.7 instead.',
-         file=sys.stderr)
-if (ver[0], ver[1]) < MIN_PYTHON_VERSION:
-  _print('error: Python version %s unsupported.\n'
-         'Please use Python 2.6 - 2.7 instead.'
-         % sys.version.split(' ')[0], file=sys.stderr)
-  sys.exit(1)
-
-home_dot_phy = os.path.expanduser('~/.phyconfig')
-
-extra_args = []
-init_optparse = optparse.OptionParser(usage="phyLinux env -c gnome-terminal [options]")
-
-# Logging
-group = init_optparse.add_option_group('Logging options')
-group.add_option('-q', '--quiet',
-                 dest="quiet", action="store_true", default=False,
-                 help="be quiet")
-
-# Manifest
-group = init_optparse.add_option_group('Environment options')
-group.add_option('-u', '--manifest-url',
-                 dest='manifest_url',
-                 help='manifest repository location', metavar='URL')
-group.add_option('-b', '--manifest-branch',
-                 dest='manifest_branch',
-                 help='manifest branch or revision', metavar='REVISION')
-group.add_option('-m', '--manifest-name',
-                 dest='manifest_name',
-                 help='initial manifest file', metavar='NAME.xml')
-group.add_option('--mirror',
-                 dest='mirror', action='store_true',
-                 help='create a replica of the remote repositories '
-                      'rather than a client working directory')
-group.add_option('--reference',
-                 dest='reference',
-                 help='location of mirror directory', metavar='DIR')
-group.add_option('--depth', type='int', default=None,
-                 dest='depth',
-                 help='create a shallow clone with given depth; see git clone')
-group.add_option('--archive',
-                 dest='archive', action='store_true',
-                 help='checkout an archive instead of a git repository for '
-                      'each project. See git archive.')
-group.add_option('-g', '--groups',
-                 dest='groups', default='default',
-                 help='restrict manifest projects to ones with specified '
-                      'group(s) [default|all|G1,G2,G3|G4,-G5,-G6]',
-                 metavar='GROUP')
-group.add_option('-p', '--platform',
-                 dest='platform', default="auto",
-                 help='restrict manifest projects to ones with a specified '
-                      'platform group [auto|all|none|linux|darwin|...]',
-                 metavar='PLATFORM')
-
-
-# Tool
-group = init_optparse.add_option_group('phyLinux Version options')
-group.add_option('--repo-url',
-                 dest='repo_url',
-                 help='repo repository location', metavar='URL')
-group.add_option('--repo-branch',
-                 dest='repo_branch',
-                 help='repo branch or revision', metavar='REVISION')
-group.add_option('--no-repo-verify',
-                 dest='no_repo_verify', action='store_true',
-                 help='do not verify repo source code')
-
-# Other
-group = init_optparse.add_option_group('Other options')
-group.add_option('--config-name',
-                 dest='config_name', action="store_true", default=False,
-                 help='Always prompt for name/e-mail')
-
-class _Options:
-  help = False
-
-
-def _ParseArguments(args):
-  cmd = None
-  opt = _Options()
-  arg = []
-
-  for i in range(len(args)):
-    a = args[i]
-    if a == '-h' or a == '--help':
-      opt.help = True
-
-    elif not a.startswith('-'):
-      cmd = a
-      arg = args[i + 1:]
-      break
-  return cmd, opt, arg
-
-
-def _Usage():
-  _print(
-"""usage: phyLinux COMMAND [ARGS]
-
-The most commonly used phyLinux commands are:
-
-  env       generate a sourceable environment in the current directory
-            or run a command in the environment
-  help      Display detailed help on a command
-
-For the full documentation have a look into the doc/phylinux directory.
-""", file=sys.stderr)
-  sys.exit(1)
-
-
-def _Help(args):
-  if args:
-    if args[0] == 'init':
-      init_optparse.print_help()
-      sys.exit(0)
+    fpath, fname = os.path.split(program)
+    if fpath:
+        if is_exe(program):
+            return program
     else:
-      _print("error: '%s' is not a bootstrap command.\n"
-             % args[0], file=sys.stderr)
-  else:
-    _Usage()
-  sys.exit(1)
+        for path in os.environ["PATH"].split(os.pathsep):
+            path = path.strip('"')
+            exe_file = os.path.join(path, program)
+            if is_exe(exe_file):
+                return exe_file
 
-def _RunSelf(wrapper_path):
-  my_dir = os.path.dirname(wrapper_path)
-  my_main = os.path.join(my_dir, 'main.py')
-  my_git = os.path.join(my_dir, '.git')
+    return None
 
-  if os.path.isfile(my_main) and os.path.isdir(my_git):
-    for name in ['git_config.py',
-                 'project.py',
-                 'subcmds']:
-      if not os.path.exists(os.path.join(my_dir, name)):
-        return None, None
-    return my_main, my_git
-  return None, None
+def is_in_path(question):
+    for path in os.environ["PATH"].split(os.pathsep):
+        path = path.strip('"')
+        if path == question:
+            return True
+    return False
 
-def _NotInstalled():
-  _print('error: phyLinux is not correctly installed.  Use repo tool workflow to init repository.',
-         file=sys.stderr)
-  sys.exit(1)
+def call(cmd):
+    print cmd
+    subprocess.call(cmd,shell=True)
 
-def _FindphyLinux():
-  """Look for the phyLinux repository installation, starting at the current directory.
-  """
-  curdir = os.getcwd()
-  phylinux = None
-
-  olddir = None
-  while curdir != '/' \
-    and curdir != olddir \
-    and not phylinux:
-    phylinux = os.path.join(curdir, phylinuxdir, PHYLINUX_MAIN)
-    if not os.path.isfile(phylinux):
-      phylinux = None
-      olddir = curdir
-      curdir = os.path.dirname(curdir)
-  return (phylinux, os.path.join(curdir, phylinuxdir))
-
-def main(orig_args):
-  phylinux_main, rel_phylinux_dir = _FindphyLinux()
-  cmd, opt, args = _ParseArguments(orig_args)
-
-  wrapper_path = os.path.abspath(__file__)
-  my_main, my_git = _RunSelf(wrapper_path)
-
-  if not phylinux_main:
-    if opt.help:
-      _Usage()
-    if cmd == 'help':
-      _Help(args)
+def cmd_init(args):
+    #repo wrapper
+    repo_exec = which('repo')
+    if repo_exec:
+        print 'repo tool wrapper is installed: ' + repo_exec
     else:
-      _NotInstalled()
+        print 'installing repo tool wrapper...'
+        if is_in_path(repo_install_path):
+            print 'installing in '+ repo_install_path
+            target =  os.path.join(repo_install_path, 'repo')
+            call('curl https://storage.googleapis.com/git-repo-downloads/repo > ./repo')
+            call('chmod a+x repo')
+            call('sudo mv repo '+ target)
+        else:
+            print repo_install_path + ' is not in $PATH. Add it to the path or modify'
+            print 'the installer location'
 
-  if my_main:
-    phylinux_main = my_main
+    #phytecs repo repository
+    if os.path.exists('.repo/repo'):
+        print 'repo is installed in the local directory'
+    else:
+        print 'no repo repository in local path'
+        call('repo init -u '+phytec_repo_url')
 
-  ver_str = '.'.join(map(str, VERSION))
-  me = [sys.executable, phylinux_main,
-        '--repo-dir=%s' % rel_phylinux_dir,
-        '--wrapper-version=%s' % ver_str,
-        '--wrapper-path=%s' % wrapper_path,
-        '--']
-  me.extend(orig_args)
-  me.extend(extra_args)
-  try:
-    os.execv(sys.executable, me)
-  except OSError as e:
-    _print("fatal: unable to start %s" % phylinux_main, file=sys.stderr)
-    _print("fatal: %s" % e, file=sys.stderr)
-    sys.exit(148)
+    
 
+def main():
+    # parse command line options
+    parser = argparse.ArgumentParser(description='This Programs sets up an environment to work with The Yocto Project'
+                                                 'on Phytecs Development Kits',
+                                     version=phylinux_version)
+    subparsers = parser.add_subparsers(help='commands',dest='command')
 
-if __name__ == '__main__':
-  main(sys.argv[1:])
+    # init command
+    init_parser = subparsers.add_parser('init', help='init the phytec bsp in the current directory')
+    init_parser.add_argument('-p', dest='platform', help='Processor platform')
+    init_parser.add_argument('-r', dest='release', help='release version')
+
+    # A create command
+    create_parser = subparsers.add_parser('create', help='Create a directory')
+    create_parser.add_argument('dirname', action='store', help='New directory to create')
+    create_parser.add_argument('--read-only', default=False, action='store_true',
+                               help='Set permissions to prevent writing to the directory',
+                           )
+
+    args = parser.parse_args()
+    if args.command == 'init':
+        cmd_init(args)            
+    elif args.command == '':
+        cmd_()
+
+if __name__ == "__main__":
+  main()
