@@ -3,14 +3,22 @@
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
 import argparse, os, subprocess
 
+# Global constants
 phylinux_version = "0.1"
 phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
 phytec_repo_local = "ssh://git@git.phytec.de/phy2octo"
-yocto_version = "1.7"
 
+# Global vars
+selected_yocto_version = "1.7"
+selected_soc = "am335x"
+selected_release = ""
+
+#########
+# Tools #
+#########
 def which(program):
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
@@ -37,6 +45,46 @@ def is_in_path(question):
 def call(cmd):
     print cmd
     subprocess.call(cmd,shell=True)
+
+#########
+# logic #
+#########
+
+def sanity_fail():
+    print ''
+    print 'Sanity check failed!'
+    print 'You are most probably doing something wrong. phyLinux should be called in an empty directory'
+    print 'or in an directory were there is an PHYTEC BSP installed already. If you know what you are doing,'
+    print 'you could:'
+    print '    $ touch .insane'
+    print 'to circumvent the sanity checker'
+    print ''
+    raise SystemExit
+
+def sanity_check():
+    if os.path.isfile('.insane'):
+        return None
+    if not which('curl'):
+        print 'need curl to download the packages'
+        raise SystemExit
+    cwd = os.getcwd()
+    if phylinux_storepath in cwd:
+        print 'executing from within the storage directory'
+        sanity_fail()
+    if os.path.exists('.git'):
+        print 'executing from within git repository'
+        sanity_fail()
+
+############
+# Commands #
+############
+
+# init command
+def choose_soc():
+    print 'Please choose one of the available SOC Platforms:'
+    print ''
+    print ''
+    
 
 def cmd_init(args):
     #repo wrapper
@@ -65,6 +113,9 @@ def cmd_init(args):
     print 'updating remote phytec repo repository'
     call('repo init')
 
+    choose_soc()
+    choose_release()
+
     print 'syncing sources'
     call('repo sync')
 
@@ -73,32 +124,13 @@ def cmd_init(args):
     
     print 'to start working with Yocto you have to type:'
     print '    $ source sources/poky/oe-init-build-env build-' + yocto_version
+    print ''
+    print 'an basic image for your board can then be build with:'
+    print '    $ bitbake phytec-hwbringup-image'
     
-def sanity_fail():
-    print ''
-    print 'Sanity check failed!'
-    print 'You are most probably doing something wrong. phyLinux should be called in an empty directory'
-    print 'or in an directory were there is an PHYTEC BSP installed already. If you know what you are doing,'
-    print 'you could:'
-    print '    $ touch .insane'
-    print 'to circumvent the sanity checker'
-    print ''
-    raise SystemExit
-
-def sanity_check():
-    if os.path.isfile('.insane'):
-        return None
-    if not which('curl'):
-        print 'need curl to download the packages'
-        raise SystemExit
-    cwd = os.getcwd()
-    if phylinux_storepath in cwd:
-        print 'executing from within the storage directory'
-        sanity_fail()
-    if os.path.exists('.git'):
-        print 'executing from within git repository'
-        sanity_fail()
-        
+##############
+# Executable #
+##############
 def main():
     sanity_check()
 
