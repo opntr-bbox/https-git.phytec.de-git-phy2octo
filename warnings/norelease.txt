@@ -1,0 +1,7 @@
+BSP not configured correctly!
+
+The default.xml manifest is selected for the BSP. Please choose a
+specific Phytec Distribution release by running:
+$ ./phyLinux init
+or switch directly to a Release using:
+$ repo init -m <release>

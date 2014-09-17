@@ -10,6 +10,6 @@
 	<remote name="angstrom" fetch="git://github.com/Angstrom-distribution"/>
 
 	<project name="phy2octo" path="sources/phy2octo">
-		<copyfile dest="WARNING" src="WARNING"/>
+		<copyfile dest="WARNING" src="warnings/nobranch.txt"/>
 	</project>
 </manifest>
