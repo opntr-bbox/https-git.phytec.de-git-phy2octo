@@ -16,7 +16,7 @@
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
 	<project name="meta-angstrom" remote="angstrom" path="sources/meta-angstrom"/>
 	<project name="meta-qt5/meta-qt5.git" remote="github" path="sources/meta-qt5"/>
-	<project name="phy2octo" path="sources/phy2octo">
+	<project name="phy2octo" revision="am335x" path="sources/phy2octo">
 		<copyfile dest="HOWTO" src="doc/HOWTO"/>
 	</project>
 </manifest>
