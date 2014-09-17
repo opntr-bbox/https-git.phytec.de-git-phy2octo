@@ -1,0 +1,1 @@
+put this into .repo all files .repo/local_manifests/*.xml will be loaded before sync.

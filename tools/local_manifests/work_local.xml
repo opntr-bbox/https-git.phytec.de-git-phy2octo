@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<remote name="git.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github" fetch="git://github.com"/>
+	<remote name="angstrom" fetch="git://github.com/Angstrom-distribution"/>
+	<remote name="local" fetch="file:///home/mueller-klieser"/>
+
+	<remove-project name="meta-phytec" path="sources/meta-phytec"/>
+	<remove-project name="meta-phyam335x" path="sources/meta-phytec/meta-phyam335x"/>
+	<remove-project name="meta-yogurt" path="sources/meta-yogurt"/>
+	<remove-project name="phy2octo" path="sources/phy2octo"/>
+
+	<project name="meta-phytec" remote="local" path="sources/meta-phytec"/>
+	<project name="meta-phyam335x" remote="local" path="sources/meta-phytec/meta-phyam335x"/>
+	<project name="meta-yogurt" remote="local" path="sources/meta-yogurt"/>
+	<project name="phy2octo" remote="local" path="sources/phy2octo"/>
+</manifest>
