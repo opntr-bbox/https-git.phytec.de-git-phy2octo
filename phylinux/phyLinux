@@ -84,7 +84,10 @@ def choose_soc():
     print 'Please choose one of the available SOC Platforms:'
     print ''
     print ''
-    
+    branches = os.listdir('.repo/manifests.git/refs/remotes/origin')
+    branches.remove("master")
+    for index, branch  in enumerate(branches):
+        print '   '+idx+'.: '+branch
 
 def cmd_init(args):
     #repo wrapper
