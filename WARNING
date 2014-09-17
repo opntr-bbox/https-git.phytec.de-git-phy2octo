@@ -1,0 +1,8 @@
+BSP not configured correctly!
+
+This is Phytecs phy2oct master branch. As we seperate our BSPs into SOC
+Platforms and store the manifests in branches named after the SOCs the
+master branch is empty and should not be used. Please run the program:
+$ ./phyLinux init
+or switch directly to a BSP branch using:
+$ repo init -b <soc-name> -m <release>
