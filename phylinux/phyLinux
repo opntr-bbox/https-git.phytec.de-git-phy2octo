@@ -9,7 +9,7 @@ phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
-phytec_repo_local = "ssh://git@git.phytec.de/phy2octo"
+phytec_repo_local = "ssh://git@git.phytec.de/phy2octo-dev"
 
 # Global vars
 yocto_version = ""
@@ -76,6 +76,36 @@ def sanity_check():
         print 'executing from within git repository'
         sanity_fail()
 
+def probe_repo_wrapper():
+    repo_exec = which('repo')
+    if repo_exec:
+        print 'repo tool wrapper is installed: ' + repo_exec
+        return True
+    else:
+        print 'repo tool wrapper is not installed'
+        return False
+
+def install_repo_wrapper():
+    if not probe_repo_wrapper:
+        print 'installing repo tool wrapper...'
+        if is_in_path(repo_install_path):
+            print 'installing in '+ repo_install_path
+            target =  os.path.join(repo_install_path, 'repo')
+            call('curl ' + repo_url + ' > ./repo')
+            call('chmod a+x repo')
+            call('sudo mv repo '+ target)
+        else:
+            print repo_install_path + ' is not in $PATH. Add it to the path or modify'
+            print 'the installer location'
+
+def probe_repo_currentdir():
+    if os.path.exists('.repo/repo/main.py'):
+        print 'repo is installed in the current directory'
+        return True
+    else:
+        print 'no repo repository in current directory'
+        return False
+
 def probe_yocto_version():
     global selected_soc, selected_release, yocto_version
     if selected_soc == "" or selected_release == "":
@@ -98,8 +128,22 @@ def probe_yocto_version():
     yocto_version = ""
     return False
 
-def probe_selected_soc():
+def check_for_soc(arg_soc):
     global selected_soc
+    # see if arg_soc is a valid soc
+ 
+def probe_selected_soc(arg_soc = None):
+    global selected_soc
+    # first see if arg_soc is a valid input
+    if arg_soc:
+        if os.path.exists('.repo/manifests.git/refs/remotes/origin/'+ arg_soc):
+            print 'Selecting SoC to command line argument: '+arg_soc
+            selected_soc = arg_soc
+            return True
+        else:
+            print 'Command line argument '+arg_soc+' is no valid SoC'
+            return False
+    # find out if there has been a selection before
     try:
         f = open('.repo/manifests.git/refs/heads/default', 'r')
         hashtag = f.read()
@@ -184,39 +228,32 @@ def choose_release():
 
 def cmd_init(args):
     global selected_soc, selected_release, yocto_version
-    #repo wrapper
-    repo_exec = which('repo')
-    if repo_exec:
-        print 'repo tool wrapper is installed: ' + repo_exec
-    else:
-        print 'installing repo tool wrapper...'
-        if is_in_path(repo_install_path):
-            print 'installing in '+ repo_install_path
-            target =  os.path.join(repo_install_path, 'repo')
-            call('curl ' + repo_url + ' > ./repo')
-            call('chmod a+x repo')
-            call('sudo mv repo '+ target)
-        else:
-            print repo_install_path + ' is not in $PATH. Add it to the path or modify'
-            print 'the installer location'
-
-    #phytecs repo repository
-    if os.path.exists('.repo/repo/main.py'):
-        print 'repo is installed in the local directory'
-    else:
-        print 'no repo repository in local path, installing...'
-        call('repo init -u ' + phytec_repo_url)
+    install_repo_wrapper()
+    if not probe_repo_currentdir:
+        print 'installing repo tool'
 
     print 'updating remote phytec repo repository'
-    call('repo init')
+    if args.dev:
+        call('repo init -u ' + phytec_repo_local)
+    else:
+        call('repo init -u ' + phytec_repo_url)
 
-    probe_selected_soc()
-    selected_soc = choose_soc()
+    
+    if args.platform and os.path.exists('.repo/manifests.git/refs/remotes/origin/'+ args.platform):
+        print 'Selecting SoC to command line argument: ' + args.platform
+        selected_soc = args.platform
+    else:
+        probe_selected_soc()
+        selected_soc = choose_soc()
     print 'switching to ' + selected_soc
     call('repo init -b ' + selected_soc)
 
-    probe_selected_release()
-    selected_release = choose_release()
+    if args.release and os.path.exists('.repo/manifests/' + args.release + '.xml'):
+        print 'Selecting Release to command line argument: ' + args.release
+        selected_release = args.release + '.xml'
+    else:
+        probe_selected_release()
+        selected_release = choose_release()
     print 'switching to ' + remove_file_extension(selected_release)
     call('repo init -m ' + selected_release)
 
@@ -225,8 +262,8 @@ def cmd_init(args):
 
     probe_yocto_version()
 
-    print 'setting environment for child processes and starting an build init'
-    call("bash -c 'source sources/poky/oe-init-build-env build-" + yocto_version + "'")
+    print 'Setting environment and starting the poky init script'
+    call('bash -c "source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
     
     print 'to start working with Yocto you have to type:'
     print '    $ source sources/poky/oe-init-build-env build-' + yocto_version
@@ -234,10 +271,15 @@ def cmd_init(args):
     print 'an basic image for your board can then be build with:'
     print '    $ bitbake phytec-hwbringup-image'
     print ''
-    
+
+# info command
+def cmd_info(args):
+    print 'command info'
+
 ##############
 # Executable #
 ##############
+
 def main():
     global selected_soc, selected_release, yocto_version
     sanity_check()
@@ -245,8 +287,8 @@ def main():
     # parse commands
     # global options
     global_parser = argparse.ArgumentParser(add_help=False)
-    global_parser.add_argument('--verbose', action='store_true')
-    global_parser.add_argument('--dev', action='store_true')
+    global_parser.add_argument('--verbose', dest='v', action='store_true')
+    global_parser.add_argument('--dev', action='store_true',help=argparse.SUPPRESS)
 
     parser = argparse.ArgumentParser(description='This Programs sets up an environment to work with The Yocto Project'
                                                  'on Phytecs Development Kits',
@@ -258,8 +300,14 @@ def main():
     init_parser = subparsers.add_parser('init', parents=[global_parser], help='init the phytec bsp in the current directory')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
+    
+    # info command
+    info_parser = subparsers.add_parser('info', parents=[global_parser], help='print info about the phytec bsp in the current directory')
 
-    # A create command
+     # help command
+    help_parser = subparsers.add_parser('help', parents=[global_parser], help='print help for a command')
+
+    # env command
     env_parser = subparsers.add_parser('env', parents=[global_parser], help='modify the build environment')
     env_parser.add_argument('-c', action='store_true', help='create a sourceable env file')
     env_parser.add_argument('-e', action='store_true', help='Set permissions to prevent writing to the directory')
