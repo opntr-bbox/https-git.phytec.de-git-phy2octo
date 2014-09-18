@@ -22,5 +22,4 @@
 	<project name="phy2octo" revision="master" path="sources/phy2octo-master">
 		<copyfile dest="HOWTO-yocto" src="doc/HOWTO"/>
 	</project>
-<
 </manifest>
