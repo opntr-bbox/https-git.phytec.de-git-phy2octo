@@ -258,7 +258,10 @@ def cmd_init(args):
     call('repo init -m ' + selected_release)
 
     print 'syncing sources'
-    call('repo sync')
+    if args.dev:
+        call('repo sync')
+    else:
+        call('repo sync -c')
 
     probe_yocto_version()
 
