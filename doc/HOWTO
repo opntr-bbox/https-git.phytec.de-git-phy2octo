@@ -1,5 +1,10 @@
 PHYTEC Yocto Linux BSP: phy²octo
 ===============================
+Download the phyLinux tool from phytec to your yocto build folder
+
+$: ./phyLinux
+
+or you can use repo manually
 
 To get the BSP you need to have `repo` installed and use it as:
 
@@ -8,15 +13,63 @@ Install the `repo` utility:
 $: mkdir ~/bin
 $: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $: chmod a+x ~/bin/repo
+$: PATH=${PATH}:~/bin
 
 Download the BSP source:
 
-$: PATH=${PATH}:~/bin
-$: mkdir fsl-community-bsp
-$: cd fsl-community-bsp
-$: repo init -u git://git.phytec.de/phy2octo
+$: mkdir yocto
+$: cd yocto
+$: repo init -u git://git.phytec.de/phy2octo -b <soc> -m <release>
 $: repo sync
 
-Once this has complete, you will have use the phyLinux tool to execute some tasks:
 
-$: ./phyLinux
+Yocto Common Tasks
+===============================
+Put these lines in you local.conf to make it work just for your
+local build. For permanently applying the options you have to put it
+at the systematically correct spot in your yocto build.
+
+# install the kernel modules to rootfs
+IMAGE_INSTALL += "kernel-modules"
+
+# install barebox tools into rootfs
+IMAGE_INSTALL += "barebox-dev"
+
+# install something in the initramfs
+PACKAGE_INSTALL_append
+
+# build sd card image
+IMAGE_FSTYPES += "sdimg-phy"
+
+# build commercial software packages
+LICENSE_FLAGS_WHITELIST = "commercial"
+
+# add touchscreen to machine
+MACHINE_FEATURES += "touchscreen"
+
+#global sources mirror before premirror
+# only one url possible
+INHERIT += "own-mirrors"
+SOURCE_MIRROR_URL = "ftp://ftp.phytec.de/pub/BSP_PACKAGES/yoctomirror"
+
+# use CCACHE
+CCACHE = "ccache"
+INHERIT += "ccache"
+CCACHE_DIR = "<home>/.ccache"
+CCACHE_DISABLE = "0"
+
+# uboot variables to configure
+UBOOT_ARCH = "arm"
+UBOOT_MACHINE = "am335x_evm_config"
+UBOOT_ENTRYPOINT = "0x80008000"
+UBOOT_LOADADDRESS = "0x80008000"
+
+#open gl TI
+MACHINE_FEATURES += "sgx"
+
+
+
+# Custom Barebox environment
+# place it in the following folder
+# <yocto>/meta-phytec/meta-phy<soc>/recipes-bsp/barebox/env/<machine>/environment
+
