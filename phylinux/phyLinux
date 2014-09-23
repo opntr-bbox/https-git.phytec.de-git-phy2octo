@@ -279,6 +279,14 @@ def cmd_init(args):
 def cmd_info(args):
     print 'command info'
 
+# release command
+def cmd_release(args):
+    if not args.name:
+        print 'Setname for release:'
+        user_input = raw_input('$ ')
+        args.name = user_input
+    call('repo manifest -o '+args.name+'.xml -r')
+
 ##############
 # Executable #
 ##############
@@ -314,10 +322,20 @@ def main():
     env_parser = subparsers.add_parser('env', parents=[global_parser], help='modify the build environment')
     env_parser.add_argument('-c', action='store_true', help='create a sourceable env file')
     env_parser.add_argument('-e', action='store_true', help='Set permissions to prevent writing to the directory')
+    
+    # release command
+    release_parser = subparsers.add_parser('release', parents=[global_parser], help='create an relase snapshot from current workingdir')
+    release_parser.add_argument('-n', dest='name', help='release name')
 
     args = parser.parse_args()
     if args.command == 'init':
-        cmd_init(args)            
+        cmd_init(args)
+    elif args.command == 'info':
+        cmd_info(args)
+    elif args.command == 'help':
+        cmd_help(args)
+    elif args.command == 'release':
+        cmd_release(args)
     elif args.command == '':
         cmd_()
 
