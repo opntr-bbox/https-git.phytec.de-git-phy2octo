@@ -94,9 +94,12 @@ def install_repo_wrapper():
             call('curl ' + repo_url + ' > ./repo')
             call('chmod a+x repo')
             call('sudo mv repo '+ target)
+            return True
         else:
             print repo_install_path + ' is not in $PATH. Add it to the path or modify'
             print 'the installer location'
+            return False
+    return True
 
 def probe_repo_currentdir():
     if os.path.exists('.repo/repo/main.py'):
@@ -132,7 +135,7 @@ def probe_selected_soc(arg_soc = None):
     global selected_soc
     # first see if arg_soc is a valid input
     if arg_soc:
-        if os.path.exists('.repo/manifests.git/refs/remotes/origin/'+ arg_soc):
+        if probe_gitbranch(arg_soc):
             print 'Selecting SoC to command line argument: '+arg_soc
             selected_soc = arg_soc
             return True
@@ -171,7 +174,10 @@ def probe_selected_release():
         print type(e),e.args,e
     print 'No Release selected'
     return False
-                                 
+
+def probe_gitbranch(branch):
+    return os.path.exists('.repo/manifests.git/logs/refs/remotes/origin/'+branch)
+
 ############
 # Commands #
 ############
@@ -181,7 +187,7 @@ def choose_soc():
     print '***************************************************'
     print '* Please choose one of the available SoC Platforms:'
     print '*'
-    branches = os.listdir('.repo/manifests.git/refs/remotes/origin')
+    branches = os.listdir('.repo/manifests.git/logs/refs/remotes/origin')
     branches.remove("master")
     for index, branch  in enumerate(branches):
         print '*   '+str(index+1)+': '+branch
@@ -224,7 +230,10 @@ def choose_release():
 
 def cmd_init(args):
     global selected_soc, selected_release, yocto_version
-    install_repo_wrapper()
+    if not install_repo_wrapper():
+        print 'no repo wrapper'
+        return False
+
     if not probe_repo_currentdir:
         print 'installing repo tool'
 
@@ -234,8 +243,7 @@ def cmd_init(args):
     else:
         call('repo init -u ' + phytec_repo_url)
 
-    
-    if args.platform and os.path.exists('.repo/manifests.git/refs/remotes/origin/'+ args.platform):
+    if args.platform and probe_gitbranch(args.platform):
         print 'Selecting SoC to command line argument: ' + args.platform
         selected_soc = args.platform
     else:
