@@ -15,10 +15,8 @@
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
 	<project name="Angstrom-distribution/meta-angstrom" remote="github" path="sources/meta-angstrom"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="phy2octo" revision="am335x" path="sources/phy2octo-am335x">
-		<copyfile dest="HOWTO-am335x" src="doc/HOWTO"/>
-	</project>
-	<project name="phy2octo" revision="master" path="sources/phy2octo-master">
+	<project name="phy2octo" path="sources/phy2octo">
 		<copyfile dest="HOWTO-yocto" src="doc/HOWTO"/>
+		<copyfile dest="HOWTO-am335x" src="doc/HOWTO"/>
 	</project>
 </manifest>
