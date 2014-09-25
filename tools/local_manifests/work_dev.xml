@@ -11,7 +11,7 @@
 	<project name="meta-phytec-dev" remote="ssh.phytec" path="sources/meta-phytec"/>
 	<project name="meta-phyam335x" remote="ssh.phytec" path="sources/meta-phytec/meta-phyam335x"/>
 	<project name="meta-yogurt-dev" remote="ssh.phytec" path="sources/meta-yogurt"/>
-	<project name="phy2octo-dev" remote="ssh.phytec" revision="am335x" path="sources/phy2octo">
+	<project name="phy2octo-dev" remote="ssh.phytec" path="sources/phy2octo">
 		<copyfile dest="HOWTO-am335x" src="doc/HOWTO-am335x"/>
 		<copyfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
 	</project>
