@@ -6,17 +6,13 @@
 	<remove-project name="meta-phytec" path="sources/meta-phytec"/>
 	<remove-project name="meta-phyam335x" path="sources/meta-phytec/meta-phyam335x"/>
 	<remove-project name="meta-yogurt" path="sources/meta-yogurt"/>
-	<remove-project name="phy2octo" path="sources/phy2octo-master"/>
-	<remove-project name="phy2octo" path="sources/phy2octo-am335x"/>
+	<remove-project name="phy2octo" path="sources/phy2octo"/>
 
-	<project name="meta-phytec-dev" remote="local" path="sources/meta-phytec"/>
-	<project name="meta-phyam335x" remote="local" path="sources/meta-phytec/meta-phyam335x"/>
-	<project name="meta-yogurt-dev" remote="local" path="sources/meta-yogurt"/>
-	<project name="phy2octo-dev" revision="am335x" path="sources/phy2octo-am335x">
-		<copyfile dest="HOWTO-am335x" src="doc/HOWTO"/>
+	<project name="meta-phytec-dev" remote="ssh.phytec" path="sources/meta-phytec"/>
+	<project name="meta-phyam335x" remote="ssh.phytec" path="sources/meta-phytec/meta-phyam335x"/>
+	<project name="meta-yogurt-dev" remote="ssh.phytec" path="sources/meta-yogurt"/>
+	<project name="phy2octo-dev" remote="ssh.phytec" path="sources/phy2octo">
+		<copyfile dest="HOWTO-am335x" src="doc/HOWTO-am335x"/>
+		<copyfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
 	</project>
-	<project name="phy2octo-dev" revision="master" path="sources/phy2octo-master">
-		<copyfile dest="HOWTO-yocto" src="doc/HOWTO"/>
-	</project>
-
 </manifest>

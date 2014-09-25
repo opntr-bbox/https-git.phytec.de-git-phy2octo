@@ -154,7 +154,7 @@ def probe_selected_soc(arg_soc = None):
                 return True
     except Exception as e:
        print 'Error while probing for SoC'
-       print type(e),e.args,e
+       #DEBUG: print type(e),e.args,e
     print 'No SoC Platform selected'
     return False
 
