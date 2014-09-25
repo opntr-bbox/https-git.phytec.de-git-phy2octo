@@ -1,8 +1,15 @@
-#SRC_URI = "git://git@git.phytec.de/linux-ti;protocol=ssh;branch=${BRANCH}"
-SRC_URI = "git:///home/mueller-klieser/linux-ti;protocol=file;branch=${BRANCH}"
-#SRC_URI_append = " file://remove-cm3-firmware.cfg"
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-BRANCH_phyflex-am335x-1 = "3.12.24-phy_phyFLEX"
+#SRC_URI = "git://git@git.phytec.de/linux-ti;protocol=ssh;branch=${BRANCH}"
+SRC_URI = "git://${HOME}/linux-ti;protocol=file;branch=${BRANCH}"
+#SRC_URI_append = " file://remove-cm3-firmware.cfg"
+SRC_URI_append = " \
+file://0001-phyflex-try-without-fixups.patch \
+file://0002-phyflex-enable-display.patch \
+file://smtpe.cfg \
+"
+
+BRANCH_phyflex-am335x-1 = "3.12.24-phy_phyflex-audio"
 
 do_deploy_append () {
     if [ ${DEV_BUILD} == "True" ]; then
