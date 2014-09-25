@@ -128,10 +128,6 @@ def probe_yocto_version():
     yocto_version = ""
     return False
 
-def check_for_soc(arg_soc):
-    global selected_soc
-    # see if arg_soc is a valid soc
- 
 def probe_selected_soc(arg_soc = None):
     global selected_soc
     # first see if arg_soc is a valid input
@@ -308,12 +304,14 @@ def main():
     subparsers = parser.add_subparsers(help='commands',dest='command')
 
     # init command
-    init_parser = subparsers.add_parser('init', parents=[global_parser], help='init the phytec bsp in the current directory')
+    init_parser = subparsers.add_parser('init', parents=[global_parser],
+                    help='init the phytec bsp in the current directory')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
     
     # info command
-    info_parser = subparsers.add_parser('info', parents=[global_parser], help='print info about the phytec bsp in the current directory')
+    info_parser = subparsers.add_parser('info', parents=[global_parser], 
+                    help='print info about the phytec bsp in the current directory')
 
      # help command
     help_parser = subparsers.add_parser('help', parents=[global_parser], help='print help for a command')
@@ -324,7 +322,8 @@ def main():
     env_parser.add_argument('-e', action='store_true', help='Set permissions to prevent writing to the directory')
     
     # release command
-    release_parser = subparsers.add_parser('release', parents=[global_parser], help='create an relase snapshot from current workingdir')
+    release_parser = subparsers.add_parser('release', parents=[global_parser],
+                        help='create an relase snapshot from current workingdir')
     release_parser.add_argument('-n', dest='name', help='release name')
 
     args = parser.parse_args()
