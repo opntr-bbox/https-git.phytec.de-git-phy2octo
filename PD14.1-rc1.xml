@@ -2,7 +2,7 @@
 <manifest>
 	<default revision="master" remote="git.phytec" sync-j="4"/>
 
-	<remote name="git.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
