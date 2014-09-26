@@ -1,0 +1,33 @@
+DISTRO = "poky"
+MACHINE = "phyflex-am335x-1"
+#MACHINE ?= "phycore-am335x-1"
+#IMAGE_FSTYPES += "sdimg-phy"
+#IMAGE_FSTYPES += "tar.gz"
+BB_NUMBER_THREADS ?= "6"
+#"${@oe.utils.cpu_count()}"
+PARALLEL_MAKE ?= "-j 32"
+#${@oe.utils.cpu_count()}"
+DL_DIR ?= "/home/yocto_downloads"
+SSTATE_DIR ?= "/home/yocto_sstate/1.7"
+DEPLOY_DIR = "${TOPDIR}/deploy"
+TMPDIR = "${TOPDIR}/tmp"
+PACKAGE_CLASSES ?= "package_ipk"
+SDKMACHINE ?= "x86_64"
+EXTRA_IMAGE_FEATURES = "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+#TEST_IMAGE = "1"
+OE_TERMINAL = "auto"
+PATCHRESOLVE = "noop"
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K" 
+CONF_VERSION = "1"
+#CCACHE = "ccache"
+#INHERIT += "ccache"
+#CCACHE_DIR = "/home/mueller-klieser/.ccache"
+#CCACHE_DISABLE = "0"
+

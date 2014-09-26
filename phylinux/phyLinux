@@ -270,8 +270,11 @@ def cmd_init(args):
     probe_yocto_version()
 
     print 'Setting environment and starting the poky init script'
-    call('bash -c "source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
-    
+    if args.dev:
+        call('bash -c "TEMPLATECONF=sources/phy2octo/tools/meta-phydev/ source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
+    else:
+        call('bash -c "TEMPLATECONF=sources/templateconf source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
+
     print 'to start working with Yocto you have to type:'
     print '    $ source sources/poky/oe-init-build-env build-' + yocto_version
     print ''
