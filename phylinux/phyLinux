@@ -16,9 +16,9 @@ yocto_version = ""
 selected_soc = ""
 selected_release = ""
 
-#########
-# Tools #
-#########
+#################
+# generic tools #
+#################
 def which(program):
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
@@ -47,9 +47,9 @@ def call(cmd):
     subprocess.call(cmd,shell=True)
     print ''
 
-#########
-# logic #
-#########
+##################
+# phylinux tools #
+##################
 
 def sanity_fail():
     print ''
@@ -228,6 +228,12 @@ def choose_release():
             print 'No valid input.  Try again...'
     return releases[user_input]
 
+def parse_devmanifest():
+    global selected_release
+    call('mkidr .repo/local_manifests')
+    call('cp .repo/manifests/dev/' + selected_release +
+            ' .repo/local_manifests/' + selected_release)
+
 def cmd_init(args):
     global selected_soc, selected_release, yocto_version
     if not install_repo_wrapper():
@@ -263,9 +269,11 @@ def cmd_init(args):
 
     print 'syncing sources'
     if args.dev:
+        print 'parsing release manifest into local_manifests for developer build'
+        parse_devmanifest()
         call('repo sync')
     else:
-        call('repo sync -c')
+        call('repo sync -fc')
 
     probe_yocto_version()
 
@@ -293,6 +301,10 @@ def cmd_release(args):
         user_input = raw_input('$ ')
         args.name = user_input
     call('repo manifest -o '+args.name+'.xml -r')
+
+# env command
+def cmd_env(args):
+    print 'command env'
 
 ##############
 # Executable #
@@ -335,7 +347,7 @@ def main():
     # release command
     release_parser = subparsers.add_parser('release', parents=[global_parser],
                         help='create an relase snapshot from current workingdir')
-    release_parser.add_argument('-n', dest='name', help='release name')
+    release_parser.add_argument('-n', dest='name', default="release", help='release name')
 
     args = parser.parse_args()
     if args.command == 'init':
@@ -344,6 +356,8 @@ def main():
         cmd_info(args)
     elif args.command == 'help':
         cmd_help(args)
+    elif args.command == 'env':
+        cmd_env(args)
     elif args.command == 'release':
         cmd_release(args)
     elif args.command == '':
