@@ -10,7 +10,6 @@
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
 	<project name="meta-phytec" remote="git.phytec" path="sources/meta-phytec"/>
-	<project name="meta-phyam335x" remote="git.phytec" path="sources/meta-phytec/meta-phyam335x"/>
 	<project name="meta-yogurt" remote="git.phytec" path="sources/meta-yogurt"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
 	<project name="Angstrom-distribution/meta-angstrom" remote="github" path="sources/meta-angstrom"/>
@@ -18,5 +17,10 @@
 	<project name="phy2octo" path="sources/phy2octo">
 		<copyfile dest="HOWTO-yocto" src="doc/HOWTO"/>
 		<copyfile dest="HOWTO-am335x" src="doc/HOWTO"/>
+	</project>
+	<project name="meta-phyam335x" remote="git.phytec" path="sources/meta-phytec/meta-phyam335x">
+		<copyfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample"/>
+		<copyfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample"/>
+		<copyfile dest="sources/templateconf/conf-notes.txt" src="conf/conf-notes.txt"/>
 	</project>
 </manifest>
