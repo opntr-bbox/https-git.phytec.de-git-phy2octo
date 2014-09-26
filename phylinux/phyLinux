@@ -271,9 +271,7 @@ def cmd_init(args):
     if args.dev:
         print 'parsing release manifest into local_manifests for developer build'
         parse_devmanifest()
-        call('repo sync')
-    else:
-        call('repo sync -fc')
+    call('repo sync -f')
 
     probe_yocto_version()
 
