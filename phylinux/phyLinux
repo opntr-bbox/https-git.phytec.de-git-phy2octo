@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
-import argparse, os, subprocess
+import argparse, os, subprocess, shutil
 
 # Global constants
 phylinux_version = "0.1"
@@ -15,6 +15,7 @@ phytec_repo_local = "ssh://git@git.phytec.de/phy2octo-dev"
 yocto_version = ""
 selected_soc = ""
 selected_release = ""
+selected_machine = ""
 
 #################
 # generic tools #
@@ -86,7 +87,7 @@ def probe_repo_wrapper():
         return False
 
 def install_repo_wrapper():
-    if not probe_repo_wrapper:
+    if not probe_repo_wrapper():
         print 'installing repo tool wrapper...'
         if is_in_path(repo_install_path):
             print 'installing in '+ repo_install_path
@@ -228,11 +229,28 @@ def choose_release():
             print 'No valid input.  Try again...'
     return releases[user_input]
 
-def parse_devmanifest():
-    global selected_release
-    call('mkidr .repo/local_manifests')
-    call('cp .repo/manifests/dev/' + selected_release +
-            ' .repo/local_manifests/' + selected_release)
+def choose_machine():
+    print '***************************************************'
+    print '* Please choose one of the available Machines:'
+    print '*'
+    d = os.listdir('sources/meta-phytec/meta-phy' + selected_soc +
+            '/conf/machine/')
+    machines = []
+    for i in d:
+        if '.conf' in i:
+            machines.append(remove_file_extension(i))
+    for index, machine  in enumerate(machines):
+        print '*   '+str(index+1)+': '+ machine
+    print '*'
+    while True:
+        try:
+            user_input = int(raw_input('$ '))-1
+            if user_input < 0 or user_input >= len(machines):
+                raise ValueError
+            break
+        except ValueError:
+            print 'No valid input.  Try again...'
+    return machines[user_input]
 
 def cmd_init(args):
     global selected_soc, selected_release, yocto_version
@@ -269,23 +287,32 @@ def cmd_init(args):
 
     print 'syncing sources'
     if args.dev:
-        print 'parsing release manifest into local_manifests for developer build'
-        parse_devmanifest()
+        if not os.path.exists('.repo/local_manifests'):
+            os.mkdir('.repo/local_manifests')
+        if os.listdir('.repo/local_manifests'):
+            print '**'
+            print '** WARNING! You have files in local_manifests folder. Double Check!'
+            print '** You may need to copy the local manifest files yourself'
+            print '**'
+        else:
+            print 'copy dev manifest to local_manifests'
+            devmanifest = os.path.join('.repo/manifests/dev', selected_release)
+            if os.path.exists(devmanifest):
+                shutil.copyfile(devmanifest, '.repo/local_manifests/'+selected_release)
+            else:
+                print 'Warning! No dev manifest found for release: ' + selected_release
     call('repo sync -f')
 
     probe_yocto_version()
 
     print 'Setting environment and starting the poky init script'
-    if args.dev:
-        call('bash -c "TEMPLATECONF=sources/phy2octo/tools/meta-phydev/ source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
-    else:
-        call('bash -c "TEMPLATECONF=sources/templateconf source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
+    call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env build-' + yocto_version + '" &> /dev/null')
+
+    selected_machine = choose_machine()
 
     print 'to start working with Yocto you have to type:'
     print '    $ source sources/poky/oe-init-build-env build-' + yocto_version
     print ''
-    print 'an basic image for your board can then be build with:'
-    print '    $ bitbake phytec-hwbringup-image'
     print ''
 
 # info command
