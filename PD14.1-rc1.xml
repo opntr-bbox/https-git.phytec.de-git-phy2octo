@@ -11,7 +11,6 @@
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
-	<project name="Angstrom-distribution/meta-angstrom" remote="github" path="sources/meta-angstrom"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="meta-phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
