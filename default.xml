@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<default revision="refs/heads/master" remote="git.phytec" sync-j="4"/>
-
-	<remote name="git.phytec" fetch="ssh://git@git.phytec.de"/>
-
-	<project name="phy2octo" path="sources/phy2octo">
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<project name="phy2octo" remote="git.phytec" revision="master" path="sources/phy2octo">
 		<copyfile dest="WARNING" src="warnings/norelease.txt"/>
 	</project>
 </manifest>
