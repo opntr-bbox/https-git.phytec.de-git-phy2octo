@@ -6,7 +6,7 @@
 	<remove-project name="phy2octo" path="sources/phy2octo"/>
 
 	<project name="meta-phytec-dev" remote="ssh.phytec" path="sources/meta-phytec"/>
-	<project name="meta-phyamimx6-dev" remote="ssh.phytec" path="sources/meta-phytec/meta-phyimx6"/>
+	<project name="meta-phyimx6-dev" remote="ssh.phytec" path="sources/meta-phytec/meta-phyimx6"/>
 	<project name="meta-yogurt-dev" remote="ssh.phytec" path="sources/meta-yogurt"/>
 	<project name="phy2octo-dev" remote="ssh.phytec" path="sources/phy2octo"/>
 </manifest>
