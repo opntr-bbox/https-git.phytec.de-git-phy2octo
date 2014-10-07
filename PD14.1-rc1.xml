@@ -14,8 +14,8 @@
 	<project name="Angstrom-distribution/meta-angstrom" remote="github" path="sources/meta-angstrom"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="meta-fsl-arm" remote="yocto" path="sources/meta-fsl-arm"/>
-	<project name="meta-fsl-arm-extra" remote="fsl" path="sources/meta-fsl-arm-extra"/>
-	<project name="meta-fsl-demos" remote="fsl" path="sources/meta-fsl-demos"/>
+	<project name="Freescale/meta-fsl-arm-extra" remote="github" path="sources/meta-fsl-arm-extra"/>
+	<project name="Freescale/meta-fsl-demos" remote="github" path="sources/meta-fsl-demos"/>
 	<project name="meta-phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="phy2octo" path="sources/phy2octo">
