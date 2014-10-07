@@ -355,6 +355,9 @@ def cmd_init(args):
                 print 'Warning! No dev manifest found for release: ',  selected_release
     call('repo sync -f')
 
+    if not os.path.exists('sources/templateconf'):
+        print 'No templateconf path found in sources! Please use a correct PD Release'
+        return False
     #TODO: This bugfix here should be repaired in the repo manifest.xml
     # file permissions from the templateconf is wrong we need to fix it here
     for f in os.listdir('sources/templateconf'):
