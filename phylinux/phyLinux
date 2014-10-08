@@ -272,8 +272,8 @@ def choose_machine():
             print 'No valid input.  Try again...'
     return machines[user_input]
 
-def set_selected_machine_to_localconf():
-    global yocto_version, selected_machine
+def set_configuration_in_localconf():
+    global yocto_version, selected_machine, selected_release
     lconf = 'build-'+yocto_version+'/conf/local.conf'
     lconfbak = 'build-'+yocto_version+'/conf/local.conf.bak'
     if not os.path.exists(lconf):
@@ -287,9 +287,12 @@ def set_selected_machine_to_localconf():
     set_already = False
     for line in frl:
         if "MACHINE" in line and not line.strip().startswith("#") and not set_already:
-            print 'set MACHINE in local conf to ', selected_machine
+            print 'set MACHINE in local.conf to ', selected_machine
             fw.write('MACHINE ?= "' + selected_machine + '"\n')
             set_already = True
+        elif "BSP_VERSION" in line and not line.strip().startswith("#"):
+            print 'set BSP_VERSION in local.conf to ', selected_release
+            fw.write('BSP_VERSION = "' + selected_release + '"\n')
         else:
             fw.write(line)
     fr.close()
@@ -368,7 +371,7 @@ def cmd_init(args):
     call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env build-' + yocto_version + '" > /dev/null')
 
     selected_machine = choose_machine()
-    set_selected_machine_to_localconf()
+    set_configuration_in_localconf()
 
     print ''
     print ''
