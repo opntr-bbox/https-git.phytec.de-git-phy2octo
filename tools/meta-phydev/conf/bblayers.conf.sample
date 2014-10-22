@@ -6,7 +6,7 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  ${HOME}/meta-phydev \
+  ${TOPDIR}/../sources/phy2octo/tools/meta-phydev \
   ${TOPDIR}/../sources/poky/meta-yocto \
   ${TOPDIR}/../sources/poky/meta-yocto-bsp \
   ${TOPDIR}/../sources/poky/meta \
