@@ -1,0 +1,30 @@
+BSP_VERSION = "PD14.1-rc1"
+MACHINE ?= 'phyflex-imx6-1'
+DISTRO ?= 'poky'
+#DISTRO = "yogurt"
+
+DL_DIR ?= "/home/yocto_downloads"
+SSTATE_DIR ?= "/home/yocto_sstate/1.7"
+DEPLOY_DIR = "${TOPDIR}/deploy"
+
+SDKMACHINE ?= "x86_64"
+PACKAGE_CLASSES ?= "package_rpm"
+EXTRA_IMAGE_FEATURES = "debug-tweaks ssh-server-openssh "
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K" 
+#PACKAGECONFIG_append_pn-qemu-native = " sdl"
+#PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+#ASSUME_PROVIDED += "libsdl-native"
+CONF_VERSION = "1"
+
+BB_NUMBER_THREADS = '32'
+PARALLEL_MAKE = '-j 32'
+
+ACCEPT_FSL_EULA = ""
