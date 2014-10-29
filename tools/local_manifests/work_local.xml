@@ -9,12 +9,15 @@
 	<remove-project name="phy2octo" path="sources/phy2octo"/>
 
 	<project name="meta-phytec" remote="local" path="sources/meta-phytec"/>
-	<project name="meta-phyam335x" remote="local" path="sources/meta-phytec/meta-phyam335x"/>
 	<project name="meta-yogurt" remote="local" path="sources/meta-yogurt"/>
 	<project name="phy2octo-am335x" revision="am335x" path="sources/phy2octo-am335x"/>
 	<project name="phy2octo-master" revision="master" path="sources/phy2octo-master">
 		<copyfile dest="HOWTO-yocto" src="doc/HOWTO"/>
-		<copyfile dest="HOWTO-am335x" src="doc/HOWTO"/>
 	</project>
-
+	<project name="meta-phyam335x" remote="local" path="sources/meta-phytec/meta-phyam335x">
+		<copyfile dest="sources/templateconf/bblayers.conf.sample" src="meta-phyintern/conf/bblayers.conf.sample"/>
+		<copyfile dest="sources/templateconf/local.conf.sample" src="meta-phyintern/conf/local.conf.sample"/>
+		<copyfile dest="sources/templateconf/conf-notes.txt" src="meta-phyintern/conf/conf-notes.txt"/>
+		<copyfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
+	</project>
 </manifest>
