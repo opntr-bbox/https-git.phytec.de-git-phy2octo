@@ -9,7 +9,8 @@ phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
-phytec_repo_local = "ssh://git@git.phytec.de/phy2octo-dev"
+phytec_repo_internal = "ssh://git@git.phytec.de/phy2octo-dev"
+repo_reference_dir = '/home/share/repo_reference'
 
 # Global vars
 yocto_version = ""
@@ -318,7 +319,7 @@ def cmd_init(args):
 
     print 'updating remote phytec repo repository'
     if args.dev:
-        call('repo init -u ' + phytec_repo_local)
+        call('repo init -u ' + phytec_repo_internal + ' --reference=' + repo_reference_dir)
     else:
         call('repo init -u ' + phytec_repo_url)
 
