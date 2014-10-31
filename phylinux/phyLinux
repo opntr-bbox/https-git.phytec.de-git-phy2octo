@@ -4,7 +4,7 @@
 import argparse, os, subprocess, shutil
 
 # Global constants
-phylinux_version = "0.1"
+phylinux_version = "0.2"
 phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
