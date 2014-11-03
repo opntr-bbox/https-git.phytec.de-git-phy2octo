@@ -11,7 +11,7 @@
 
 	<project name="poky" remote="yocto" path="sources/poky" revision="9aff3a4ec058a1a1149d026ebedcc6251089fffb"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="9efaed99125b1c4324663d9a1b2d3319c74e7278"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="c1f6332cceee80ad2c3b4655c23b2c40d0268a5d"/>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="d6d292aea42f7baf56424555b2c78699bc191d3c"/>
 	<project name="meta-phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="phy2octo" path="sources/phy2octo">
