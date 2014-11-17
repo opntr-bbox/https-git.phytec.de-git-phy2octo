@@ -4,7 +4,7 @@
 import argparse, os, subprocess, shutil
 
 # Global constants
-phylinux_version = "0.2"
+phylinux_version = "2014.11.0"
 phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -194,7 +194,7 @@ def probe_selected_machine():
     if selected_soc == "" or selected_release == "" or yocto_version == "":
         print 'cannot probe for machine if we did not set up a BSP correctly'
         return False
-    lconf = os.path.join('build-'+yocto_version,'conf/local.conf')
+    lconf = os.path.join('build/conf/local.conf')
     if not os.path.exists(lconf):
         print 'No local.conf! Yocto BSP not correctly configured!'
         return False
@@ -278,8 +278,8 @@ def choose_machine():
 
 def set_configuration_in_localconf():
     global yocto_version, selected_machine, selected_release
-    lconf = 'build-'+yocto_version+'/conf/local.conf'
-    lconfbak = 'build-'+yocto_version+'/conf/local.conf.bak'
+    lconf = 'build/conf/local.conf'
+    lconfbak = 'build/conf/local.conf.bak'
     if not os.path.exists(lconf):
         print 'You dont have a local.conf'
         return False
@@ -305,6 +305,20 @@ def set_configuration_in_localconf():
         print 'Could not set MACHINE in local.conf'
         return False
     return True
+
+def rc_warning():
+    print '     {}  _---_  {}'
+    print '       \/     \/  '
+    print '        |() ()|   '
+    print '         \ + /    '
+    print '        / HHH  \  '
+    print '      {}  \_/   {}'
+    print ''
+    print 'WARNING!! You are working on a release candidate version of Phytecs'
+    print 'Linux BSP, aka ALPHA Version. You will have to port all you work'
+    print 'to a Final Release version later on. There will be no backports for'
+    print 'this version.'
+    print ''
 
 ################################################
 ##
@@ -367,12 +381,13 @@ def cmd_init(args):
         return False
     #TODO: This bugfix here should be repaired in the repo manifest.xml
     # file permissions from the templateconf is wrong we need to fix it here
+    #TODO: the copyfile instruction does not sync files, this can lead to 
+    # unexpected directory states
     for f in os.listdir('sources/templateconf'):
         os.chmod('sources/templateconf/'+f, 0644)
 
-    probe_yocto_version()
     print 'Setting environment and starting the poky init script'
-    call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env build-' + yocto_version + '" > /dev/null')
+    call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env" > /dev/null')
 
     selected_machine = choose_machine()
     set_configuration_in_localconf()
@@ -380,9 +395,11 @@ def cmd_init(args):
     print ''
     print ''
     print 'to start working with Yocto you have to type:'
-    print '    $ source sources/poky/oe-init-build-env build-' + yocto_version
+    print '    $ source sources/poky/oe-init-build-env'
     print ''
     print ''
+    if 'rc' in selected_release:
+        rc_warning()
 
 # info command
 def cmd_info(args):
@@ -400,6 +417,8 @@ def cmd_info(args):
     print '* Yocto Version: ', yocto_version
     print '*'
     print '**********************************************'
+    if 'rc' in selected_release:
+        rc_warning()
 
 # release command
 def cmd_release(args):
