@@ -214,6 +214,7 @@ def choose_soc():
     print '* Please choose one of the available SoC Platforms:'
     print '*'
     branches = os.listdir('.repo/manifests.git/logs/refs/remotes/origin')
+    branches.sort()
     branches.remove("master")
     for index, branch  in enumerate(branches):
         print '*   '+str(index+1)+': '+branch
@@ -233,6 +234,7 @@ def choose_release():
     print '* Please choose one of the available Releases:'
     print '*'
     d = os.listdir('.repo/manifests')
+    d.sort()
     releases = []
     for i in d:
         if "PD" in i:
@@ -256,6 +258,7 @@ def choose_machine():
     print '*'
     d = os.listdir('sources/meta-phytec/meta-phy' + selected_soc +
             '/conf/machine/')
+    d.sort()
     machines = []
     for i in d:
         if '.conf' in i:
