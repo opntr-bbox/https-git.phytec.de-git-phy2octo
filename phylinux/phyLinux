@@ -10,7 +10,8 @@ repo_install_path = "/usr/local/bin"
 repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
 phytec_repo_internal = "ssh://git@git.phytec.de/phy2octo-dev"
-repo_reference_dir = '/home/share/repo_reference'
+phytec_bsp_basedir = "sources/meta-phytec/meta-phy"
+repo_reference_dir = "/home/share/repo_reference"
 
 # Global vars
 yocto_version = ""
@@ -164,7 +165,6 @@ def probe_selected_soc(arg_soc = None):
                     return True
     except Exception as e:
        print 'Error while probing for SoC'
-       #DEBUG: print type(e),e.args,e
     print 'No SoC Platform selected'
     return False
 
@@ -256,7 +256,7 @@ def choose_machine():
     print '***************************************************'
     print '* Please choose one of the available Machines:'
     print '*'
-    d = os.listdir('sources/meta-phytec/meta-phy' + selected_soc +
+    d = os.listdir(phytec_bsp_basedir + selected_soc +
             '/conf/machine/')
     d.sort()
     machines = []
@@ -264,7 +264,14 @@ def choose_machine():
         if '.conf' in i:
             machines.append(remove_file_extension(i))
     for index, machine  in enumerate(machines):
-        print '*   '+str(index+1)+': '+ machine
+        # print @DESCRIPTION tag from machine.conf
+        desc = "no description found"
+        file = open(phytec_bsp_basedir + selected_soc + '/conf/machine/' + machine + '.conf')
+        for line in file.readlines():
+            if '@DESCRIPTION' in line:
+                desc = line.split(":",1)[1][:-1]
+                break
+        print '*   '+str(index+1)+': '+ machine + ": ", desc
     print '*'
     while True:
         try:
