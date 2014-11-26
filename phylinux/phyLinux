@@ -72,8 +72,8 @@ def sanity_fail():
 def sanity_check():
     if os.path.isfile('.insane'):
         return None
-    if not which('curl'):
-        print 'need curl to download the packages'
+    if not which('wget'):
+        print 'need wget to download the packages'
         raise SystemExit
     cwd = os.getcwd()
     if phylinux_storepath in cwd:
@@ -89,7 +89,7 @@ def install_repo_wrapper():
         if is_in_path(repo_install_path):
             print 'installing in '+ repo_install_path
             target =  os.path.join(repo_install_path, 'repo')
-            call('curl ' + repo_url + ' > ./repo')
+            call('wget ' + repo_url)
             call('chmod a+x repo')
             call('sudo mv repo '+ target)
             return True
