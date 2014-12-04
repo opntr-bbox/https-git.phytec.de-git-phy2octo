@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<default revision="master" remote="git.phytec" sync-j="8"/>
+	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
@@ -14,7 +14,7 @@
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="d6d292aea42f7baf56424555b2c78699bc191d3c"/>
 	<project name="meta-phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
-	<project name="phy2octo" path="sources/phy2octo">
+	<project name="phy2octo" path="sources/phy2octo" revision="master">
 		<linkfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
 	</project>
 	<project name="meta-phyam335x" path="sources/meta-phytec/meta-phyam335x">
