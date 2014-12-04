@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<default revision="dizzy" remote="git.phytec" sync-j="4"/>
+	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
