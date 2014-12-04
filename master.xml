@@ -15,12 +15,12 @@
 	<project name="meta-phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="phy2octo" path="sources/phy2octo">
-		<copyfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
+		<linkfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
 	</project>
 	<project name="meta-phyam335x" path="sources/meta-phytec/meta-phyam335x">
-		<copyfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample"/>
-		<copyfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample"/>
-		<copyfile dest="sources/templateconf/conf-notes.txt" src="conf/conf-notes.txt"/>
-		<copyfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
+		<linkfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample"/>
+		<linkfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample"/>
+		<linkfile dest="sources/templateconf/conf-notes.txt" src="conf/conf-notes.txt"/>
+		<linkfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
 	</project>
 </manifest>

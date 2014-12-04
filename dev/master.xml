@@ -8,13 +8,13 @@
 	<project name="meta-phytec-dev" remote="ssh.phytec" path="sources/meta-phytec"/>
 	<project name="meta-yogurt-dev" remote="ssh.phytec" path="sources/meta-yogurt"/>
 	<project name="phy2octo-dev" remote="ssh.phytec" path="sources/phy2octo">
-		<copyfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
+		<linkfile dest="HOWTO-yocto" src="doc/HOWTO-yocto"/>
 	</project>
 	<project name="meta-phyam335x-dev" remote="ssh.phytec" path="sources/meta-phytec/meta-phyam335x">
-		<copyfile dest="sources/templateconf/bblayers.conf.sample" src="meta-phyintern/conf/bblayers.conf.sample"/>
-		<copyfile dest="sources/templateconf/local.conf.sample" src="meta-phyintern/conf/local.conf.sample"/>
-		<copyfile dest="sources/templateconf/conf-notes.txt" src="meta-phyintern/conf/conf-notes.txt"/>
-		<copyfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
+		<linkfile dest="sources/templateconf/bblayers.conf.sample" src="meta-phyintern/conf/bblayers.conf.sample"/>
+		<linkfile dest="sources/templateconf/local.conf.sample" src="meta-phyintern/conf/local.conf.sample"/>
+		<linkfile dest="sources/templateconf/conf-notes.txt" src="meta-phyintern/conf/conf-notes.txt"/>
+		<linkfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
 	</project>
 
 </manifest>
