@@ -297,11 +297,11 @@ def set_configuration_in_localconf():
     frl = fr.readlines()
     set_already = False
     for line in frl:
-        if "MACHINE" in line and not line.strip().startswith("#") and not set_already:
+        if "MACHINE =" in line and not line.strip().startswith("#") and not set_already:
             print 'set MACHINE in local.conf to ', selected_machine
             fw.write('MACHINE ?= "' + selected_machine + '"\n')
             set_already = True
-        elif "BSP_VERSION" in line and not line.strip().startswith("#"):
+        elif "BSP_VERSION =" in line and not line.strip().startswith("#"):
             print 'set BSP_VERSION in local.conf to ', selected_release
             fw.write('BSP_VERSION = "' + selected_release + '"\n')
         else:
