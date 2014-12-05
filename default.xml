@@ -2,6 +2,6 @@
 <manifest>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<project name="phy2octo" remote="git.phytec" revision="master" path="sources/phy2octo">
-		<copyfile dest="WARNING" src="warnings/norelease.txt"/>
+		<linkfile dest="WARNING" src="warnings/norelease.txt"/>
 	</project>
 </manifest>
