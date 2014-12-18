@@ -12,9 +12,6 @@
 	<project name="poky" remote="yocto" path="sources/poky" revision="refs/tags/yocto-1.7"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="9efaed99125b1c4324663d9a1b2d3319c74e7278"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="d6d292aea42f7baf56424555b2c78699bc191d3c"/>
-	<project name="meta-fsl-arm" remote="yocto" path="sources/meta-fsl-arm"/>
-	<project name="Freescale/meta-fsl-arm-extra" remote="github" path="sources/meta-fsl-arm-extra"/>
-	<project name="Freescale/meta-fsl-demos" remote="github" path="sources/meta-fsl-demos"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<linkfile dest="HOWTO-yocto" src="conf/doc/HOWTO-yocto"/>
 	</project>
