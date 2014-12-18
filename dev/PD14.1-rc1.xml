@@ -13,6 +13,7 @@
 		<linkfile dest="sources/templateconf/local.conf.sample" src="meta-phyintern/conf/local.conf.sample"/>
 		<linkfile dest="sources/templateconf/conf-notes.txt" src="meta-phyintern/conf/conf-notes.txt"/>
 		<linkfile dest="HOWTO-am335x" src="conf/doc/HOWTO-am335x"/>
+                <linkfile dest="ReleaseNotes" src="conf/doc/ReleaseNotes"/>
 	</project>
 
 </manifest>
