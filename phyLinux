@@ -230,7 +230,7 @@ def choose_soc():
             print 'No valid input.  Try again...'
     return branches[user_input]
 
-def choose_release():
+def choose_release(dev):
     print '***************************************************'
     print '* Please choose one of the available Releases:'
     print '*'
@@ -239,6 +239,8 @@ def choose_release():
     releases = []
     for i in d:
         if "PD" in i:
+            releases.append(i)
+        elif dev and i.endswith('xml'):
             releases.append(i)
     for index, release  in enumerate(releases):
         print '*   '+str(index+1)+': '+remove_file_extension(release)
@@ -362,7 +364,7 @@ def cmd_init(args):
         selected_release = args.release
     else:
         probe_selected_release()
-        selected_release = choose_release()
+        selected_release = choose_release(args.dev)
     print 'switching to ' + selected_release
     call('repo init -m ' + selected_release + '.xml')
 
