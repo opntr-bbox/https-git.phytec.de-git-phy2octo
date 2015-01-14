@@ -293,7 +293,7 @@ def set_configuration_in_localconf():
     if not os.path.exists(lconf):
         print 'You dont have a local.conf'
         return False
-    print 'creating a backup of you old local.conf to local.conf.bak'
+    print 'creating a backup of your old local.conf to local.conf.bak'
     shutil.copyfile(lconf,lconfbak)
     fw = open(lconf,'w')
     fr = open(lconfbak,'r')
@@ -325,7 +325,7 @@ def rc_warning():
     print '      {}  \_/   {}'
     print ''
     print 'WARNING!! You are working on a release candidate version of Phytecs'
-    print 'Linux BSP, aka ALPHA Version. You will have to port all you work'
+    print 'Linux BSP, aka ALPHA Version. You will have to port all your work'
     print 'to a Final Release version later on. There will be no backports for'
     print 'this version.'
     print ''
