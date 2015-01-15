@@ -406,8 +406,13 @@ def cmd_init(args):
     set_configuration_in_localconf()
 
     print ''
+    print 'Before you start your work, please check your build/conf/local.conf for'
+    print 'host specific configuration. Check the documentation especially for:'
+    print '    - proxy settings'
+    print '    - DL_DIR'
+    print '    - SSTATE_DIR'
     print ''
-    print 'to start working with Yocto you have to type:'
+    print 'To set up your shell environment for some Yocto work, you have to type:'
     print '    $ source sources/poky/oe-init-build-env'
     print ''
     print ''
