@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<remove-project name="meta-phytec" path="sources/meta-phytec"/>
+	<remove-project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6"/>
+	<remove-project name="meta-yogurt" path="sources/meta-yogurt"/>
+
+	<project name="meta-phytec-dev" remote="ssh.phytec" path="sources/meta-phytec" revision="dizzy-next">
+		<linkfile dest="HOWTO-yocto" src="conf/doc/HOWTO-yocto"/>
+	</project>
+	<project name="meta-yogurt-dev" remote="ssh.phytec" path="sources/meta-yogurt" revision="dizzy-next"/>
+	<project name="meta-phyimx6-dev" remote="ssh.phytec" path="sources/meta-phytec/meta-phyimx6" revision="dizzy-next">
+		<linkfile dest="sources/templateconf/bblayers.conf.sample" src="meta-phyintern/conf/bblayers.conf.sample"/>
+		<linkfile dest="sources/templateconf/local.conf.sample" src="meta-phyintern/conf/local.conf.sample"/>
+		<linkfile dest="sources/templateconf/conf-notes.txt" src="meta-phyintern/conf/conf-notes.txt"/>
+		<linkfile dest="HOWTO-imx6" src="conf/doc/HOWTO-imx6"/>
+		<linkfile dest="ReleaseNotes" src="conf/doc/ReleaseNotes"/>
+	</project>
+</manifest>
