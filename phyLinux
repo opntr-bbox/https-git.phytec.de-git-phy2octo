@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
-import argparse, os, subprocess, shutil
+import argparse
+import os
+import subprocess
+import shutil
 
 # Global constants
 phylinux_version = "PD14.1-rc1"
@@ -19,6 +22,7 @@ yocto_version = ""
 selected_soc = ""
 selected_release = ""
 selected_machine = ""
+
 
 ##################
 # generic helper #
@@ -39,6 +43,7 @@ def which(program):
                 return exe_file
     return None
 
+
 def is_in_path(question):
     for path in os.environ["PATH"].split(os.pathsep):
         path = path.strip('"')
@@ -46,14 +51,17 @@ def is_in_path(question):
             return True
     return False
 
+
 def call(cmd):
     print cmd
-    subprocess.call(cmd,shell=True)
+    subprocess.call(cmd, shell=True)
     print ''
 
+
 def remove_file_extension(f):
-    name = f.rsplit('.',1)
+    name = f.rsplit('.', 1)
     return name[0]
+
 
 ###################
 # phylinux helper #
@@ -70,6 +78,7 @@ def sanity_fail():
     print ''
     raise SystemExit
 
+
 def sanity_check():
     if os.path.isfile('.insane'):
         return None
@@ -84,21 +93,23 @@ def sanity_check():
         print 'executing from within git repository'
         sanity_fail()
 
+
 def install_repo_wrapper():
     if not probe_repo_wrapper():
         print 'installing repo tool wrapper...'
         if is_in_path(repo_install_path):
-            print 'installing in '+ repo_install_path
-            target =  os.path.join(repo_install_path, 'repo')
+            print 'installing in ' + repo_install_path
+            target = os.path.join(repo_install_path, 'repo')
             call('wget ' + repo_url)
             call('chmod a+x repo')
-            call('sudo mv repo '+ target)
+            call('sudo mv repo ' + target)
             return True
         else:
             print repo_install_path + ' is not in $PATH. Add it to the path or modify'
             print 'the installer location'
             return False
     return True
+
 
 def probe_repo_wrapper():
     repo_exec = which('repo')
@@ -109,6 +120,7 @@ def probe_repo_wrapper():
         print 'repo tool wrapper is not installed'
         return False
 
+
 def probe_repo_currentdir():
     if os.path.exists('.repo/repo/main.py'):
         print 'repo is installed in the current directory'
@@ -116,6 +128,7 @@ def probe_repo_currentdir():
     else:
         print 'no repo repository in current directory'
         return False
+
 
 def probe_yocto_version():
     global selected_soc, selected_release, yocto_version
@@ -125,15 +138,15 @@ def probe_yocto_version():
     if not os.path.exists('sources/poky/meta-yocto'):
         print 'cannot find yoctos poky distribution in sources/poky'
         return False
-    f = open('sources/poky/meta-yocto/conf/distro/poky.conf','r')
+    f = open('sources/poky/meta-yocto/conf/distro/poky.conf', 'r')
     fl = f.readlines()
     f.close()
     for line in fl:
         if "DISTRO_VERSION" in line:
-            version = line.split('=',1)[1].strip()
+            version = line.split('=', 1)[1].strip()
             version = version[1:-1]
             if 'snapshot' in version:
-                version = version.split('+',1)[0] + '-snapshot'
+                version = version.split('+', 1)[0] + '-snapshot'
             print 'probing Yocto Version to ' + version
             yocto_version = version
             return True
@@ -141,16 +154,17 @@ def probe_yocto_version():
     yocto_version = ""
     return False
 
-def probe_selected_soc(arg_soc = None):
+
+def probe_selected_soc(arg_soc=None):
     global selected_soc
     # first see if arg_soc is a valid input
     if arg_soc:
         if probe_gitbranch(arg_soc):
-            print 'Selecting SoC to command line argument: '+arg_soc
+            print 'Selecting SoC to command line argument: ' + arg_soc
             selected_soc = arg_soc
             return True
         else:
-            print 'Command line argument '+arg_soc+' is no valid SoC'
+            print 'Command line argument ' + arg_soc + ' is no valid SoC'
             return False
     # find out if there has been a selection before
     try:
@@ -165,15 +179,16 @@ def probe_selected_soc(arg_soc = None):
                     print 'probing selected soc to ', soc
                     return True
     except Exception as e:
-       print 'Error while probing for SoC'
+        print 'Error while probing for SoC'
     print 'No SoC Platform selected'
     return False
+
 
 def probe_selected_release():
     global selected_release
     try:
         f = os.readlink('.repo/manifest.xml')
-        release = f.split('/',1)[1]
+        release = f.split('/', 1)[1]
         if release.endswith('.xml'):
             selected_release = remove_file_extension(release)
             print 'Release: ' + selected_release + ' is currently selected'
@@ -182,12 +197,14 @@ def probe_selected_release():
             print release + ' is no propper release'
     except Exception as e:
         print 'Error while probing for selected Release'
-        print type(e),e.args,e
+        print type(e), e.args, e
     print 'No Release selected'
     return False
 
+
 def probe_gitbranch(branch):
-    return os.path.exists('.repo/manifests.git/logs/refs/remotes/origin/'+branch)
+    return os.path.exists('.repo/manifests.git/logs/refs/remotes/origin/' + branch)
+
 
 def probe_selected_machine():
     global selected_soc, selected_release, yocto_version, selected_machine
@@ -199,7 +216,7 @@ def probe_selected_machine():
     if not os.path.exists(lconf):
         print 'No local.conf! Yocto BSP not correctly configured!'
         return False
-    f = open(lconf,'r')
+    f = open(lconf, 'r')
     fl = f.readlines()
     f.close()
     for line in fl:
@@ -210,6 +227,7 @@ def probe_selected_machine():
     print 'no MACHINE selection found'
     return False
 
+
 def choose_soc():
     print '***************************************************'
     print '* Please choose one of the available SoC Platforms:'
@@ -217,18 +235,19 @@ def choose_soc():
     branches = os.listdir('.repo/manifests.git/logs/refs/remotes/origin')
     branches.sort()
     branches.remove("master")
-    for index, branch  in enumerate(branches):
-        print '*   '+str(index+1)+': '+branch
+    for index, branch in enumerate(branches):
+        print '*   ' + str(index + 1) + ': ' + branch
     print '*'
     while True:
         try:
-            user_input = int(raw_input('$ '))-1
+            user_input = int(raw_input('$ ')) - 1
             if user_input < 0 or user_input >= len(branches):
                 raise ValueError
             break
         except ValueError:
             print 'No valid input.  Try again...'
     return branches[user_input]
+
 
 def choose_release(dev):
     print '***************************************************'
@@ -242,12 +261,12 @@ def choose_release(dev):
             releases.append(i)
         elif dev and i.endswith('xml'):
             releases.append(i)
-    for index, release  in enumerate(releases):
-        print '*   '+str(index+1)+': '+remove_file_extension(release)
+    for index, release in enumerate(releases):
+        print '*   ' + str(index + 1) + ': ' + remove_file_extension(release)
     print '*'
     while True:
         try:
-            user_input = int(raw_input('$ '))-1
+            user_input = int(raw_input('$ ')) - 1
             if user_input < 0 or user_input >= len(releases):
                 raise ValueError
             break
@@ -255,36 +274,37 @@ def choose_release(dev):
             print 'No valid input.  Try again...'
     return remove_file_extension(releases[user_input])
 
+
 def choose_machine():
     print '***************************************************'
     print '* Please choose one of the available Machines:'
     print '*'
-    d = os.listdir(phytec_bsp_basedir + selected_soc +
-            '/conf/machine/')
+    d = os.listdir(phytec_bsp_basedir + selected_soc + '/conf/machine/')
     d.sort()
     machines = []
     for i in d:
         if '.conf' in i:
             machines.append(remove_file_extension(i))
-    for index, machine  in enumerate(machines):
+    for index, machine in enumerate(machines):
         # print @DESCRIPTION tag from machine.conf
         desc = "no description found"
         file = open(phytec_bsp_basedir + selected_soc + '/conf/machine/' + machine + '.conf')
         for line in file.readlines():
             if '@DESCRIPTION' in line:
-                desc = line.split(":",1)[1][:-1]
+                desc = line.split(":", 1)[1][:-1]
                 break
-        print '*   '+str(index+1)+': '+ machine + ": ", desc
+        print '*   ' + str(index + 1) + ': ' + machine + ": ", desc
     print '*'
     while True:
         try:
-            user_input = int(raw_input('$ '))-1
+            user_input = int(raw_input('$ ')) - 1
             if user_input < 0 or user_input >= len(machines):
                 raise ValueError
             break
         except ValueError:
             print 'No valid input.  Try again...'
     return machines[user_input]
+
 
 def set_configuration_in_localconf():
     global yocto_version, selected_machine, selected_release
@@ -294,9 +314,9 @@ def set_configuration_in_localconf():
         print 'You dont have a local.conf'
         return False
     print 'creating a backup of your old local.conf to local.conf.bak'
-    shutil.copyfile(lconf,lconfbak)
-    fw = open(lconf,'w')
-    fr = open(lconfbak,'r')
+    shutil.copyfile(lconf, lconfbak)
+    fw = open(lconf, 'w')
+    fr = open(lconfbak, 'r')
     frl = fr.readlines()
     set_already = False
     for line in frl:
@@ -316,6 +336,7 @@ def set_configuration_in_localconf():
         return False
     return True
 
+
 def rc_warning():
     print '     {}  _---_  {}'
     print '       \/     \/  '
@@ -330,10 +351,9 @@ def rc_warning():
     print 'this version.'
     print ''
 
+
 ################################################
-##
-## COMMANDS
-##
+# COMMANDS
 ################################################
 def cmd_init(args):
     global selected_soc, selected_release, selected_machine, yocto_version
@@ -379,22 +399,24 @@ def cmd_init(args):
             print '**'
         else:
             print 'copy dev manifest to local_manifests'
-            devmanifest = os.path.join('.repo/manifests/dev', selected_release+'.xml')
+            devmanifest = os.path.join('.repo/manifests/dev', selected_release + '.xml')
             if os.path.exists(devmanifest):
-                shutil.copyfile(devmanifest, '.repo/local_manifests/'+selected_release+'.xml')
+                shutil.copyfile(
+                    devmanifest,
+                    '.repo/local_manifests/' + selected_release + '.xml')
             else:
-                print 'Warning! No dev manifest found for release: ',  selected_release
+                print 'Warning! No dev manifest found for release: ', selected_release
     call('repo sync -f')
 
     if not os.path.exists('sources/templateconf'):
         print 'No templateconf path found in sources! Please use a correct PD Release'
         return False
-    #TODO: This bugfix here should be repaired in the repo manifest.xml
-    # file permissions from the templateconf is wrong we need to fix it here
-    #TODO: the copyfile instruction does not sync files, this can lead to 
-    # unexpected directory states
+    # TODO: This bugfix here should be repaired in the repo manifest.xml
+    #  file permissions from the templateconf is wrong we need to fix it here
+    # TODO: the copyfile instruction does not sync files, this can lead to
+    #  unexpected directory states
     for f in os.listdir('sources/templateconf'):
-        os.chmod('sources/templateconf/'+f, 0644)
+        os.chmod('sources/templateconf/' + f, 0644)
 
     print 'Setting environment and starting the poky init script'
     call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env" > /dev/null')
@@ -419,6 +441,7 @@ def cmd_init(args):
     if 'rc' in selected_release:
         rc_warning()
 
+
 # info command
 def cmd_info(args):
     global selected_soc, selected_release, selected_machine, yocto_version
@@ -438,13 +461,15 @@ def cmd_info(args):
     if 'rc' in selected_release:
         rc_warning()
 
+
 # release command
 def cmd_release(args):
     if not args.name:
         print 'Setname for release:'
         user_input = raw_input('$ ')
         args.name = user_input
-    call('repo manifest -o '+args.name+'.xml -r')
+    call('repo manifest -o ' + args.name + '.xml -r')
+
 
 ##############
 # Executable #
@@ -458,28 +483,34 @@ def main():
     # global options
     global_parser = argparse.ArgumentParser(add_help=False)
     global_parser.add_argument('--verbose', dest='v', action='store_true')
-    global_parser.add_argument('--dev', action='store_true',help=argparse.SUPPRESS)
+    global_parser.add_argument('--dev', action='store_true', help=argparse.SUPPRESS)
 
     parser = argparse.ArgumentParser(description='This Programs sets up an environment to work with The Yocto Project'
                                                  ' on Phytecs Development Kits',
                                      version=phylinux_version,
                                      parents=[global_parser])
-    subparsers = parser.add_subparsers(help='commands',dest='command')
+    subparsers = parser.add_subparsers(help='commands', dest='command')
 
     # init command
-    init_parser = subparsers.add_parser('init', parents=[global_parser],
-                    help='init the phytec bsp in the current directory')
+    init_parser = subparsers.add_parser(
+        'init',
+        parents=[global_parser],
+        help='init the phytec bsp in the current directory')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
     init_parser.add_argument('-m', dest='machine', help='Machine')
-    
+
     # info command
-    info_parser = subparsers.add_parser('info', parents=[global_parser], 
-                    help='print info about the phytec bsp in the current directory')
+    info_parser = subparsers.add_parser(
+        'info',
+        parents=[global_parser],
+        help='print info about the phytec bsp in the current directory')
 
     # release command
-    release_parser = subparsers.add_parser('release', parents=[global_parser],
-                        help='create an relase snapshot from current workingdir')
+    release_parser = subparsers.add_parser(
+        'release',
+        parents=[global_parser],
+        help='create an relase snapshot from current workingdir')
     release_parser.add_argument('-n', dest='name', default="release", help='release name')
 
     args = parser.parse_args()
@@ -493,4 +524,4 @@ def main():
         cmd_()
 
 if __name__ == "__main__":
-  main()
+    main()
