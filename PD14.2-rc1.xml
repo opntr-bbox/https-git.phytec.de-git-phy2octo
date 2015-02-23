@@ -15,7 +15,7 @@
 	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/1.7.0-phy1">
 		<linkfile dest="HOWTO-yocto" src="conf/doc/HOWTO-yocto"/>
 	</project>
-	<project name="meta-yogurt" path="sources/meta-yogurt"/>
+	<project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/1.7.0-phy1"/>
 	<project name="meta-phyimx6" remote="git.phytec" path="sources/meta-phytec/meta-phyimx6" revision="refs/tags/1.7.0-phy2">
 		<linkfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample"/>
 		<linkfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample"/>
