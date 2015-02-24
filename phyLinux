@@ -53,9 +53,8 @@ def is_in_path(question):
 
 
 def call(cmd):
-    print cmd
+    print '$', cmd
     subprocess.call(cmd, shell=True)
-    print ''
 
 
 def remove_file_extension(f):
