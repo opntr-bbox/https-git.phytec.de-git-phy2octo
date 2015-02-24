@@ -488,6 +488,19 @@ def cmd_release(args):
     call('repo manifest -o ' + args.name + '.xml -r')
 
 
+def cmd_switch_machine(args):
+    global selected_soc, selected_release, selected_machine, yocto_version
+    probe_selected_soc()
+    probe_selected_release()
+    probe_yocto_version()
+    if probe_selected_machine():
+        if args.machine:
+            selected_machine = args.machine
+        else:
+            selected_machine = choose_machine()
+        set_configuration_in_localconf()
+
+
 ##############
 # Executable #
 ##############
@@ -530,6 +543,13 @@ def main():
         help='create an relase snapshot from current workingdir')
     release_parser.add_argument('-n', dest='name', default="release", help='release name')
 
+    # switch_machine command
+    switch_machine_parser = subparsers.add_parser(
+        'switch_machine',
+        parents=[global_parser],
+        help='switch the Machine of the selected BSP')
+    switch_machine_parser.add_argument('-m', dest='machine', help='Machine')
+
     args = parser.parse_args()
     if args.command == 'init':
         cmd_init(args)
@@ -537,6 +557,8 @@ def main():
         cmd_info(args)
     elif args.command == 'release':
         cmd_release(args)
+    elif args.command == 'switch_machine':
+        cmd_switch_machine(args)
     elif args.command == '':
         cmd_()
 
