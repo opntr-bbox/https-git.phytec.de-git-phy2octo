@@ -62,6 +62,24 @@ def remove_file_extension(f):
     return name[0]
 
 
+def userquery_yes_no(default=True):
+    print '[yes/no]:'
+    yes = set(['y', 'ye', 'yes'])
+    no = set(['n', 'no'])
+    if default:
+        yes.add('')
+    else:
+        no.add('')
+    while True:
+        user_input = raw_input('$ ').lower()
+        if user_input in yes:
+            return True
+        elif user_input in no:
+            return False
+        else:
+            print 'Please type y or n'
+
+
 ###################
 # phylinux helper #
 ###################
