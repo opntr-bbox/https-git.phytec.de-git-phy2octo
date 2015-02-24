@@ -5,6 +5,7 @@ import argparse
 import os
 import subprocess
 import shutil
+import sys
 
 # Global constants
 phylinux_version = "PD14.1-rc1"
@@ -369,6 +370,46 @@ def rc_warning():
     print ''
 
 
+def clean_if_necessary():
+    files_to_check = set(['.repo/manifest.xml',
+                          'build',
+                          'sources'])
+    work = False
+    for f in files_to_check:
+        if os.path.exists(f):
+            work = True
+    if work:
+        print '\033[91m' # start colored output
+        print 'There is already some work done in this folder. If you just want'
+        print 'to change the target board, you could do so by typing:'
+        print './phyLinux switch_machine'
+        print 'Do you really want to delete your entire directory which includes'
+        print 'all work you have done?'
+        print '\033[0m' # end colored output
+        if userquery_yes_no(False):
+            drycleaner = ['.repo/manifest.xml',
+                          '.repo/manifests',
+                          '.repo/manifests.git',
+                          '.repo/local_manifests',
+                          ]
+            excludes = ['.repo',
+                        'phyLinux',
+                        ]
+            files = os.listdir('./')
+            for e in excludes:
+                if e in files:
+                    files.remove(e)
+            drycleaner = drycleaner + files
+            drycleaner.sort()
+            for a in drycleaner:
+                call('rm -fr "%s"' % a)
+            return True
+        else:
+            print 'phyLinux quits.'
+            sys.exit(0)
+    return False
+
+
 ################################################
 # COMMANDS
 ################################################
@@ -380,6 +421,9 @@ def cmd_init(args):
 
     if not probe_repo_currentdir:
         print 'installing repo tool'
+
+    if not clean_if_necessary():
+        print 'Initializing from an empty directory'
 
     print 'updating remote phytec repo repository'
     if args.dev:
