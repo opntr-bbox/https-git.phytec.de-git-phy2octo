@@ -485,6 +485,14 @@ def cmd_init(args):
     print 'Setting environment and starting the poky init script'
     call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env" > /dev/null')
 
+    # site.conf mechanism
+    siteconf = ["/etc/yocto/site.conf",
+                "/home/share/tools/yocto/site.conf",
+                "~/.site.conf"]
+    for s in siteconf:
+        if os.path.isfile(os.path.expanduser(s)):
+            shutil.copyfile(os.path.expanduser(s), "build/conf/site.conf")
+
     if args.machine:
         selected_machine = args.machine
     else:
