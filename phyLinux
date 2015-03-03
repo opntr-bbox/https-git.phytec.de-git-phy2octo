@@ -387,21 +387,24 @@ def clean_if_necessary():
         print 'all work you have done?'
         print '\033[0m' # end colored output
         if userquery_yes_no(False):
-            drycleaner = ['.repo/manifest.xml',
+            blacklist = ['.repo/manifest.xml',
                           '.repo/manifests',
                           '.repo/manifests.git',
                           '.repo/local_manifests',
                           ]
-            excludes = ['.repo',
+            whitelist = ['.repo',
                         'phyLinux',
                         ]
             files = os.listdir('./')
-            for e in excludes:
+            for e in whitelist:
                 if e in files:
                     files.remove(e)
-            drycleaner = drycleaner + files
-            drycleaner.sort()
-            for a in drycleaner:
+            blacklist = blacklist + files
+            blacklist.sort()
+            for a in blacklist:
+                # avoid python delete functions and use shell for
+                # performance reasons. The build directory tree can
+                # be huge.
                 call('rm -fr "%s"' % a)
             return True
         else:
