@@ -250,7 +250,13 @@ def choose_soc():
     print '***************************************************'
     print '* Please choose one of the available SoC Platforms:'
     print '*'
-    branches = os.listdir('.repo/manifests.git/logs/refs/remotes/origin')
+    cwd = os.getcwd()
+    os.chdir(".repo/manifests.git/logs/refs/remotes/origin")
+    branches = []
+    for root, dirs, files in os.walk('./'):
+        for name in files:
+            branches.append(os.path.join(root, name).lstrip("./"))
+    os.chdir(cwd)
     branches.sort()
     branches.remove("master")
     for index, branch in enumerate(branches):
@@ -297,7 +303,7 @@ def choose_machine():
     print '***************************************************'
     print '* Please choose one of the available Machines:'
     print '*'
-    d = os.listdir(phytec_bsp_basedir + selected_soc + '/conf/machine/')
+    d = os.listdir(phytec_bsp_basedir + selected_soc.split('/')[-1] + '/conf/machine/')
     d.sort()
     machines = []
     for i in d:
@@ -306,7 +312,7 @@ def choose_machine():
     for index, machine in enumerate(machines):
         # print @DESCRIPTION tag from machine.conf
         desc = "no description found"
-        file = open(phytec_bsp_basedir + selected_soc + '/conf/machine/' + machine + '.conf')
+        file = open(phytec_bsp_basedir + selected_soc.split('/')[-1] + '/conf/machine/' + machine + '.conf')
         for line in file.readlines():
             if '@DESCRIPTION' in line:
                 desc = line.split(":", 1)[1][:-1]
