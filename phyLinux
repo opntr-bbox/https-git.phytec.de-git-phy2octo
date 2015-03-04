@@ -5,7 +5,6 @@ import argparse
 import os
 import subprocess
 import shutil
-import sys
 
 # Global constants
 phylinux_version = "PD14.1-rc1"
@@ -417,7 +416,7 @@ def clean_if_necessary(clean_builddir=True):
             return True
         else:
             print 'phyLinux quits.'
-            sys.exit(0)
+            raise SystemExit
     return False
 
 
