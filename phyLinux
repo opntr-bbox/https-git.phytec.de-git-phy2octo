@@ -18,6 +18,7 @@ phytec_bsp_basedir = "sources/meta-phytec/meta-phy"
 repo_reference_dir = "/home/share/repo_reference"
 
 # Global vars
+manifest_git_url = ""
 yocto_version = ""
 selected_soc = ""
 selected_release = ""
@@ -145,6 +146,22 @@ def probe_repo_currentdir():
     else:
         print 'no repo repository in current directory'
         return False
+
+
+def probe_manifest_git_url():
+    global manifest_git_url
+    if not os.path.isfile('.repo/manifests.git/config'):
+        print 'no repository initialized'
+        return False
+    f = open('.repo/manifests.git/config', 'r')
+    fl = f.readlines()
+    f.close()
+    for line in fl:
+        if "url" in line:
+            manifest_git_url = line.split('=')[1].strip()
+            return True
+    print 'Error while probing for manifest_git_url'
+    return False
 
 
 def probe_yocto_version():
@@ -424,7 +441,7 @@ def clean_if_necessary(clean_builddir=True):
 # COMMANDS
 ################################################
 def cmd_init(args):
-    global selected_soc, selected_release, selected_machine, yocto_version
+    global selected_soc, selected_release, selected_machine, yocto_version, manifest_git_url
     if not install_repo_wrapper():
         print 'no repo wrapper'
         return False
@@ -432,15 +449,25 @@ def cmd_init(args):
     if not probe_repo_currentdir:
         print 'installing repo tool'
 
+    # manifest git url handling
+    if args.url:
+        manifest_git_url = args.url
+    elif args.dev:
+        manifest_git_url = phytec_repo_internal
+    else:
+        manifest_git_url = phytec_repo_url
+
+    # clean task
     if not args.noclean:
         if not clean_if_necessary():
             print 'Initializing from an empty directory'
 
+    # first manifest git init
     print 'updating remote phytec repo repository'
     if args.dev:
-        call('repo init -u ' + phytec_repo_internal + ' --reference=' + repo_reference_dir)
+        call('repo init -u ' + manifest_git_url + ' --reference=' + repo_reference_dir)
     else:
-        call('repo init -u ' + phytec_repo_url)
+        call('repo init -u ' + manifest_git_url)
 
     if args.platform and probe_gitbranch(args.platform):
         print 'Selecting SoC to command line argument: ' + args.platform
@@ -567,6 +594,11 @@ def cmd_switch_machine(args):
 
 def cmd_switch_release(args):
     # this works like init but keeps the build directory untouched
+    if probe_manifest_git_url():
+        args.url = manifest_git_url
+    else:
+        print 'Please run ./phyLinux init first'
+        raise SystemExit
     clean_if_necessary(clean_builddir = False)
     args.noclean = True
     cmd_init(args)
@@ -598,6 +630,7 @@ def main():
         parents=[global_parser],
         help='init the phytec bsp in the current directory')
     init_parser.add_argument('--noclean', dest='noclean', action='store_true')
+    init_parser.add_argument('-u', dest='url', help='Manifest git url')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
     init_parser.add_argument('-m', dest='machine', help='Machine')
