@@ -437,6 +437,22 @@ def clean_if_necessary(clean_builddir=True):
     return False
 
 
+def create_local_xml_git(xml):
+    # create a fake git repository
+    call('git init .localxml')
+    shutil.copyfile(xml, '.localxml/PD-' + xml)
+    shutil.copyfile(xml, '.localxml/default.xml')
+    call("cd .localxml;"
+         "git add PD-" + xml + ";"
+         "git add default.xml;"
+         "git commit -m init;"
+         "git checkout master -b local;"
+		 "cd ..;")
+
+    path = os.path.join(os.getcwd(), 'localxml')
+    return path
+
+
 ################################################
 # COMMANDS
 ################################################
@@ -450,7 +466,10 @@ def cmd_init(args):
         print 'installing repo tool'
 
     # manifest git url handling
-    if args.url:
+    if args.xml:
+        print 'using a local manifest XML: ' + args.xml
+        manifest_git_url = create_local_xml_git(args.xml)
+    elif args.url:
         manifest_git_url = args.url
     elif args.dev:
         manifest_git_url = phytec_repo_internal
@@ -630,10 +649,12 @@ def main():
         parents=[global_parser],
         help='init the phytec bsp in the current directory')
     init_parser.add_argument('--noclean', dest='noclean', action='store_true')
+    init_parser.add_argument('-x', dest='xml', help='Use a local XML manifest')
     init_parser.add_argument('-u', dest='url', help='Manifest git url')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
     init_parser.add_argument('-m', dest='machine', help='Machine')
+
 
     # info command
     info_parser = subparsers.add_parser(
