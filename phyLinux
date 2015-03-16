@@ -392,7 +392,7 @@ def rc_warning():
     print ''
 
 
-def clean_if_necessary(clean_builddir=True):
+def check_for_previous_work()
     files_to_check = set(['.repo/manifest.xml',
                           'build',
                           'sources'])
@@ -400,41 +400,32 @@ def clean_if_necessary(clean_builddir=True):
     for f in files_to_check:
         if os.path.exists(f):
             work = True
-    if work:
-        print '\033[91m' # start colored output
-        print 'There is already some work done in this folder. If you just want'
-        print 'to change the target board, you could do so by typing:'
-        print './phyLinux switch_machine'
-        print 'Do you really want to delete your entire directory which includes'
-        print 'all work you have done?'
-        print '\033[0m' # end colored output
-        if userquery_yes_no(False):
-            blacklist = ['.repo/manifest.xml',
-                          '.repo/manifests',
-                          '.repo/manifests.git',
-                          '.repo/local_manifests',
-                          ]
-            whitelist = ['.repo',
-                        'phyLinux',
-                        ]
-            if not clean_builddir:
-                whitelist.append('build')
-            files = os.listdir('./')
-            for e in whitelist:
-                if e in files:
-                    files.remove(e)
-            blacklist = blacklist + files
-            blacklist.sort()
-            for a in blacklist:
-                # avoid python delete functions and use shell for
-                # performance reasons. The build directory tree can
-                # be huge.
-                call('rm -fr "%s"' % a)
-            return True
-        else:
-            print 'phyLinux quits.'
-            raise SystemExit
-    return False
+    return work
+ 
+
+def clean_pwd(clean_builddir=True):
+    blacklist = ['.repo/manifest.xml',
+                 '.repo/manifests',
+                 '.repo/manifests.git',
+                 '.repo/local_manifests',
+                ]
+    whitelist = ['.repo',
+                 'phyLinux',
+                ]
+    if not clean_builddir:
+        whitelist.append('build')
+    files = os.listdir('./')
+    for e in whitelist:
+        if e in files:
+            files.remove(e)
+    blacklist = blacklist + files
+    blacklist.sort()
+    for a in blacklist:
+        # avoid python delete functions and use shell for
+        # performance reasons. The build directory tree can
+        # be huge.
+        call('rm -fr "%s"' % a)
+    return True
 
 
 def create_local_xml_git(xml):
@@ -477,9 +468,8 @@ def cmd_init(args):
         manifest_git_url = phytec_repo_url
 
     # clean task
-    if not args.noclean:
         if not clean_if_necessary():
-            print 'Initializing from an empty directory'
+    print 'Initializing from an empty directory'
 
     # first manifest git init
     print 'updating remote phytec repo repository'
@@ -589,13 +579,23 @@ def cmd_info(args):
         rc_warning()
 
 
-# release command
-def cmd_release(args):
-    if not args.name:
-        print 'Setname for release:'
-        user_input = raw_input('$ ')
-        args.name = user_input
-    call('repo manifest -o ' + args.name + '.xml -r')
+def cmd_clean(args):
+    check_for_previous_work()
+    print '\033[91m' # start colored output
+    print 'There is already some work done in this folder. If you just want'
+    print 'to change the target board, you could do so by typing:'
+    print './phyLinux switch_machine'
+    print 'or'
+    print './phyLinux switch_release'
+    print 'Do you really want to delete your entire directory which includes'
+    print 'all work you have done?'
+    print '\033[0m' # end colored output
+    if userquery_yes_no(False):
+        clean_directory()
+    else:
+        print 'phyLinux quits.'
+        raise SystemExit
+    return False
 
 
 def cmd_switch_machine(args):
@@ -648,7 +648,6 @@ def main():
         'init',
         parents=[global_parser],
         help='init the phytec bsp in the current directory')
-    init_parser.add_argument('--noclean', dest='noclean', action='store_true')
     init_parser.add_argument('-x', dest='xml', help='Use a local XML manifest')
     init_parser.add_argument('-u', dest='url', help='Manifest git url')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
@@ -662,12 +661,11 @@ def main():
         parents=[global_parser],
         help='print info about the phytec bsp in the current directory')
 
-    # release command
-    release_parser = subparsers.add_parser(
-        'release',
+    # clean command
+    clean_parser = subparsers.add_parser(
+        'clean',
         parents=[global_parser],
-        help='create an relase snapshot from current workingdir')
-    release_parser.add_argument('-n', dest='name', default="release", help='release name')
+        help='clean the current directory')
 
     # switch_machine command
     switch_machine_parser = subparsers.add_parser(
@@ -690,8 +688,8 @@ def main():
         cmd_init(args)
     elif args.command == 'info':
         cmd_info(args)
-    elif args.command == 'release':
-        cmd_release(args)
+    elif args.command == 'clean':
+        cmd_clean(args)
     elif args.command == 'switch_machine':
         cmd_switch_machine(args)
     elif args.command == 'switch_release':
