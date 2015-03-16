@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
+# Author: Stefan Müller-Klieser <s.mueller-klieser@phytec.de> 
 import argparse
 import os
 import subprocess
 import shutil
+import sys
 
 # Global constants
 phylinux_version = "PD14.1-rc1"
 
-phylinux_storepath = "phy2octo/phylinux"
 repo_install_path = "/usr/local/bin"
-repo_url = "https://storage.googleapis.com/git-repo-downloads/repo"
+repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
+repo_repo_url = "https://gerrit.googlesource.com/git-repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
 phytec_repo_internal = "ssh://git@git.phytec.de/phy2octo-dev"
-phytec_bsp_basedir = "sources/meta-phytec/meta-phy"
+phytec_bsp_init_script = "tools/init"
 repo_reference_dir = "/home/share/repo_reference"
 
 # Global vars
 manifest_git_url = ""
-yocto_version = ""
 selected_soc = ""
 selected_release = ""
-selected_machine = ""
 
 
 ##################
@@ -55,12 +55,19 @@ def is_in_path(question):
 
 def call(cmd):
     print '$', cmd
-    subprocess.call(cmd, shell=True)
+    try:
+        output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
+        if output:
+            print output
+    except subprocess.CalledProcessError as e:
+        print "Error return code: ", e.returncode
+        print "Error output message: ", e.output
+        raise SystemExit
 
 
 def remove_file_extension(f):
-    name = f.rsplit('.', 1)
-    return name[0]
+    name = os.path.splitext(f)[0]
+    return name
 
 
 def userquery_yes_no(default=True):
@@ -103,13 +110,6 @@ def sanity_check():
     if not which('wget'):
         print 'need wget to download the packages'
         raise SystemExit
-    cwd = os.getcwd()
-    if phylinux_storepath in cwd:
-        print 'executing from within the storage directory'
-        sanity_fail()
-    if os.path.exists('.git'):
-        print 'executing from within git repository'
-        sanity_fail()
 
 
 def install_repo_wrapper():
@@ -118,7 +118,7 @@ def install_repo_wrapper():
         if is_in_path(repo_install_path):
             print 'installing in ' + repo_install_path
             target = os.path.join(repo_install_path, 'repo')
-            call('wget ' + repo_url)
+            call('wget ' + repo_wrapper_url)
             call('chmod a+x repo')
             call('sudo mv repo ' + target)
             return True
@@ -164,29 +164,16 @@ def probe_manifest_git_url():
     return False
 
 
-def probe_yocto_version():
-    global selected_soc, selected_release, yocto_version
-    if selected_soc == "" or selected_release == "":
-        print 'cannot probe for yocto version if we did not choose a BSP release'
-        return False
-    if not os.path.exists('sources/poky/meta-yocto'):
-        print 'cannot find yoctos poky distribution in sources/poky'
-        return False
-    f = open('sources/poky/meta-yocto/conf/distro/poky.conf', 'r')
-    fl = f.readlines()
-    f.close()
-    for line in fl:
-        if "DISTRO_VERSION" in line:
-            version = line.split('=', 1)[1].strip()
-            version = version[1:-1]
-            if 'snapshot' in version:
-                version = version.split('+', 1)[0] + '-snapshot'
-            print 'probing Yocto Version to ' + version
-            yocto_version = version
-            return True
-    print 'no Yocto version found in poky distribution'
-    yocto_version = ""
-    return False
+def probe_bsp_api_version():
+    api = 0
+    if os.path.exists('sources/templateconf'):
+        api = 1
+    elif os.path.isfile(phytec_bsp_init_script):
+        with open(phytec_bsp_init_script) as f:
+            for line in f.readlines():
+                if "PHYLINUX_API_VERSION" in line and (not line.strip().startswith('#')):
+                    api = int(line.split('=')[1].split('"')[1])
+    return api
 
 
 def probe_selected_soc(arg_soc=None):
@@ -238,28 +225,6 @@ def probe_selected_release():
 
 def probe_gitbranch(branch):
     return os.path.exists('.repo/manifests.git/logs/refs/remotes/origin/' + branch)
-
-
-def probe_selected_machine():
-    global selected_soc, selected_release, yocto_version, selected_machine
-    print 'probing for selected machine'
-    if selected_soc == "" or selected_release == "" or yocto_version == "":
-        print 'cannot probe for machine if we did not set up a BSP correctly'
-        return False
-    lconf = os.path.join('build/conf/local.conf')
-    if not os.path.exists(lconf):
-        print 'No local.conf! Yocto BSP not correctly configured!'
-        return False
-    f = open(lconf, 'r')
-    fl = f.readlines()
-    f.close()
-    for line in fl:
-        if "MACHINE" in line and not line.strip().startswith("#"):
-            print 'Machine set in local conf is: ', line
-            selected_machine = line.split('"')[1]
-            return True
-    print 'no MACHINE selection found'
-    return False
 
 
 def choose_soc():
@@ -315,39 +280,70 @@ def choose_release(dev):
     return remove_file_extension(releases[user_input])
 
 
-def choose_machine():
-    print '***************************************************'
-    print '* Please choose one of the available Machines:'
-    print '*'
-    d = os.listdir(phytec_bsp_basedir + selected_soc.split('/')[-1] + '/conf/machine/')
-    d.sort()
-    machines = []
-    for i in d:
-        if '.conf' in i:
-            machines.append(remove_file_extension(i))
-    for index, machine in enumerate(machines):
-        # print @DESCRIPTION tag from machine.conf
-        desc = "no description found"
-        file = open(phytec_bsp_basedir + selected_soc.split('/')[-1] + '/conf/machine/' + machine + '.conf')
-        for line in file.readlines():
-            if '@DESCRIPTION' in line:
-                desc = line.split(":", 1)[1][:-1]
-                break
-        print '*   ' + str(index + 1) + ': ' + machine + ": ", desc
-    print '*'
-    while True:
-        try:
-            user_input = int(raw_input('$ ')) - 1
-            if user_input < 0 or user_input >= len(machines):
-                raise ValueError
-            break
-        except ValueError:
-            print 'No valid input.  Try again...'
-    return machines[user_input]
+def rc_warning():
+    print '     {}  _---_  {}'
+    print '       \/     \/  '
+    print '        |() ()|   '
+    print '         \ + /    '
+    print '        / HHH  \  '
+    print '      {}  \_/   {}'
+    print ''
+    print 'WARNING!! You are working on a release candidate version of Phytecs'
+    print 'Linux BSP, aka ALPHA Version. You will have to port all your work'
+    print 'to a Final Release version later on. There will be no backports for'
+    print 'this version.'
+    print ''
+
+def files_to_clean():
+    blacklist = ['.repo/manifest.xml',
+                 '.repo/manifests',
+                 '.repo/manifests.git',
+                 '.repo/local_manifests',
+                 '.localxml',
+                 'tools',
+                 'sources'
+                ]
+    blacklist = clean_cwd_api_1(blacklist)
+    blacklist.sort()
+    files_to_clean = []
+    for a in blacklist:
+        if os.path.exists(a):
+            files_to_clean.append(a)
+    return files_to_clean
 
 
-def set_configuration_in_localconf():
-    global yocto_version, selected_machine, selected_release
+def create_local_xml_git(xml_absolute):
+    xml = os.path.basename(xml_absolute)
+    # create a fake git repository
+    call('git init .localxml')
+    shutil.copyfile(xml_absolute, '.localxml/default.xml')
+    shutil.copyfile(xml_absolute, '.localxml/localxml.xml')
+    call("cd .localxml;"
+         "git add default.xml;"
+         "git add localxml.xml;"
+         "git commit -m init;"
+         "git checkout -b localxml;"
+	 "cd ..;")
+    path = os.path.join(os.getcwd(), '.localxml')
+    return path
+
+
+#######################################
+# legacy code for supporting old BSPs #
+#######################################
+
+# phyLinux API Version 1 compatible BSPs
+def clean_cwd_api_1(blacklist):
+    blacklist.append('HOWTO-am335x')
+    blacklist.append('HOWTO-imx6')
+    blacklist.append('HOWTO-yocto')
+    blacklist.append('ReleaseNotes')
+    blacklist.append('sources/templateconf')
+    return blacklist
+
+
+def set_configuration_in_localconf_api_1(selected_machine):
+    global selected_release
     lconf = 'build/conf/local.conf'
     lconfbak = 'build/conf/local.conf.bak'
     if not os.path.exists(lconf):
@@ -377,89 +373,119 @@ def set_configuration_in_localconf():
     return True
 
 
-def rc_warning():
-    print '     {}  _---_  {}'
-    print '       \/     \/  '
-    print '        |() ()|   '
-    print '         \ + /    '
-    print '        / HHH  \  '
-    print '      {}  \_/   {}'
+def choose_machine_api_1():
+    # old API defines
+    phytec_bsp_basedir = "sources/meta-phytec"
+
+    print '***************************************************'
+    print '* Please choose one of the available Machines:'
+    print '*'
+    
+    soc_bsp_folders = []
+    machines = []
+    d = os.listdir(phytec_bsp_basedir)
+    for i in d:
+        if 'meta-phy' in i:
+            soc_bsp_folders.append(i)
+    for i in soc_bsp_folders:
+        d = os.listdir(os.path.join(phytec_bsp_basedir, i,  'conf/machine'))
+        d.sort()
+        for j in d:
+            if '.conf' in j:
+                machines.append(os.path.join(phytec_bsp_basedir, i, 'conf/machine', j))
+    for index, machine in enumerate(machines):
+        # print @DESCRIPTION tag from machine.conf
+        desc = "no description found"
+        file = open(machine)
+        for line in file.readlines():
+            if '@DESCRIPTION' in line:
+                desc = line.split(":", 1)[1][:-1]
+                break
+        print '*   ' + str(index + 1) + ': ' + os.path.basename(remove_file_extension(machine)) + ": ", desc
+    print '*'
+    while True:
+        try:
+            user_input = int(raw_input('$ ')) - 1
+            if user_input < 0 or user_input >= len(machines):
+                raise ValueError
+            break
+        except ValueError:
+            print 'No valid input.  Try again...'
+    return os.path.basename(remove_file_extension(machines[user_input]))
+
+
+def legacy_init_bsp_api_1(args):
+    if not os.path.exists('sources/templateconf'):
+        print 'No templateconf path found in sources! Please use a correct PD Release'
+        return False
+    # TODO: This bugfix here should be repaired in the repo manifest.xml
+    #  file permissions from the templateconf is wrong we need to fix it here
+    # TODO: the copyfile instruction does not sync files, this can lead to
+    #  unexpected directory states
+    for f in os.listdir('sources/templateconf'):
+        os.chmod('sources/templateconf/' + f, 0644)
+
+    print 'Setting environment and starting the poky init script'
+    call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env" > /dev/null')
+
+    # set machine
+    if args.machine:
+        selected_machine = args.machine
+    else:
+        selected_machine = choose_machine_api_1()
+    set_configuration_in_localconf_api_1(selected_machine)
+
     print ''
-    print 'WARNING!! You are working on a release candidate version of Phytecs'
-    print 'Linux BSP, aka ALPHA Version. You will have to port all your work'
-    print 'to a Final Release version later on. There will be no backports for'
-    print 'this version.'
+    print 'Before you start your work, please check your build/conf/local.conf for'
+    print 'host specific configuration. Check the documentation especially for:'
+    print '    - proxy settings'
+    print '    - DL_DIR'
+    print '    - SSTATE_DIR'
     print ''
-
-
-def check_for_previous_work()
-    files_to_check = set(['.repo/manifest.xml',
-                          'build',
-                          'sources'])
-    work = False
-    for f in files_to_check:
-        if os.path.exists(f):
-            work = True
-    return work
- 
-
-def clean_pwd(clean_builddir=True):
-    blacklist = ['.repo/manifest.xml',
-                 '.repo/manifests',
-                 '.repo/manifests.git',
-                 '.repo/local_manifests',
-                ]
-    whitelist = ['.repo',
-                 'phyLinux',
-                ]
-    if not clean_builddir:
-        whitelist.append('build')
-    files = os.listdir('./')
-    for e in whitelist:
-        if e in files:
-            files.remove(e)
-    blacklist = blacklist + files
-    blacklist.sort()
-    for a in blacklist:
-        # avoid python delete functions and use shell for
-        # performance reasons. The build directory tree can
-        # be huge.
-        call('rm -fr "%s"' % a)
-    return True
-
-
-def create_local_xml_git(xml):
-    # create a fake git repository
-    call('git init .localxml')
-    shutil.copyfile(xml, '.localxml/PD-' + xml)
-    shutil.copyfile(xml, '.localxml/default.xml')
-    call("cd .localxml;"
-         "git add PD-" + xml + ";"
-         "git add default.xml;"
-         "git commit -m init;"
-         "git checkout master -b local;"
-		 "cd ..;")
-
-    path = os.path.join(os.getcwd(), 'localxml')
-    return path
+    print 'To set up your shell environment for some Yocto work, you have to type:'
+    print '    $ source sources/poky/oe-init-build-env'
+    print ''
+    print ''
+    if 'rc' in selected_release:
+        rc_warning()
 
 
 ################################################
 # COMMANDS
 ################################################
 def cmd_init(args):
-    global selected_soc, selected_release, selected_machine, yocto_version, manifest_git_url
+    global repo_repo_url, selected_soc, selected_release, manifest_git_url
+
     if not install_repo_wrapper():
         print 'no repo wrapper'
         return False
 
-    if not probe_repo_currentdir:
+    if not probe_repo_currentdir():
         print 'installing repo tool'
 
-    # manifest git url handling
+    # repo_repo command line option
+    if args.reporepo:
+        repo_repo_url = args.reporepo
+ 
+    if probe_manifest_git_url():
+        print ''
+        print 'This current directory is not empty. It could lead to errors in the BSP configuration'
+        print 'process if you continue from here. At least you have to check your build directory'
+        print 'for settings in bblayers.conf and local.conf, which will not be handled correctly in.'
+        print 'all cases. It is advisable to start from an empty directory of call:'
+        print '$ ./phyLinux clean'
+        print 'Do you really want to continue from here?'
+        if not userquery_yes_no(False):
+            raise SystemExit
+    else:
+        print 'Initializing from an empty directory'
+
+    # manifest git url handling, order defines priority of command
     if args.xml:
         print 'using a local manifest XML: ' + args.xml
         manifest_git_url = create_local_xml_git(args.xml)
+        args.platform = 'localxml'
+        args.release = 'localxml'
     elif args.url:
         manifest_git_url = args.url
     elif args.dev:
@@ -467,16 +493,12 @@ def cmd_init(args):
     else:
         manifest_git_url = phytec_repo_url
 
-    # clean task
-        if not clean_if_necessary():
-    print 'Initializing from an empty directory'
-
     # first manifest git init
     print 'updating remote phytec repo repository'
     if args.dev:
-        call('repo init -u ' + manifest_git_url + ' --reference=' + repo_reference_dir)
+        call('repo init --repo-url=' + repo_repo_url + ' -u ' + manifest_git_url + ' --reference=' + repo_reference_dir)
     else:
-        call('repo init -u ' + manifest_git_url)
+        call('repo init --repo-url=' + repo_repo_url + ' -u ' + manifest_git_url)
 
     if args.platform and probe_gitbranch(args.platform):
         print 'Selecting SoC to command line argument: ' + args.platform
@@ -516,111 +538,47 @@ def cmd_init(args):
                 print 'Warning! No dev manifest found for release: ', selected_release
     call('repo sync -f')
 
-    if not os.path.exists('sources/templateconf'):
-        print 'No templateconf path found in sources! Please use a correct PD Release'
-        return False
-    # TODO: This bugfix here should be repaired in the repo manifest.xml
-    #  file permissions from the templateconf is wrong we need to fix it here
-    # TODO: the copyfile instruction does not sync files, this can lead to
-    #  unexpected directory states
-    for f in os.listdir('sources/templateconf'):
-        os.chmod('sources/templateconf/' + f, 0644)
-
-    print 'Setting environment and starting the poky init script'
-    call('bash -c "TEMPLATECONF=\"../sources/templateconf\" source sources/poky/oe-init-build-env" > /dev/null')
-
-    # site.conf mechanism
-    siteconf = ["/etc/yocto/site.conf",
-                "/home/share/tools/yocto/site.conf",
-                "~/.site.conf"]
-    for s in siteconf:
-        if os.path.isfile(os.path.expanduser(s)):
-            shutil.copyfile(os.path.expanduser(s), "build/conf/site.conf")
-
-    # set machine
-    if args.machine:
-        selected_machine = args.machine
+    # now the source code is checked out in its raw state and we interact with the BSP to
+    # call its internal configuration
+    api = probe_bsp_api_version()
+    print 'BSP has phyLinux API Version %s' % api
+    if api == 1:
+        legacy_init_bsp_api_1(args)
+    elif api == 2:
+        # terminate this program and start init
+        sys.stdout.flush()
+        os.execl('tools/init', '')
     else:
-        selected_machine = choose_machine()
-    set_configuration_in_localconf()
+        print 'phyLinux checked out the sources of your BSP. phyLinux could not configure your BSP'
+        print 'because of a version mismatch. You need to configure the BSP manually or download'
+        print 'the phyLinux Version for your BSP.'
 
-    print ''
-    print 'Before you start your work, please check your build/conf/local.conf for'
-    print 'host specific configuration. Check the documentation especially for:'
-    print '    - proxy settings'
-    print '    - DL_DIR'
-    print '    - SSTATE_DIR'
-    print ''
-    print 'To set up your shell environment for some Yocto work, you have to type:'
-    print '    $ source sources/poky/oe-init-build-env'
-    print ''
-    print ''
-    if 'rc' in selected_release:
-        rc_warning()
+
+def cmd_clean(args):
+    print 'You current working directory is:'
+    print os.getcwd()
+    print 'Do you really want to clean the following files:'
+    print files_to_clean()
+    if userquery_yes_no():
+        # avoid python delete functions and use shell for
+        # performance reasons. The build directory tree can
+        # be huge.
+        for a in files_to_clean():
+            call('rm -fr "%s"' % a)
 
 
 # info command
 def cmd_info(args):
-    global selected_soc, selected_release, selected_machine, yocto_version
+    global selected_soc, selected_release
     probe_selected_soc()
     probe_selected_release()
-    probe_yocto_version()
-    probe_selected_machine()
     print '**********************************************'
     print '* The current BSP configuration is:  '
     print '*'
     print '* SoC: ', selected_soc
     print '* Release: ', selected_release
-    print '* Machine: ', selected_machine
-    print '* Yocto Version: ', yocto_version
     print '*'
     print '**********************************************'
-    if 'rc' in selected_release:
-        rc_warning()
-
-
-def cmd_clean(args):
-    check_for_previous_work()
-    print '\033[91m' # start colored output
-    print 'There is already some work done in this folder. If you just want'
-    print 'to change the target board, you could do so by typing:'
-    print './phyLinux switch_machine'
-    print 'or'
-    print './phyLinux switch_release'
-    print 'Do you really want to delete your entire directory which includes'
-    print 'all work you have done?'
-    print '\033[0m' # end colored output
-    if userquery_yes_no(False):
-        clean_directory()
-    else:
-        print 'phyLinux quits.'
-        raise SystemExit
-    return False
-
-
-def cmd_switch_machine(args):
-    global selected_soc, selected_release, selected_machine, yocto_version
-    probe_selected_soc()
-    probe_selected_release()
-    probe_yocto_version()
-    if probe_selected_machine():
-        if args.machine:
-            selected_machine = args.machine
-        else:
-            selected_machine = choose_machine()
-        set_configuration_in_localconf()
-
-
-def cmd_switch_release(args):
-    # this works like init but keeps the build directory untouched
-    if probe_manifest_git_url():
-        args.url = manifest_git_url
-    else:
-        print 'Please run ./phyLinux init first'
-        raise SystemExit
-    clean_if_necessary(clean_builddir = False)
-    args.noclean = True
-    cmd_init(args)
 
 
 ##############
@@ -628,7 +586,7 @@ def cmd_switch_release(args):
 ##############
 
 def main():
-    global selected_soc, selected_release, yocto_version
+    global selected_soc, selected_release
     sanity_check()
 
     # parse commands
@@ -648,11 +606,13 @@ def main():
         'init',
         parents=[global_parser],
         help='init the phytec bsp in the current directory')
+    init_parser.add_argument('-o', dest='reporepo', help='Use repo tool from another url')
     init_parser.add_argument('-x', dest='xml', help='Use a local XML manifest')
     init_parser.add_argument('-u', dest='url', help='Manifest git url')
     init_parser.add_argument('-p', dest='platform', help='Processor platform')
     init_parser.add_argument('-r', dest='release', help='Release version')
-    init_parser.add_argument('-m', dest='machine', help='Machine')
+    # legacy API 1 options
+    init_parser.add_argument('-m', dest='machine', help=argparse.SUPPRESS)
 
 
     # info command
@@ -665,23 +625,7 @@ def main():
     clean_parser = subparsers.add_parser(
         'clean',
         parents=[global_parser],
-        help='clean the current directory')
-
-    # switch_machine command
-    switch_machine_parser = subparsers.add_parser(
-        'switch_machine',
-        parents=[global_parser],
-        help='switch the Machine of the selected BSP')
-    switch_machine_parser.add_argument('-m', dest='machine', help='Machine')
-
-    # switch_release command
-    switch_release_parser = subparsers.add_parser(
-        'switch_release',
-        parents=[global_parser],
-        help='it works like an init, but does not delete the build directory')
-    switch_release_parser.add_argument('-p', dest='platform', help='Processor platform')
-    switch_release_parser.add_argument('-r', dest='release', help='Release version')
-    switch_release_parser.add_argument('-m', dest='machine', help='Machine')
+        help='Clean up the current working directory')
 
     args = parser.parse_args()
     if args.command == 'init':
@@ -690,12 +634,10 @@ def main():
         cmd_info(args)
     elif args.command == 'clean':
         cmd_clean(args)
-    elif args.command == 'switch_machine':
-        cmd_switch_machine(args)
-    elif args.command == 'switch_release':
-        cmd_switch_release(args)
     elif args.command == '':
         cmd_()
 
 if __name__ == "__main__":
     main()
+
+
