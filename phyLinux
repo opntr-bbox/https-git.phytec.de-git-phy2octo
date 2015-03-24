@@ -627,6 +627,11 @@ def main():
         parents=[global_parser],
         help='Clean up the current working directory')
 
+    # start the override phyLinux, if the BSP provides one
+    if os.path.isfile('tools/phyLinux'):
+        argv = list(sys.argv)
+        os.execv('tools/phyLinux', argv)
+
     args = parser.parse_args()
     if args.command == 'init':
         cmd_init(args)
