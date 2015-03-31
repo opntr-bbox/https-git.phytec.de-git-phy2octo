@@ -55,14 +55,9 @@ def is_in_path(question):
 
 def call(cmd):
     print '$', cmd
-    try:
-        output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
-        if output:
-            print output
-    except subprocess.CalledProcessError as e:
-        print "Error return code: ", e.returncode
-        print "Error output message: ", e.output
-        raise SystemExit
+    subprocess.call(cmd,shell=True)
+    print ''
+
 
 
 def remove_file_extension(f):
