@@ -561,14 +561,17 @@ def cmd_init(args):
 def cmd_clean(args):
     print 'You current working directory is:'
     print os.getcwd()
-    print 'Do you really want to clean the following files:'
-    print files_to_clean()
-    if userquery_yes_no():
-        # avoid python delete functions and use shell for
-        # performance reasons. The build directory tree can
-        # be huge.
-        for a in files_to_clean():
-            call('rm -fr "%s"' % a)
+    if not files_to_clean():
+        print "We dont have any files to clean in this directory."
+    else:
+        print 'Do you really want to clean the following files:'
+        print files_to_clean()
+        if userquery_yes_no():
+            # avoid python delete functions and use shell for
+            # performance reasons. The build directory tree can
+            # be huge.
+            for a in files_to_clean():
+                call('rm -fr "%s"' % a)
 
 
 # info command
