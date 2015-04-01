@@ -538,6 +538,10 @@ def cmd_init(args):
                 print 'Warning! No dev manifest found for release: ', selected_release
     call('repo sync -f')
 
+    if args.no_init:
+        print 'You specified not to run init after a fetch.'
+        raise SystemExit
+
     # now the source code is checked out in its raw state and we interact with the BSP to
     # call its internal configuration
     api = probe_bsp_api_version()
@@ -606,6 +610,7 @@ def main():
         'init',
         parents=[global_parser],
         help='init the phytec bsp in the current directory')
+    init_parser.add_argument('--no-init', action='store_true', help='dont execute init after fetch')
     init_parser.add_argument('-o', dest='reporepo', help='Use repo tool from another url')
     init_parser.add_argument('-x', dest='xml', help='Use a local XML manifest')
     init_parser.add_argument('-u', dest='url', help='Manifest git url')
