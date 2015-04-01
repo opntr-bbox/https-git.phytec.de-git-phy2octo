@@ -213,7 +213,6 @@ def probe_selected_release():
             print release + ' is no propper release'
     except Exception as e:
         print 'Error while probing for selected Release'
-        print type(e), e.args, e
     print 'No Release selected'
     return False
 
@@ -572,15 +571,19 @@ def cmd_clean(args):
 # info command
 def cmd_info(args):
     global selected_soc, selected_release
-    probe_selected_soc()
-    probe_selected_release()
-    print '**********************************************'
-    print '* The current BSP configuration is:  '
-    print '*'
-    print '* SoC: ', selected_soc
-    print '* Release: ', selected_release
-    print '*'
-    print '**********************************************'
+    ok = True
+    ok = ok and probe_selected_soc()
+    ok = ok and probe_selected_release()
+    if ok:
+        print '**********************************************'
+        print '* The current BSP configuration is:  '
+        print '*'
+        print '* SoC: ', selected_soc
+        print '* Release: ', selected_release
+        print '*'
+        print '**********************************************'
+    else:
+        print 'No BSP found in the current directory!'
 
 
 ##############
@@ -598,7 +601,8 @@ def main():
     global_parser.add_argument('--dev', action='store_true', help=argparse.SUPPRESS)
 
     parser = argparse.ArgumentParser(description='This Programs sets up an environment to work with The Yocto Project'
-                                                 ' on Phytecs Development Kits',
+                                                 ' on Phytecs Development Kits. Use phyLinx <command> -h to display'
+                                                 ' the help text for the available commands.',
                                      version=phylinux_version,
                                      parents=[global_parser])
     subparsers = parser.add_subparsers(help='commands', dest='command')
