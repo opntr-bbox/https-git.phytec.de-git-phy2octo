@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<default revision="dizzy" remote="git.phytec" sync-j="8" />
+
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="ti" fetch="git://git.ti.com" />
+	<remote name="github" fetch="git://github.com" />
+
+	<project name="poky" remote="yocto" path="sources/poky" revision="refs/tags/yocto-1.7" />
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="9efaed99125b1c4324663d9a1b2d3319c74e7278" />
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="d6d292aea42f7baf56424555b2c78699bc191d3c" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/1.7.0-phy2">
+		<linkfile dest="HOWTO-yocto" src="conf/doc/HOWTO-yocto" />
+	</project>
+	<project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6" revision="refs/tags/1.7.0-phy3-fix1">
+		<linkfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample" />
+		<linkfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample" />
+		<linkfile dest="sources/templateconf/conf-notes.txt" src="conf/conf-notes.txt" />
+		<linkfile dest="HOWTO-imx6" src="conf/doc/HOWTO-imx6" />
+		<linkfile dest="ReleaseNotes" src="conf/doc/ReleaseNotes" />
+	</project>
+</manifest>
