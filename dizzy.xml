@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+	<phytec release_uid="AM335x-dizzy" soc="am335x" pdn="dizzy"/>
+
 	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>

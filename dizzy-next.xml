@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec release_uid="AM335x-dizzy-next"
-		soc="am335x"
-		pdn="dizzy-next"
-		phylinux_api="2"/>
+	<phytec release_uid="AM335x-dizzy-next" soc="am335x" pdn="dizzy-next"/>
 
 	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
 
