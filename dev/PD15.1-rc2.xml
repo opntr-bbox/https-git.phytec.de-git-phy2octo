@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<remove-project name="meta-phytec" path="sources/meta-phytec" />
+	<remove-project name="meta-phyam335x" path="sources/meta-phytec/meta-phyam335x" />
+	<remove-project name="meta-yogurt" path="sources/meta-yogurt" />
+
+	<project name="meta-phytec-dev" path="sources/meta-phytec" remote="ssh.phytec" revision="6896f720853a7f7f8aca8b70ab259775f2ef9711" />
+	<project name="meta-yogurt-dev" path="sources/meta-yogurt" remote="ssh.phytec" revision="e27e4433acc260d2e4f325260e9d4eb72f032aad" />
+	<project name="meta-phyam335x-dev" path="sources/meta-phytec/meta-phyam335x" remote="ssh.phytec" revision="62dfaf340f1beca1901eff361ad03bed73aaaaa5">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+
+</manifest>
