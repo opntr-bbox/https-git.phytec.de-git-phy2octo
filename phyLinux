@@ -503,7 +503,10 @@ def cmd_init(args):
     print 'switching to ' + selected_soc
     call('repo init -b ' + selected_soc)
 
-    if args.release and os.path.exists('.repo/manifests/' + args.release + '.xml'):
+    if args.release:
+        if not os.path.exists('.repo/manifests/' + args.release + '.xml'):
+            print 'Specified Release: %s could not be found' % args.release
+            sys.exit(0)
         print 'Selecting Release to command line argument: ' + args.release
         selected_release = args.release
     else:
