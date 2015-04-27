@@ -1,26 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
+  <phytec pdn="dizzy" release_uid="iMX6-dizzy" soc="iMX6"/>
 
-	<remote name="git.phytec" fetch="git://git.phytec.de"/>
-	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
-	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
-	<remote name="ti" fetch="git://git.ti.com"/>
-	<remote name="github" fetch="git://github.com"/>
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
 
-	<project name="poky" remote="yocto" path="sources/poky"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="meta-phytec" path="sources/meta-phytec">
-		<copyfile dest="sources/templateconf/local.conf.sample" src="conf/local.conf.sample"/>
-		<copyfile dest="sources/templateconf/conf-notes.txt" src="conf/conf-notes.txt"/>
-		<copyfile dest="HOWTO-yocto" src="conf/doc/HOWTO-yocto"/>
-	</project>
-	<project name="meta-yogurt" path="sources/meta-yogurt"/>
-	<project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6">
-		<copyfile dest="sources/templateconf/bblayers.conf.sample" src="conf/bblayers.conf.sample"/>
-		<copyfile dest="HOWTO-imx6" src="conf/doc/HOWTO-imx6"/>
-		<copyfile dest="ReleaseNotes" src="conf/doc/ReleaseNotes"/>
-	</project>
+  <default remote="git.phytec" revision="dizzy" sync-j="8" />
+
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
+  <project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-phytec" path="sources/meta-phytec"/>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+  <project name="meta-yogurt" path="sources/meta-yogurt"/>
+  <project name="poky" path="sources/poky" remote="yocto"/>
 </manifest>
