@@ -9,7 +9,7 @@ import shutil
 import sys
 
 # Global constants
-phylinux_version = "PD14.1-rc1"
+phylinux_version = "2015-04-24"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
