@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD15.1-rc2" release_uid="iMX6-PD15.1-rc2" soc="iMX6" />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+
+  <default remote="git.phytec" revision="dizzy" sync-j="8" />
+
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="2ebb8752f378c9987b0ece5a14915d703b872c1d" upstream="dizzy" />
+  <project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6" revision="refs/tags/1.7.2-phy1" upstream="dizzy">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/1.7.0-phy3" upstream="dizzy" />
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="adeca0db212d61a933d7952ad44ea1064cfca747" upstream="dizzy" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/1.7.2-phy2" upstream="dizzy" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="3037db60f79a4b7e34bef14663ffa2523e9f0c03" upstream="dizzy" />
+</manifest>
