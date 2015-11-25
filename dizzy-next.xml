@@ -12,10 +12,9 @@
   <default remote="git.phytec" revision="dizzy" sync-j="8" />
 
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
-  <project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6">
-    <copyfile dest="tools/init" src="scripts/init" />
+  <project name="meta-phytec" path="sources/meta-phytec">
+	  <copyfile dest="tools/init" src="meta-phyimx6/scripts/init" />
   </project>
-  <project name="meta-phytec" path="sources/meta-phytec"/>
   <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
   <project name="meta-yogurt" path="sources/meta-yogurt"/>
   <project name="poky" path="sources/poky" remote="yocto"/>

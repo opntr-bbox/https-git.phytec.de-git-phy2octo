@@ -1,12 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
 	<remove-project name="meta-phytec" path="sources/meta-phytec" />
-	<remove-project name="meta-phyimx6" path="sources/meta-phytec/meta-phyimx6" />
 	<remove-project name="meta-yogurt" path="sources/meta-yogurt" />
 
-	<project name="meta-phytec-dev" path="sources/meta-phytec" remote="ssh.phytec" revision="dizzy-next"/>
 	<project name="meta-yogurt-dev" path="sources/meta-yogurt" remote="ssh.phytec" revision="dizzy-next"/>
-	<project name="meta-phyimx6-dev" path="sources/meta-phytec/meta-phyimx6" remote="ssh.phytec" revision="dizzy-next">
-		<copyfile dest="tools/init" src="scripts/init" />
+	<project name="meta-phytec-dev" path="sources/meta-phytec" remote="ssh.phytec" revision="dizzy-next">
+		<copyfile dest="tools/init" src="meta-phyimx6/scripts/init" />
         </project>
 </manifest>
