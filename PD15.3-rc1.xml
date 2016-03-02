@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD15.3-rc1" soc="iMX6" />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" revision="fido" sync-j="8" />
+  
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="a7c1a2b0e6947740758136216e45ca6ca66321fc" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/1.8.1-phy4" upstream="fido">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="90919b9d86988e7da01fa2c0a07246b5b5600a5d" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/1.8.1-phy4" upstream="fido" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="06d9c894636352a6c93711c7284d02b0c794a527" upstream="fido" />
+</manifest>
