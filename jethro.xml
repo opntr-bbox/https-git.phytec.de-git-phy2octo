@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="PD-jethro" release_uid="BSP-Yocto-All-PD-jethro" soc="AM335x"/>
+	<phytec release_uid="BSP-Yocto-AM335x-PD-jethro" soc="AM335x" pdn="PD-jethro"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
