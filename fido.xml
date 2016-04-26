@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec release_uid="AM335x-fido" soc="am335x" pdn="fido"/>
+
+	<default revision="fido" remote="git.phytec" sync-j="8"/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="github" fetch="git://github.com"/>
+
+	<project name="poky" remote="yocto" path="sources/poky" revision="refs/tags/yocto-1.8.1"/>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="df2f700d66bace65f5d802225232d01cf511fe81"/>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="90919b9d86988e7da01fa2c0a07246b5b5600a5d"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-yogurt" path="sources/meta-yogurt"/>
+</manifest>
