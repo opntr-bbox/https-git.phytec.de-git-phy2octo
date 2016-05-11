@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD-ALPHA1" release_uid="BSP-Yocto-RK3288-ALPHA1" soc="RK3288" />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" revision="jethro" sync-j="8" />
+  
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="c305ac5d2f5285d5eec8952a4ca7f3b4f89aed96" upstream="jethro" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.0.1-phy3" upstream="jethro">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="ea37a0bc987aa9484937ad68f762b4657c198617" upstream="jethro" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.0.1-phy3" upstream="jethro" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="a201edefaecaa87eaf7e5f265c2317f7d12202a9" upstream="jethro" />
+</manifest>
