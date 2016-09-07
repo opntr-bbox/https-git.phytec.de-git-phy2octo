@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD-ALPHA2" release_uid="BSP-Yocto-RK3288-ALPHA2" soc="RK3288" />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+
+  <default remote="git.phytec" revision="krogoth" sync-j="8" />
+
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="247b1267bbe95719cd4877d2d3cfbaf2a2f4865a" upstream="krogoth" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.1.1-phy1" upstream="krogoth">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="4cea8f8c4a6ff2d869b0244c279def2e5adb9e8a" upstream="krogoth" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.1.1-phy1" upstream="krogoth" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="f5da2a5913319ad6ac2141438ba1aa17576326ab" upstream="krogoth" />
+</manifest>
