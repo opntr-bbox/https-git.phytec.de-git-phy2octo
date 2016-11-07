@@ -16,5 +16,5 @@
   </project>
   <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="90919b9d86988e7da01fa2c0a07246b5b5600a5d" />
   <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/1.8.1-phy6-fix1" />
-  <project name="poky" path="sources/poky" remote="yocto" revision="c050b12c633d54b7ffca2db54031bc907fa7fd63" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="06d9c894636352a6c93711c7284d02b0c794a527" />
 </manifest>
