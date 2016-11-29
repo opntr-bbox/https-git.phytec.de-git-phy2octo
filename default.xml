@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<remote name="git.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<project name="phy2octo" remote="git.phytec" revision="master" path="sources/phy2octo">
 		<copyfile dest="WARNING" src="warnings/nobranch.txt"/>
 	</project>

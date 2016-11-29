@@ -2,8 +2,17 @@ BSP not configured correctly!
 
 This is Phytecs phy2oct master branch. As we seperate our BSPs into SOC
 Platforms and store the manifests in branches named after the SOCs the
-master branch contains no release information  and should not be used.
-Please run the program:
-$ ./phyLinux init
-or switch directly to a BSP branch using:
+master branch contains no release information.
+To access the releases run:
+
+$ phyLinux init
+
+or switch directly to a BSP branch using repo:
+
 $ repo init -b <soc-name> -m <release>
+
+To access the current development state of the Yocto BSP for all SoCs
+run:
+
+$ phyLinux init -p master -r <yocto-branch>
+
