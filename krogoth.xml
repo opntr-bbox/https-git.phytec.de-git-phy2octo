@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="PD-krogoth" release_uid="BSP-Yocto-All-PD-krogoth" soc="iMX6"/>
+	<phytec pdn="PD-krogoth" release_uid="BSP-Yocto-i.MX6-PD-krogoth" soc="iMX6"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
