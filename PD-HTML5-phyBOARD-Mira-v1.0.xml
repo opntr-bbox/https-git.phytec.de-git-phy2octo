@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="v1.0" release_uid="BSP-Yocto-HTML5-phyBOARD-Mira-v1.0" soc="all" selected_machine="phyboard-mira-imx6-13"/>
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+
+  <default remote="git.phytec" revision="morty" sync-j="8" />
+
+  <project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="78018dc7dc02b5039a165801d09c00564687a1b6" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="fe5c83312de11e80b85680ef237f8acb04b4b26e" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.2.1-phy1">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="3601fd2c5306ac6d5d0d536e0be8cbb90da9b4c1" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.2.1-phy1" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="924e576b8930fd2268d85f0b151e5f68a3c2afce" />
+</manifest>
