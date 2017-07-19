@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="PD-pyro" release_uid="BSP-Yocto-i.MX6-PD-pyro" soc="iMX6"/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github" fetch="git://github.com"/>
+
+	<default revision="pyro" remote="git.phytec" sync-j="8"/>
+
+	<project name="poky" remote="yocto" path="sources/poky"/>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<project name="imyller/meta-nodejs" remote="github" path="sources/meta-nodejs" revision="master"/>
+	<project name="meta-yogurt" path="sources/meta-yogurt"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+</manifest>
