@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="PD17.1.0" soc="iMX6"
-		release_uid="BSP-Yocto-Vendor-phyBOARD-Segin-i.MX6UL-PD17.1.0"
+		release_uid="BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.0"
 		supported_builds="
 			phyboard-segin-imx6ul-2/phytec-qt5demo-image/yogurt-vendor
 			phyboard-segin-imx6ul-3/phytec-headless-image/yogurt-vendor
