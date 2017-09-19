@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="PD17.1.1" soc="iMX6"
+		release_uid="BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.1"
+		supported_builds="
+			phyboard-segin-imx6ul-2/phytec-qt5demo-image/yogurt-vendor
+			phyboard-segin-imx6ul-3/phytec-headless-image/yogurt-vendor
+			phyboard-segin-imx6ul-4/phytec-qt5demo-image/yogurt-vendor
+			phyboard-segin-imx6ul-5/phytec-qt5demo-image/yogurt-vendor
+		"
+	/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github" fetch="git://github.com"/>
+
+	<default revision="morty" remote="git.phytec" sync-j="8"/>
+
+	<project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github" revision="2c74a61e11c46d8bd5ebe4642292bc145e33d6d1" />
+	<project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="eec531e97a17bfd406f3bf76dee4057dcf5286a4" />
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="fe5c83312de11e80b85680ef237f8acb04b4b26e" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.2.1-phy9">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="2c9f0e4eb0e9097f6f872ec1e1d81768a8ab5f1b" />
+	<project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.2.1-phy9" />
+	<project name="poky" path="sources/poky" remote="yocto" revision="2a70e84643381eca0e7bf7928d4a3d56f9651128" />
+</manifest>
