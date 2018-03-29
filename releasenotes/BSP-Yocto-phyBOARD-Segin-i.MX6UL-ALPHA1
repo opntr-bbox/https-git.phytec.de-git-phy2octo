@@ -1,0 +1,47 @@
+Release Notes phyBOARD-Segin-i.MX6UL-ALPHA1 Linux BSP:
+======================================
+
+phyBOARD-Segin-i.MX6UL-ALPHA1           07/10/2016
+--------------------------------------------------
+
+- Linux Kernel v4.8-phy1
+- barebox v2016.09.0-phy1
+- Yocto 2.1 (Krogoth)
+
+NOTE:
+This is an alpha release and has not been tested for full functionality. It is
+possible that some features are not work correct or stable.
+
+Tested Yocto Images:
+--------------------
+ - phytec-headless-image
+
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+
+Features:
+---------
+ - Added support for new machines:
+ 	* phyboard-segin-imx6ul-1
+
+ - Added following features:
+	* Added support for new displays:
+		* LCD-018-035-KAP 
+		* LCD-018-043-KAP
+		* LCD-018-057-KAP
+		* LCD-018-RES.A0
+	* Added support for resistive touch
+	* Support for expansion PEB-AV-02
+	* Added sound support
+	* Added UART Support
+	* Added Ethernet 1 and Ethernet 2 support
+	* Added USB Host support
+	* Added USB OTG support
+	* Added SD support
+	* Added CAN
+
+Known Issues:
+-------------
+	* Booting barebox from NAND is not suppoted
+	* qt5 images does not work

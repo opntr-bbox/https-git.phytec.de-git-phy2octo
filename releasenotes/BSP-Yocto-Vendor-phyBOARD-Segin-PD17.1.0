@@ -1,0 +1,88 @@
+Release Notes phyBOARD-Segin Vendor BSP
+=======================================
+
+BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.0 	2017-07-12
+----------------------------------------------------------
+
+- Linux NXP Vendor Kernel v4.1.15-phy2 (based on NXP Tag rel_imx_4.1.15_2.1.0_ga)
+- Barebox v2017.04.0-phy2
+- Yocto 2.2.1 (morty)
+
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image on:
+  * phyboard-segin-imx6ul-2
+  * phyboard-segin-imx6ul-4
+
+- phytec-headless-image on:
+  * phyboard-segin-imx6ul-3
+
+
+Build Environment:
+------------------
+- Ubuntu 14.04 64Bit
+
+
+Features:
+---------
+- Added support for new machines:
+	* phyboard-segin-imx6ul-2 (phyBOARD-Segin full featured) 
+	* phyboard-segin-imx6ul-3 (phyBOARD-Segin low cost)
+	* phyboard-segin-imx6ul-4 (phyBOARD-Segin full featured with RS485)
+
+- Removed support for machines:
+	* phyboard-segin-imx6ul-1 
+
+- Added new features:
+	* NXP vendor kernel
+	* Support for displays:
+                * AC158 (7" capacitive)
+                * AC156 (7" resistive)
+	* Support resistive touch
+	* Booting barebox from NAND
+	* Support USB-Host in barebox
+	* QT5 (5.7.1) support, QT5 Demo is working with limited functionality (see Known Issues/Limitations)
+	* Camera support for:
+		* VM-010-BW 
+		* VM-010-COL
+	* RS485 support (kernel)
+	* Support for 2 Ethernet ports (kernel)
+	* PXP support (kernel)
+
+- Existing features (from ALPHA release):
+	* PEB-AV-02 support
+	* PEB-EVAL-01
+	* RS232 (barebox/kernel)
+	* EEPROM support (barebox/kernel)
+	* USB-Host support (kernel)
+	* USB-OTG support (kernel)
+	* Ethernet 100 MBit (barebox/kernel)
+	* CAN (kernel)
+	* NAND support (barebox/kernel)
+	* MMC support (barebox/kernel)
+	* Audio support (Line IN/OUT, Speaker) (kernel)
+	* Support for RTC (kernel) 
+	* ADC support (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- When booting from MMC sometimes (about 5 in 1000) barebox and kernel fail to attach the NAND devices.
+- ADC provides uncalibrated values
+- Booting the root filesystem over NFS is not possible
+- Following displays are not supported with the NXP vendor kernel:
+	* AC101 (3,5" capacitive)
+	* AC102 (4,3" capacitive)
+	* AC103 (5,7" capacitive)
+- Multimedia page is removed from QT5 Demo 
+- Webbrowser page is removed from QT5 Demo due to lack of openGL support
+- Multitouch page is removed from QT5 Demo due to lack of openGL support (necessary for shader effects)
+- Building the SDK with Yocto is not working (Patch is available) 
+
+
+Changes to ReleaseNotes
+-----------------------
+2017-10-13
+ - correct display article numbers
+ - add morty subversion

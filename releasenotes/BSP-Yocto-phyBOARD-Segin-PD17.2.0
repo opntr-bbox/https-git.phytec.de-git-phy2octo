@@ -1,0 +1,94 @@
+Release Notes phyBOARD-Segin BSP 
+=======================================
+
+BSP-Yocto-phyBOARD-Segin-PD17.2.0               2017-10-17
+----------------------------------------------------------
+
+- Linux Mainline Kernel v4.12.4-phy4 (based on stable kernel v4.12.4)
+- Barebox v2017.04.0-phy3
+- Yocto 2.2.2 (morty)
+
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image on: 
+  * phyboard-segin-imx6ul-2
+  * phyboard-segin-imx6ul-4
+
+- phytec-headless-image on: 
+  * phyboard-segin-imx6ul-3
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64Bit
+
+
+Features:
+---------
+- Added support for new machines:
+	* phyboard-segin-imx6ul-2 (phyBOARD-Segin full featured) 
+	* phyboard-segin-imx6ul-3 (phyBOARD-Segin low cost)
+	* phyboard-segin-imx6ul-4 (phyBOARD-Segin full featured with RS485)
+
+- Removed support for machines:
+	* phyboard-segin-imx6ul-1 
+
+- Added new features:
+	* Mainline kernel based on v4.12.4
+	* Support for displays:
+		* AC158 (7" capacitive)
+		* AC156 (7" resistive) 
+		* AC103 (5.7" capacitive)
+		* AC102 (4.3" capacitive)
+		* AC167 (3.5" capacitive)
+	* Support resistive touch
+	* Booting barebox from NAND
+	* Support USB-Host in barebox
+	* QT5 (5.7.1) support, QT5 Demo 1.1 is working with limited functionality (see Known Issues/Limitations)
+	* RS485 support (kernel)
+	* Support for 2 Ethernet ports (kernel)
+	* Support for PEB-WLBT-01 Wireless Lan module (no bluetooth)
+
+- Existing features (from ALPHA release):
+	* PEB-AV-02 support
+	* PEB-EVAL-01
+	* RS232 (barebox/kernel)
+	* EEPROM support (barebox/kernel)
+	* USB-Host support (kernel)
+	* USB-OTG support (kernel)
+	* Ethernet 100 MBit (barebox/kernel)
+	* CAN (kernel)
+	* NAND support (barebox/kernel)
+	* MMC support (barebox/kernel)
+	* Audio support (Line IN/OUT, Speaker) (kernel)
+	* Support for RTC (kernel) 
+	* ADC support (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- The 696 MHz operating point of the phyCORE-i.MX 6UL is not supported.
+- The DVFS pin to switch VDD_ARM_SOC from 1.4 V to 1.3 V on phyCORE-i.MX 6UL/6ULL is already included in the device tree but not yet supported in the kernel. But DVFS with internal LDOs is already supported.
+- When booting from MMC sometimes (about 5 in 1000) barebox and kernel fail to attach the NAND devices.
+- ADC provides uncalibrated values.
+- Booting the root filesystem over NFS is not possible.
+- tftp in kernel is slow, but UDP in general is not affected.
+- Multimedia page is removed from QT5 Demo.
+- QT5 Demo is only working correctly on the 7" displays, smaller displays need adaptation.
+- Starting and stopping the QT5 demo influences the consoleblank parameter.
+- When returning from suspend to ram (mem or standby) the display might not work correctly.
+- Suspend to ram (freeze) does not work correctly.
+- RS485 is only working correctly in raw mode (stty -F /dev/ttymxc4 raw echo -echoe -echok -echoctl -echoke).
+- The TiwiBLE chip sometimes requests a restart of the firmware which leads to a backtrace dump. The connection is reastablished afterwards and transfers continued.
+- Yocto: When a host JDK is present perf fails to build with:
+  ERROR: perf-1.0-r9 do_package_qa: QA Issue: -dev package contains non-symlink .so:...
+  To fix this issue, update to the latest meta-phytec morty stable branch
+   $ cd sources/meta-phytec
+   $ git remote update
+   $ git checkout git.phytec/morty
+- Yocto: Build fails on new Linux Distros with several different Errors. To fix the issues
+  update Poky to the latest stable version
+   $ cd sources/poky
+   $ git remote update
+   $ git checkout yocto/morty

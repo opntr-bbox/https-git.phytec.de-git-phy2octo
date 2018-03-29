@@ -1,0 +1,78 @@
+Release Notes unified i.MX6 Linux BSP:
+======================================
+ 
+BSP-Yocto-i.MX6-PD16.1.0                2017-01-23
+--------------------------------------------------
+- Linux Kernel v4.1.36 (v4.1 is a LTS kernel)
+ * Update from v4.1.18 to v4.1.36
+ * linux-mainline: CVE-2016-8655 https://lwn.net/Articles/708319/
+ * linux-mainline: CVE-2016-5195 (Dirty Cow) https://heise.de/-3355996
+- barebox v2016.11.0
+ * Update barebox NAND layout. Using ubi static volums for kernel and devicetree
+- Yocto 2.1.2 (krogoth)
+- Qt 5.6.2 from meta-qt5 (krogoth)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image
+
+Build Environment:
+------------------
+- Ubuntu 14.04 64Bit
+
+New Configuration:
+------------------
+- Added support for new machines:
+  * phyboard-mira-imx6-6
+  * phyboard-mira-imx6-9
+  * phyboard-mira-imx6-10
+  * phyboard-mira-imx6-11
+  * phyboard-mira-imx6-12
+
+New Features:
+-------------
+- barebox/yocto: env refactoring in barebox-env in meta-phytec
+- barebox: nv variables are saved automatically on shutdown
+- implemenet DA9062 and DA9063 Watchdog and reboot handler for phyFLEX and phyCORE
+  in kernel and barebox watchdog is not enable by default
+- Enable double buffering in i.MX6 OpenGL Library and Qt
+- update vivante GPU library for i.MX6 QuadPLus
+- VM-012 support (vita1300)
+- RS485 Support
+- gstreamer: add kmssink
+- gstreamer: add v4l2 encoder for i.MX6 VPU
+- gstreamer: add bayer2rgb-neon
+- tuxracer recipe in meta-yogurt
+- bvtest: crop support
+
+Fixed Issues:
+-------------
+- Fix: i.MX6 DualLite/Solo Stability Issue at 396 Mhz.
+    Linux kernel patch "ARM: dts: imx6dl: Fix the VDD_ARM_CAP voltage for 396MHz operation".
+    Fixes Phytec's LPN-226e_1.
+- fix phyCORE-i.MX6 stability (PMIC buckets)
+- linux-mainline: fix Micrel ethernet phy link detection issues at -30°C
+- linux-mainline: fix VM-010-BW and VM-010-COL for phyBOARD-SUBRA
+
+Known Issues:
+-------------
+- CAN is not working with 10 kbaud (also didn´t work in previous releases)
+- Display and HDMI do not work with the QuadPlus
+
+Notes:
+------
+ 
+Updating the kernel, device tree and rootfs has changed in this release. As kernel and device tree are now placed
+in a static ubi volume inside the rootfs partition.
+Following example shows how to update those parts in NAND from Network with the new barebox loaded:
+ 
+ bootloader$ ubiformat -y /dev/nand0.root
+ bootloader$ ubiattach /dev/nand0.root
+ 
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi kernel 8M
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi oftree 1M
+ bootloader$ ubimkvol -t dynamic /dev/nand0.root.ubi root 0
+ 
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.kernel /mnt/tftp/linuximage
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.oftree /mnt/tftp/oftree
+ bootloader$ cp /mnt/tftp/rootfs.ubifs /dev/nand0.root.ubi.root

@@ -1,0 +1,105 @@
+Release Notes unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-i.MX6-PD16.1.1                2018-02-07
+==================================================
+- Linux Kernel v4.1.46 (v4.1 is a LTS kernel)
+  * Update from v4.1.36 to v4.1.46
+- barebox v2016.11.0
+- Yocto 2.1.3 (krogoth)
+- Qt 5.6.3 from meta-qt5 (krogoth)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image
+
+Build Environment:
+------------------
+- Ubuntu 14.04 64Bit
+
+
+Changes since PD16.1.0:
+-----------------------
+- New Features:
+  * Added support for ISSI and Winbond NOR flash
+    - Winbond W25Q128
+    - ISSI IS25LP128
+  * Added support for Winbond NAND
+
+- Fixes:
+  * barebox:
+    - Barebox devicetree now supports environment on SPI-NOR flash.
+    - Fixed the CS0_END RAM setting for the i.MX 6QuadPlus.
+    - Fixed a bug described by erratum ERR007117 which led to an infrequent
+      detection failure of the NAND flash during boot.
+    - Improved RAM timings for i.MX6 DualLite\Solo (400 MHz) on all phyFLEX
+      machines.
+
+  * kernel:
+    - CAN is now working with 10 kbaud.
+    - A bug was fixed where the LVDS display sometimes did not show anything
+      after boot. This bug is described in erratum ERR009219.
+    - Fixed a typo in the HDMI devicetree node which prevented DDC to work
+      correctly.
+    - The npwrdn GPIO assignement on the phytec-mediabus was fixed from GPIO5_27
+      to GPIO3_9 on the phyBOARD-Mira.
+    - Fixed a bug described by erratum ERR007117 which led to an infrequent
+      detection failure of the NAND flash during boot.
+    - Fixed a GPU stability issue where the GPU clocks run on clock rates which
+      were to high by default.
+    - Fixed a stability issue when switching the internal LDOs of the
+      i.MX 6DualLight into bypass mode.
+    - Introduced small performance improvements by disabling spinlock debug
+      logging which is enabled by default.
+
+
+Known Issues:
+-------------
+- Display and HDMI do not work with the QuadPlus
+- The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the devicetree and
+  cannot be changed on runtime
+
+
+BSP-Yocto-i.MX6-PD16.1.0                2017-01-23
+==================================================
+Features:
+-------------
+- barebox/yocto: env refactoring in barebox-env in meta-phytec
+- barebox: nv variables are saved automatically on shutdown
+- implemenet DA9062 and DA9063 Watchdog and reboot handler for phyFLEX and phyCORE
+  in kernel and barebox watchdog is not enable by default
+- Enable double buffering in i.MX6 OpenGL Library and Qt
+- update vivante GPU library for i.MX6 QuadPLus
+- VM-012 support (vita1300)
+- RS485 Support
+- gstreamer: add kmssink
+- gstreamer: add v4l2 encoder for i.MX6 VPU
+- gstreamer: add bayer2rgb-neon
+- tuxracer recipe in meta-yogurt
+- bvtest: crop support
+
+Fixed Issues:
+-------------
+- Fix: i.MX6 DualLite/Solo Stability Issue at 396 Mhz.
+    Linux kernel patch "ARM: dts: imx6dl: Fix the VDD_ARM_CAP voltage for 396MHz operation".
+    Fixes Phytec's LPN-226e_1.
+- fix phyCORE-i.MX6 stability (PMIC buckets)
+- linux-mainline: fix Micrel ethernet phy link detection issues at -30°C
+- linux-mainline: fix VM-010-BW and VM-010-COL for phyBOARD-SUBRA
+
+Notes:
+------
+Updating the kernel, device tree and rootfs has changed in BSP-Yocto-i.MX6-PD16.1.0. As kernel and device tree are now placed
+in a static ubi volume inside the rootfs partition.
+Following example shows how to update those parts in NAND from Network with the new barebox loaded:
+
+ bootloader$ ubiformat -y /dev/nand0.root
+ bootloader$ ubiattach /dev/nand0.root
+
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi kernel 8M
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi oftree 1M
+ bootloader$ ubimkvol -t dynamic /dev/nand0.root.ubi root 0
+
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.kernel /mnt/tftp/linuximage
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.oftree /mnt/tftp/oftree
+ bootloader$ cp /mnt/tftp/rootfs.ubifs /dev/nand0.root.ubi.root

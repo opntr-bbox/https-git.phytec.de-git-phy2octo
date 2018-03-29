@@ -1,0 +1,110 @@
+
+Release Notes unified i.MX6 Linux BSP:
+======================================
+ 
+BSP-Yocto-i.MX6-PD15.3.1                2016-11-08
+--------------------------------------------------
+ 
+- Fix: (Recommended) i.MX6 DualLite/Solo Stability Issue at 396 Mhz.
+    Linux kernel patch "ARM: dts: imx6dl: Fix the VDD_ARM_CAP voltage for 396MHz operation".
+    Fixes Phytec's LPN-226e_1.
+- Fix: Bitbake build warning:
+    WARNING: QA Issue: perf rdepends on liblzma, but it isn't a build dependency? [build-deps]
+ 
+ 
+PD15.3.0                                01/04/2016
+--------------------------------------------------
+ 
+- Linux Kernel v4.1.18-phy4 (v4.1 is a LTS kernel)
+- barebox v2015.11.0-phy4
+- Yocto 1.8+ (fido)
+	* With CVE-2015-7547 (glibc getaddrinfo() security fix)
+- Qt 5.4 from meta-qt5 (fido)
+ 
+Tested Boards:
+--------------
+ - phyflex-imx6-1       (i.MX6 Quad, 1GB RAM on two banks, 16MB NOR)
+ - phyflex-imx6-2       (i.MX6 Quad, 1GB RAM on one bank, 16MB NOR)
+ - phyflex-imx6-3
+ - phyflex-imx6-4
+ - phyflex-imx6-5
+ - phyflex-imx6-6
+ - phyflex-imx6-7
+ - phyflex-imx6-8
+ - phyflex-imx6-9
+ - phyflex-imx6-10
+ - phycard-imx6-1       (i.MX6 Quad, 1GB RAM on two banks)
+ - phyboard-subra-imx6-1
+ - phyboard-subra-imx6-2
+ - phyboard-mira-imx6-3
+ - phyboard-mira-imx6-4
+ - phyboard-mira-imx6-5
+ - phyboard-mira-imx6-7
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Features:
+---------
+ - Added support for new machines:
+	* phyboard-mira-imx6-5
+	* phyboard-mira-imx6-7
+	* phyboard-subra-imx6-2
+ 
+ - Added following features:
+	* Camera as phyCAM-S+ and phyCAM-P
+		* VM-006
+		* VM-008
+		* VM-009
+		* VM-010 COL and BW
+		* VM-011 COL and BW
+	* Added support for new displays:
+		* LCD-018-035-KAP 
+		* LCD-018-043-KAP
+		* LCD-018-057-KAP
+		* LCD-018-RES.A0
+		* AC116 (phyBOARD-MIRA)
+	* Added support for resistive touch on different machines
+	* Added eMMC support
+	* Added VPU firmware support
+	* Support for Wifi Expansion
+		* on phyBOARD-SUBRA (PEB-B-001.A2)
+		* on phyBOARD-MIRA (PEB-WLBT-01.A2)
+	* Support for expansion PEB-AV-02-070W.A0
+	* Added new verified RAM calibration values for phyCORE (phyBOARD-MIRA)
+		* phyCORE with i.MX6 Quad/Dual: verified also for industrial temp
+		* phyCORE with i.MX6 DualLite/Solo: all temp
+	* New Camera examples phytec-v4l-c-examples and bvtest
+	* Update NXP/Freescale kernel GPU driver gpu-viv version 5.0.11.p4.25762
+	* Update NXP/Freescale userspace GPU library imx-gpu-viv version 5.0.11.p4.5-hfp
+	* Add SNVS poweroff support
+ 
+ - Issues Fixed:
+	* Fix ethernet phy reset on phyFLEX
+	* Fix USB overcurrent issue phyBOARD-MIRA
+	* SPI DMA issue. Nor flash should be used without DMA or
+	  just as boot device
+	* Booting from NAND and using SD0 simultaneously fails (phyBOARD-SUBRA)
+	* USB Ethernet gadget panics
+	* Fix NAND UBIFS corrupted empty space problem in i.MX6 GPMI driver
+	* Remove broken USB automount script in poky
+	* Increased reliability for ext4 filesystem with option 'data=journal'
+ 
+ 
+Known Issues:
+-------------
+	* CAN is not working with 10 kbaud (also didn´t work in previous releases)
+	* Ext4 write performance and powercut tolerance tradeoff:
+	  The root filesystem on eMMC and SD-Cards is mounted with open
+	      data=journal
+	  This increases the filesystem reliability in case of power cuts but
+	  hurts the write performance.  It depends on your application safety
+	  needs which one you prefer.
+	  You can change the mount option in the bootloader via the kernel
+	  parameters. Please note that this option does not impact the read
+	  performance of the filesystem.
