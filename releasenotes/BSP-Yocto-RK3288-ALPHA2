@@ -1,0 +1,58 @@
+Release Notes BSP-Yocto-RK3288-ALPHA2
+=====================================
+ 
+Tested Boards
+-------------
+ - phycore-rk3288-2
+ 
+Tested Yocto Images
+-------------------
+ - phytec-qt5demo-image
+ 
+Build Environment
+-----------------
+ - Ubuntu 14.04 64Bit
+ 
+Features
+--------
+ - Added support for machines:
+        * phycore-rk3288-1
+        * phycore-rk3288-2
+ 
+ - Added following features:
+        * eMMC boot
+        * SPI nor flash support
+        * barebox support as a 2nd stage bootloader
+        * Add support for Mali GPU
+        * Add OpenCL and OpenGL libs
+        * Support for I2C EEPROMs
+        * PCM-947 (RDK Board): Add PCA9533/01 (LED dimmer) support
+        * PCM-947 (RDK Board): Add support for GP buttons
+        * PCM-947 (RDK Board): HDMI support
+        * PCM-947 (RDK Board): Add ethernet support
+        * PCM-947 (RDK Board): Add support for I2C EEPROM
+        * PCM-947 (RDK Board): Add support for SDMMC
+        * PCM-947 (RDK Board): Add UART0/UART2 support
+        * PCM-947 (RDK Board): Add usb host support
+        * PCM-947 (RDK Board): Add usb otg support
+ 
+Known Issues
+------------
+* Poor libmali (fbdev) performance: It seems the libmali.so (fbdev) rockchip
+  compiled for us is not using dma_bufs. Executing es2gears with a higher
+  resolution (1920x1080) will show low FPS rates. A live analysis with
+  'perf top'  shows the bottleneck, which is memcpy. So it seems, that (only)
+  the CPU is copying data from the GPU buffer into the display controller's
+  frame buffer.
+* USBHOST1 which is usb_host0_ehci is not working (It is limited by SoC design)
+* eMMC cold resets can bring the eMMC card in a bad state.
+  See https://marc.info/?t=147263755200005&r=1&w=3
+* USB EHCI is working but the driver is not aktivated
+* qtwebkit is not installed
+
+ 
+Fixed Issues
+------------
+ 
+* SPI nor flash is now working (Disabled DMA)
+* Access to the full RAM (Wrong RAM configuration in u-boot-spl)

@@ -1,0 +1,42 @@
+Release Notes BSP-Yocto-RK3288-ALPHA1
+=====================================
+ 
+Tested Boards
+-------------
+ - phycore-rk3288-1 
+ 
+Tested Yocto Images
+-------------------
+ - phytec-headless-image
+ 
+Build Environment
+-----------------
+ - Ubuntu 14.04 64Bit
+ 
+Features
+--------
+ - Added support for machines:
+        * phycore-rk3288-1
+ 
+ - Added following features:
+        * SDMMC boot
+        * Support for SDMMC
+        * Support for eMMC (not as boot device)
+        * Basic support for HDMI
+        * Support for 10M/100M/1G Ethernet
+        * Support for USB Host 1 / USB OTG
+        * Support for RK818 PMIC
+        * Support for I2C
+        * Support for RTCs (RK3288 RTC, RK818 RTC)
+        * Support for UARTs
+        * Support for LEDs (Heartbeat LED on SOM)
+        * Support for I2C EEPROMs
+ 
+Known Issues
+------------
+ 
+ - phycore-rk3288-som: 
+        * USBHOST1 which is usb_host0_ehci is not working
+        * RK3288's memory controller does not recognize full RAM size
+          (Half of the RAM is available)
+        * rockchip-spi DMA is broken
