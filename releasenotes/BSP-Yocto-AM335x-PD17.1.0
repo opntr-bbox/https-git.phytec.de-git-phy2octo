@@ -1,0 +1,51 @@
+Release Notes AM335x-PD17.1.0
+=============================
+ 
+- Linux Kernel v4.4.52
+- barebox 2017.06.1
+- Yocto 2.2.1 (morty)
+- Qt 5.7
+ 
+Tested Yocto Images:
+--------------------
+ 
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ 
+ - Ubuntu 16.04 64Bit
+ 
+New Configuration:
+------------------
+ 
+- Added support for new machine:
+       * phyboard-regor-am335x-2
+       * phycore-emmc-am335x-1
+ 
+ 
+New Features:
+-------------
+       * Add support for EMMC
+ 
+Known Issues:
+-------------
+ 
+ - phycore-am335x-som / phycore-r2-am335x-som: 
+        * Boot tests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still
+          functional in this case.
+ 
+ - phycore-am335x/phycore-r2-am335x:
+        * rtc1 (AM335x RTC) has high deviation
+ 
+ - CAN tests with 20kbit/s did not run successfully. All other CANopen standard bit rates are
+   working. This can be fixed by switching the clock from 25 to 24 Mhz, but new problems with
+   other components can occur.
+
+ - The Yocto SDK build process will fail, becaus there are missing dependencies.
+ 
+Notes:
+------
+ 
+ - New AC158 display is now standard.

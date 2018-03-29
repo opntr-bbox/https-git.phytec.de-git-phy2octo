@@ -1,0 +1,42 @@
+Release Notes phyCORE-AM335x-R2-PD16.1.0
+========================================
+ 
+- Linux Kernel 3.12.30
+- barebox 2016.04.0
+- Yocto 2.0 (jethro)
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Issues Fixed:
+-------------
+        * Fix Kernel build when using GCC5
+ 
+New Configuration:
+------------------
+- Added support for new machines:
+        * phycore-r2-am335x-1
+        * phycore-r2-am335x-2
+        * phycore-r2-am335x-3
+        * phycore-r2-am335x-4
+        * phycore-r2-am335x-5
+ 
+Note: Powermanagment and temperature sensor support for PCM-060 is not available in this release.
+ 
+Known Issues:
+-----------------------------------
+ 
+ - phycore-am335x-som / phycore-r2-am335x-som: 
+        * Boottests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional is this case.
+ 
+ - phycore-r2-am335x: 
+        * CAN Test failed at 20kB/s during high traffic
+ 
+ - phycore-am335x/phycore-r2-am335x:
+        * rtc1 (AM335x RTC) has high deviation

@@ -1,0 +1,41 @@
+se Notes AM335x-PD15.3.1
+=============================
+ 
+- Linux Kernel 3.12.30
+- barebox 2015.09.0
+- Yocto 1.8 (fido)
+ 
+Tested Boards:
+--------------
+ - phyboard-regor-am335x-1
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-headless-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Changes since 15.3.0:
+------------------
+    * barebox:
+        * Added bitflip handling for empty pages in NAND flash
+        * default bootarg changed to mount root filesystem readonly per default, the init
+          system will remount it based on the fstab setting. This is required for fsck to work
+        * changed ext4 data mode to journal to improve filesystem reliability for SD-Cards. Has
+          impact on the writing speed.
+    * Linux kernel:
+        * Fixed bitflip handling for empty pages in NAND flash
+        * Apply fixes for compiling with gcc5
+        * Small phyBOARD-MAIA-AM335x device tree and rtc-rv3029c2 fix
+ 
+    * meta-yogurt: minor systemd fixes
+    * poky: latest security fixes
+ 
+ 
+Known Issues:
+------------------
+ - phycore-am335x-som: 
+        * Boottests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional is this case.

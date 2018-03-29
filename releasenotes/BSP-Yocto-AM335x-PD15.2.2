@@ -1,0 +1,47 @@
+Release Notes AM335x-PD15.2.2
+=============================
+ 
+- Linux Kernel 3.12.30
+- barebox 2015.09.0
+- Yocto 1.8 (fido)
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Changes since 15.2.1:
+---------------------
+    * barebox:
+        * Added bitflip handling for empty pages in NAND flash
+        * default bootarg changed to mount root filesystem readonly per default, the init
+          system will remount it based on the fstab setting. This is required for fsck to work
+    * Linux kernel: Fixed bitflip handling for empty pages in NAND flash
+    * meta-yogurt: minor systemd fixes
+    * poky: latest security fixes
+ 
+Known Issues:
+-------------
+ 
+ - phycore-am335x-som: 
+        * Boottests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional is this case.
+ 
+ - phyboard-maia-am335x-1:
+	* digital IO inputs do not work with CB Version 1403.2
+ 
+ - phyflex-am335x-1: 
+	* line in has high distortion
+ 
+ - Ext4 write performance and powercut tolerance tradeoff:
+   The root filesystem on eMMC and SD-Cards is mounted with open
+     data=journal
+   This increases the filesystem reliability in case of power cuts but
+   hurst the write performance.  It depends on you application safety
+   needs which one you prefer.
+   You can change the mount option in the bootloader via the kernel
+   parameters. Please note that this option does not impact the read
+   performance of the filesystem.

@@ -1,0 +1,33 @@
+Release Notes AM335x-PD15.2.1
+=============================
+ 
+- Linux Kernel 3.12.30
+- barebox 2015.09.0
+- Yocto 1.8 (fido)
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Issues Fixed:
+-------------
+        * Fixed Qt5 debug build:
+          because of a gcc bug, Qt applications could not be build with debug
+          information in some cases
+ 
+Known Issues:
+-----------------------------------
+ 
+ - phycore-am335x-som: 
+        * Boottests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional is this case.
+ 
+ - phyboard-maia-am335x-1:
+	* digital IO inputs do not work with CB Version 1403.2
+ 
+ - phyflex-am335x-1: 
+	* line in has high distortion

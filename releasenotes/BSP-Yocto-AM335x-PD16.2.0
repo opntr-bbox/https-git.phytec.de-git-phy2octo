@@ -1,0 +1,73 @@
+Release Notes AM335x-PD16.2.0
+=============================
+
+- Linux Kernel v4.4.19
+- barebox 2016.07.0
+- Yocto 2.1.2 (krogoth)
+- Qt 5.6
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-qt5demo-image
+
+Build Environment:
+------------------
+
+ - Ubuntu 14.04 64Bit
+
+Issues Fixed:
+-------------
+
+New Configuration:
+------------------
+
+- Added support for new machine:
+       * phyboard-wega-r2-am335x-1
+
+New Features:
+-------------
+
+       * Kernel and device tree are stored in static UBI volumes
+       * power management support for PCM-060
+
+Defeatured:
+-----------
+
+       * Removed support for phyFLEX-AM335x machines
+       * Removed support for phyBOARD-MAIA-AM335x machines
+
+Known Issues:
+-------------
+
+ - phycore-am335x-som / phycore-r2-am335x-som: 
+        * Boot tests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still
+          functional in this case.
+
+ - phycore-am335x/phycore-r2-am335x:
+        * rtc1 (AM335x RTC) has high deviation
+
+ - Using the kernel crypto modules for hw acceleration of ssl causes ssh connections from Ubuntu
+   14.04 to fail. The module auto loading has therefore been disabled.
+
+ - CAN tests with 20kbit/s did not run successfully. All other CANopen standard bit rates are
+   working.
+
+Notes:
+------
+
+Updating the kernel, device tree and rootfs has changed in this release. As kernel and device tree are now placed
+in a static ubi volume inside the rootfs partition.
+Following example shows how to update those parts in NAND from SD-Card with the new barebox loaded:
+
+ bootloader$ ubiformat -y /dev/nand0.root
+ bootloader$ ubiattach /dev/nand0.root
+
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi kernel 8M
+ bootloader$ ubimkvol -t static /dev/nand0.root.ubi oftree 1M
+ bootloader$ ubimkvol -t dynamic /dev/nand0.root.ubi root 0
+
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.kernel /boot/linuximage
+ bootloader$ ubiupdatevol /dev/nand0.root.ubi.oftree /boot/oftree
+ bootloader$ cp /boot/rootfs.ubifs /dev/nand0.root.ubi.root

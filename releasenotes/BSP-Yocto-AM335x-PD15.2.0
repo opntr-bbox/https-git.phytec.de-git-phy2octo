@@ -1,0 +1,79 @@
+Release Notes AM335x-PD15.2.0
+=============================
+ 
+- Linux Kernel 3.12.30
+- barebox 2015.09.0
+- Yocto 1.8 (fido)
+ 
+Tested Boards:
+--------------
+ - phyboard-maia-am335x-1 
+ - phyboard-maia-am335x-3 (only boot tests)
+ - phyboard-wega-am335x-1 (only boot tests)
+ - phyboard-wega-am335x-2 (only boot tests)
+ - phyboard-wega-am335x-3
+ - phyboard-wega-am335x-4 (only boot tests)
+ - phycore-am335x-1
+ - phycore-am335x-2 (only boot tests)
+ - phycore-am335x-3 (only boot tests)
+ - phycore-am335x-4 (only boot tests)
+ - phycore-am335x-5 (only boot tests)
+ - phycore-am335x-6 (only boot tests)
+ - phycore-am335x-7 (only boot tests)
+ - phyflex-am335x-1
+ 
+Tested Yocto Images:
+--------------------
+ - phytec-qt5demo-image
+ 
+Build Environment:
+------------------
+ - Ubuntu 14.04 64Bit
+ 
+Features:
+------------------
+ - Added support for new machines:
+        * phyboard-maia-am335x-2
+        * phyboard-maia-am335x-3
+        * phyboard-wega-am335x-3
+        * phyboard-wega-am335x-4
+        * phycore-am335x-3
+        * phycore-am335x-4
+        * phycore-am335x-5
+        * phycore-am335x-6
+        * phycore-am335x-7
+        * phyflex-am335x-2
+        * phyflex-am335x-3
+        * phyflex-am335x-4
+ 
+ - Added following features:
+        * Support for Wifi Expansion PEB-B-001.A2, PEB-WLBT-01.A2 and PCM-958
+        * Added support for Maia SD-Card expansion PEB-C-004.A0
+        * Added support for RS485 (phyboard-maia-am335x-3)
+        * Added support for new displays:
+            * LCD-018-035-KAP 
+            * LCD-018-043-KAP
+            * LCD-018-057-KAP
+        * Added support for resistive touch on different machines, except phyFLEX-AM335x
+        * Updated edt touch driver to support new firmware version
+        * Support basic EMMC handling (added EMMC image, added tool to change extended registers in bootloader, added update handler for raw mmc images)
+        * Added watchdog support (Only enabled in bootloader as default, see documentation)
+        * Add support for ethernet boot
+        * Add support for Audio WM8974 Codec on PCM-953
+ 
+- Issues Fixed:
+       * Disabled crypto module due to buggy behaviour
+       * Added workaround for SMSC link detection issue
+ 
+Known Issues:
+-----------------------------------
+ 
+ - phycore-am335x-som: 
+        * Boottests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+          The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional is this case.
+ 
+ - phyboard-maia-am335x-1:
+	* digital IO inputs do not work with CB Version 1403.2
+ 
+ - phyflex-am335x-1: 
+	* line in has high distortion
