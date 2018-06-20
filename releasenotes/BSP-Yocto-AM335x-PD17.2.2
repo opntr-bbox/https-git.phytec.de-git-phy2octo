@@ -1,0 +1,86 @@
+Release Notes AM335x-PD17.2.2
+=============================
+
+Changes since PD17.2.1                  2018-06-20
+--------------------------------------------------
+
+- Update:
+	- Yocto 2.3.4 (pyro)
+	- Linux Kernel v4.9.98
+	- Linux Kernel v4.9.98-rt76 (PREEMPT_RT)
+- Added new machine phycore-am335x-r2-6
+	Supporting new standard variant phyCORE-AM335x-R2 PCM-060-43002F10I.A0
+- Fix: Barebox: ECC NAND driver issue in barebox causing bit errors not
+	being corrected
+- Fix: Qt Debuggig using gdb with the SDK
+- Fix: debugfs for PREEMPT Kernel builds
+- Fix: Error messages during shutdown:
+	 [FAILED] Failed unmounting /var/volatile.
+	 [FAILED] Failed unmounting Temporary Directory (/tmp).
+- Fix: Error messages during boot of PREEMPT Kernel:
+	[ 8.866846] remoteproc0: Direct firmware load for
+			am335x-pm-firmware.elf failed with error -2
+- Fix: Barebox: Fix register group writing for mmc_extcsd
+- Fix: Barebox: return value of ubiupdatevol
+- Fix: Barebox: state framework disabled on default
+- Fix: Barebox: state will not overwrite EEPROM content
+
+
+Changes since PD17.2.0                  2018-03-15
+--------------------------------------------------
+ 
+- Update: Yocto 2.3.3 (pyro)
+- Fixː The SDK build process failed in gdb-cross-canadian-arm-7.12.1
+        configure:checking for python3.5... no
+        configure: error: no usable python found
+        at /home/-/phyCORE-AM335x/build/tmp/work/x86_64-nativesdk-phytecsdk-linux/gdb-cross-canadian-arm/7.12.1-r0/python
+        Makefile:8797: recipe for target 'configure-gdb' failed
+        make[1]: *** [configure-gdb] Error 1
+        make[1]: Leaving directory
+        '/home/-/phyCORE-AM335x/build/tmp/work/x86_64-nativesdk-phytecsdk-linux/gdb-cross-canadian-arm/7.12.1-r0/build-arm-phytec-linux-gnueabi'
+        Makefile:850: recipe for target 'all' failed
+        make: *** [all] Error 2
+ - Fixː The Beaglebone Black can't boot due a wrong Barebox environment
+ - Fixː PCM-062 can't suspend.
+ 
+ 
+BSP-Yocto-AM335x-PD17.2.0               2017-12-20
+--------------------------------------------------
+ 
+- Linux Kernel v4.9.47
+- Linux Kernel v4.9.47-rt37 (PREEMPT_RT) 
+- barebox 2017.10.0
+- Yocto 2.3.2 (pyro)
+- Qt 5.8
+ 
+Tested Yocto Images:
+--------------------
+ 
+  see machines.txt
+ 
+Build Environment:
+------------------
+ 
+  - Ubuntu 16.04 64Bit
+ 
+New Features:
+-------------
+ 
+  - Switched to upstream kernel v4.9
+  - All machines are available with PREEMPT_RT patches
+  - Added 3,5" capacity display
+  - Renamed phyboard-regor-am335x-2 to phyboard-regor-r2-am335x-1
+  - Added support to store MAC on EEPROM
+ 
+Known Issues:
+-------------
+ 
+  - phycore-am335x-som / phycore-r2-am335x-som:
+         * Boot tests showed in about 2 of 2000 boots that the SMSC LAN8710 phy could not be found.
+           The PHY ID readout is wrong. The generic PHY driver will take over. Ethernet is still functional in this case.
+ 
+  - phycore-am335x/phycore-r2-am335x:
+         * rtc1 (AM335x RTC) has high deviation
+ 
+  - CAN tests with 20kbit/s did not run successfully. All other CANopen standard bit rates are working.
+    This can be fixed by switching the clock from 25 to 24 Mhz, but new problems with other components can occur.
