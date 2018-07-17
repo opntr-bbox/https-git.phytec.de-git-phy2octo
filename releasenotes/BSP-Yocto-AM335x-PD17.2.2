@@ -5,7 +5,7 @@ Changes since PD17.2.1                  2018-06-20
 --------------------------------------------------
 
 - Update:
-	- Yocto 2.3.4 (pyro)
+	- Yocto 2.3.3 (pyro HEAD commit 604d82bc0e2e) 
 	- Linux Kernel v4.9.98
 	- Linux Kernel v4.9.98-rt76 (PREEMPT_RT)
 - Added new machine phycore-am335x-r2-6
@@ -25,6 +25,9 @@ Changes since PD17.2.1                  2018-06-20
 - Fix: Barebox: state framework disabled on default
 - Fix: Barebox: state will not overwrite EEPROM content
 
+Known Issues:
+-------------
+- resistive Touch (am335x tsc) returns wrong values making QT demo not usable
 
 Changes since PD17.2.0                  2018-03-15
 --------------------------------------------------
