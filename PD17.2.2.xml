@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD17.2.2" release_uid="BSP-Yocto-AM335x-PD17.2.2" soc="AM335x" supported_builds="
+    phyboard-regor-am335x-1/phytec-headless-image/yogurt-rt
+    phyboard-regor-r2-am335x-1/phytec-headless-image/yogurt-rt
+    phyboard-wega-am335x-1/phytec-headless-image/yogurt
+    phyboard-wega-am335x-1/phytec-qt5demo-image/yogurt
+    phyboard-wega-am335x-2/phytec-headless-image/yogurt
+    phyboard-wega-am335x-2/phytec-qt5demo-image/yogurt
+    phyboard-wega-am335x-3/phytec-headless-image/yogurt
+    phyboard-wega-am335x-3/phytec-qt5demo-image/yogurt
+    phyboard-wega-am335x-4/phytec-headless-image/yogurt
+    phyboard-wega-am335x-4/phytec-qt5demo-image/yogurt
+    phyboard-wega-r2-am335x-1/phytec-headless-image/yogurt
+    phyboard-wega-r2-am335x-1/phytec-qt5demo-image/yogurt
+    phycore-am335x-1/phytec-qt5demo-image/yogurt
+    phycore-am335x-2/phytec-qt5demo-image/yogurt
+    phycore-am335x-3/phytec-qt5demo-image/yogurt
+    phycore-am335x-4/phytec-headless-image/yogurt
+    phycore-am335x-5/phytec-headless-image/yogurt
+    phycore-am335x-7/phytec-qt5demo-image/yogurt
+    phycore-emmc-am335x-1/phytec-headless-image/yogurt
+    phycore-emmc-am335x-1/phytec-qt5demo-image/yogurt
+    phycore-r2-am335x-1/phytec-qt5demo-image/yogurt
+    phycore-r2-am335x-2/phytec-headless-image/yogurt
+    phycore-r2-am335x-3/phytec-qt5demo-image/yogurt
+    phycore-r2-am335x-4/phytec-headless-image/yogurt
+    phycore-r2-am335x-5/phytec-qt5demo-image/yogurt
+    phycore-r2-am335x-6/phytec-qt5demo-image/yogurt
+  " />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" revision="pyro" sync-j="8" />
+  
+  <project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github" revision="de03269ec09e4dc749d47b723ea158ede94d7efc" />
+  <project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="eec531e97a17bfd406f3bf76dee4057dcf5286a4" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="9eaebc6e783f1394bb5444326cd05a976b3122e9" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.3.3-phy2">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="631ea6373ca3ffb0e17968dfcd6f3171f95bbac6" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.3.3-phy2" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="604d82bc0e2e5061b8fb1dbadb55c95687471465" />
+</manifest>
