@@ -1,0 +1,104 @@
+Release Notes unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-i.MX6-PD18.1.0                2018-08-02
+==================================================
+- Linux Kernel v4.14.39 (v4.14 is a LTS kernel)
+  * Update from v4.1.46 to v4.14.39
+- barebox v2017.12.0
+- Yocto 2.4.3 (rocko)
+- Qt 5.9.6 from meta-qt5 (rocko)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64Bit
+
+Machines:
+---------
+- Added:
+  * phyboard-mira-imx6-8	(see Known Issues)
+  * phyboard-mira-imx6-13
+  * phyboard-mira-imx6-14
+  * phyboard-mira-imx6-15
+  * phyboard-nunki-imx6-1
+
+- No longer supported:
+  * phyboard-mira-imx6-6
+  * phyboard-subra-imx6-1
+  * phyboard-subra-imx6-2
+  * phycard-imx6-1
+
+
+Changes since PD16.1.1:
+-----------------------
+- New Features:
+  * barebox: USB host and OTG support
+  * barebox: DFU file transfer is now supported
+  * Etnaviv GPU driver
+    - Replaced proprietary Vivante GPU driver
+    - Qt5 support
+    - OpenGL support
+  * RAUC (Robust Auto-Update Controller)
+    - Only supported with NAND flash (no eMMC support)
+    - barebox scripts for partitioning and flashing of the NAND flash
+    - RAUC update tool in userspace
+    - Yocto support for building rauc bundles
+    - Default enabled on Kits (phyboard-mira-imx6-3 and phyflex-imx6-2)
+  * phyBOARD-Nunki Imaging baseboard support
+  * Following phyCAM cameras are supported with this BSP:
+    - VM-009
+    - VM-010
+    - VM-011
+    - VM-012
+    - VM-050 (thermal vision)
+  * New phytec-vision-image for vision and imaging purposes:
+    - Includes openCV library
+  * Updated version of the bayer2rgb-neon library
+  * New QtDemo version 1.3
+
+- Fixes:
+  * kernel:
+    - Display and HDMI are now working with the i.MX 6QuadPlus.
+    - Fixed UART RX Fifo Overrun issue
+
+
+Known Issues:
+-------------
+- general:
+  * Decoding H264 videos with the VPU in our Qt5 demo flickers and shows
+    wrong artefacts. Outside of Qt decoding H264 videos works well.
+  * The internal watchdog of the i.MX 6 cannot be used as watchdog or for
+    reset. This is due to the fact that during reset the PMIC needs to be
+    reset too which cannot be established with this hardware configuration.
+    Therefore the PMIC watchdog is configured as default hardware watchdog in
+    barebox and kernel.
+
+- barebox:
+  * In rare cases during boot the ethernet phy does not come up correctly
+    and Ethernet is not working (affects phyCORE-i.MX6 and phyFLEX-i.MX6).
+  * The first attempt to read a subdiretory structure over tftp fails.
+    Subsequent attempts work.
+
+- kernel:
+  * In rare cases during kernel boot the NAND flash fails to be detected
+    with following error (affects phyCORE-i.MX6 and phyFLEX-i.MX6):
+    gpmi_reset_block(f0a2a000): module reset timeout.
+  * phyboard-mira-imx6-8 (1.2 GHz i.MX 6Q):
+    - Controlling ARM and SOC voltages for DVFS with PMIC is not supported
+      since the 1.2 GHz operating point is not allowed to be operated with
+      the internal i.MX 6 LDO's in bypass mode. So this machine always
+      operates with internal LDO's enabled which results in highly more heat
+      generation on the SOC.
+    - Boot from eMMC on this SOM often leads to boot hangs specific to this
+      1.2 GHz variant.
+  * HDMI audio module driver is disabled due to imcompatibility issues with
+    alsa.
+  * The Microphone and Line-In inputs on the phyFLEX-i.MX6 do not work.
+  * On SOMs with 1 GB RAM size a CMA size of 256 MB is not supported when
+    the imx legacy framebuffer is used.
+  * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
+    devicetree and cannot be changed on runtime.
