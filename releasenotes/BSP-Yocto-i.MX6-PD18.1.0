@@ -1,7 +1,7 @@
 Release Notes unified i.MX6 Linux BSP:
 ======================================
 
-BSP-Yocto-i.MX6-PD18.1.0                2018-08-02
+BSP-Yocto-i.MX6-PD18.1.0                2018-08-06
 ==================================================
 - Linux Kernel v4.14.39 (v4.14 is a LTS kernel)
   * Update from v4.1.46 to v4.14.39
@@ -20,7 +20,7 @@ Build Environment:
 Machines:
 ---------
 - Added:
-  * phyboard-mira-imx6-8	(see Known Issues)
+  * phyboard-mira-imx6-8
   * phyboard-mira-imx6-13
   * phyboard-mira-imx6-14
   * phyboard-mira-imx6-15
@@ -71,23 +71,20 @@ Known Issues:
 - general:
   * Decoding H264 videos with the VPU in our Qt5 demo flickers and shows
     wrong artefacts. Outside of Qt decoding H264 videos works well.
-  * The internal watchdog of the i.MX 6 cannot be used as watchdog or for
-    reset. This is due to the fact that during reset the PMIC needs to be
-    reset too which cannot be established with this hardware configuration.
-    Therefore the PMIC watchdog is configured as default hardware watchdog in
-    barebox and kernel.
+  * The internal watchdog of the i.MX 6 cannot be used. We recommend to use
+    the PMIC watchdog as preconfigured.
 
 - barebox:
-  * In rare cases during boot the ethernet phy does not come up correctly
-    and Ethernet is not working (affects phyCORE-i.MX6 and phyFLEX-i.MX6).
-  * The first attempt to read a subdiretory structure over tftp fails.
-    Subsequent attempts work.
+  * In rare cases (< 0.5%) during boot the ethernet phy does not come up
+    correctly and Ethernet is not working
+  * The first attempt to read a subdiretory structure over tftp might fail.
+    Following attempts work.
 
 - kernel:
-  * In rare cases during kernel boot the NAND flash fails to be detected
-    with following error (affects phyCORE-i.MX6 and phyFLEX-i.MX6):
+  * In rare cases (< 0.1%) during kernel boot the NAND flash fails to be
+    detected with following error:
     gpmi_reset_block(f0a2a000): module reset timeout.
-  * phyboard-mira-imx6-8 (1.2 GHz i.MX 6Q):
+  * 1.2 GHz i.MX 6:
     - Controlling ARM and SOC voltages for DVFS with PMIC is not supported
       since the 1.2 GHz operating point is not allowed to be operated with
       the internal i.MX 6 LDO's in bypass mode. So this machine always
