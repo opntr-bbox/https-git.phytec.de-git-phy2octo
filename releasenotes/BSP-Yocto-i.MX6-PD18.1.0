@@ -28,6 +28,7 @@ Machines:
 
 - No longer supported:
   * phyboard-mira-imx6-6
+  * phyboard-mira-imx6-7 (replaced by phyboard-mira-imx6-14, see Notes)
   * phyboard-subra-imx6-1
   * phyboard-subra-imx6-2
   * phycard-imx6-1
@@ -95,7 +96,17 @@ Known Issues:
   * HDMI audio module driver is disabled due to imcompatibility issues with
     alsa.
   * The Microphone and Line-In inputs on the phyFLEX-i.MX6 do not work.
+  * After resuming from suspend ethernet is not coming up correctly.
   * On SOMs with 1 GB RAM size a CMA size of 256 MB is not supported when
     the imx legacy framebuffer is used.
   * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
     devicetree and cannot be changed on runtime.
+
+
+Notes:
+------
+- The phyboard-mira-imx6-7 machines represented a phyCORE-i.MX 6DualLight SOM
+  with 1 GB RAM and eMMC on a phyBOARD-Mira low-cost. With this release it
+  got replaced by the phyboard-mira-imx6-14 which represents the same SOM but
+  on a phyBOARD-Mira full-featured so that the SOM now supports all the
+  features of the full-featured phyBOARD-Mira.
