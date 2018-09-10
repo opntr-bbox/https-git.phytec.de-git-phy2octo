@@ -1,0 +1,80 @@
+Release Notes AM335x-PD17.1.3
+=============================
+
+Changes since PD17.1.2                  2018-09-10
+--------------------------------------------------
+- Update:
+	- Yocto 2.2.4 (morty HEAD commit bfea1efa7b6e)
+	- TI Linux Kernel v4.1.141
+- Fix: Barebox: ECC NAND driver issue in barebox causing bit errors not
+        being corrected
+
+Changes since PD17.1.1                  2017-12-13
+--------------------------------------------------
+- Fixː NFS works in combination of DHCP and doesn't end in
+           "not responding, still trying" messages.
+- Fixː The SD-Card image contains again a ubifs root filesystem.
+- Fixː HDMI was initialised with a resolution of 1280x1024 because
+           the bootloader hasn't passed the HDMI bootargs to the kernel
+- Fixː TFTP can now access subdirectories without an
+           "Invalid argument" error
+- Fixː The NAND root filesystem will be found while booting from SPI.
+ 
+Changes since PD17.1.0                  2017-10-05
+--------------------------------------------------
+ 
+- Fix: The SDK build process failed due missing dependencies.
+     Collected errors:
+      * calculate_dependencies_for: Cannot satisfy the following 
+dependencies for packagegroup-qt5-toolchain-target:
+      * qtquick1-mkspecs * qtquick1-plugins * qtquick1-qmlplugins * 
+qttools-mkspecs * qttools-staticdev *
+      * opkg_solver_install: Cannot install package 
+packagegroup-qt5-toolchain-target.
+ 
+ 
+BSP-Yocto-AM335x-PD17.1.0               2017-09-29
+--------------------------------------------------
+ 
+- Linux Kernel v4.4.52
+- barebox 2017.06.1
+- Yocto 2.2.1 (morty)
+- Qt 5.7
+ 
+Tested Yocto Images:
+--------------------
+ 
+  see machines.txt
+ 
+Build Environment:
+------------------
+ 
+  - Ubuntu 16.04 64Bit
+ 
+New Features:
+-------------
+ 
+  - Add support for EMMC
+  - New AC158 display is now standard
+  - Added support for new machine:
+        * phyboard-regor-am335x-2
+        * phycore-emmc-am335x-1
+ 
+Known Issues:
+-------------
+ 
+  - phycore-am335x-som / phycore-r2-am335x-som:
+         * Boot tests showed in about 2 of 2000 boots that the SMSC 
+LAN8710 phy could not be found.
+           The PHY ID readout is wrong. The generic PHY driver will take 
+over. Ethernet is still
+           functional in this case.
+ 
+  - phycore-am335x/phycore-r2-am335x:
+         * rtc1 (AM335x RTC) has high deviation
+ 
+  - CAN tests with 20kbit/s did not run successfully. All other CANopen 
+standard bit rates are
+    working. This can be fixed by switching the clock from 25 to 24 Mhz, 
+but new problems with
+    other components can occur.
