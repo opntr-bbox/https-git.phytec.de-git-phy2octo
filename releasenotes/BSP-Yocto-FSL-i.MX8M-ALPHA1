@@ -1,17 +1,17 @@
-Release Notes i.MX8M Linux  BSP:
-================================
+Release Notes i.MX 8M Linux BSP:
+===============================
 
 BSP-Yocto-FSL-i.MX8M-ALPHA1		2018-09-11
 ==================================================
 
 - Linux NXP Vendor Kernel v4.9.51-8mq-phy1 (based on NXP tag rel_imx_4.9.51_8mq_ga)
 - U-boot v2017.03.0-imx8m-phy1
-- Yocto 2.2.3 (morty)
+- Yocto 2.2.3+ (morty)
 
 
-Tested Yocto Images:
+Tested Yocto Builds:
 --------------------
-- fsl-image-qt5-validation-imx on:
+- fsl-image-qt5-validation-imx/fsl-imx-wayland on:
   * phyboard-polaris-imx8m-1
 
 
