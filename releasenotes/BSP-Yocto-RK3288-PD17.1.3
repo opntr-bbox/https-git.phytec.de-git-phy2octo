@@ -1,0 +1,113 @@
+Release Notes RK3288-PD17.1.3
+=============================
+
+- kernel 4.9.98
+- barebox 2016.07.0
+- yocto 2.2 (morty)
+
+
+Changes since 17.1.2
+--------------------
+
+- meta-phytec:
+  * linux-mainline: Update kernel recipe to v4.9.98-phy2
+
+- Linux Kernel:
+  * Fix cpu0-supply on phyCORE-RK3288
+
+
+Fixed bugs
+----------
+
+- Fix boot failures caused by a missing cpu supply
+
+Changes since 17.1.1
+--------------------
+
+- meta-phytec:
+  * linux-mainline: Update kernel recipe to v4.9.98-phy1
+
+- Linux Kernel:
+  * Removed maximum operating frequency of 1.8GHz from dts
+  * Added PMIC reset property
+  * Added rk808 restart functionality
+  * Added PMIX restart functionality
+  * Swapped rk808-DEVCTRL bits for reboot
+
+
+Fixed bugs
+----------
+
+-Reboot does not work without SD card
+
+
+Changes since 17.1.0
+--------------------
+
+- meta-phytec: Updated rkeeprom.py to match new layout version
+- Barebox:
+  * Added I2C driver
+  * Barebox sets now a proper programmed mac address for eth0
+   (Input comes from EEPROM).
+
+
+Changes since ALPHA2
+--------------------
+
+- meta-phytec:
+  * Removed support for firefly board
+  * Removed support for PCM-946
+  * Removed support for 1st revision of PCM-059
+  * Fixed phytec QtDemo: Playing videos is now possible
+  * Added support for GBM and wayland backends to Qt
+  * Updated mali userspace libraries (r12p0-04rel0)
+
+- meta-yogurt:
+  * Introduce new image type: phytec-desktop-image
+  * Added drmgears, kmscube - demos to showcase 3D graphics using drm and gbm
+  * Added weston support
+  * Added support for PCM-947 2nd rev (phycore-rk3288-3)
+  * Added rkeeprom.py - A tool to manage the SoM variants
+
+
+- Linux Kernel:
+  * Debug log moved to UART2
+  * Added rockchip crypto accelerator support
+    Supporting cbc/ecb chainmode, and aes/des/des3_ede cipher mode.
+  * Added rockchip efuse support
+    Dump specified values of Rockchip SoC, such as cpu-leakage and serial number
+  * Added LVDS support
+    (Added support for LCD-018 display)
+  * Activate USB EHCI, USBHOST 2
+  * PCM-947 RTC is now working
+  * Added support for PCM-059 2nd rev
+  * Added support for PCM-947 2nd rev
+  * Added support for MALI GPU
+  * Added support for DP83867 gigabit ethernet PHY
+  * USB EHCI is now working
+
+- Barebox:
+  * Debug log moved to UART2
+
+
+Known Issues/Limitations
+------------------------
+
+- Qt5.7: QTBUG-53467: WebEngineView crashes on right click or long touch press.
+  QtQuickControls1 does not handle embedded platforms too well. In case of
+  eglfs platform we crash badly - only one window is supported.
+- Qt5.7: By default the backend will find the first available display and pick
+  the EGL layer that corresponds to it. Starting a Qt application with eglfs will
+  render the application on the first picked display.
+- Qt: Wrong system date can crash the webengine and the system.
+- Reboot does not work without SD card
+- LVDS wakeup does not work
+
+
+Tested Yocto Images
+-------------------
+
+- phytec-desktop-image
+
+
+
