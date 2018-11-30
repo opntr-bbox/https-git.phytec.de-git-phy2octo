@@ -36,10 +36,10 @@
   <default remote="git.phytec" revision="krogoth" sync-j="8" />
   
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="55c8a76da5dc099a7bc3838495c672140cedb78e" />
-  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.1.3-phy7">
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.1.3-phy8">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
   <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="dcfcb581ec65ef1b96f4840a81ea9d9f2297b394" />
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.1.3-phy7" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.1.3-phy8" />
   <project name="poky" path="sources/poky" remote="yocto" revision="444dc2e99b3c3967d9f83380c34bb99077a6ffa8" />
 </manifest>
