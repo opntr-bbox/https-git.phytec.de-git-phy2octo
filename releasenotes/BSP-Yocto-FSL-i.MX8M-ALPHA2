@@ -1,0 +1,79 @@
+Release Notes i.MX 8M Linux BSP:
+================================
+
+BSP-Yocto-FSL-i.MX8M-ALPHA2		2018-12-14
+==================================================
+
+- Linux NXP Vendor Kernel v4.9.51-8mq-phy2 (based on NXP tag rel_imx_4.9.51_8mq_ga)
+- U-boot v2017.03.0-imx8m-phy2
+- Yocto 2.2.3+ (morty)
+
+NOTE:
+This is an alpha release and has not been tested for full functionality. It is
+possible that some features are not work correct or stable.
+
+
+Tested Yocto Builds:
+--------------------
+- fsl-image-qt5-validation-imx/fsl-imx-wayland on:
+  * phyboard-polaris-imx8m-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+Changes since ALPHA1:
+---------------------
+- Supported machine:
+    * Remove machine phyboard-polaris-imx8m-1
+    * Added machine phyboard-polaris-imx8m-2
+
+- New Features:
+    * USB 3.0 support
+    * 1.8V SD Support
+    * HDMI support
+    * DVFS support
+
+Known Issues/Limitations:
+-------------------------
+- USB OTG does not work
+- Audio: Sampling rates 11025 Hz, 22050 Hz, 44100 Hz and 88200 Hz do not work
+- HDMI will not work with all displays
+
+
+BSP-Yocto-FSL-i.MX8M-ALPHA1		2018-09-11
+==================================================
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polaris-imx8m-1
+
+- Added new features:
+  * NXP vendor kernel 4.9.51
+  * Qt5 (5.8.0) support
+  * PEB-EVAL-01
+  * EEPROM support (u-boot-imx/kernel)
+  * USB host support 2.0 (kernel)
+  * Ethernet 1 GBit (u-boot-imx/kernel)
+  * MMC support (u-boot-imx/kernel)
+  * Audio support (line in/out, speaker) (kernel)
+  * Support for RTC (kernel)
+  * PEB-AV-09 (MIPI to LVDS bridge Texas Instruments SN65DSI83)
+
+
+Known Issues/Limitations:
+-------------------------
+- USB host interface does not work with USB 3.0 devices
+- USB OTG does not work
+- HDMI does not work (redesign of hardware required)
+- Audio: Sampling rates 11025 Hz, 22050 Hz, 44100 Hz and 88200 Hz do not work
+- The Ethernet interface needs a network attached, otherwise the boot sequence
+  will delay for a long time waiting for a network.
+
+
+Changelog of Release Notes
+--------------------------
+2018-09-11
+  - initial version
