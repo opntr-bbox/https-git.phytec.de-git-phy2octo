@@ -101,6 +101,7 @@ Known Issues:
     the imx legacy framebuffer is used.
   * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
     devicetree and cannot be changed on runtime.
+  * RS485 half duplex operation is broken.
 
 
 Notes:
