@@ -42,11 +42,11 @@
   <project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github" revision="802a5db727edf0ec1d142122241c857bffab8667" />
   <project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="eec531e97a17bfd406f3bf76dee4057dcf5286a4" />
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8" />
-  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.4.4-phy1">
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.4.4-phy2">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
   <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="d8b531530fa42b59aa0a5b123d87a30d749cbcc4" />
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.4.4-phy1" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.4.4-phy2" />
   <project name="poky" path="sources/poky" remote="yocto" revision="c3dd2826dd1cd940203609133ecea58ef450d813" />
   <project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="e9c3928d6c24bd58c613bd8334066021946d6347" />
 </manifest>
