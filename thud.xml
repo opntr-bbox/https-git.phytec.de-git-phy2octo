@@ -12,6 +12,7 @@
 	<default revision="thud" remote="git.phytec" sync-j="8"/>
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
+	<project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
