@@ -16,7 +16,6 @@
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
-	<project name="meta-rust/meta-rust" remote="github" path="sources/meta-rust" revision="f2f17c58b00d12e795fc9c5f66c1bb82759bf72f"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
