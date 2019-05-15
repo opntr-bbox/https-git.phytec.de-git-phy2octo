@@ -1,0 +1,24 @@
+Release Notes BSP-Yocto-IoTEdge-RK3288-v1.0
+===========================================
+
+- Linux Kernel v4.9.98
+- u-boot 2018.07
+- Yocto 2.6.2 thud
+- Wayland
+- IoTEdge Daemon 1.0.6.1
+
+Tested Yocto Images:
+--------------------
+
+  see machines.txt
+
+Build Environment:
+------------------
+
+  - Ubuntu 16.04 64Bit
+
+Known Issues:
+-------------
+
+  - wayland start up bug: you need to have an input device attached, or
+    wayland will not boot
