@@ -9,7 +9,7 @@
 	<remote name="ti" fetch="git://git.ti.com"/>
 	<remote name="github" fetch="git://github.com"/>
 
-	<default revision="morty" remote="git.phytec" sync-j="8"/>
+	<default revision="rocko" remote="git.phytec" sync-j="8"/>
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
