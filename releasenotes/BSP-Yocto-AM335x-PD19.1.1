@@ -1,0 +1,70 @@
+Release Notes AM335x-PD19.1.1
+=============================
+
+Changes since PD19.1.0                  2019-06-18
+--------------------------------------------------
+
+- Updated Yocto 2.5.3 (sumo HEAD commit 5ddf7fff992b)
+- Fix: Qt Demo LED hardware control
+- Fix: Update phyBOARD-WEGA PEB-EVAL-01 user LED names
+- Fix: SDK build
+- Fix: Change RUN/STOP LEDs default configuration to off
+- Fix: Barebox: Add UBI wearleveling workaround
+- Fix: Barebox: Fix memory node layout
+
+
+BSP-Yocto-AM335x-PD19.1.0               2019-03-13
+--------------------------------------------------
+
+- Linux Kernel v4.14.78
+- Linux Kernel v4.14.78-rt47 (PREEMPT_RT)
+- barebox 2018.11.0
+- Yocto 2.5.2 (sumo HEAD commit 623b77885051)
+- Qt 5.9
+
+Tested Yocto Images:
+--------------------
+
+  see machines.txt
+
+Build Environment:
+------------------
+
+  - Ubuntu 16.04 64Bit
+
+New Features:
+-------------
+
+  - Updated to kernel 4.14
+  - Added support for rauc
+  - Added support for phyBOARD-REGOR RUN/STOP LEDs
+  - Added support for user LEDS on PCM-953 with PCM-062
+  - Added update script (bbu.sh) to update MLO and barebox from userspace
+
+Defeatured:
+-----------
+
+  - Removed phyboard-wega-am335x-4 support
+
+  - USB OTG support has been removed. (Has been also defeatured from upstream
+    Kernel v4.18). USB as device and USB as host are still working but
+    automatic switching isn't.
+
+Known Issues:
+-------------
+
+  - phycore-am335x-som / phycore-r2-am335x-som:
+         * Boot tests showed in about 2 of 2000 boots that the SMSC LAN8710 phy
+	   could not be found. The PHY ID readout is wrong. The generic
+           PHY driver will take over. Ethernet is still functional in this case.
+
+  - phycore-am335x/phycore-r2-am335x:
+         * rtc1 (AM335x RTC) has high deviation
+
+  - CAN tests with 20kbit/s did not run successfully. All other CANopen
+    standard bit rates are working. This can be fixed by switching the clock
+    from 25 to 24 Mhz, but new problems with other components can occur.
+
+  - PCM-953/phyBOARD-WEGA audio: Recording does not work correctly.
+
+  - UART0 RXD does not work correctly in linux in 1 of 1000 boot cycles.
