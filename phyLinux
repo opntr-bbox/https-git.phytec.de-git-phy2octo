@@ -8,6 +8,11 @@ import subprocess
 import shutil
 import sys
 
+uid = os.geteuid()
+if 0 == uid:
+    print("Do not run phyLinux with sudo!\n")
+    exit(1)
+
 # Global constants
 phylinux_version = "2015-04-24"
 
