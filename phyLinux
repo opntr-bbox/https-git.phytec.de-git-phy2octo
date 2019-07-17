@@ -192,13 +192,26 @@ def probe_selected_soc(arg_soc=None):
                 soc = line.split('=')[1].strip()
                 if not soc.endswith('master'):
                     selected_soc = soc
-                    print 'probing selected soc to ', soc
                     return True
     except Exception as e:
         print 'Error while probing for SoC'
     print 'No SoC Platform selected'
     return False
 
+def probe_selected_machine():
+    global selected_machine
+    try:
+        f = open('build/conf/local.conf', 'r')
+        fl = f.readlines()
+        f.close()
+        for line in fl:
+            if line.startswith("MACHINE "):
+                selected_machine = line.split('=')[1].strip().replace('"', '')
+                return True
+    except Exception as e:
+        print 'Error while probing for selected Machine'
+    print 'No Machine selected'
+    return False
 
 def probe_selected_release():
     global selected_release
@@ -207,7 +220,6 @@ def probe_selected_release():
         release = f.split('/', 1)[1]
         if release.endswith('.xml'):
             selected_release = remove_file_extension(release)
-            print 'Release: ' + selected_release + ' is currently selected'
             return True
         else:
             print release + ' is no propper release'
