@@ -34,11 +34,11 @@
     <linkfile src="imx/README" dest="README-IMXBSP"/>
   </project>
 
-  <project name="meta-phytec" path="sources/meta-phytec" revision="sumo" remote="ssh.phytec" >
+  <project name="meta-phytec" path="sources/meta-phytec" revision="sumo" remote="git.phytec" >
     <copyfile dest="tools/init" src="scripts/init"/>
   </project>
 
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="sumo" remote="ssh.phytec" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="sumo" remote="git.phytec" />
 
   <project name="meta-rauc" path="sources/meta-rauc" revision="sumo" remote="rauc" />
 </manifest>
