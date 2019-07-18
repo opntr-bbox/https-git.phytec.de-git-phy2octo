@@ -1,0 +1,96 @@
+Release Notes i.MX8 Linux BSP:
+==============================
+
+BSP-Yocto-FSL-i.MX8-ALPHA2		2019-07-17
+==================================================
+
+- Linux NXP Vendor Kernel v4.14.98-phy1 (based on
+  NXP tag rel_imx_4.14.98_2.0.1)
+- U-boot v2018.03-phy1
+- Yocto 2.5.3 (sumo)
+
+
+Tested Yocto Images:
+--------------------
+- fsl-image-qt5-validation-imx on:
+  * phycore-imx8-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Changes since ALPHA1:
+---------------------
+- Supported machine:
+  * Remove machine phycore-imx8-1
+  * Added machine phycore-imx8-2
+
+- New features:
+  * NXP vendor kernel 4.14.98
+  * U-Boot 2018.03
+  * Qt5 (5.10.0) support
+  * SATA (kernel)
+  * Toch (kernel)
+  * mPCIe (kernel)
+  * Octa SPI
+
+Known Issues/Limitations:
+-------------------------
+ - PCIe does not work
+
+
+BSP-Yocto-FSL-i.MX8-ALPHA1		2018-12-04
+==================================================
+
+- Linux NXP Vendor Kernel v4.9.51-imx8qm-phy1 (based on
+  NXP tag rel_imx_4.9.51_8qm_beta2)
+- U-boot v2017.03.0-imx8qm-phy1
+- Yocto 2.2.3 (morty)
+
+
+Tested Yocto Images:
+--------------------
+- fsl-image-qt5-validation-imx on:
+  * phycore-imx8-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phycore-imx8-1
+
+- Added new features:
+  * NXP vendor kernel 4.9.51
+  * Qt5 (5.8.0) support
+  * Wayland support
+  * EEPROM support (u-boot-imx/kernel)
+  * USB3.0 host support (kernel)
+  * USB2.0 OTG support (kernel)
+  * eth0 Ethernet 1 GBit (u-boot-imx/kernel)
+  * eth1 Ethernet 1 GBit (kernel)
+  * eMMC support (u-boot-imx/kernel)
+  * SD card support (u-boot-imx/kernel)
+  * Support for RTC (kernel)
+  * FLEXCAN (kernel)
+  * LCD-018 (kernel)
+  * PCIe (kernel)
+
+Known Issues/Limitations:
+-------------------------
+- HDMI does not work (redesign of hardware required)
+- Touch does not work (redesign of hardware required)
+- Audio does not work
+- SATA does not work
+
+
+Changelog of Release Notes
+--------------------------
+2018-12-04
+  - initial version
