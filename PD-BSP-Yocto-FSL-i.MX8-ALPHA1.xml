@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-  <phytec pdn="PD-ALPHA1" release_uid="BSP-Yocto-FSL-iMX8-ALPHA1" soc="iMX8" supported_builds="
+  <phytec pdn="PD-ALPHA1" release_uid="BSP-Yocto-FSL-i.MX8-ALPHA1" soc="iMX8" supported_builds="
     phycore-imx8-1/fsl-image-qt5-validation-imx/fsl-imx-wayland
   " />
 
