@@ -550,7 +550,7 @@ def cmd_init(args):
                     '.repo/local_manifests/' + selected_release + '.xml')
             else:
                 print 'Warning! No dev manifest found for release: ', selected_release
-    call('repo sync -f')
+    call('repo sync')
 
     if args.no_init:
         print 'You specified not to run init after a fetch.'
