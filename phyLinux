@@ -14,7 +14,7 @@ if 0 == uid:
     exit(1)
 
 # Global constants
-phylinux_version = "2015-04-24"
+phylinux_version = "2019-08-30"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
