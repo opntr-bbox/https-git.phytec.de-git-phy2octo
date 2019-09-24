@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD18.1.2-rc3" release_uid="BSP-Yocto-i.MX6-PD18.1.2-rc3" soc="iMX6" supported_builds="
+    phyboard-mira-imx6-10/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-11/-c populate_sdk phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-11/barebox-hosttools-native/yogurt,
+    phyboard-mira-imx6-11/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-12/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-13/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-14/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-15/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-3/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-3/phytec-vision-image/yogurt,
+    phyboard-mira-imx6-4/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-5/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-8/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-9/phytec-qt5demo-image/yogurt,
+    phyboard-nunki-imx6-1/phytec-qt5demo-image/yogurt,
+    phyboard-nunki-imx6-1/phytec-vision-image/yogurt,
+    phyflex-imx6-1/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-10/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-11/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-2/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-2/phytec-vision-image/yogurt,
+    phyflex-imx6-3/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-4/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-5/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-6/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-7/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-8/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-9/phytec-qt5demo-image/yogurt
+  " />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" revision="rocko" sync-j="8" />
+  
+  <project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github" revision="802a5db727edf0ec1d142122241c857bffab8667" />
+  <project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="eec531e97a17bfd406f3bf76dee4057dcf5286a4" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.4.4-phy5">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="e6fb3850d43f857e87f7c53fc7df5933fef98cbd" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.4.4-phy5" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="5f660914cd7eec8117efccdf1eb29c466b4e74f7" />
+  <project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="e9c3928d6c24bd58c613bd8334066021946d6347" />
+</manifest>
