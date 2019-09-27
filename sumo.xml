@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <phytec pdn="sumo" release_uid="BSP-Yocto-FSL-i.MX8-PD-sumo" soc="iMX8"/>
+  <phytec pdn="sumo" release_uid="BSP-Yocto-FSL-i.MX8-PD-sumo" soc="iMX8" suppoted_builds="
+    phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor,
+    phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland
+  "/>
 
   <default sync-j="2"/>
 
