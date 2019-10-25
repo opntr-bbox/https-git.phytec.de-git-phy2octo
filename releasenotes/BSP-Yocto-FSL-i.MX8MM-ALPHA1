@@ -1,0 +1,59 @@
+Release Notes i.MX8MM Linux BSP:
+================================
+
+BSP-Yocto-FSL-i.MX8MM-ALPHA1            2019-10-25
+==================================================
+
+- Linux NXP Vendor Kernel v4.19.35_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- U-boot v2019.04_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- Yocto 2.6.2 (thud)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image:
+  * phyboard-polis-imx8mm-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (kernel)
+   * USB host support 2.0 (kernel)
+   * USB OTG support 2.0 (kernel)
+   * Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * basic display support with PEB-AV-09
+     (MIPI to LVDS bridge Texas Instruments SN65DSI83)
+   * SPI NOR flash (no booting possible)
+   * USER LED (kernel)
+   * mPCIe (kernel)
+   * wifi Serling-LWB (kernel)
+   * UART/RS485 (kernel)
+   * TPM (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- Bluetooth is not fuctional
+- CAN FD is not fuctional
+- Software Reset does not work
+- There is no userspace tools for TPM available yet
+- graphic acceleration status unknown
+
+Changelog of Release Notes
+--------------------------
+2019-10-25
+  - initial version
