@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD-ALPHA1" release_uid="BSP-Yocto-FSL-i.MX8MM-ALPHA1" soc="iMX8MM" supported_builds="
+    phyboard-polis-imx8mm-1/phytec-headless-image/yogurt-vendor
+  " />
+
+  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="git://github.com/OSSystems" name="OSSystems" />
+  <remote fetch="git://github.com/meta-qt5" name="QT5" />
+  <remote fetch="git://github.com/TimesysGit" name="Timesys" />
+  <remote fetch="git://github.com/Freescale" name="community" />
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com/openembedded" name="oe" />
+  <remote fetch="git://github.com/rauc" name="rauc" />
+  <remote fetch="git://github.com/meta-rust" name="rust" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" sync-j="2" />
+  
+  <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="70535e13dd2aabbad53243518f4cc5064d284592">
+    <linkfile dest="README" src="README" />
+    <linkfile dest="setup-environment" src="setup-environment" />
+  </project>
+  <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="23e206d355e46d6f6e6a5638c574524492f91bc2" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="f5c932229c31b612cba38c2ed6f3c3ec6b800e92" />
+  <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331" />
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="4a244af3993ae662624c6f615464e6806cc719a2" />
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="054f84048a2ba6b7d7ac4fcb371b0c6a5d71f7be">
+    <linkfile dest="README-IMXBSP" src="imx/README" />
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" />
+  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="refs/tags/2.6.3-phy2">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="0630018c0033c91fddda62a49f59a82ba6ec6850" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="10eec8c7e429faa0b03e7eebcc78f0fa3466992c" />
+  <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="84710b341be53cc2af13ecc8ae87773cf84687bf" />
+  <project name="meta-timesys" path="sources/meta-timesys" remote="Timesys" revision="36b315016a900e98809ef7e3bcf95ae37098e88b" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" revision="refs/tags/2.6.3-phy2" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" />
+</manifest>
