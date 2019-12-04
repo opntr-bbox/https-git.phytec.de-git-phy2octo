@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD19.1-rc2" release_uid="BSP-Yocto-FSL-i.MX8M-PD19.1-rc2" soc="iMX8M" supported_builds="
+    phyboard-polaris-imx8m-2/fsl-image-qt5-validation-imx/fsl-imx-wayland,
+    phyboard-polaris-imx8m-2/phytec-vision-image/yogurt-vendor-xwayland,
+    phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland
+  " />
+
+  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="git://github.com/OSSystems" name="OSSystems" />
+  <remote fetch="git://github.com/meta-qt5" name="QT5" />
+  <remote fetch="git://github.com/Freescale" name="community" />
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com/openembedded" name="oe" />
+  <remote fetch="git://github.com/rauc" name="rauc" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" sync-j="2" />
+  
+  <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="70535e13dd2aabbad53243518f4cc5064d284592">
+    <linkfile dest="README" src="README" />
+    <linkfile dest="setup-environment" src="setup-environment" />
+  </project>
+  <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="75640e14e325479c076b6272b646be7a239c18aa" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="27ca94f8a4336790ba117b4298566f6820e7e74c" />
+  <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="82037216280a39957fb4272581637abec734ad50" />
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="f7e2216e93aff14ac32728a13637a48df436b7f4" />
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="238a429e4eedd2f4b26876c2e2a6a9b3ec4e434c">
+    <linkfile dest="README-IMXBSP" src="imx/README" />
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" />
+  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="refs/tags/2.5.3-phy11">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="d4e7f73d04e8448d326b6f89908701e304e37d65" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="09cc4d298e84257cc5fc30ea8721090cdae4a315" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" revision="refs/tags/2.5.3-phy11" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="c9bd4984f8f471ca2c43052714f4413ba99cf171" />
+</manifest>
