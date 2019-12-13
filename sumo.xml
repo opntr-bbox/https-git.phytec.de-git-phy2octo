@@ -3,7 +3,8 @@
   <phytec pdn="sumo" release_uid="BSP-Yocto-FSL-i.MX8M-PD-sumo" soc="iMX8" supported_builds="
     phyboard-polaris-imx8m-2/phytec-vision-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland,
-    phyboard-polaris-imx8m-2/fsl-image-qt5-validation-imx/fsl-imx-wayland
+    phyboard-polaris-imx8m-2/fsl-image-qt5-validation-imx/fsl-imx-wayland,
+    phyboard-polaris-imx8m-3/fsl-image-qt5-validation-imx/fsl-imx-wayland
   "/>
 
   <default sync-j="2"/>
