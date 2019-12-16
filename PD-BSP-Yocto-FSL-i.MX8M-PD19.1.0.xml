@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
   <phytec pdn="PD19.1.0" release_uid="BSP-Yocto-FSL-i.MX8M-PD19.1.0" soc="iMX8M" supported_builds="
-    phyboard-polaris-imx8m-2/fsl-image-qt5-validation-imx/fsl-imx-wayland,
     phyboard-polaris-imx8m-2/phytec-vision-image/yogurt-vendor-xwayland,
-    phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland
+    phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland,
+    phyboard-polaris-imx8m-2/fsl-image-qt5-validation-imx/fsl-imx-wayland,
+    phyboard-polaris-imx8m-3/fsl-image-qt5-validation-imx/fsl-imx-wayland
   " />
 
   <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
