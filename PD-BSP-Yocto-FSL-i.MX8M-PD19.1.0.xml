@@ -30,11 +30,11 @@
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" />
-  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.5.3-phy11">
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.5.3-phy12">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
   <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="d4e7f73d04e8448d326b6f89908701e304e37d65" />
   <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="09cc4d298e84257cc5fc30ea8721090cdae4a315" />
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.5.3-phy11" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.5.3-phy12" />
   <project name="poky" path="sources/poky" remote="yocto" revision="c9bd4984f8f471ca2c43052714f4413ba99cf171" />
 </manifest>
