@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 <phytec pdn="warrior" release_uid="BSP-Yocto-FSL-i.MX8MM-warrior" soc="iMX8MM" supported_builds="
-        phyboard-polis-imx8mm-1/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-2/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
         phyboard-polis-imx8mm-2/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland
