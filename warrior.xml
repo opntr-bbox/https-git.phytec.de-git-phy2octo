@@ -46,11 +46,11 @@
      <linkfile src="imx/README" dest="README-IMXBSP"/>
   </project>
 
-  <project name="meta-phytec-dev" path="sources/meta-phytec" revision="warrior" remote="git.phytec" >
+  <project name="meta-phytec" path="sources/meta-phytec" revision="warrior" remote="git.phytec" >
     <copyfile dest="tools/init" src="scripts/init"/>
   </project>
 
-  <project name="meta-yogurt-dev" path="sources/meta-yogurt" revision="warrior" remote="git.phytec" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="warrior" remote="git.phytec" />
 
   <project name="meta-rauc" path="sources/meta-rauc" revision="warrior" remote="rauc" />
 
