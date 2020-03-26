@@ -14,7 +14,7 @@ if 0 == uid:
     exit(1)
 
 # Global constants
-phylinux_version = "2020-02-28"
+phylinux_version = "2020-03-26"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -315,7 +315,8 @@ def files_to_clean():
                  '.repo/local_manifests',
                  '.localxml',
                  'tools',
-                 'sources'
+                 'sources',
+                 'build/conf/bblayers.conf'
                 ]
     blacklist = clean_cwd_api_1(blacklist)
     blacklist.sort()
