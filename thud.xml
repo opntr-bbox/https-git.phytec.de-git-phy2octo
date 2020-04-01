@@ -50,7 +50,6 @@
 		phycore-r2-am335x-4/phytec-headless-image/yogurt,
 		phycore-r2-am335x-5/phytec-qt5demo-image/yogurt,
 		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt,
-		phycore-rk3288-3/phytec-desktop-image/yogurt-wayland,
 		phycore-rk3288-4/phytec-iotedge-image/yogurt-gateway,
 		phyflex-imx6-1/phytec-qt5demo-image/yogurt,
 		phyflex-imx6-10/phytec-qt5demo-image/yogurt,
