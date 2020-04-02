@@ -30,7 +30,8 @@
 		phyflex-imx6-6/phytec-qt5demo-image/yogurt,
 		phyflex-imx6-7/phytec-qt5demo-image/yogurt,
 		phyflex-imx6-8/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-9/phytec-qt5demo-image/yogurt
+		phyflex-imx6-9/phytec-qt5demo-image/yogurt,
+		phycard-imx6-2/phytec-headless-image/yogurt
 	"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
