@@ -1,0 +1,29 @@
+Release Notes BSP-Yocto-IoTEdge-i.MX8M-v1.0
+===========================================
+
+- Linux Kernel v4.14.98
+- u-boot 2018.03
+- Yocto 2.5.3 sumo
+- Wayland
+- IoTEdge Daemon 1.0.7
+
+Tested Yocto Images:
+--------------------
+
+See machines.txt for a list of supported machines.
+
+Build Environment:
+------------------
+
+- Ubuntu 16.04 64Bit
+
+Changes since v1.0                      2020-06-09
+--------------------------------------------------
+
+- Initial release
+
+Known Issues:
+-------------
+
+- In some cases the system may start up with a blank display. Workaround this by
+  rebooting.
