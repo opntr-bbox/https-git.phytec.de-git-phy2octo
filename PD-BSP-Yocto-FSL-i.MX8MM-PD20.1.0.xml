@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD20.1.0" release_uid="BSP-Yocto-FSL-i.MX8MM-PD20.1.0" soc="iMX8MM" supported_builds="
+    phyboard-polis-imx8mm-2/phytec-headless-image/yogurt-vendor,
+    phyboard-polis-imx8mm-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
+    phyboard-polis-imx8mm-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland,
+    phyboard-polis-imx8mm-3/phytec-headless-bundle/yogurt-vendor,
+    phyboard-polis-imx8mm-3/phytec-headless-image/yogurt-vendor,
+    phyboard-polis-imx8mm-3/phytec-qt5demo-image/yogurt-vendor-xwayland
+  " />
+
+  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="git://github.com/OSSystems" name="OSSystems" />
+  <remote fetch="git://github.com/meta-qt5" name="QT5" />
+  <remote fetch="git://github.com/TimesysGit" name="Timesys" />
+  <remote fetch="git://github.com/Freescale" name="community" />
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com/openembedded" name="oe" />
+  <remote fetch="git://github.com/rauc" name="rauc" />
+  <remote fetch="git://github.com/meta-rust" name="rust" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" sync-j="2" />
+  
+  <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="fd027d8380cf53beabb6d19db3c4f9c36180ce1c">
+    <linkfile dest="README" src="README" />
+    <linkfile dest="setup-environment" src="setup-environment" />
+  </project>
+  <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="5f365ef0f842ba4651efe88787cf9c63bc8b6cb3" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2142f7ded1b3115ccc21f7575fd83e2376247193" />
+  <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="da422478d38e744283bcf61123c4a526396c7030" />
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d4e77ea682fa10d0d54a723b3d3099c44fc5e95c" />
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="bb05c60e6398b374ac49554c642a3bef36452f73">
+    <linkfile dest="fsl-setup-release.sh" src="imx/tools/fsl-setup-release.sh" />
+    <linkfile dest="README-IMXBSP" src="imx/README" />
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="d9fa9882f2a3105817d8750bed5c0e84bd603ecc">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="dc2dedef9961950b88f4245ba7499538ec4244ab" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="e10a1dad91498c90772a8d1ecafcf3beb8d11984" />
+  <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="11aed43748d7dd194dc6c06a35a16104400d1090" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="d169e367d67ca2424d763438979db1646ffdb61d" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="6d2e12e79211b31cdf5ea824fb9a8be54ba9a9eb" />
+</manifest>
