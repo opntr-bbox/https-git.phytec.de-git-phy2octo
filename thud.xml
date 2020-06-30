@@ -6,8 +6,7 @@
         phyboard-polis-imx8mm-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
         phyboard-polis-imx8mm-2/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland
   "/>
-
-  <default sync-j="2"/>
+  <default revision="thud" sync-j="2"/>
 
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://github.com/Freescale" name="community"/>
