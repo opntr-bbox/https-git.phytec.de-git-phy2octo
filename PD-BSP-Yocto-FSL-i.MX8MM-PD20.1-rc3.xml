@@ -21,7 +21,7 @@
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.yoctoproject.org" name="yocto" />
   
-  <default remote="git.phytec" sync-j="2" />
+  <default revision="warrior" remote="git.phytec" sync-j="2" />
   
   <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="fd027d8380cf53beabb6d19db3c4f9c36180ce1c">
     <linkfile dest="README" src="README" />
