@@ -21,7 +21,7 @@
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.yoctoproject.org" name="yocto" />
   
-  <default remote="git.phytec" sync-j="2" />
+  <default revision="warrior" remote="git.phytec" sync-j="2" />
   
   <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="fd027d8380cf53beabb6d19db3c4f9c36180ce1c">
     <linkfile dest="README" src="README" />
@@ -36,12 +36,12 @@
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9" />
-  <project name="meta-phytec" path="sources/meta-phytec" revision="d9fa9882f2a3105817d8750bed5c0e84bd603ecc">
+  <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.7.1-phy2">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
   <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="dc2dedef9961950b88f4245ba7499538ec4244ab" />
   <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="e10a1dad91498c90772a8d1ecafcf3beb8d11984" />
   <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="11aed43748d7dd194dc6c06a35a16104400d1090" />
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="d169e367d67ca2424d763438979db1646ffdb61d" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/2.7.1-phy2" />
   <project name="poky" path="sources/poky" remote="yocto" revision="6d2e12e79211b31cdf5ea824fb9a8be54ba9a9eb" />
 </manifest>
