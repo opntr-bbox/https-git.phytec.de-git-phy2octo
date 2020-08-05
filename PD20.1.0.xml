@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD20.1.0" release_uid="BSP-Yocto-i.MX6-PD20.1.0" soc="iMX6" supported_builds="
+    phyboard-mira-imx6-10/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-11/-c populate_sdk phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-11/barebox-hosttools-native/yogurt,
+    phyboard-mira-imx6-11/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-12/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-13/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-14/phytec-headless-bundle/yogurt,
+    phyboard-mira-imx6-14/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-15/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-3/phytec-headless-bundle/yogurt,
+    phyboard-mira-imx6-3/phytec-headless-image/yogurt-secure,
+    phyboard-mira-imx6-3/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-3/phytec-vision-image/yogurt-x11,
+    phyboard-mira-imx6-4/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-5/phytec-headless-image/yogurt-secure,
+    phyboard-mira-imx6-5/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-8/phytec-qt5demo-image/yogurt,
+    phyboard-mira-imx6-9/phytec-qt5demo-image/yogurt,
+    phyboard-nunki-imx6-1/phytec-qt5demo-image/yogurt,
+    phyboard-nunki-imx6-1/phytec-vision-image/yogurt-x11,
+    phycard-imx6-2/phytec-headless-image/yogurt,
+    phyflex-imx6-1/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-10/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-11/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-2/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-2/phytec-vision-image/yogurt-x11,
+    phyflex-imx6-3/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-4/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-5/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-6/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-7/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-8/phytec-qt5demo-image/yogurt,
+    phyflex-imx6-9/phytec-qt5demo-image/yogurt
+  " />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="git://github.com" name="github" />
+  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://git.ti.com" name="ti" />
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  
+  <default remote="git.phytec" revision="warrior" sync-j="8" />
+  
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="a24acf94d48d635eca668ea34598c6e5c857e3f8" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="5886c786c7b8520115dbdd8341d96bf55e539fc7">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="7d0b17aa229edc9e138edfe0e8477fbbe9013ba6" />
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="4f7be0d252f68d8e8d442a7ed8c6e8a852872d28" />
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="343b5e236b844e9347090c358797fae80bdd22f5" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" revision="24e9f89ebbdd1eaa9049baaa17cd87f1112fe6b1" />
+  <project name="poky" path="sources/poky" remote="yocto" revision="5ea39eac95e00a97289eb93e7d2863a3e1de5770" />
+  <project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="e10a1dad91498c90772a8d1ecafcf3beb8d11984" />
+</manifest>
