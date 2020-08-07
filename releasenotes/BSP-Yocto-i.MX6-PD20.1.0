@@ -96,7 +96,7 @@ Notes:
 - Until now the BSP Manual showed examples for partitioning the ubi Layer on
   the NAND flash with 8 MB for the Kernel image. With PD20.1.0 the kernel size
   exceeds these 8 MB so a larger kernel partition is required. In the BSP
-  manual we no suggest a kernel partition size of 16 MB.
+  manual we now suggest a kernel partition size of 16 MB.
 - With PD20.1.0 we start to use config fragments for our kernel builds. So
   instead of running 'make imx_v6_v7_defconfig' to configure a manual kernel
   build now the command 'scripts/kconfig/merge_config.sh -m
