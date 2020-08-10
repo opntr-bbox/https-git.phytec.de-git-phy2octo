@@ -1,7 +1,7 @@
 Release Notes unified i.MX6 Linux BSP:
 ======================================
 
-BSP-Yocto-i.MX6-PD20.1.0                2020-07-24
+BSP-Yocto-i.MX6-PD20.1.0                2020-08-06
 ==================================================
 - Linux Kernel v4.19.100 (v4.19 is a LTS kernel)
   * Update from v4.14.134 to v4.19.100
