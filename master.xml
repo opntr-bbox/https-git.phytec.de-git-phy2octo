@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="PD-master" release_uid="BSP-Yocto-AM335x-PD-master" soc="AM335x" supported_builds="
+	<phytec pdn="master" release_uid="BSP-Yocto-AM335x-master" soc="AM335x" supported_builds="
 		beagleboneblack-1/phytec-qt5demo-image/yogurt,
 		phyboard-regor-am335x-1/phytec-headless-image/yogurt-rt,
 		phyboard-wega-am335x-1/phytec-headless-image/yogurt,
@@ -24,8 +24,8 @@
 		phycore-r2-am335x-3/phytec-qt5demo-image/yogurt,
 		phycore-r2-am335x-4/phytec-headless-image/yogurt,
 		phycore-r2-am335x-5/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt
-	"/>
+		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt"
+		release_type="nightly" pollsched="0 20 * * *" timeout_h="10"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
