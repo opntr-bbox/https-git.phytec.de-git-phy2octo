@@ -40,8 +40,17 @@
 
 	<default revision="rocko" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" remote="yocto" path="sources/poky"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
+	<project name="poky" remote="yocto" path="sources/poky">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+	</project>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="imyller/meta-nodejs" remote="github" path="sources/meta-nodejs" revision="master"/>
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
