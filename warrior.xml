@@ -2,7 +2,6 @@
 <manifest>
 	<phytec pdn="warrior" release_uid="BSP-Yocto-AM335x-warrior" soc="AM335x" supported_builds="
 		beagleboneblack-1/phytec-qt5demo-image/yogurt,
-		phyboard-regor-am335x-1/phytec-headless-image/yogurt-rt,
 		phyboard-wega-am335x-1/phytec-headless-image/yogurt,
 		phyboard-wega-am335x-1/phytec-qt5demo-image/yogurt,
 		phyboard-wega-am335x-2/phytec-headless-image/yogurt,
@@ -24,7 +23,8 @@
 		phycore-r2-am335x-3/phytec-qt5demo-image/yogurt,
 		phycore-r2-am335x-4/phytec-headless-image/yogurt,
 		phycore-r2-am335x-5/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt"
+		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt,
+		phyboard-regor-am335x-1/phytec-headless-image/yogurt-rt"
 		release_type="nightly" pollsched="0 22 * * *" timeout_h="10"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
