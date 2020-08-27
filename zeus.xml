@@ -24,8 +24,8 @@
 		phycore-r2-am335x-3/phytec-qt5demo-image/yogurt,
 		phycore-r2-am335x-4/phytec-headless-image/yogurt,
 		phycore-r2-am335x-5/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt
-	"/>
+		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt"
+		release_type="nightly" pollsched="0 22 * * *" timeout_h="10"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
