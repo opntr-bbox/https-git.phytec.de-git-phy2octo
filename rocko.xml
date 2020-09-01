@@ -49,6 +49,7 @@
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
 		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
 	</project>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="imyller/meta-nodejs" remote="github" path="sources/meta-nodejs" revision="master"/>
