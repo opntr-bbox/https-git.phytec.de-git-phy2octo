@@ -1,69 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="PD-master" release_uid="BSP-Yocto-All-PD-master" soc="all" supported_builds="
-		beagleboneblack-1/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-10/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-11/-c populate_sdk phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-11/barebox-hosttools-native/yogurt,
-		phyboard-mira-imx6-11/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-12/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-13/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-14/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-15/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-3/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-3/phytec-vision-image/yogurt-x11,
-		phyboard-mira-imx6-4/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-5/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-8/phytec-qt5demo-image/yogurt,
-		phyboard-mira-imx6-9/phytec-qt5demo-image/yogurt,
-		phyboard-nunki-imx6-1/phytec-qt5demo-image/yogurt,
-		phyboard-nunki-imx6-1/phytec-vision-image/yogurt-x11,
-		phyboard-regor-am335x-1/phytec-headless-image/yogurt-rt,
-		phyboard-segin-imx6ul-2/phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-3/phytec-headless-image/yogurt,
-		phyboard-segin-imx6ul-4/phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-5/phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-6/-c populate_sdk phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-6/phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-6/phytec-vision-image/yogurt,
-		phyboard-segin-imx6ul-7/phytec-qt5demo-image/yogurt,
-		phyboard-segin-imx6ul-7/phytec-vision-image/yogurt,
-		phyboard-wega-am335x-1/phytec-headless-image/yogurt,
-		phyboard-wega-am335x-1/phytec-qt5demo-image/yogurt,
-		phyboard-wega-am335x-2/phytec-headless-image/yogurt,
-		phyboard-wega-am335x-2/phytec-qt5demo-image/yogurt,
-		phyboard-wega-am335x-3/phytec-headless-image/yogurt,
-		phyboard-wega-am335x-3/phytec-qt5demo-image/yogurt,
-		phyboard-wega-r2-am335x-1/phytec-headless-image/yogurt,
-		phyboard-wega-r2-am335x-1/phytec-qt5demo-image/yogurt,
-		phycard-imx6-2/phytec-headless-image/yogurt,
-		phycore-am335x-1/phytec-qt5demo-image/yogurt,
-		phycore-am335x-3/phytec-qt5demo-image/yogurt,
-		phycore-am335x-4/phytec-headless-image/yogurt,
-		phycore-am335x-5/phytec-headless-image/yogurt,
-		phycore-am335x-7/phytec-qt5demo-image/yogurt,
-		phycore-emmc-am335x-1/phytec-headless-image/yogurt,
-		phycore-emmc-am335x-1/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-1/-c populate_sdk phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-1/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-2/phytec-headless-image/yogurt,
-		phycore-r2-am335x-3/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-4/phytec-headless-image/yogurt,
-		phycore-r2-am335x-5/phytec-qt5demo-image/yogurt,
-		phycore-r2-am335x-6/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-1/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-10/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-11/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-2/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-2/phytec-vision-image/yogurt-x11,
-		phyflex-imx6-3/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-4/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-5/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-6/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-7/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-8/phytec-qt5demo-image/yogurt,
-		phyflex-imx6-9/phytec-qt5demo-image/yogurt
-	"/>
+	<phytec pdn="master" release_uid="BSP-Yocto-All-master" soc="all" supported_builds="
+		phyboard-mira-imx6-13/phytec-headless-image/yogurt_5.4.y,
+		phyboard-mira-imx6-13/phytec-headless-image/yogurt_vanilla_master,
+		phyboard-segin-imx6ul-6/phytec-headless-image/yogurt_5.4.y,
+		phyboard-segin-imx6ul-6/phytec-headless-image/yogurt_vanilla_master,
+		phyboard-segin-imx6ul-8/phytec-headless-image/yogurt_5.4.y,
+		phyboard-segin-imx6ul-8/phytec-headless-image/yogurt_vanilla_master"
+		release_type="nightly" build_container="crops/poky:ubuntu-20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
@@ -79,8 +23,6 @@
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization"/>
-	<project name="meta-selinux" remote="yocto" path="sources/meta-selinux"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
@@ -92,9 +34,9 @@
 	</project>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
-	<project name="meta-rust/meta-rust" remote="github" path="sources/meta-rust"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
+	<project name="meta-fresh" path="sources/meta-fresh"/>
 </manifest>
