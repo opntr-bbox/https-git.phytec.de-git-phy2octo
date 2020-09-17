@@ -29,7 +29,7 @@
 		phyflex-imx6-7/phytec-qt5demo-image/yogurt,
 		phyflex-imx6-8/phytec-qt5demo-image/yogurt,
 		phyflex-imx6-9/phytec-qt5demo-image/yogurt"
-		release_type="nightly" pollsched="0 20 * * *" timeout_h="10"/>
+		release_type="nightly" build_container="crops/poky:ubuntu-16.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
