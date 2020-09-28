@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <phytec pdn="PD20.1.0" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-PD20.1.0" soc="STM32MP1" supported_builds="
-    phycore-stm32mp1-3/st-image-weston/openstlinux-weston
+    phycore-stm32mp1-1/st-image-weston/openstlinux-weston,
+    phycore-stm32mp1-2/st-image-weston/openstlinux-weston,
+    phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
+    phycore-stm32mp1-6/st-image-core/openstlinux-eglfs
   "/>
 
   <remote fetch="https://github.com" name="github"/>
