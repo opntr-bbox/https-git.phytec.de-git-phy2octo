@@ -4,8 +4,8 @@
         phyboard-polis-imx8mm-1/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-2/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
-        phyboard-polis-imx8mm-2/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland
-  "/>
+        phyboard-polis-imx8mm-2/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
+	release_type="nightly" bspextension="FSL" build_container="crops/poky:ubuntu-16.04" pollsched="0 0 * * *" timeout_h="5"/>
   <default revision="thud" sync-j="2"/>
 
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
@@ -20,33 +20,56 @@
   <remote name="git.phytec" fetch="git://git.phytec.de"/>
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
-  <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="f5c932229c31b612cba38c2ed6f3c3ec6b800e92" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky">
+    <ignorebaselayer/>
+    <sublayer path="meta"/>
+    <sublayer path="meta-poky"/>
+  </project>
 
-  <project remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" name="meta-openembedded" path="sources/meta-openembedded">
+    <ignorebaselayer/>
+    <sublayer path="meta-oe"/>
+    <sublayer path="meta-networking"/>
+    <sublayer path="meta-python"/>
+    <sublayer path="meta-multimedia"/>
+    <sublayer path="meta-filesystems"/>
+    <sublayer path="meta-gnome"/>
+  </project>
+
+  <project remote="CAF" revision="thud-4.19.35-1.0.0" name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" >
+    <linkfile src="imx/README" dest="README-IMXBSP"/>
+    <ignorebaselayer/>
+    <sublayer path="imx/meta-bsp"/>
+    <sublayer path="imx/meta-sdk"/>
+    <sublayer path="imx/meta-ml"/>
+  </project>
 
   <project remote="community" revision="70535e13dd2aabbad53243518f4cc5064d284592" name="fsl-community-bsp-base" path="sources/base">
     <linkfile dest="README" src="README"/>
     <linkfile dest="setup-environment" src="setup-environment"/>
+    <ignorebaselayer/>
   </project>
-
-  <project remote="community" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
-  <project remote="community" revision="4a244af3993ae662624c6f615464e6806cc719a2" name="meta-freescale-distro" path="sources/meta-freescale-distro"/>
 
   <project remote="OSSystems" revision="23e206d355e46d6f6e6a5638c574524492f91bc2" name="meta-browser" path="sources/meta-browser" />
-  <project remote="rust" revision="84710b341be53cc2af13ecc8ae87773cf84687bf" name="meta-rust" path="sources/meta-rust" />
-  <project remote="QT5" revision="0630018c0033c91fddda62a49f59a82ba6ec6850" name="meta-qt5" path="sources/meta-qt5" />
 
-  <project remote="CAF" revision="thud-4.19.35-1.0.0" name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" >
-     <linkfile src="imx/README" dest="README-IMXBSP"/>
-  </project>
+  <project remote="yocto" revision="f5c932229c31b612cba38c2ed6f3c3ec6b800e92" name="meta-freescale" path="sources/meta-freescale"/>
 
-  <project name="meta-phytec" path="sources/meta-phytec" revision="thud" remote="git.phytec" >
+  <project remote="community" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
+
+  <project remote="community" revision="4a244af3993ae662624c6f615464e6806cc719a2" name="meta-freescale-distro" path="sources/meta-freescale-distro"/>
+
+  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" >
     <copyfile dest="tools/init" src="scripts/init"/>
   </project>
 
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="thud" remote="git.phytec" />
+  <project remote="QT5" revision="0630018c0033c91fddda62a49f59a82ba6ec6850" name="meta-qt5" path="sources/meta-qt5" />
 
-  <project name="meta-rauc" path="sources/meta-rauc" revision="thud" remote="rauc" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
+
+  <project remote="rust" revision="84710b341be53cc2af13ecc8ae87773cf84687bf" name="meta-rust" path="sources/meta-rust" />
+
+  <project remote="Timesys" revision="36b315016a900e98809ef7e3bcf95ae37098e88b" name="meta-timesys" path="sources/meta-timesys" />
+
+  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" />
 
 </manifest>
