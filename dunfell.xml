@@ -2,10 +2,13 @@
 <manifest>
 	<phytec pdn="dunfell" release_uid="BSP-Yocto-All-dunfell" soc="all" supported_builds="
 		phyboard-mira-imx6-13/phytec-headless-image/yogurt-5.4.y,
+		phyboard-mira-imx6-13/phytec-headless-image/yogurt-5.4.y-barebox-master,
 		phyboard-mira-imx6-13/phytec-headless-image/yogurt-vanilla-master,
 		phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-5.4.y,
+		phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-5.4.y-barebox-master,
 		phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-vanilla-master,
 		phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-5.4.y,
+		phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-5.4.y-barebox-master,
 		phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-vanilla-master"
 		release_type="nightly" build_container="crops/poky:ubuntu-16.04"/>
 
