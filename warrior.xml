@@ -74,4 +74,7 @@
 
   <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" />
 
+  <project name="meta-security" path="sources/meta-security" remote="yocto">
+	  <sublayer path="meta-tpm"/>
+  </project>
 </manifest>
