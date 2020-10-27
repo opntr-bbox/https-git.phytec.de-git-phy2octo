@@ -2,6 +2,7 @@
 <manifest>
   <phytec pdn="dunfell" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-dunfell" soc="STM32MP1" supported_builds="
     phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
+    phycore-stm32mp1-6/st-image-core/openstlinux-eglfs
   "/>
 
   <remote fetch="https://github.com" name="github"/>
