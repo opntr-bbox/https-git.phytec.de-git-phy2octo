@@ -1,0 +1,50 @@
+BSP-Yocto-FSL-i.MX8MP-ALPHA1            2020-10-30
+==================================================
+
+- Linux NXP Vendor Kernel v5.4.47_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- U-boot v2020.04_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- Yocto 3.0.4 (zeus)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (u-boot/kernel)
+   * 2x USB 3.0 host support (kernel)
+   * EQOS Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * display support with LVDS1 (kernel)
+   * HDMI (kernel)
+   * SPI NOR flash (no booting possible)
+   * GPU + VPU (kernel)
+   * temperatur sensors on module (kernel)
+   * debug UART over USB (bootloader/kernel)
+   * VM-016 camera support on CSI1 interface (kernel)
+
+Known Issues/Limitations:
+-------------------------
+- CAN FD is working but connector pin out is wrong
+
+
+Changelog of Release Notes
+--------------------------
+2020-10-30
+  - initial version
