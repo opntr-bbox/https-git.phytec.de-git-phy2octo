@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec bspextension="CelebrityFaceMatch" build_container="crops/poky:ubuntu-16.04" pdn="PD0.1" release_type="topic" release_uid="BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.1" soc="iMX8MP" supported_builds="
+    phyboard-pollux-imx8mp-1/phytec-facematch-image/yogurt-vendor-xwayland
+  "/>
+
+  <default remote="git.phytec" revision="zeus" sync-j="2" />
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
+  <remote fetch="git://github.com/Freescale" name="community" />
+  <remote fetch="git://github.com/openembedded" name="oe" />
+  <remote fetch="git://github.com/OSSystems" name="OSSystems" />
+  <remote fetch="git://github.com/meta-qt5" name="QT5" />
+  <remote fetch="git://github.com/meta-rust" name="rust" />
+  <remote fetch="git://git.openembedded.org" name="python2" />
+  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="git://github.com/rauc" name="rauc" />
+  <remote fetch="https://github.com/kraj" name="clang" />
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+  <remote fetch="git://github.com/phytec" name="github.phytec" />
+
+  <project name="poky" path="sources/poky" remote="yocto" revision="5408e48d374fc741fa46b57ddfd8a537843bda6f">
+    <ignorebaselayer />
+    <sublayer path="meta" />
+    <sublayer path="meta-poky" />
+  </project>
+
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="2b5dd1eb81cd08bc065bc76125f2856e9383e98b">
+    <ignorebaselayer />
+    <sublayer path="meta-oe" />
+    <sublayer path="meta-networking" />
+    <sublayer path="meta-python" />
+    <sublayer path="meta-multimedia" />
+    <sublayer path="meta-filesystems" />
+    <sublayer path="meta-perl" />
+    <sublayer path="meta-gnome" />
+  </project>
+
+  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="780b023a4c77ac9c0011d858ad377f4a9593bfea" upstream="zeus-5.4.47-2.2.0">
+    <linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh" />
+    <linkfile dest="README-IMXBSP" src="README" />
+    <ignorebaselayer />
+    <sublayer path="meta-bsp" />
+    <sublayer path="meta-sdk" />
+    <sublayer path="meta-ml" />
+  </project>
+
+  <project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="01488a237cdf45b3087420e169c9f67b84fd7373">
+    <linkfile dest="README" src="README" />
+    <linkfile dest="setup-environment" src="setup-environment" />
+    <ignorebaselayer />
+  </project>
+
+  <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="ee3be3b5986a4aa0e73df2204a625ae1fe5df37e" />
+  <project name="meta-clang" path="sources/meta-clang" remote="clang" revision="711e593d5984aad3bf35c51b7ac4482982bc16c7" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="14f1a630a47375432f93c556927b879b51d84c4e" />
+  <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="dbcc686f52c3c84db8cb86aa8973a4e373651b98" />
+
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="ca27d12e4964d1336e662bcc60184bbff526c857" />
+
+  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="0aab8db6254a365cf816aaa98c56f185ae702526" />
+
+  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="5144a99a696a8a72c0765ea0e8be8ceafaa78f85" />
+
+  <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="cc7d622b2d49c8c7d426bb9965ad1d58806ef52f" />
+
+  <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="7f235b6f8973cc5269448375f2a8f9867bb2a369" />
+
+  <project name="meta-python2" path="sources/meta-python2" remote="python2" revision="4400f9155ec193d028208cf0c66aeed2ba2b00ab" />
+
+  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" revision="77f41849a01a79702dbf1129562ef8e8bca7d21a" />
+
+  <project name="meta-celebrity-face-match" path="sources/meta-celebrity-face-match" remote="github.phytec" revision="refs/tags/v0.1">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+
+</manifest>
