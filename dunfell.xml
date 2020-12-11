@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="dunfell" release_uid="BSP-Yocto-i.MX6-dunfell" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-10/phytec-qt5demo-image/yogurt,
