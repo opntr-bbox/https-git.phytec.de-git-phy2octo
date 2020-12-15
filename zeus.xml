@@ -3,7 +3,7 @@
   <phytec pdn="zeus" release_uid="BSP-Yocto-FSL-i.MX8-zeus" soc="iMX8" supported_builds="
     phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
     phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland"
-    release_type="nightly" bspextension="FSL" build_container="crops/poky:ubuntu-16.04" pollsched="0 23 * * *" timeout_h="10"/>
+    release_type="nightly" bspextension="FSL" build_container="crops/poky:ubuntu-16.04"/>
   <default revision="zeus" sync-j="2"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
