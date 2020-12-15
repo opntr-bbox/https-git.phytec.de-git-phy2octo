@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="rocko" release_uid="BSP-Yocto-RK3288-rocko" soc="RK3288" supported_builds="
 		phycore-rk3288-3/phytec-desktop-image/yogurt-wayland"
-		release_type="nightly" pollsched="0 20 * * *" timeout_h="10"/>
+		release_type="nightly"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>

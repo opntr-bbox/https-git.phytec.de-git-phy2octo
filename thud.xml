@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="thud" release_uid="BSP-Yocto-RK3288-thud" soc="RK3288" supported_builds="
 		phycore-rk3288-4/phytec-iotedge-image/yogurt-gateway"
-		release_type="nightly" pollsched="0 21 * * *" timeout_h="10"/>
+		release_type="nightly"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
