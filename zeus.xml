@@ -20,7 +20,7 @@
   <remote name="git.phytec" fetch="git://git.phytec.de"/>
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
-  <project name="poky" path="sources/poky" remote="yocto" revision="5408e48d374fc741fa46b57ddfd8a537843bda6f">
+  <project name="poky" path="sources/poky" remote="yocto" revision="d88d62c20d7d8da85f02edb170dae0280624ad7e">
     <ignorebaselayer/>
     <sublayer path="meta"/>
     <sublayer path="meta-poky"/>
@@ -37,7 +37,7 @@
     <sublayer path="meta-gnome"/>
   </project>
 
-  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="refs/tags/rel_imx_5.4.47_2.2.0" upstream="zeus-5.4.47-2.2.0">
+  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="refs/tags/rel_imx_5.4.70_2.3.0" upstream="zeus-5.4.70-2.3.0">
     <linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh"/>
     <linkfile dest="README-IMXBSP" src="README"/>
     <ignorebaselayer/>
@@ -63,11 +63,11 @@
     <copyfile dest="tools/init" src="scripts/init"/>
   </project>
 
-  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="5144a99a696a8a72c0765ea0e8be8ceafaa78f85"/>
+  <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="21ce4c124d9a972d9122f87c64ac2773bf04c284"/>
 
   <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
 
-  <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="7f235b6f8973cc5269448375f2a8f9867bb2a369"/>
+  <project name="meta-rust" path="sources/meta-rust" remote="rust" revision="53bfa324891966a2daf5d36dc13d4a43725aebed"/>
 
   <project name="meta-python2" path="sources/meta-python2" remote="python2" revision="4400f9155ec193d028208cf0c66aeed2ba2b00ab"/>
 
