@@ -71,7 +71,7 @@
 
   <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" revision="77f41849a01a79702dbf1129562ef8e8bca7d21a" />
 
-  <project name="meta-celebrity-face-match" path="sources/meta-celebrity-face-match" remote="github.phytec" revision="refs/tags/v0.2">
+  <project name="meta-celebrity-face-match" path="sources/meta-celebrity-face-match" remote="github.phytec" revision="refs/tags/v0.2_r2">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
 
