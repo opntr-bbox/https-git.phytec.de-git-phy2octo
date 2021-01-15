@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec build_container="crops/poky:ubuntu-16.04" pdn="PD2021-01-15" release_type="nightly" release_uid="BSP-Yocto-ALL-nightly-dunfell-2021-01-15" soc="ALL" supported_builds="
+    phyboard-mira-imx6-13/phytec-headless-image/yogurt-5.4.y,
+    phyboard-mira-imx6-13/phytec-headless-image/yogurt-5.4.y-barebox-master,
+    phyboard-mira-imx6-13/phytec-headless-image/yogurt-vanilla-master,
+    phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-5.4.y,
+    phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-5.4.y-barebox-master,
+    phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-vanilla-master,
+    phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-5.4.y,
+    phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-5.4.y-barebox-master,
+    phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-vanilla-master
+  " />
+
+  <remote fetch="git://git.phytec.de" name="git.phytec" />
+	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+	<remote fetch="git://git.yoctoproject.org" name="yocto" />
+	<remote fetch="git://git.openembedded.org" name="oe" />
+	<remote fetch="git://git.ti.com" name="ti" />
+	<remote fetch="git://github.com" name="github" />
+
+	<default remote="git.phytec" revision="dunfell" sync-j="8" />
+
+	<project name="poky" path="sources/poky" remote="yocto" revision="e32d854e33bc86c2a616df8708e021a098afcf73">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="f2d02cb71eaff8eb285a1997b30be52486c160ae">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="0d8eb956015acdea7e77cd6672d08dce18061510" />
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="f4b30e72a37455adcb233e097a0e7484535c37b0" />
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="c74cc97641fd93e0e7a4383255e9a0ab3deaf9d7" />
+	<project name="meta-yogurt" path="sources/meta-yogurt" revision="b44860c9200f01734937ba9800da01f5893f732e" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="345da92aa908db92f1c0455a3ccf05728350364a">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="563778776e43f21f0d9dfd32f2401567103cdd4e" />
+</manifest>
