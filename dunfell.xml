@@ -2,6 +2,8 @@
 <manifest>
   <phytec pdn="dunfell" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-dunfell" soc="STM32MP1" supported_builds="
     phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
+    phycore-stm32mp1-4/st-image-core/openstlinux-eglfs,
+    phycore-stm32mp1-5/st-image-core-minimal/openstlinux-tiny,
     phycore-stm32mp1-6/st-image-core/openstlinux-eglfs
   "/>
 
@@ -23,4 +25,9 @@
   <project name="meta-st-scripts" path="layers/meta-st/scripts" revision="c0c951cfe7e95eed7654011bb2ab8178107151ca"/>
   <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="b39bda4cc62db12c0edfbe489d5a7f5988ede6a9"/>
   <project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="dunfell"/>
+  <project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="dunfell">
+    <!-- we duplicate the init script, so phyLinux works and a user does not need to search for it in the tree -->
+    <copyfile dest="tools/init" src="scripts/openstlinux-init-phytec.sh"/>
+    <copyfile dest="openstlinux-init-phytec.sh" src="scripts/openstlinux-init-phytec.sh"/>
+  </project>
 </manifest>
