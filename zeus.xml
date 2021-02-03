@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <phytec pdn="zeus" release_uid="BSP-Yocto-FSL-i.MX8-zeus" soc="iMX8" supported_builds="
-    phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
-    phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland"
+    phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor-xwayland"
     release_type="nightly" bspextension="FSL" build_container="crops/poky:ubuntu-16.04"/>
   <default revision="zeus" sync-j="2"/>
 
