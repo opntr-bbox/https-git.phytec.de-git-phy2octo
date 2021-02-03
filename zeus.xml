@@ -8,7 +8,7 @@
         phygate-tauri-imx8mm-2/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-3/phytec-qt5demo-image/yogurt-vendor-xwayland,
         phyboard-polis-imx8mm-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
-        release_type="nightly" bspextension="FSL" build_container="crops/poky:ubuntu-16.04"/>
+        release_type="nightly" bspextension="FSL"/>
   <default revision="zeus" sync-j="2"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
