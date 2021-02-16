@@ -7,6 +7,7 @@
         phygate-tauri-imx8mm-1/phytec-headless-image/yogurt-vendor,
         phygate-tauri-imx8mm-2/phytec-headless-image/yogurt-vendor,
         phyboard-polis-imx8mm-3/phytec-qt5demo-image/yogurt-vendor-xwayland,
+        phyboard-polis-imx8mm-3/phytec-vision-image/yogurt-vendor-xwayland,
         phyboard-polis-imx8mm-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
         release_type="nightly" bspextension="FSL"/>
   <default revision="zeus" sync-j="2"/>
