@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # Copyright 2014 Stefan Müller-Klieser, PHYTEC Messtechnik GmbH
-# Author: Stefan Müller-Klieser <s.mueller-klieser@phytec.de> 
+# Author: Stefan Müller-Klieser <s.mueller-klieser@phytec.de>
 import argparse
 import os
 import subprocess
@@ -14,14 +14,13 @@ if 0 == uid:
     exit(1)
 
 # Global constants
-phylinux_version = "2020-03-26"
+phylinux_version = "2021-02-18"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
-repo_repo_branch = "stable"
-repo_repo_url = "https://git.phytec.de/git/git-repo"
-repo_repo_url_dev = "ssh://git@git.phytec.de/git-repo-dev"
-#repo_repo_url = "https://gerrit.googlesource.com/git-repo"
+repo_repo_url_phytec = "https://git.phytec.de/git/git-repo"
+repo_repo_url_phytec_dev = "ssh://git@git.phytec.de/git-repo-dev"
+repo_repo_url_upstream = "https://gerrit.googlesource.com/git-repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
 phytec_repo_dev = "ssh://git@git.phytec.de/phy2octo-dev"
 phytec_bsp_init_script = "tools/init"
@@ -31,7 +30,8 @@ repo_reference_dir = "/home/share/repo_reference"
 manifest_git_url = ""
 selected_soc = ""
 selected_release = ""
-
+repo_repo_branch = ""
+repo_repo_url = ""
 
 ##################
 # generic helper #
@@ -150,6 +150,22 @@ def probe_repo_currentdir():
         print 'no repo repository in current directory'
         return False
 
+def probe_repo_repo():
+    global repo_repo_branch, repo_repo_url
+
+    major = sys.version_info.major
+    minor = sys.version_info.minor
+    if ( (2 == major) | ((3 == major) & (5 >= minor)) ):
+        # using python <= 3.5.x
+        print 'using repo-1 branch of upstream repo-tool'
+        print 'if you want to use newer branches, you need to use pyhton >= 3.6'
+        repo_repo_url = repo_repo_url_upstream
+        repo_repo_branch = "repo-1"
+    else:
+        # using pyhton >= 3.6.x
+        print 'default: using stable branch of phytec repo-tool'
+        repo_repo_url = repo_repo_url_phytec
+        repo_repo_branch = "stable"
 
 def probe_manifest_git_url():
     global manifest_git_url
@@ -224,8 +240,20 @@ def probe_selected_machine():
 def probe_selected_release():
     global selected_release
     try:
-        f = os.readlink('.repo/manifest.xml')
-        release = f.split('/', 1)[1]
+        if os.path.islink('.repo/manifest.xml'):
+            f = os.readlink('.repo/manifest.xml')
+            release = f.split('/', 1)[1]
+        else:
+            repo_manifest = open(('.repo/manifest.xml'), 'r')
+            lines_manifest = repo_manifest.readlines()
+            repo_manifest.close()
+            for line in lines_manifest:
+                xline = line.split('"')
+                for elem in xline:
+                    if ".xml" in elem:
+                        phymanifest = elem
+            f = os.path.join('.repo/manifests/' + phymanifest)
+            release = f.split('/', 1)[2]
         if release.endswith('.xml'):
             selected_release = remove_file_extension(release)
             return True
@@ -478,9 +506,15 @@ def cmd_init(args):
     if not probe_repo_currentdir():
         print 'installing repo tool'
 
+    probe_repo_repo()
+
     # repo_repo command line option
     if args.reporepo:
-        repo_repo_url = args.reporepo
+        if "dev" == args.reporepo:
+            repo_repo_url = repo_repo_url_phytec_dev
+            repo_repo_branch = "master"
+        else:
+            repo_repo_url = args.reporepo
 
     if args.reporepo_branch:
         repo_repo_branch = args.reporepo_branch
@@ -514,7 +548,7 @@ def cmd_init(args):
     # first manifest git init
     print 'updating remote phytec repo repository'
     if args.dev:
-        call('repo init --repo-url=' + repo_repo_url_dev + ' --repo-branch=' + repo_repo_branch + ' -u ' + manifest_git_url + ' --reference=' + repo_reference_dir)
+        call('repo init --repo-url=' + repo_repo_url + ' --repo-branch=' + repo_repo_branch + ' -u ' + manifest_git_url + ' --reference=' + repo_reference_dir)
     else:
         call('repo init --repo-url=' + repo_repo_url + ' --repo-branch=' + repo_repo_branch + ' -u ' + manifest_git_url)
 
