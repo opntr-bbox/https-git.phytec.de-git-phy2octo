@@ -14,7 +14,7 @@ if 0 == uid:
     exit(1)
 
 # Global constants
-phylinux_version = "2021-02-18"
+phylinux_version = "2021-03-04"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -63,7 +63,7 @@ def is_in_path(question):
 
 def call(cmd):
     print('$', cmd)
-    subprocess.call(cmd,shell=True)
+    subprocess.call(cmd, shell=True)
     print('')
 
 
@@ -155,7 +155,7 @@ def probe_repo_repo():
 
     major = sys.version_info.major
     minor = sys.version_info.minor
-    if ( (2 == major) | ((3 == major) & (5 >= minor)) ):
+    if ((2 == major) | ((3 == major) & (5 >= minor))):
         # using python <= 3.5.x
         print('using repo-1 branch of upstream repo-tool')
         print('if you want to use newer branches, you need to use pyhton >= 3.6')
@@ -323,12 +323,12 @@ def choose_release(dev):
 
 
 def rc_warning():
-    print('     {}  _---_  {}')
-    print('       \/     \/  ')
-    print('        |() ()|   ')
-    print('         \ + /    ')
-    print('        / HHH  \  ')
-    print('      {}  \_/   {}')
+    print(r'     {}  _---_  {}')
+    print(r'       \/     \/  ')
+    print(r'        |() ()|   ')
+    print(r'         \ + /    ')
+    print(r'        / HHH  \  ')
+    print(r'      {}  \_/   {}')
     print('')
     print('WARNING!! You are working on a release candidate version of Phytecs')
     print('Linux BSP, aka ALPHA Version. You will have to port all your work')
@@ -423,7 +423,7 @@ def choose_machine_api_1():
     print('***************************************************')
     print('* Please choose one of the available Machines:')
     print('*')
-    
+
     soc_bsp_folders = []
     machines = []
     d = os.listdir(phytec_bsp_basedir)
@@ -431,7 +431,7 @@ def choose_machine_api_1():
         if 'meta-phy' in i:
             soc_bsp_folders.append(i)
     for i in soc_bsp_folders:
-        d = os.listdir(os.path.join(phytec_bsp_basedir, i,  'conf/machine'))
+        d = os.listdir(os.path.join(phytec_bsp_basedir, i, 'conf/machine'))
         d.sort()
         for j in d:
             if '.conf' in j:
@@ -518,7 +518,7 @@ def cmd_init(args):
 
     if args.reporepo_branch:
         repo_repo_branch = args.reporepo_branch
- 
+
     if probe_manifest_git_url():
         print('')
         print('This current directory is not empty. It could lead to errors in the BSP configuration')
@@ -713,5 +713,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
