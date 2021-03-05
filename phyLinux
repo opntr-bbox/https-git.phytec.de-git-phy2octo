@@ -13,6 +13,9 @@ if 0 == uid:
     print("Do not run phyLinux with sudo!\n")
     exit(1)
 
+if sys.version_info.major < 3:
+    input = raw_input
+
 # Global constants
 phylinux_version = "2021-03-04"
 
@@ -65,7 +68,6 @@ def call(cmd):
     print('$', cmd)
     subprocess.call(cmd, shell=True)
     print('')
-
 
 
 def remove_file_extension(f):
