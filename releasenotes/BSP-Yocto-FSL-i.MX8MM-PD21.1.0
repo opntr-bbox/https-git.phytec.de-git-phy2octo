@@ -1,0 +1,205 @@
+Release Notes i.MX8MM Linux BSP:
+================================
+
+BSP-Yocto-FSL-i.MX8MM-PD21.1.0		2021-10-03
+==================================================
+- Linux NXP Vendor Kernel v5.4.70_2.3.0-phy4 (based on NXP tag rel_imx_v5.4.70_2.3.0)
+- U-boot v2020.04_2.3.0-phy3 (based on NXP tag rel_imx_v5.4.70_2.3.0)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-3
+  * phyboard-polis-imx8mm-4
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-3
+  * phyboard-polis-imx8mm-4
+
+- phytec-headless-image:
+  * phyboard-polis-imx8mn-1
+  * phygate-tauri-l-imx8mm-1
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-4 (phyCORE-i.MX8MM 1518.2) with PEB-AV-10 Audio
+  * phygate-tauri-l-imx8mm-1
+  * phygate-tauri-l-imx8mm-2
+  * phyboard-polis-imx8mn-1
+
+- Added new features:
+	- Camera VM-016 Support (kernel)
+	- Secure boot (bootloader + kernel)
+	- Update PMIC driver to mainline (kernel)
+	- UUU Tool support (bootloader)
+	- PEB-AV-10 Rev.1 Audio support (kernel)
+	- 1GB RAM Support (bootloader)
+	- Add gstreamer examples
+	- Update RAUC to 1.5.1 to fix CVE-2020-25860
+
+
+Defeatured:
+-----------
+- remove phyboard-polis-imx8mm-2
+
+Issues Fixed:
+-------------
+- Backtrace after playing video in qt5
+
+Known Issues/Limitations:
+-------------------------
+- UUU Tool does not work with phyboard-polis-imx8mn-1
+- USB Type-A port only works with OTG cable plugged in with phyboard-polis-imx8mn-1
+
+BSP-Yocto-FSL-i.MX8MM-PD20.1.0		2020-26-06
+==================================================
+- Linux NXP Vendor Kernel v4.19.35_1.1.0-phy4 (based on NXP tag rel_imx_4.19.35_1.1.0)
+- U-boot v2019.04_1.1.0-phy5 (based on NXP tag rel_imx_4.19.35_1.1.0)
+- Yocto 2.7.1 (warrior)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-2
+  * phyboard-polis-imx8mm-3
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-3 (phyCORE-i.MX8MM 1518.2)
+- Added new features:
+	- CANfd support (kernel)
+	- Booting from SPI NOR flash (bootloader)
+	- Watchdog support (bootloader + kernel)
+	- basic suspend & resume support (kernel)
+	- RAUC support (bootloader + kernel)
+	- USB Host support (bootloader)
+
+Defeatured:
+-----------
+- TPM support has been removed for this release
+
+Issues Fixed:
+-------------
+- Display dimming works now without noise
+
+Known Issues/Limitations:
+-------------------------
+- Backtrace after playing video in qt5
+
+BSP-Yocto-FSL-i.MX8MM-ALPHA2            2019-12-11
+==================================================
+- Linux NXP Vendor Kernel v4.19.35_1.0.0-phy2 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- U-boot v2019.04_1.0.0-phy2 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- Yocto 2.6.2 (thud)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-2 (phyCORE-i.MX8MM 1518.1a)
+- Added new features:
+   * VPU support (kernel)
+   * GPU support (kernel)
+   * Enabled bluetooth support (kernel)
+   * display support with PEB-AV-10 (display extension board)
+
+
+Issues Fixed:
+-------------
+- Fixed PMIC issue which created constant load on one CPU while frequency
+  scaling
+
+
+Known Issues/Limitations:
+-------------------------
+- PEB-AV-10 creates noise when backlight is being dimmed
+- Backtrace after playing video
+- There is no userspace tools for TPM available yet
+- CAN FD is not fuctional
+
+
+BSP-Yocto-FSL-i.MX8MM-ALPHA1            2019-10-25
+==================================================
+
+- Linux NXP Vendor Kernel v4.19.35_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- U-boot v2019.04_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- Yocto 2.6.2 (thud)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image:
+  * phyboard-polis-imx8mm-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (kernel)
+   * USB host support 2.0 (kernel)
+   * USB OTG support 2.0 (kernel)
+   * Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * basic display support with PEB-AV-09
+     (MIPI to LVDS bridge Texas Instruments SN65DSI83)
+   * SPI NOR flash (no booting possible)
+   * USER LED (kernel)
+   * mPCIe (kernel)
+   * wifi Serling-LWB (kernel)
+   * UART/RS485 (kernel)
+   * TPM (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- Bluetooth is not fuctional
+- CAN FD is not fuctional
+- Software Reset does not work
+- There is no userspace tools for TPM available yet
+- graphic acceleration status unknown
+
+Changelog of Release Notes
+--------------------------
+2019-10-25
+  - initial version
