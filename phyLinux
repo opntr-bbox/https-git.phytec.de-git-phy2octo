@@ -17,13 +17,13 @@ if sys.version_info.major < 3:
     input = raw_input
 
 # Global constants
-phylinux_version = "2021-03-04"
+phylinux_version = "2021-04-01"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
 repo_repo_url_phytec = "https://git.phytec.de/git/git-repo"
 repo_repo_url_phytec_dev = "ssh://git@git.phytec.de/git-repo-dev"
-repo_repo_url_upstream = "https://gerrit.googlesource.com/git-repo"
+#repo_repo_url_upstream = "https://gerrit.googlesource.com/git-repo"
 phytec_repo_url = "git://git.phytec.de/phy2octo"
 phytec_repo_dev = "ssh://git@git.phytec.de/phy2octo-dev"
 phytec_bsp_init_script = "tools/init"
@@ -34,7 +34,7 @@ manifest_git_url = ""
 selected_soc = ""
 selected_release = ""
 repo_repo_branch = ""
-repo_repo_url = ""
+repo_repo_url = repo_repo_url_phytec
 
 ##################
 # generic helper #
@@ -161,12 +161,10 @@ def probe_repo_repo():
         # using python <= 3.5.x
         print('using repo-1 branch of upstream repo-tool')
         print('if you want to use newer branches, you need to use pyhton >= 3.6')
-        repo_repo_url = repo_repo_url_upstream
         repo_repo_branch = "repo-1"
     else:
         # using pyhton >= 3.6.x
         print('default: using stable branch of phytec repo-tool')
-        repo_repo_url = repo_repo_url_phytec
         repo_repo_branch = "stable"
 
 def probe_manifest_git_url():
@@ -514,7 +512,7 @@ def cmd_init(args):
     if args.reporepo:
         if "dev" == args.reporepo:
             repo_repo_url = repo_repo_url_phytec_dev
-            repo_repo_branch = "master"
+            repo_repo_branch = "main"
         else:
             repo_repo_url = args.reporepo
 
