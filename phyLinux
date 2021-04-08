@@ -17,7 +17,7 @@ if sys.version_info.major < 3:
     input = raw_input
 
 # Global constants
-phylinux_version = "2021-04-01"
+phylinux_version = "2021-04-08"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -252,8 +252,7 @@ def probe_selected_release():
                 for elem in xline:
                     if ".xml" in elem:
                         phymanifest = elem
-            f = os.path.join('.repo/manifests/' + phymanifest)
-            release = f.split('/', 1)[2]
+            release = phymanifest
         if release.endswith('.xml'):
             selected_release = remove_file_extension(release)
             return True
