@@ -603,6 +603,14 @@ def cmd_init(args):
     if api == 1:
         legacy_init_bsp_api_1(args)
     elif api == 2:
+        try:
+            subprocess.check_call("rgrep REPO_MANIFEST tools/init", shell=True)
+        except subprocess.CalledProcessError as error:
+            if repo_repo_branch != "repo-1":
+                print('Initialialization of selected BSP is not compatible with actual repo-tool.')
+                print('Please re-run with additional parameter, e.g.:')
+                print('./phyLinux init -b repo-1')
+                exit(0)
         # terminate this program and start init
         sys.stdout.flush()
         os.execl('tools/init', ' ')
