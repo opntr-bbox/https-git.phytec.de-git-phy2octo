@@ -17,7 +17,7 @@ if sys.version_info.major < 3:
     input = raw_input
 
 # Global constants
-phylinux_version = "2021-04-08"
+phylinux_version = "2021-04-12"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -604,7 +604,7 @@ def cmd_init(args):
         legacy_init_bsp_api_1(args)
     elif api == 2:
         try:
-            subprocess.check_call("rgrep REPO_MANIFEST tools/init", shell=True)
+            subprocess.check_call("grep REPO_MANIFEST tools/init", shell=True)
         except subprocess.CalledProcessError as error:
             if repo_repo_branch != "repo-1":
                 print('Initialialization of selected BSP is not compatible with actual repo-tool.')
