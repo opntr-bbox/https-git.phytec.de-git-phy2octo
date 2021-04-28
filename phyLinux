@@ -17,7 +17,7 @@ if sys.version_info.major < 3:
     input = raw_input
 
 # Global constants
-phylinux_version = "2021-04-12"
+phylinux_version = "2021-04-28"
 
 repo_install_path = "/usr/local/bin"
 repo_wrapper_url = "https://storage.googleapis.com/git-repo-downloads/repo"
@@ -608,8 +608,8 @@ def cmd_init(args):
         except subprocess.CalledProcessError as error:
             if repo_repo_branch != "repo-1":
                 print('Initialialization of selected BSP is not compatible with actual repo-tool.')
-                print('Please re-run with additional parameter, e.g.:')
-                print('./phyLinux init -b repo-1')
+                print('Please set python2 as default and rerun phyLinux, temporarily e.g:')
+                print('ln -s `which python2` python && export PATH=`pwd`:$PATH')
                 exit(0)
         # terminate this program and start init
         sys.stdout.flush()
