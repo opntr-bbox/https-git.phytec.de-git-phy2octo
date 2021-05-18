@@ -2,9 +2,7 @@
 <manifest>
   <phytec pdn="zeus" release_uid="BSP-Yocto-FSL-i.MX8MP-zeus" soc="iMX8MP" supported_builds="
         phyboard-pollux-imx8mp-2/phytec-headless-bundle/yogurt-vendor,
-        phyboard-pollux-imx8mp-1/phytec-headless-image/yogurt-vendor,
         phyboard-pollux-imx8mp-2/phytec-headless-image/yogurt-vendor,
-        phyboard-pollux-imx8mp-1/phytec-qt5demo-image/yogurt-vendor-xwayland,
         phyboard-pollux-imx8mp-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
         phyboard-pollux-imx8mp-2/phytec-vision-image/yogurt-vendor-xwayland,
         phyboard-pollux-imx8mp-2/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
