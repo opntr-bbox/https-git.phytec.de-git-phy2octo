@@ -1,0 +1,256 @@
+Release Notes STM32MP1 OpenSTLinux BSP:
+=======================================
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD21.1.1 2021-06-10
+==================================================
+- Linux ST Vendor Kernel v5.4.56
+  * Tag 5.4-phy2
+- U-boot ST Vendor v2020.01
+  * Tag v2020.01-phy1
+- TF-A ST Vendor v2.2
+  * Tag v2.2-phy1
+- Linux integration from STM32MP15-ecosystem-v2.1.1: "openstlinux-5.4-dunfell-mp1-20-11-12" (v2.1.0) + minor release update (v2.1.1)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.3.0-phy: STM32CubeMP1 v1.3.0 + phyBOARD-Sargas board support
+  v1.3.0 release note: https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.3.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+  
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-2
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 18.04 64-bit
+
+Changes since PD21.1.0:
+-----------------------
+- Fixes:
+  * kernel:
+    - RTC rv3028 backup issued fixed. In PD21.1.0, following a power cut, date and time were lost.
+  * qt5: support linuxfb backend for machines without GPU.
+  * add sample image st-example-image-qt-minimal.
+
+Features:
+---------
+- Remove support of following machine:
+  * phycore-stm32mp1-1 (phyCORE-STM32MP1 ALPHA1-Kit Dev Board, stm32mp157aac @650Mhz MPU (old rev), 3D GPU, 1GiB RAM, 8GiB eMMC)
+
+- New features provided by OpenSTLinux v2.1.1:
+    * Authentication service for co-processor firmware
+    * SCMI support in Linux and U-boot for remote-proc
+    * Add pm runtime support for SAI Linux driver
+    * Duty cycle management in Clock linux driver and in ADC linux driver
+    * Full FMC External Bus Interface in Linux
+    * Added support for the 800 MHz STM32MP15 versions
+    * SCMI (System Control and Management Interface) support for clocks and resets
+    * Supports DVFS (Dynamic Voltage and Frequency Scaling) 800 MHz - 400 MHz
+    * SNAND - Full SPI Nand support including boot and Flash
+    * SoC device tree new split
+    * OpenSTLinux debug with gdb management 
+    * Basic boot removed except for DDR tuning tool: reference boot is the Trusted boot: TF-A=>U-BOOT=>Kernel
+    * UART RS485 support
+    * Yocto build process:
+      * A dedicated Yocto recipe is added to manage the TF-A for serial boot (tf-a-stm32mp-serialboot_2.2.bb included in PHYTEC yocto images).
+        It allows to use a dedicated TF-A binary for serial boot with STM32CubeProgrammer tool and to save size for the TF-A binary used for the product.
+      * SSP feature (Secure Secrets Provisonning) delivered with a dedicated Yocto recipe tf-a-stm32mp-ssp_2.2.bb
+
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP15-ecosystem-v2.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note
+       * OpenSTLinux v2.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note
+       * STM32MP15-ecosystem-v2.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note_-_v2.0.0
+       * OpenSTLinux v2.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note_-_v2.0.0
+
+- New features provided by PHYTEC BSP adaptation:
+    * HDMI resolution setting can be set through u-boot
+    * New STM32CubeMP1 demo and examples available on target:
+      * AI demo (hand caracter recognition). Can be launched from the GTK demo launcher with AC158 screen (Application running on Cortex-A7 and Cortex-M4).
+      * GPIO_EXTI
+      * UART_Receive_Transmit_Console
+      * OpenAMP_TTY_echo
+      * OpenAMP_raw
+    * Yocto build process: Add new PHYTEC layer "meta-st-openstlinux-phytec".
+      This layer extends the functionality of the meta-st-openstlinux distribution layer to enable features provided by our boards.
+
+- Existing features (from PD20.1.0 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touchcreen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touchcreen is not functionnal)
+    * PEB-WLBT-05 support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel) 
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- u-boot/linux (Cortex-A7): there is no ready to go mechanism to update the BSP (from Network, SD-card, USB Flash Drive or USB DFU)
+- STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
+  * SW4STM32 IDE: This IDE is deprecated.
+    For projects examples of STMicroelectronics eval boards still in SW4STM32 format (deprecated), you can easily import them in STM32CubeIDE (with import menu)
+  * Please use the HAL RTC with caution since this driver is also used by Linux. To remove any risk of contention between Linux and the HAL, proceed as follows:
+    The write protect (wpr) must be disabled by default and it must never be enabled in any driver (Linux nor HAL).
+    The HAL must use only Alarm B, since Linux uses Alarm A.
+    The RTC interrupt must be shared between Linux and the HAL to be able to receive alarm notifications on both sides.
+
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD21.1.0 2021-02-22
+==================================================
+- Linux ST Vendor Kernel v5.4.56
+  * Tag 5.4-phy1
+- U-boot ST Vendor v2020.01
+  * Tag v2020.01-phy1
+- TF-A ST Vendor v2.2
+  * Tag v2.2-phy1
+- Linux integration from STM32MP15-ecosystem-v2.1.1: "openstlinux-5.4-dunfell-mp1-20-11-12" (v2.1.0) + minor release update (v2.1.1)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.3.0-phy: STM32CubeMP1 v1.3.0 + phyBOARD-Sargas board support
+  v1.3.0 release note: https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.3.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-2
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+  
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-2
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 18.04 64-bit
+
+Features:
+---------
+- Remove support of following machine:
+  * phycore-stm32mp1-1 (phyCORE-STM32MP1 ALPHA1-Kit Dev Board, stm32mp157aac @650Mhz MPU (old rev), 3D GPU, 1GiB RAM, 8GiB eMMC)
+
+- New features provided by OpenSTLinux v2.1.1:
+    * Authentication service for co-processor firmware
+    * SCMI support in Linux and U-boot for remote-proc
+    * Add pm runtime support for SAI Linux driver
+    * Duty cycle management in Clock linux driver and in ADC linux driver
+    * Full FMC External Bus Interface in Linux
+    * Added support for the 800 MHz STM32MP15 versions
+    * SCMI (System Control and Management Interface) support for clocks and resets
+    * Supports DVFS (Dynamic Voltage and Frequency Scaling) 800 MHz - 400 MHz
+    * SNAND - Full SPI Nand support including boot and Flash
+    * SoC device tree new split
+    * OpenSTLinux debug with gdb management 
+    * Basic boot removed except for DDR tuning tool: reference boot is the Trusted boot: TF-A=>U-BOOT=>Kernel
+    * UART RS485 support
+    * Yocto build process:
+      * A dedicated Yocto recipe is added to manage the TF-A for serial boot (tf-a-stm32mp-serialboot_2.2.bb included in PHYTEC yocto images).
+        It allows to use a dedicated TF-A binary for serial boot with STM32CubeProgrammer tool and to save size for the TF-A binary used for the product.
+      * SSP feature (Secure Secrets Provisonning) delivered with a dedicated Yocto recipe tf-a-stm32mp-ssp_2.2.bb
+
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP15-ecosystem-v2.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note
+       * OpenSTLinux v2.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note
+       * STM32MP15-ecosystem-v2.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note_-_v2.0.0
+       * OpenSTLinux v2.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note_-_v2.0.0
+
+- New features provided by PHYTEC BSP adaptation:
+    * HDMI resolution setting can be set through u-boot
+    * New STM32CubeMP1 demo and examples available on target:
+      * AI demo (hand caracter recognition). Can be launched from the GTK demo launcher with AC158 screen (Application running on Cortex-A7 and Cortex-M4).
+      * GPIO_EXTI
+      * UART_Receive_Transmit_Console
+      * OpenAMP_TTY_echo
+      * OpenAMP_raw
+    * Yocto build process: Add new PHYTEC layer "meta-st-openstlinux-phytec".
+      This layer extends the functionality of the meta-st-openstlinux distribution layer to enable features provided by our boards.
+
+- Existing features (from PD20.1.0 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touchcreen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touchcreen is not functionnal)
+    * PEB-WLBT-05 support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel) 
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- linux (Cortex-A7):
+  * Date and Time from rv3028 RTC of the phyCORE-STM32MP1 are lost after power cut (backup mode issue in the RTC driver). 
+- u-boot/linux (Cortex-A7):
+  * There is no ready to go mechanism to update the BSP (from Network, SD-card, USB Flash Drive or USB DFU)
+- STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
+  * SW4STM32 IDE: This IDE is deprecated.
+    For projects examples of STMicroelectronics eval boards still in SW4STM32 format (deprecated), you can easily import them in STM32CubeIDE (with import menu)
+  * Please use the HAL RTC with caution since this driver is also used by Linux. To remove any risk of contention between Linux and the HAL, proceed as follows:
+    The write protect (wpr) must be disabled by default and it must never be enabled in any driver (Linux nor HAL).
+    The HAL must use only Alarm B, since Linux uses Alarm A.
+    The RTC interrupt must be shared between Linux and the HAL to be able to receive alarm notifications on both sides.
+
