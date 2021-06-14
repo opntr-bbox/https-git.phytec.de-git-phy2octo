@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <phytec pdn="PD21.1.1" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-PD21.1.1" soc="STM32MP1" supported_builds="
+  <phytec pdn="PD21.1.1" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-PD21.1.1" soc="STM32MP1" build_container="yocto:ubuntu20.04" supported_builds="
     phycore-stm32mp1-2/st-image-core/openstlinux-eglfs,
     phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
     phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
