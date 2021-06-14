@@ -24,7 +24,7 @@
   <project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" revision="639395f29356e1583d9980f8a7f289bf3efba88a"/>
   <project name="meta-st-scripts" path="layers/meta-st/scripts" revision="c0c951cfe7e95eed7654011bb2ab8178107151ca"/>
   <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="b39bda4cc62db12c0edfbe489d5a7f5988ede6a9"/>
-  <project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="3ba7567532bcda55d9d73deff80a350877b68d07"/>
+  <project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="b11cab7fe64bdda06eabe84b485d22034960cab3"/>
   <project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="e97cd139d540d687a823f658e76613879f2493e8">
     <!-- we duplicate the init script, so phyLinux works and a user does not need to search for it in the tree -->
     <copyfile dest="tools/init" src="scripts/openstlinux-init-phytec.sh"/>
