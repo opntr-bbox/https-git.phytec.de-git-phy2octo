@@ -31,6 +31,11 @@ Features:
   * USB Host support (bootloader)
   * M7 support
 
+Known Issues/Limitations:
+-------------------------
+- RAUC bundle installation is broken. Will be fixed in release
+  BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+
 
 BSP-Yocto-FSL-i.MX8MP-ALPHA2            2021-03-12
 ==================================================
