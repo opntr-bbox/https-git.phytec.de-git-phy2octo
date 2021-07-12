@@ -1,0 +1,164 @@
+BSP-Yocto-FSL-i.MX8MP-PD21.1.1            2021-07-12
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy5 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Corrected eMMC boot partition offset for U-Boot to fix
+  RAUC bundle installation
+- Enable PCA9532 driver support to make LEDs on phyBOARD-Pollux-i.MX8MP
+  working
+- Fix temperature rates of thermal shutdown during boot time for
+  industrial temperature grade SoCs
+
+
+BSP-Yocto-FSL-i.MX8MP-PD21.1.0            2021-06-21
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+- Added new features (on machine phyboard-pollux-imx8mp-2):
+  * PEB-WLBT-05 WLAN BT support (kernel)
+  * PEB-AV-10 support LVDS Display and Audio (kernel)
+  * VM-016 on second CSI port
+  * Update gstreamer examples
+  * RAUC support
+  * QSPI support (bootloader/kernel)
+  * USB Host support (bootloader)
+  * M7 support
+
+Known Issues/Limitations:
+-------------------------
+- RAUC bundle installation is broken. Will be fixed in release
+  BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+
+
+BSP-Yocto-FSL-i.MX8MP-ALPHA2            2021-03-12
+==================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.0-phy5 (based on NXP tag rel_imx_5.4.70_2.3.0)
+- U-boot v2020.04_2.3.0-phy3 (based on NXP tag rel_imx_5.4.70_2.3.0)
+- Yocto 3.0.4 (zeus)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-1
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-2
+- Booting from EMMC and SD-Card is supported
+- Added new features (on machine phyboard-pollux-imx8mp-2):
+  * PEB-WLBT-05 WLAN support (kernel)
+  * mini PCIe (kernel)
+  * FEC Ethernet (bootloader/kernel)
+  * RS232 and RS485 support (kernel)
+  * PEB-AV-10 support LVDS Display and Audio (only playback) (kernel)
+  * CAN FD
+- Added new features (both machines):
+ * gstreamer examples
+
+Known Issues/Limitations:
+-------------------------
+- PEB-AV-10 colours are wrong
+
+
+BSP-Yocto-FSL-i.MX8MP-ALPHA1            2020-10-30
+==================================================
+
+- Linux NXP Vendor Kernel v5.4.47_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- U-boot v2020.04_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- Yocto 3.0.4 (zeus)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (u-boot/kernel)
+   * 2x USB 3.0 host support (kernel)
+   * EQOS Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * display support with LVDS1 (kernel)
+   * HDMI (kernel)
+   * SPI NOR flash (no booting possible)
+   * GPU + VPU (kernel)
+   * temperatur sensors on module (kernel)
+   * debug UART over USB (bootloader/kernel)
+   * VM-016 camera support on CSI1 interface (kernel)
+
+Known Issues/Limitations:
+-------------------------
+- CAN FD is working but connector pin out is wrong
+
+
+Changelog of Release Notes
+--------------------------
+2020-10-30
+  - initial version
