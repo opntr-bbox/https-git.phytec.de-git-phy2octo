@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD21.1-rc1" release_uid="BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc1" soc="iMX6" supported_builds="
+    phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-3/-c populate_sdk phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-3/barebox-hosttools-native/ampliphy,
+    phyboard-mira-imx6-3/phytec-headless-image/ampliphy-secure,
+    phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-3/phytec-vision-image/ampliphy-x11,
+    phyboard-mira-imx6-3/phytec-vision-image/ampliphy-xwayland,
+    phyboard-mira-imx6-5/phytec-headless-image/ampliphy-secure,
+    phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy,
+    phyboard-nunki-imx6-1/phytec-qt5demo-image/ampliphy,
+    phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-x11,
+    phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-xwayland,
+    phyflex-imx6-1/phytec-qt5demo-image/ampliphy,
+    phyflex-imx6-2/phytec-qt5demo-image/ampliphy,
+    phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
+    phyflex-imx6-2/phytec-vision-image/ampliphy-xwayland,
+    phyflex-imx6-8/phytec-qt5demo-image/ampliphy
+  " build_container="crops/poky:ubuntu-20.04" />
+
+  <remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="ti" fetch="git://git.ti.com" />
+	<remote name="github" fetch="git://github.com" />
+
+	<default revision="hardknott" remote="git.phytec" sync-j="8" />
+
+	<project name="poky" remote="yocto" path="sources/poky" revision="da0ce760c5372f8f2ef4c4dfa24b6995db73c66c">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="c51e79dd854460c6f6949a187970d05362152e84">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="a00af3eae082b772469d9dd21b2371dd4d237684" />
+	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc" revision="3957d114f0dd46ba0c213463574dec417dc616e8" />
+	<project name="meta-security" remote="yocto" path="sources/meta-security" revision="5050d1267ad41288c903086030594f8702bfa039" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="5fee82d6846ba2121868ba3a7332014f2bda53d1" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="c3e5aa0dcbaf80ca9f541747e87e33d194d064e4">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+</manifest>
