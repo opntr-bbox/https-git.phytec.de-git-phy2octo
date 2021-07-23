@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="master-next" release_uid="BSP-Yocto-i.MX8MP-master-next" soc="iMX8MP" supported_builds="
-		phyboard-pollux-imx8mp-1/phytec-headless-image/ampliphy-vanilla-master-u-boot-master
+		phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vanilla-master-u-boot-master
 	"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
