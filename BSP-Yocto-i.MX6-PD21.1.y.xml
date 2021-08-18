@@ -45,5 +45,5 @@
 	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-fresh" path="sources/meta-fresh" revision="master"/>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="gatesgarth"/>
 </manifest>
