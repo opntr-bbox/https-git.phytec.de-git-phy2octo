@@ -4,7 +4,10 @@
     phyboard-polaris-imx8m-3/phytec-headless-image/yogurt-vendor-secure,
     phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-3/phytec-qt5demo-image/yogurt-vendor-xwayland,
-    phyboard-polaris-imx8m-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
+    phyboard-polaris-imx8m-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland,
+    phyboard-polaris-imx8m-4/phytec-headless-image/yogurt-vendor-secure,
+    phyboard-polaris-imx8m-4/phytec-vision-image/yogurt-vendor-xwayland,
+    phyboard-polaris-imx8m-4/phytec-qt5demo-image/yogurt-vendor-xwayland"
     release_type="nightly" bspextension="FSL"/>
   <default revision="zeus" sync-j="2"/>
 
