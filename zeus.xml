@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <phytec pdn="zeus" release_uid="BSP-Yocto-FSL-i.MX8M-zeus" soc="iMX8M" supported_builds="
+    phyboard-polaris-imx8m-3/phytec-headless-bundle/yogurt-vendor,
     phyboard-polaris-imx8m-3/phytec-headless-image/yogurt-vendor-secure,
     phyboard-polaris-imx8m-3/phytec-vision-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-3/phytec-qt5demo-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-3/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland,
+    phyboard-polaris-imx8m-4/phytec-headless-bundle/yogurt-vendor,
     phyboard-polaris-imx8m-4/phytec-headless-image/yogurt-vendor-secure,
     phyboard-polaris-imx8m-4/phytec-vision-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-4/phytec-qt5demo-image/yogurt-vendor-xwayland"
