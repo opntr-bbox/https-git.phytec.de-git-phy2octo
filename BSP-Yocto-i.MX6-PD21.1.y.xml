@@ -39,7 +39,7 @@
 		<sublayer path="meta-perl"/>
 	</project>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc" revision="master"/>
+	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
 	<project name="meta-security" remote="yocto" path="sources/meta-security"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="hardknott"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
