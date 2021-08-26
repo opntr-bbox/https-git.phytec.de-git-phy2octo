@@ -3,7 +3,9 @@
 	<phytec pdn="hardknott" release_uid="BSP-Yocto-i.MX6-hardknott" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-3/-c populate_sdk phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-3/barebox-hosttools-native/ampliphy,
+		phyboard-mira-imx6-14/phytec-headless-bundle/ampliphy,
 		phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
+		phyboard-mira-imx6-3/phytec-headless-bundle/ampliphy,
 		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy,
 		phyboard-nunki-imx6-1/phytec-qt5demo-image/ampliphy,
