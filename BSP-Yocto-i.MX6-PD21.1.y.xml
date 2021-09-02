@@ -2,10 +2,10 @@
 <manifest>
 	<phytec pdn="PD21.1.y" release_uid="BSP-Yocto-i.MX6-PD21.1.y" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-3/phytec-headless-bundle/ampliphy,
-		phyboard-mira-imx6-3/phytec-security-example-image/ampliphy-secure,
+		phyboard-mira-imx6-3/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy-5.10.y,
 		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy-vanilla-master,
-		phyboard-mira-imx6-5/phytec-security-example-image/ampliphy-secure,
+		phyboard-mira-imx6-5/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-security-bundle/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy-5.10.y,
 		phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy-vanilla-master,
