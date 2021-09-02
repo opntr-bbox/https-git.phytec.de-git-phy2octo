@@ -14,6 +14,7 @@
 		phyflex-imx6-8/phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-3/phytec-security-example-image/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-security-example-image/ampliphy-secure,
+		phyboard-mira-imx6-5/phytec-security-bundle/ampliphy-secure,
 		phyboard-mira-imx6-3/phytec-vision-image/ampliphy-x11,
 		phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-x11,
 		phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
