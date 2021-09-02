@@ -3,7 +3,8 @@
   <phytec pdn="hardknott" release_uid="BSP-Yocto-FSL-i.MX8MP-hardknott" soc="iMX8MP" supported_builds="
         phyboard-pollux-imx8mp-2/phytec-headless-bundle/ampliphy-vendor,
         phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor,
-        phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor-secure,
+        phyboard-pollux-imx8mp-2/phytec-security-image/ampliphy-vendor-secure,
+        phyboard-pollux-imx8mp-2/phytec-security-bundle/ampliphy-vendor-secure,
         phyboard-pollux-imx8mp-2/phytec-qt5demo-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-2/phytec-vision-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-2/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland"
