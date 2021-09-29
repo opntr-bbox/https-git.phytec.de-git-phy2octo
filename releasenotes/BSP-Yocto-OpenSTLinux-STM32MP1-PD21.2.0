@@ -1,0 +1,142 @@
+Release Notes STM32MP1 OpenSTLinux BSP:
+=======================================
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD21.2.0 2021-29-09
+==================================================
+- Linux ST Vendor Kernel v5.10.10
+  * Tag v5.10.10-phy1
+- U-boot ST Vendor v2020.20
+  * Tag v2020.20-phy1
+- TF-A ST Vendor v2.4
+  * Tag v2.4-phy1
+- Linux integration from STM32MP15-ecosystem-v3.0.0: "openstlinux-5.10-dunfell-mp1-21-03-31"
+  (based on Yocto Dunfell 3.1.5)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.4.0-phy: STM32CubeMP1 v1.4.0 + phyBOARD-Sargas board support
+  https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.4.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-2
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- New features provided by OpenSTLinux v3.0.0:
+    * OpenSTLinux layers part:
+      * Introduce MTD partition configuration check to highlight any misalignment between STM32MP1 machine configuration and U-Boot source code
+      * Add FIP (Firmware Image Package) support (https://wiki.st.com/stm32mpu/wiki/TF-A_overview#FIP)
+        => not supported yet for phyCORE-STM32MP1 (refer to "Known Issues/Limitations")
+
+    * Linux kernel part:
+      * LowSpeed/UART: UART/USART- DMA transfer lock: DMA stream could be locked when transferring data to/from USART/UART
+      * LowSpeed/I2C: Study and support newly defined analog/digital filter bindings in stm32f7-i2c driver
+      * HighSpeed/USB: Rework USB wakeup feature
+      * Analog: Add LPTIM clocksource DT nodes to mp151.dtsi
+      * Audio: Update audio fragments for alignment on multi_v7 defconfig and rebase wm8994 driver adaptations on kernel 5.5
+      * Video: Camera BT656 embedded synchronisation support
+      * Copro: rebase on 5.10 LTS with framework update
+
+    * U-boot part:
+      * Support U-Boot load in FIP and associated DT management
+	=> not supported yet for phyCORE-STM32MP1 (refer to "Known Issues/Limitations")
+      * Increase the maximum number of supported reserved memory
+      * Rebase device tree with v5.10.10-phy1
+      * Update SCMI support
+
+    * TF-A part:
+      * Introduction of a small generic clock framework
+      * Add PIE support for BL32 (SP-MIN)
+      * Update programmer (including FIP support)
+      * Use FIP to manage BL2 load images (Split BL2/BL32)
+	=> not supported yet for phyCORE-STM32MP1 (refer to "Known Issues/Limitations")
+      * Use FCONF feature to manage binaries policies
+	=> not supported yet for phyCORE-STM32MP1 (refer to "Known Issues/Limitations")
+
+      * Update BL2 to be able to manage all trusted OS (SP_MIN or OP-TEE)
+      * Clean up BL2 device tree for size optimization
+      * Update BL2 MMU to minimize memory footprint
+      * Update STM32 Crypto lib to use TBBR CoT authentication
+      * Use the standard X509 certificate to authenticate binaries using MBEDTLS
+      * Define TZEN in BL32 based on RCC binding
+      * Clean power sequence to move a function into the BL32
+      * Enable early watchdog interrupts to dump core debug information
+      * Rework SSP support and include it in the default branch
+      * Update STM32MP1 documentation
+
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP15-ecosystem-v3.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note_-_v3.0.0
+       * OpenSTLinux v3.0.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note_-_v3.0.0
+
+- New features provided by PHYTEC BSP adaptation:
+    * Manage phyBOARD-Sargas addons (expansion boards, phyCAM-P,...) with device tree overlays
+    * RS485 can be enabled at boot time using specific device tree overlay
+    * Support following new phyBOARD-Sargas addons:
+      * phyCAM-P VM-010 BW & COL (MT9V024 sensor - https://www.phytec.fr/produits/imagerie-embarquee/cameras/vm-010-phycam-p/)
+      * PEB-WLBT-05 5Ghz version (WLAN/Bluetooth expansion)
+    * Add phytec camera examples containing gstreamer and v4l2 c code examples to manage phyCAM-P VM-010
+    * Yocto build process: Set OPENSTLINUX_RELEASE to the PHYTEC BSP release name (this allow to identify the Phytec release name on target)
+
+- Existing features (from PD21.1.1 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touchcreen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touchcreen is not functionnal)
+    * PEB-WLBT-05 (2.4Ghz version) support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel)
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- FIP (Firmware Image Package) feature (https://wiki.st.com/stm32mpu/wiki/TF-A_overview#FIP):
+  This feature is not supported yet with the phyCORE-STM32MP1. The legacy mode with stm32 header binary files for bootloaders is still used instead.
+- u-boot/linux (Cortex-A7): there is no ready to go mechanism to update the BSP (from Network, SD-card, USB Flash Drive or USB DFU).
+  STM32CubeProgrammer being the main way to flash the board.
+- STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
+  * SW4STM32 IDE: This IDE is deprecated.
+    For projects examples of STMicroelectronics eval boards still in SW4STM32 format (deprecated), you can easily import them in STM32CubeIDE (with import menu)
+  * Please use the HAL RTC with caution since this driver is also used by Linux. To remove any risk of contention between Linux and the HAL, proceed as follows:
+    The write protect (wpr) must be disabled by default and it must never be enabled in any driver (Linux nor HAL).
+    The HAL must use only Alarm B, since Linux uses Alarm A.
+    The RTC interrupt must be shared between Linux and the HAL to be able to receive alarm notifications on both sides.
+
