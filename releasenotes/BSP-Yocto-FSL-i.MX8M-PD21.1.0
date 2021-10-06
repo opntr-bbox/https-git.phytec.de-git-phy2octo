@@ -35,14 +35,10 @@ Features:
 - Added new features:
   * Update gstreamer examples
   * RAUC support
-      - The new RAUC bundle format "verity" was introduced. Verity
-        bundles cannot be installed with previous releases. It is
-        recommended to install the old "plain" bundle first to update
-        existing systems and then use the new "verity" bundle format. See
-        https://rauc.readthedocs.io/en/latest/integration.html#bundle-format-migration
-        for detailed information on changing the bundle format.
   * QSPI support (bootloader/kernel)
-  * TPM support
+  * Secureboot support (signed u-boot, kernel and DTB)
+  * Support for signed kernel modules
+  * Password protection for u-boot and new users for Linux login (ssh,serial)
   * Adjust environment offset (bootloader)
   * Increase i2c2 bus speed to fast mode
 
