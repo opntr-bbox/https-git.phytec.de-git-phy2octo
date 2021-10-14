@@ -1,0 +1,100 @@
+Release Notes unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-Ampliphy-i.MX6-PD21.1.0       2021-10-15
+==================================================
+- Linux Kernel v5.10.48 (LTS kernel)
+  * Update from v4.19.100 to v5.10.48
+- barebox v2021.04.0
+- Yocto 3.3.1 (hardknott)
+- Qt 5.15.2 from meta-qt5 (hardknott)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64Bit
+
+Supported Machines:
+---------
+- phyboard-mira-imx6-3
+- phyboard-mira-imx6-5
+- phyboard-mira-imx6-14
+- phyflex-imx6-1
+- phyflex-imx6-2
+- phyflex-imx6-8
+- phyboard-nunki-imx6-1
+Note: For decoding Machine Names into hardware ordering please visit our download area and use the machine decoder there.
+https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX6-PD21.1.0
+
+Changes since PD20.1.0:
+-----------------------
+- New Features:
+  * New PEB-WLBT-05 radio module with Wifi and Bluetooth support
+  * Camera selection is now handled by devicetree overlays and can be
+    accessed from userspace and barebox, see /overlays/README.md in userspace
+  * Systemd-timesyncd NTP-client is now added as a new feature package in
+    the BSP
+
+- Fixes:
+  * Kernel:
+    - Line-In input now works on phyFLEX-i.MX6.
+    - Can now set CMA size of 265 MB on SOM's with 1 GB RAM.
+    - HDMI audio issue is now fixed and working.
+
+Known Issues:
+-------------
+- general:
+  * Playing H264 encoded videos with VPU decoding support via QT has limited
+    framerate for higher resolutions.
+  * The internal watchdog of the i.MX 6 cannot be used. We recommend to use
+    the PMIC watchdog as preconfigured.
+  * Building of RAUC casync bundles is disabled due to Issue
+    https://github.com/rauc/rauc/issues/679
+
+- barebox:
+  * Deactivating the Ethernet interface with 'ifdown' after a successful
+    init causes the system to freeze on attempts to establish a connection
+    afterwards.
+
+- kernel:
+  * In rare cases (< 0.1%) during kernel boot the NAND flash fails to be
+    detected with following error:
+    gpmi_reset_block(f0a2a000): module reset timeout.
+  * 1.2 GHz i.MX 6:
+    - Controlling ARM and SOC voltages for DVFS with PMIC is not supported
+      since the 1.2 GHz operating point is not allowed to be operated with
+      the internal i.MX 6 LDO's in bypass mode. So this machine always
+      operates with internal LDO's enabled which results in highly more heat
+      generation on the SOC.
+  * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
+    devicetree and cannot be changed on runtime.
+  * The maximum pixel clock frequency for LVDS is 72 MHz.
+  * The reboot command can cause rarely occurring kernel warnings when a task
+    gets migrated to a CPU that is already offline.
+    A workaround can be achieved by disabling the non-booting CPUs before
+    rebooting. Related to:
+      https://patchwork.kernel.org/project/linux-sh/patch/20200115063410.131692-1-hsinyi@chromium.org/
+      [BSPYOCTOIMX6-1580]
+  * On phyFLEX modules, there is a very rare occurrance of system freeze
+    during the LDO bypass enable process on boot.
+  * In rare cases, rebooting the system fails due to an i2c bus issue, which
+    prevents sending the final reboot command to the PMIC.
+  * In rare cases, the GPU does not start properly. User space Applications that
+    use graphics fall back to software rendering.
+    Error indicating a failure in the startup of the GPU:
+      etnaviv-gpu 130000.gpu: GPU is not idle
+      etnaviv-gpu 130000.gpu: GPU failed to reset: FE idle, 3D not idle, 2D not idle
+      etnaviv-gpu 130000.gpu: GPU reset failed
+
+Notes:
+------
+  * With PD21, the number of supported board variants have been shortened.
+    For a list of supported boards, see 'Supported Machines' above. For
+    questions about alternative board variants please contact our support team.
+  * Up until PD20, SecureKey was used as key type for cryptographic uses. With
+    PD21.1, the key type changed and TrustedKey with caam support is used instead.
+  * The rauc_init_nand for setting the RAUC partitions in NAND is moved from
+    Barebox to Linux Kernel. See RAUC user manual for more information.
