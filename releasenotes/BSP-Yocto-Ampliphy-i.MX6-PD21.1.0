@@ -1,5 +1,5 @@
-Release Notes unified i.MX6 Linux BSP:
-======================================
+Release Notes Unified NXP i.MX6 Linux BSP:
+==========================================
 
 BSP-Yocto-Ampliphy-i.MX6-PD21.1.0       2021-10-15
 ==================================================
@@ -8,6 +8,7 @@ BSP-Yocto-Ampliphy-i.MX6-PD21.1.0       2021-10-15
 - barebox v2021.04.0
 - Yocto 3.3.1 (hardknott)
 - Qt 5.15.2 from meta-qt5 (hardknott)
+- RAUC 1.5.1 from meta-rauc
 
 Tested Yocto Images:
 --------------------
@@ -43,6 +44,15 @@ Changes since PD20.1.0:
     - Line-In input now works on phyFLEX-i.MX6.
     - Can now set CMA size of 265 MB on SOM's with 1 GB RAM.
     - HDMI audio issue is now fixed and working.
+
+- Notes:
+  * The number of supported board variants have been shortened.
+    For a list of supported boards, see 'Supported Machines' above. For
+    questions about alternative board variants please contact our support team.
+  * SecureKey as key type for cryptographic uses has been changed to
+    TrustedKey with caam support.
+  * The rauc_init_nand for setting the RAUC partitions in NAND is moved from
+    Barebox to Linux Kernel. See RAUC user manual for more information.
 
 Known Issues:
 -------------
@@ -88,13 +98,3 @@ Known Issues:
       etnaviv-gpu 130000.gpu: GPU is not idle
       etnaviv-gpu 130000.gpu: GPU failed to reset: FE idle, 3D not idle, 2D not idle
       etnaviv-gpu 130000.gpu: GPU reset failed
-
-Notes:
-------
-  * With PD21, the number of supported board variants have been shortened.
-    For a list of supported boards, see 'Supported Machines' above. For
-    questions about alternative board variants please contact our support team.
-  * Up until PD20, SecureKey was used as key type for cryptographic uses. With
-    PD21.1, the key type changed and TrustedKey with caam support is used instead.
-  * The rauc_init_nand for setting the RAUC partitions in NAND is moved from
-    Barebox to Linux Kernel. See RAUC user manual for more information.
