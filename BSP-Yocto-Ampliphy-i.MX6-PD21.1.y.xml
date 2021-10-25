@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="PD21.1.y" release_uid="BSP-Yocto-i.MX6-PD21.1.y" soc="iMX6" supported_builds="
+	<phytec pdn="PD21.1.y" release_uid="BSP-Yocto-Ampliphy-i.MX6-PD21.1.y" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-3/phytec-headless-bundle/ampliphy,
 		phyboard-mira-imx6-3/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy-5.10.y,
@@ -14,7 +14,7 @@
 		phyflex-imx6-1/phytec-qt5demo-image/ampliphy-5.10.y,
 		phyflex-imx6-2/phytec-qt5demo-image/ampliphy-5.10.y,
 		phyflex-imx6-8/phytec-qt5demo-image/ampliphy-5.10.y"
-		release_type="nightly" build_container="crops/poky:ubuntu-20.04"/>
+		build_container="crops/poky:ubuntu-20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
@@ -44,8 +44,8 @@
 	<project name="meta-security" remote="yocto" path="sources/meta-security">
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="hardknott"/>
-	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
+	<project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
 	<project name="meta-fresh" path="sources/meta-fresh" revision="gatesgarth"/>
