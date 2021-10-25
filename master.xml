@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX7-master" soc="iMX7"
+		supported_builds="
+			phyboard-zeta-imx7d-1/phytec-headless-image/ampliphy-vanilla-master-u-boot-master
+		"/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github" fetch="git://github.com"/>
+	<remote name="fsl-community" fetch="git://github.com/Freescale"/>
+
+	<default revision="master" remote="git.phytec" sync-j="8"/>
+
+	<project name="poky" remote="yocto" path="sources/poky">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+	</project>
+	<project name="meta-freescale" remote="fsl-community" path="sources/meta-freescale"/>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="master"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="master">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-fresh-dev" path="sources/meta-fresh" revision="master"/>
+</manifest>
