@@ -20,7 +20,7 @@
   <remote name="clang" fetch="https://github.com/kraj"/>
   <remote name="imx-support" fetch="https://source.codeaurora.org/external/imxsupport"/>
   <remote name="python2" fetch="https://git.openembedded.org"/>
-  <remote name="rauc" fetch="git://github.com/rauc"/>
+  <remote name="rauc" fetch="https://github.com/rauc"/>
   <remote name="git.phytec" fetch="git://git.phytec.de"/>
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
