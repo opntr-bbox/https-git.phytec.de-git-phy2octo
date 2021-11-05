@@ -10,8 +10,8 @@
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
-	<remote name="github" fetch="git://github.com"/>
-	<remote name="fsl-community" fetch="git://github.com/Freescale"/>
+	<remote name="github" fetch="https://github.com"/>
+	<remote name="fsl-community" fetch="https://github.com/Freescale"/>
 
 	<default revision="master" remote="git.phytec" sync-j="8"/>
 
