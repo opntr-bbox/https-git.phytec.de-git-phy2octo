@@ -10,14 +10,14 @@
   " />
 
   <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
-  <remote fetch="git://github.com/OSSystems" name="OSSystems" />
-  <remote fetch="git://github.com/meta-qt5" name="QT5" />
-  <remote fetch="git://github.com/TimesysGit" name="Timesys" />
-  <remote fetch="git://github.com/Freescale" name="community" />
+  <remote fetch="https://github.com/OSSystems" name="OSSystems" />
+  <remote fetch="https://github.com/meta-qt5" name="QT5" />
+  <remote fetch="https://github.com/TimesysGit" name="Timesys" />
+  <remote fetch="https://github.com/Freescale" name="community" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="git://github.com/openembedded" name="oe" />
-  <remote fetch="git://github.com/rauc" name="rauc" />
-  <remote fetch="git://github.com/meta-rust" name="rust" />
+  <remote fetch="https://github.com/openembedded" name="oe" />
+  <remote fetch="https://github.com/rauc" name="rauc" />
+  <remote fetch="https://github.com/meta-rust" name="rust" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.yoctoproject.org" name="yocto" />
   
