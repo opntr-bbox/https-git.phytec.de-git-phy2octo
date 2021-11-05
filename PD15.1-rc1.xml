@@ -3,7 +3,7 @@
   <phytec pdn="PD15.1-rc1" release_uid="AM335x-PD15.1-rc1" soc="AM335x" />
 
   <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="git://github.com" name="github" />
+  <remote fetch="https://github.com" name="github" />
   <remote fetch="git://git.openembedded.org" name="oe" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.ti.com" name="ti" />

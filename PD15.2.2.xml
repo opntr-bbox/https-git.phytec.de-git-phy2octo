@@ -3,7 +3,7 @@
   <phytec pdn="PD15.2.2" release_uid="BSP-Yocto-AM335x-PD15.2.2" soc="AM335x" />
 
   <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="git://github.com" name="github" />
+  <remote fetch="https://github.com" name="github" />
   <remote fetch="git://git.openembedded.org" name="oe" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.yoctoproject.org" name="yocto" />

@@ -9,7 +9,7 @@
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
-	<remote name="github" fetch="git://github.com"/>
+	<remote name="github" fetch="https://github.com"/>
 
 	<project name="poky" remote="yocto" path="sources/poky"/>
 	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
