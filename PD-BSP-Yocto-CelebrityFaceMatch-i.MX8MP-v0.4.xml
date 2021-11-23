@@ -72,13 +72,13 @@
 
   <project name="meta-python2" path="sources/meta-python2" remote="python2" revision="4400f9155ec193d028208cf0c66aeed2ba2b00ab" />
 
-  <project name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/3.0.4-phy19" />
+  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" revision="refs/tags/3.0.4-phy19" />
 
   <project name="meta-security" path="sources/meta-security" remote="yocto" revision="52e83e6b7e57bf352fd6770466996530dece3da5">
 	<sublayer path="meta-tpm" />
   </project>
 
-  <project name="meta-celebrity-face-match" path="sources/meta-celebrity-face-match" revision="refs/tags/v0.4">
+  <project name="meta-celebrity-face-match" path="sources/meta-celebrity-face-match" remote="github.phytec" revision="refs/tags/v0.4">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
 
