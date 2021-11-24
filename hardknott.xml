@@ -4,7 +4,7 @@
     phyboard-polaris-imx8m-3/phytec-headless-image/ampliphy-vendor-secure,
     phyboard-polaris-imx8m-3/phytec-vision-image/ampliphy-vendor-xwayland,
     phyboard-polaris-imx8m-3/-c populate_sdk phytec-vision-image/ampliphy-vendor-xwayland"
-    release_type="nightly" bspextension="FSL"/>
+    release_type="nightly" bspextension="FSL" build_container="yocto:ubuntu20.04"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
   <remote name="community" fetch="https://github.com/Freescale"/>

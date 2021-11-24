@@ -10,7 +10,7 @@
     phyboard-polaris-imx8m-4/phytec-qt5demo-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-4/phytec-vision-image/yogurt-vendor-xwayland,
     phyboard-polaris-imx8m-4/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland"
-    release_type="nightly" bspextension="FSL"/>
+    release_type="nightly" bspextension="FSL" build_container="yocto:ubuntu16.04"/>
   <default revision="zeus" sync-j="2"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
