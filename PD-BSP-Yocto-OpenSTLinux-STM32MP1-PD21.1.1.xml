@@ -8,12 +8,12 @@
   "/>
 
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="http://git.openembedded.org" name="oe"/>
+  <remote fetch="https://git.openembedded.org" name="oe"/>
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec"/>
   <remote fetch="git://git.phytec.de" name="git.phytec"/>
   <remote fetch="https://github.com/STMicroelectronics" name="OpenSTLinux"/>
 
-  <default remote="OpenSTLinux"/>
+  <default remote="OpenSTLinux" sync-j="8"/>
 
   <project name="TimesysGit/meta-timesys" path="layers/meta-timesys" remote="github" revision="3e2540b749f572fb1c8d9e5a7172e022dd5e0724"/>
   <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="18e1957337fd9f06bc673d28dd4f8277321d07bc"/>

@@ -3,12 +3,12 @@
   <phytec pdn="thud" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-thud" soc="STM32MP1"/>
 
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="http://git.openembedded.org" name="oe"/>
+  <remote fetch="https://git.openembedded.org" name="oe"/>
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec"/>
   <remote fetch="git://git.phytec.de" name="git.phytec"/>
   <remote fetch="https://github.com/STMicroelectronics" name="OpenSTLinux"/>
 
-  <default remote="OpenSTLinux"/>
+  <default remote="OpenSTLinux" sync-j="8"/>
 
   <project name="TimesysGit/meta-timesys" path="layers/meta-timesys" remote="github" revision="bf220e124514ae8129b172a5281219007421000f"/>
   <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="afee3f594e1510051a0b18e430e92549caf72fa2"/>
