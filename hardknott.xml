@@ -2,8 +2,8 @@
 <manifest>
   <phytec pdn="hardknott" release_uid="BSP-Yocto-FSL-i.MX8MM-hardknott" soc="iMX8MM" supported_builds="
         phyboard-polis-imx8mn-1/phytec-headless-image/ampliphy-vendor,
-        phyboard-polis-imx8mm-4/phytec-rauc-image/ampliphy-vendor,
-        phyboard-polis-imx8mm-4/phytec-rauc-bundle/ampliphy-vendor,
+        phyboard-polis-imx8mm-4/phytec-headless-image/ampliphy-vendor-rauc,
+        phyboard-polis-imx8mm-4/phytec-headless-bundle/ampliphy-vendor-rauc,
         phyboard-polis-imx8mm-4/phytec-headless-image/ampliphy-vendor,
         phygate-tauri-l-imx8mm-1/phytec-headless-image/ampliphy-vendor,
         phygate-tauri-l-imx8mm-1/phytec-security-image/ampliphy-vendor-secure,
