@@ -246,6 +246,7 @@ Notes:
   on a phyBOARD-Mira full-featured so that the SOM now supports all the
   features of the full-featured phyBOARD-Mira.
 - With PD18.1.2, the barebox partition size has been raised from 4MB to 16MB
-  due to possible insufficiency of space when NAND flashes with larger block
-  sizes are used. Please consider, that with this change the offsets of all
-  partitions are moved by 12MB.
+  due to possible insufficiency of space when NAND flashes with a block sizes
+  of 1MB and larger are used. Please consider, that with this change the
+  offsets of all partitions are moved by 12MB and that a barebox update from an
+  older release to PD18.1.2 will break the running system.
