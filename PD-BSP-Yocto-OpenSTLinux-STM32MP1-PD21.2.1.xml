@@ -23,7 +23,7 @@
   <project name="meta-st-scripts" path="layers/meta-st/scripts" revision="d2ba39bc40952ff6eb06d2b0e496910a74209660"/>
   <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="72431ee8de5e3a53d259cebf420a7713ac9e1f14"/>
   <project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="e98debf809d372149c8f641bd27b9b9902a83c8c"/>
-  <project name="meta-st-openstlinux-phytec-dev" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="adb55434c3e90c31ee2a98e3d6ccb3748def8774">
+  <project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="adb55434c3e90c31ee2a98e3d6ccb3748def8774">
     <!-- init script used by phyLinux needs to be in tools directory -->
     <copyfile dest="tools/init" src="scripts/init"/>
     <!-- we duplicate the openstlinux phytec init script so user does not need to search for it in the tree -->
