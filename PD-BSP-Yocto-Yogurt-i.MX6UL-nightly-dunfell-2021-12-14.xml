@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD2021-12-14" release_uid="BSP-Yocto-Yogurt-i.MX6UL-nightly-dunfell-2021-12-14" soc="iMX6UL" supported_builds="
+    phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-5.4.y,
+    phyboard-segin-imx6ul-6/phytec-headless-image/yogurt-vanilla-master,
+    phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-5.4.y,
+    phyboard-segin-imx6ul-8/phytec-headless-image/yogurt-vanilla-master
+  " build_container="crops/poky:ubuntu-20.04" />
+
+  <remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="ti" fetch="git://git.ti.com" />
+	<remote name="github" fetch="https://github.com" />
+
+	<default revision="dunfell" remote="git.phytec" sync-j="8" />
+
+	<project name="poky" remote="yocto" path="sources/poky" revision="56485d82f670f1a7df7929d4045ee2483f0b0b69">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="69f94af4d91215e7d4e225bab54bf3bcfee42f1c">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="b4d24d70aca75791902df5cd59a4f4a54aa4a125" />
+	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc" revision="f528f95b75922eb81895d764836a67f13858365a" />
+	<project name="meta-yogurt" path="sources/meta-yogurt" revision="2eedc699f3a2a4472cdc80d459c83b703946ec75" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="e98debf809d372149c8f641bd27b9b9902a83c8c">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="4408ba01cf068274543571b37ddac144e44dc55c" />
+</manifest>
