@@ -28,7 +28,7 @@
 	<remote name="ti" fetch="git://git.ti.com"/>
 	<remote name="github" fetch="https://github.com"/>
 
-	<default revision="hardknott" remote="git.phytec" sync-j="8"/>
+	<default revision="master" remote="git.phytec" sync-j="8"/>
 
 	<project name="poky" remote="yocto" path="sources/poky">
 		<ignorebaselayer/>
@@ -49,9 +49,9 @@
 	<project name="meta-security" remote="yocto" path="sources/meta-security">
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="hardknott"/>
-	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="master"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="master">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-fresh" path="sources/meta-fresh" revision="gatesgarth"/>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="master"/>
 </manifest>
