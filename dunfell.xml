@@ -14,12 +14,12 @@
 	<remote fetch="git://arago-project.org/git/projects" name="arago-projects"/>
 	<remote fetch="https://github.com" name="github"/>
 
-	<default revision="dunfell" remote="ssh.phytec" sync-j="8"/>
+	<default revision="dunfell" remote="git.phytec" sync-j="8"/>
 
-	<project remote="ssh.phytec" revision="dunfell" name="meta-phytec" path="sources/meta-phytec">
+	<project revision="dunfell" name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
-	<project remote="ssh.phytec" revision="dunfell-next" name="meta-yogurt" path="sources/meta-yogurt"/>
+	<project revision="dunfell" name="meta-yogurt" path="sources/meta-yogurt"/>
 
 	<project remote="github" name="rauc/meta-rauc" path="sources/meta-rauc"/>
 	<project remote="oe" revision="1.46" name="bitbake" path="sources/oe-core/bitbake">
