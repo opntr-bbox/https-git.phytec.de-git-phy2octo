@@ -3,6 +3,7 @@
   <phytec pdn="hardknott" release_uid="BSP-Yocto-NXP-i.MX8M-hardknott" soc="iMX8M" supported_builds="
     phyboard-polaris-imx8m-3/phytec-security-image/ampliphy-vendor-secure,
     phyboard-polaris-imx8m-3/phytec-security-bundle/ampliphy-vendor-secure,
+    phyboard-polaris-imx8m-3/phytec-provisioning-image/ampliphy-vendor-provisioning,
     phyboard-polaris-imx8m-3/phytec-vision-image/ampliphy-vendor-xwayland,
     phyboard-polaris-imx8m-3/-c populate_sdk phytec-vision-image/ampliphy-vendor-xwayland"
     release_type="nightly" bspextension="NXP" build_container="yocto:ubuntu20.04"/>
