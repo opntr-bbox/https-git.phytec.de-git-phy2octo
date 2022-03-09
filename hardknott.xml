@@ -14,6 +14,7 @@
 		phyboard-mira-imx6-5/phytec-headless-bundle/ampliphy-rauc,
 		phyboard-mira-imx6-5/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-security-bundle/ampliphy-secure,
+		phyboard-mira-imx6-5/phytec-provisioning-image/ampliphy-provisioning,
 		phyboard-mira-imx6-6/phytec-headless-image/ampliphy,
 		phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-15/phytec-headless-image/ampliphy,
