@@ -6,6 +6,7 @@
         phyboard-pollux-imx8mp-2/phytec-headless-bundle/ampliphy-vendor-rauc,
         phyboard-pollux-imx8mp-2/phytec-security-image/ampliphy-vendor-secure,
         phyboard-pollux-imx8mp-2/phytec-security-bundle/ampliphy-vendor-secure,
+        phyboard-pollux-imx8mp-2/phytec-provisioning-image/ampliphy-vendor-provisioning,
         phyboard-pollux-imx8mp-2/phytec-qt5demo-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-2/phytec-vision-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
@@ -13,6 +14,7 @@
         phyboard-pollux-imx8mp-3/phytec-headless-bundle/ampliphy-vendor-rauc,
         phyboard-pollux-imx8mp-3/phytec-security-image/ampliphy-vendor-secure,
         phyboard-pollux-imx8mp-3/phytec-security-bundle/ampliphy-vendor-secure,
+        phyboard-pollux-imx8mp-3/phytec-provisioning-image/ampliphy-vendor-provisioning,
         phyboard-pollux-imx8mp-3/phytec-qt5demo-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor-xwayland,
         phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland"
