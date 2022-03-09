@@ -8,8 +8,10 @@
         phygate-tauri-l-imx8mm-2/phytec-headless-image/ampliphy-vendor,
         phygate-tauri-l-imx8mm-2/phytec-security-image/ampliphy-vendor-secure,
         phygate-tauri-l-imx8mm-2/phytec-security-bundle/ampliphy-vendor-secure,
+        phygate-tauri-l-imx8mm-2/phytec-provisioning-image/ampliphy-vendor-provisioning,
         phyboard-polis-imx8mm-4/phytec-security-image/ampliphy-vendor-secure,
         phyboard-polis-imx8mm-4/phytec-security-bundle/ampliphy-vendor-secure,
+        phyboard-polis-imx8mm-4/phytec-provisioning-image/ampliphy-vendor-provisioning,
         phyboard-polis-imx8mm-4/phytec-qt5demo-image/ampliphy-vendor-xwayland,
         phyboard-polis-imx8mm-4/phytec-vision-image/ampliphy-vendor-xwayland,
         phyboard-polis-imx8mm-4/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland"
