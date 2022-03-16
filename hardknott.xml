@@ -3,26 +3,26 @@
 	<phytec pdn="hardknott" release_uid="BSP-Yocto-i.MX6-hardknott" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-3/-c populate_sdk phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-3/barebox-hosttools-native/ampliphy,
-		phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
+		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-3/phytec-headless-image/ampliphy-rauc,
 		phyboard-mira-imx6-3/phytec-headless-bundle/ampliphy-rauc,
-		phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy,
+		phyboard-mira-imx6-3/phytec-security-image/ampliphy-secure,
+		phyboard-mira-imx6-3/phytec-vision-image/ampliphy-x11,
+		phyboard-mira-imx6-3/phytec-vision-image/ampliphy-xwayland,
+		phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy,
 		phyboard-mira-imx6-5/phytec-headless-image/ampliphy-rauc,
 		phyboard-mira-imx6-5/phytec-headless-bundle/ampliphy-rauc,
-		phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy,
-		phyboard-nunki-imx6-1/phytec-qt5demo-image/ampliphy,
-		phyflex-imx6-1/phytec-qt5demo-image/ampliphy,
-		phyflex-imx6-2/phytec-qt5demo-image/ampliphy,
-		phyflex-imx6-8/phytec-qt5demo-image/ampliphy,
-		phyboard-mira-imx6-3/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-security-image/ampliphy-secure,
 		phyboard-mira-imx6-5/phytec-security-bundle/ampliphy-secure,
-		phyboard-mira-imx6-3/phytec-vision-image/ampliphy-x11,
+		phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
+		phyboard-nunki-imx6-1/phytec-qt5demo-image/ampliphy,
 		phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-x11,
-		phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
-		phyboard-mira-imx6-3/phytec-vision-image/ampliphy-xwayland,
 		phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-xwayland,
-		phyflex-imx6-2/phytec-vision-image/ampliphy-xwayland"
+		phyflex-imx6-1/phytec-qt5demo-image/ampliphy,
+		phyflex-imx6-2/phytec-qt5demo-image/ampliphy,
+		phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
+		phyflex-imx6-2/phytec-vision-image/ampliphy-xwayland,
+		phyflex-imx6-8/phytec-qt5demo-image/ampliphy"
 		release_type="" build_container="crops/poky:ubuntu-20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
