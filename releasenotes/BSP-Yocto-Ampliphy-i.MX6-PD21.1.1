@@ -1,0 +1,53 @@
+Release Notes unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-Ampliphy-i.MX6-PD21.1.1       2022-02-24
+==================================================
+- Linux Kernel v5.10.48-phy3 (LTS kernel)
+- barebox v2021.04.0-phy6
+- Yocto 3.3.5 (hardknott)
+- Qt 5.15.2 from meta-qt5 (hardknott)
+
+Supported Images/Machines:
+--------------------------
+- phytec-headless-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-6
+  * phyboard-mira-imx6-15
+
+- phytec-qt5demo-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-14
+  * phyboard-nunki-imx6-1
+  * phyflex-imx6-1
+  * phyflex-imx6-2
+  * phyflex-imx6-8
+
+- phytec-vision-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-nunki-imx6-1
+  * phyflex-imx6-2
+
+- phytec-security-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+
+- phytec-provisioning-image on:
+  * phyboard-mira-imx6-5
+
+Note: For decoding Machine Names into hardware ordering please visit our download area and use the machine decoder there.
+https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64Bit
+
+Features:
+---------
+- Added support for ADINPHY on phyCORE
+- Added new distro and image:
+  For systems using Security or RAUC, a distro got introduced named "ampliphy-provisioning" with
+  the image "phytec-provisioning-image". The distro and image is configured for installing a image with
+  RAUC and Security support from sd-card to emmc and for configuration of Security features on the board.
