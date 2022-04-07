@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX8MP-master" soc="iMX8MP" supported_builds="
-		phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
+		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
 		release_type="nightly" build_container="yocto:ubuntu20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
@@ -31,6 +31,9 @@
 	<project name="meta-freescale" remote="fsl-community" path="sources/meta-freescale"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
+	<project name="meta-security" remote="yocto" path="sources/meta-security">
+		<sublayer path="meta-tpm"/>
+	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="master"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="master">
 		<copyfile dest="tools/init" src="scripts/init"/>
