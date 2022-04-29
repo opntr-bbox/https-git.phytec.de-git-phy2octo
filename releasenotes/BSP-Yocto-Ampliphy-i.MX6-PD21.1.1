@@ -96,3 +96,12 @@ Known Issues:
       etnaviv-gpu 130000.gpu: GPU is not idle
       etnaviv-gpu 130000.gpu: GPU failed to reset: FE idle, 3D not idle, 2D not idle
       etnaviv-gpu 130000.gpu: GPU reset failed
+
+Notes:
+------
+- With PD21.1.1 RAUC systems make use of a new partitioning layout including a
+  "config" partition. This partition can store persistent program configuration
+  data which has to remain untouched across updates of the root filesystem. It
+  is recommended to adapt this layout only for new devices. Existing devices
+  already operating in the field may have to re-setup their flash layout in
+  order to incorporate this change, if the default layout is being used.
