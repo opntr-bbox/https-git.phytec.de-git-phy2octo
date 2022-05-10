@@ -53,6 +53,8 @@ Changes since PD20.1.0:
     TrustedKey with caam support.
   * The rauc_init_nand for setting the RAUC partitions in NAND is moved from
     Barebox to Linux Kernel. See RAUC user manual for more information.
+  * With PD21 module temperature can increase because of increased number of processes.
+    (like the "high level" feature RAUC)
 
 Known Issues:
 -------------
