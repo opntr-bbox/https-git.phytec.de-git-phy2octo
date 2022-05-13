@@ -80,6 +80,8 @@
 
   <project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="43f8f539d40070a70fe89136db89bf5bb1dfe7ed" upstream="hardknott"/>
 
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="7f719ef40896b6c78893add8485fda995b00d51d" upstream="hardknott"/>
+
   <project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
 
   <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" >
