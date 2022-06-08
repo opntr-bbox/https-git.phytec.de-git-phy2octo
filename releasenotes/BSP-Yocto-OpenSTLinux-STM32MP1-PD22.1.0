@@ -1,0 +1,152 @@
+Release Notes STM32MP1 OpenSTLinux BSP:
+=======================================
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD22.1.0 2022-08-06
+==================================================
+- Linux ST Vendor Kernel v5.10.61
+  * Tag v5.10-phy2
+- U-boot ST Vendor v2020.20
+  * Tag v2020.20-phy3
+- TF-A ST Vendor v2.4
+  * Tag v2.4-phy3
+- Linux integration from STM32MP15-ecosystem-v3.1.0: "openstlinux-5.10-dunfell-mp1-21-11-17"
+  (based on Yocto Dunfell 3.1.11)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.5.0-phy: STM32CubeMP1 v1.5.0 + phyBOARD-Sargas board support
+  https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.5.0
+
+- Add two new examples:
+  * ADC_SingleConversion_TriggerTimer_DMA
+  * ADC_SingleConversion_Polling
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- New features provided by OpenSTLinux v3.1.0:
+    * OpenSTLinux layers part:
+      * Rework of FIP support via class
+      * Implement specific switch configuration to enable/disable debug log on ST component side (cf. ST_DEBUG_TRACE)
+      * Implement specific switch to deploy along with kernel build artifacts the kernel build config used (cf. KERNEL_CONFIG_DEPLOY)
+      * Introduce initrd as DISTRO and MACHINE feature to use Initrd image on bootfs side
+      * Rework partition images implementation through new PARTITIONS_IMAGES configuration
+
+    * Linux kernel part:
+      * COPRO: firmware Authentication by OP-TEE: dynamic detection of the remoteproc TA
+      * ADC: Support ADC2 with internal channels (VSENSE, VDDCORE, VBAT/4)
+      * BSEC: NVMEM (BSEC): Add remove and suspend/resume routines
+      * DCMI: stm32-dcmi: memory type and DMA access fixes
+      * DMA2: [DMA] Add pause/resume feature
+      * ETH: Enable ETH PTP clock tree by default - Linux
+      * LTDC: Add CRTC background color property (v2)
+      * LTDC: Add layer constant alpha support
+      * LTDC: Attach immutable zpos property to planes
+      * Panel Bridge: Disco 480p dsi panel from 50 to 60 fps
+      * MTD_fwk/QSPI: backport automatic polling mode stop feature in SNAND/SNOR frameworks
+      * QSPI: throughput and power management improvements
+      * UART: Linux KGDB support
+      * UART: Add support of early console
+      * USB_OTG: OTG forced in peripheral in kernel when no VBUS/ID on PCB
+
+    * U-boot part:
+      * Activate read valid training (RVTRN) for LPDDR2/3
+      * Avoid speculative access to OP-TEE memory, respect no-map region
+      * stm32prog command: solve issue for re-enumeration, correct PMIC support
+      * Update GetID answer, correct help message and add initrd support
+      * stm32key command: update read add close sub-command, add OTP lock support
+      * i2c: Add support of analog and digital filter with device tree
+      * Alignment with v5.10-stm32mp-r2 Linux kernel device tree
+      * Handle gpio reset in ethernet driver by using generic ethernet phy
+      * Update usbphyc support: support the phy tuning and connector in DT
+      * Add support of ADC calibration
+      * Add SYSCFG and the missing SPI clocks support
+      * Activate command rng
+      * Add support of overlay in syslinux.cfg
+      * Add simple frame buffer in kernel device tree
+
+    * TF-A part:
+      * DDR: DQS Tuning: Add RVTRN (for LPDDR2 / LPDDR3)
+      * Manage backup registers security at BL32 level
+      * Fix the shutdown via PMIC switch off
+      * Improve boot time in FIP mode using mmc interfaces
+      * Fix RTC clock rate
+      * Display bootrom authentication trace
+
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP15-ecosystem-v3.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_ecosystem_release_note_-_v3.1.0
+       * OpenSTLinux v3.1.0: https://wiki.st.com/stm32mpu/wiki/STM32MP15_OpenSTLinux_release_note_-_v3.1.0
+
+- New features provided by PHYTEC BSP adaptation:
+    * Support new 8GB eMMC ref (IM987-WD)
+    * Support WIC image (.wic file) generation for phyCORE-STM32MP1 machines (WIC images allow to create a partitioned SD card)
+    * Support PEB-AV-02 addon display on u-boot (AC158 EDT 7" capacitive touchcreen)
+    * FIP (Firmware Image Package) is now used by default for the bootloaders (like openSTLinux ST BSPs : https://wiki.st.com/stm32mpu/wiki/TF-A_overview#FIP)
+    * Support following new phyBOARD-Sargas addons:
+      * phyCAM-P VM-016 BW & COL (AR0144 sensor - https://www.phytec.fr/produits/imagerie-embarquee/cameras/vm-016-phycam-p)
+    * Add phytec camera examples containing gstreamer and v4l2 c code examples to manage phyCAM-P VM-016
+    * Device tree overlays for phyCAM-P VM-010 are renamed to contain the compatible Hardware (phyBOARD-Sargas "PCM-939" or "PCM-939L")
+
+- Fix provided by PHYTEC BSP adaptation:
+    * In BSP PD21.2.x, NOR-eMMC boot was failing (was booting nor-sdcard instead). This is fixed.
+
+- Existing features (from PD21.2.1 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touchcreen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touchcreen is not functionnal)
+    * PEB-WLBT-05 (2.4Ghz and 5Ghz version) support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+    * phyCAM-P VM-010 BW & COL
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel)
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- u-boot/linux (Cortex-A7): there is no ready to go mechanism (scripts) to update the BSP (from Network, SD-card, USB Flash Drive or USB DFU).
+  STM32CubeProgrammer being the main way to flash the board.
+- STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
+  * Please use the HAL RTC with caution since this driver is also used by Linux. To remove any risk of contention between Linux and the HAL, proceed as follows:
+    The write protect (wpr) must be disabled by default and it must never be enabled in any driver (Linux nor HAL).
+    The HAL must use only Alarm B, since Linux uses Alarm A.
+    The RTC interrupt must be shared between Linux and the HAL to be able to receive alarm notifications on both sides.
