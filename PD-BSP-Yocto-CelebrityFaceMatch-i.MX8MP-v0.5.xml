@@ -60,7 +60,7 @@
 
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="ca27d12e4964d1336e662bcc60184bbff526c857" />
 
-  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="refs/tags/BSP-Yocto-FSL-i.MX8MP-PD21.1.3">
+  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="703e752cd22062ba0afad7747e724109c9e5cd0d">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
 
