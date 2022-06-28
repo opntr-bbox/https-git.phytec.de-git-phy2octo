@@ -22,8 +22,8 @@
   <project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" revision="28888523dc5c3087f388d900ed567c799f1aa303"/>
   <project name="meta-st-scripts" path="layers/meta-st/scripts" revision="28f1afd01f865c7fc472ea080f8f1223bb45d416"/>
   <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="c7d2281eb6cda9c1637c20b3540b142073bca235"/>
-  <project name="meta-phytec-dev" path="layers/meta-phytec" remote="ssh.phytec" revision="303df2999e4ba8f051c3d497b0f4f807f77fcef0"/>
-  <project name="meta-st-openstlinux-phytec-dev" path="layers/meta-st-openstlinux-phytec" remote="ssh.phytec" revision="301f0a8742e1d59ea779b1ab8ed6459296504b8d">
+  <project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="303df2999e4ba8f051c3d497b0f4f807f77fcef0"/>
+  <project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="301f0a8742e1d59ea779b1ab8ed6459296504b8d">
     <!-- init script used by phyLinux needs to be in tools directory -->
     <copyfile dest="tools/init" src="scripts/init"/>
     <!-- we duplicate the openstlinux phytec init script so user does not need to search for it in the tree -->
