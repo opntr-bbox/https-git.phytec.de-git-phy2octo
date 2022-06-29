@@ -1,7 +1,7 @@
 Release Notes STM32MP1 OpenSTLinux BSP:
 =======================================
 
-BSP-Yocto-OpenSTLinux-STM32MP1-PD22.1.0 2022-08-06
+BSP-Yocto-OpenSTLinux-STM32MP1-PD22.1.0 2022-06-29
 ==================================================
 - Linux ST Vendor Kernel v5.10.61
   * Tag v5.10-phy2
