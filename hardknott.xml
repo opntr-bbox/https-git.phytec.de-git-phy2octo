@@ -12,6 +12,7 @@
         phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
         phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor-rauc,
         phyboard-pollux-imx8mp-3/phytec-headless-bundle/ampliphy-vendor-rauc,
+        phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor-rt,
         phyboard-pollux-imx8mp-3/phytec-security-image/ampliphy-vendor-secure,
         phyboard-pollux-imx8mp-3/phytec-security-bundle/ampliphy-vendor-secure,
         phyboard-pollux-imx8mp-3/phytec-provisioning-image/ampliphy-vendor-provisioning,
