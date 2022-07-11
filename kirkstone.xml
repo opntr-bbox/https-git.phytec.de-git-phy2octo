@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <phytec pdn="kirkstone" release_uid="BSP-Yocto-NXP-i.MX8MM-kirkstone" soc="iMX8MM" supported_builds="
-        phyboard-polis-imx8mm-4/phytec-headless-image/ampliphy-vendor-rauc,
-        phyboard-polis-imx8mm-4/phytec-headless-bundle/ampliphy-vendor-rauc,
         phyboard-polis-imx8mm-4/phytec-headless-image/ampliphy-vendor,
-        phyboard-polis-imx8mm-4/phytec-security-image/ampliphy-vendor-secure,
-        phyboard-polis-imx8mm-4/phytec-security-bundle/ampliphy-vendor-secure,
-        phyboard-polis-imx8mm-4/phytec-provisioning-image/ampliphy-vendor-provisioning,
         phyboard-polis-imx8mm-4/phytec-qt5demo-image/ampliphy-vendor-xwayland,
-        phyboard-polis-imx8mm-4/phytec-vision-image/ampliphy-vendor-xwayland,
         phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vendor-rauc,
         phyboard-polis-imx8mm-5/phytec-headless-bundle/ampliphy-vendor-rauc,
         phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vendor,
