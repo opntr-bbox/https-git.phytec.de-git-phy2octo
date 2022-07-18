@@ -141,8 +141,18 @@ Features:
 
 Known Issues/Limitations:
 -------------------------
+- WIC image generation:
+  In case, the device tree name does not match the Yocto machine name, the WIC file generation fails and consequently, the entiere BSP image build fails.
+  Two possible solutions:
+    - solution 1: If WIC file is not needed, disable it modifying the file "meta-phytec/conf/machine/include/phytec-machine-common-stm32mp.inc" this way:
+       Remove or comment the following line:
+       WKS_IMAGE_FSTYPES += "wic wic.bz2 wic.bmap"
+
+    - solution 2:  Update the meta-phytec layer to the latest head of the dunfell branch: https://git.phytec.de/meta-phytec/log/?h=dunfell
+
 - u-boot/linux (Cortex-A7): there is no ready to go mechanism (scripts) to update the BSP (from Network, SD-card, USB Flash Drive or USB DFU).
   STM32CubeProgrammer being the main way to flash the board.
+
 - STM32CubeMP1 (Cortex-M4):
   * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
     To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
