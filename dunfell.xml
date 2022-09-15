@@ -2,7 +2,6 @@
 <manifest>
 	<phytec bspextension="TISDK" pdn="dunfell" release_type="nightly" release_uid="BSP-Yocto-TISDK-AM64x-dunfell" soc="AM64x" build_container="yocto:tisdk-ubuntu18.04"
 		supported_builds="
-			phyboard-electra-am64xx-1/tisdk-base-image/arago,
 			phyboard-electra-am64xx-1/tisdk-default-image/arago
 	"/>
 
@@ -10,9 +9,8 @@
 	<remote fetch="git://git.openembedded.org" name="oe"/>
 	<remote fetch="git://git.phytec.de" name="git.phytec"/>
 	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec"/>
-	<remote fetch="git://arago-project.org/git" name="arago"/>
-	<remote fetch="git://arago-project.org/git/projects" name="arago-projects"/>
 	<remote fetch="https://github.com" name="github"/>
+	<remote fetch="git://git.ti.com" name="ti"/>
 
 	<default revision="dunfell" remote="git.phytec" sync-j="8"/>
 
@@ -25,11 +23,11 @@
 	<project remote="oe" revision="1.46" name="bitbake" path="sources/oe-core/bitbake">
 		<ignorebaselayer/>
 	</project>
-	<project remote="oe" revision="f61fcb6e176f19f1e768ce63a693f238713c8887" name="openembedded-core" path="sources/oe-core">
+	<project remote="oe" revision="48ce924dc82aa959fb897ec36873db7dc3813b71" name="openembedded-core" path="sources/oe-core">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 	</project>
-	<project remote="oe" name="meta-openembedded" path="sources/meta-openembedded">
+	<project remote="oe" revision="8ff12bfffcf0840d5518788a53d88d708ad3aae0" name="meta-openembedded" path="sources/meta-openembedded">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -38,7 +36,7 @@
 		<sublayer path="meta-multimedia"/>
 		<sublayer path="meta-filesystems"/>
 	</project>
-	<project remote="arago" revision="ae47bd7fbea2776a4f8792f20c493d7959ee2f54" name="meta-arago" path="sources/meta-arago">
+	<project remote="yocto" revision="refs/tags/08.03.00.005" name="meta-arago" path="sources/meta-arago">
 		<ignorebaselayer/>
 		<sublayer path="meta-arago-distro"/>
 		<sublayer path="meta-arago-extras"/>
@@ -48,12 +46,12 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project remote="github" name="meta-qt5/meta-qt5" path="sources/meta-qt5"/>
-	<project remote="yocto" revision="15f3d4a3c3773294f1cdb66a88744930941a892e" name="meta-ti" path="sources/meta-ti"/>
-	<project remote="yocto" name="meta-virtualization" path="sources/meta-virtualization"/>
+	<project remote="github" revision="5ef3a0ffd3324937252790266e2b2e64d33ef34f" name="meta-qt5/meta-qt5" path="sources/meta-qt5"/>
+	<project remote="yocto" revision="refs/tags/08.03.00.005" name="meta-ti" path="sources/meta-ti"/>
+	<project remote="yocto" revision="f6b88c1d2f515ffac90457c0d649d6c805fff736" name="meta-virtualization" path="sources/meta-virtualization"/>
 	<project remote="yocto" name="meta-security" path="sources/meta-security">
 		<ignorebaselayer/>
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project remote="arago-projects" revision="ea2e8505fdf9948c0e2881af9dacb07e801c9037" name="meta-processor-sdk" path="sources/meta-processor-sdk"/>
+	<project remote="ti" revision="b39d454b1622e53a23a08c5470ba6de2162264df" name="processor-sdk/meta-processor-sdk" path="sources/meta-processor-sdk"/>
 </manifest>
