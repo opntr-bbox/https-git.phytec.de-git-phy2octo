@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX8MM-master" soc="iMX8MM" supported_builds="
+		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
+		release_type="nightly" build_container="yocto:ubuntu20.04"/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github" fetch="https://github.com"/>
+	<remote name="fsl-community" fetch="https://github.com/Freescale"/>
+
+	<default revision="master" remote="git.phytec" sync-j="8"/>
+
+	<project name="poky" remote="yocto" path="sources/poky">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+	</project>
+	<project name="meta-freescale" remote="fsl-community" path="sources/meta-freescale"/>
+	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
+	<project name="meta-security" remote="yocto" path="sources/meta-security">
+		<sublayer path="meta-tpm"/>
+	</project>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="master"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="master">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="master"/>
+</manifest>
