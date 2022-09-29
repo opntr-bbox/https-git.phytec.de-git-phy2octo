@@ -141,6 +141,19 @@ Features:
 
 Known Issues/Limitations:
 -------------------------
+- linux: USB OTG driver (dwc2) sometimes fails to probe at boot with following error:
+  "dwc2_core_reset: HANG! Soft Reset timeout GRSTCTL_CSFTRST"
+  To fix this, apply the following patch for the Trusted Firmware (tf-a-stm32mp) :
+  https://git.phytec.de/tf-a-stm32mp/commit/?h=v2.4-phy&id=bade933f310dd321bb38a3d0a6accfe069f661a8
+
+- With MACHINE_FEATURE="phy-expansions", Linux does not boot when there is no device tree overlay to apply (no overlay specified
+  in "/boot/overlays/overlays.txt", or throught "overlay" u-boot env var).
+  Three possible solutions:
+  - solution 1 (workaround): Delare a non-existing device tree overlay file in "/boot/overlays/overlays.txt" (or throught "overlay" u-boot env var):
+    example: "overlay=none"
+  - solution 2: If no device tree overlay is needed: In the Yocto machine configuration file, remove the MACHINE_FEATURE "phy-expansions"
+  - solution 3:  Update the meta-phytec layer to the latest head of the dunfell branch: https://git.phytec.de/meta-phytec/log/?h=dunfell
+
 - WIC image generation:
   In case, the device tree name does not match the Yocto machine name, the WIC file generation fails and consequently, the entiere BSP image build fails.
   Two possible solutions:
