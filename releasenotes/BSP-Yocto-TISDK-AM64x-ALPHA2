@@ -1,0 +1,47 @@
+BSP-Yocto-TISDK-AM64x-ALPHA2                    2022-10-04
+==========================================================
+
+- Linux TI vendor kernel v5.10.120 (based on TI tag 08.04.01.002)
+- U-Boot v2021.01 (based on TI tag 08.03.00.005)
+- Yocto 3.1.12 (dunfell, based on TI CoreSDK 08.03.00.005)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working or stable. This release will NOT
+be supported after the first full BSP release.
+
+
+Tested Yocto Images:
+--------------------
+
+- tisdk-default-image:
+  * phyboard-electra-am64xx-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 18.04 64-bit
+
+
+Changes since ALPHA1:
+---------------------
+
+- New Features:
+  * Support for device tree overlay
+    - UART3 + SPI1 via k3-am64-phyboard-electra-x27-uart3-spi1.dtbo
+  * Support for Realtak R8169 PCIe card
+  * Update device trees to newer Carrier Board and SoM revision
+    (PCM-072.A1, PBA-C-25.A1)
+  * New memory testing tools for TI image (memtester & stressapptest)
+
+- Fixes:
+  * u-boot environment is now stored on boot device
+
+
+Known Issues:
+-------------
+
+- OSPI Boot is failing
+- Having identical wic image flashed on eMMC and inserted SD card
+  leads to a boot failure due to identical partition UUIDs
