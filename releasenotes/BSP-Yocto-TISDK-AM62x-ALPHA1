@@ -1,0 +1,59 @@
+BSP-Yocto-TISDK-AM62x-ALPHA1                    2022-10-04
+==========================================================
+
+- Linux TI vendor kernel v5.10.120 (based on TI tag 08.04.01.002)
+- U-Boot v2021.01 (based on TI tag 08.03.00.005)
+- Yocto 3.1.12 (dunfell, based on TI CoreSDK 08.03.00.005)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working or stable. This release will NOT
+be supported after the first full BSP release.
+
+
+Tested Yocto Images:
+--------------------
+
+- tisdk-default-image:
+  * phyboard-lyra-am62xx-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 18.04 64-bit
+
+
+Features:
+---------
+
+- Added support for new machine:
+  * phyboard-lyra-am62xx-1
+- Booting from eMMC and MMC/SD supported
+- Support for the following features:
+  * RAM
+  * eMMC Flash
+  * Micro SD Card
+  * OSPI Flash
+  * GPU
+  * USB 2.0
+  * USB C
+  * MIPI-CSI (+VM-016-M)
+  * OLDI/LVDS
+  * Ethernet
+  * HDMI
+  * McASP
+  * ePWM
+  * WiFi
+  * I2C
+  * UART
+  * User GPIOs
+  * RTC
+
+Known Issues:
+-------------
+
+- OSPI Boot is failing
+- Having identical wic image flashed on eMMC and inserted SD card
+  leads to a boot failure due to identical partition UUIDs
+- Bluetooth and MCAN is non functional
