@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec bspextension="TISDK" pdn="PD-ALPHA1" release_uid="BSP-Yocto-TISDK-AM62x-ALPHA1" soc="AM62x" build_container="yocto:tisdk-ubuntu18.04" supported_builds="
+    phyboard-lyra-am62xx-1/tisdk-default-image/arago
+  " />
+
+  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+	<remote fetch="git://git.openembedded.org" name="oe" />
+	<remote fetch="git://git.phytec.de" name="git.phytec" />
+	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+	<remote fetch="https://github.com" name="github" />
+	<remote fetch="git://git.ti.com" name="ti" />
+
+	<default revision="dunfell" remote="git.phytec" sync-j="8" />
+
+	<project remote="git.phytec" name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/BSP-Yocto-TISDK-AM62x-ALPHA1">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project remote="git.phytec" name="meta-yogurt" path="sources/meta-yogurt" revision="refs/tags/BSP-Yocto-TISDK-AM62x-ALPHA1" />
+
+	<project remote="github" name="rauc/meta-rauc" path="sources/meta-rauc" revision="c6f054589d038802a0fccf3ae6e789046d391fd7" />
+	<project remote="oe" revision="048d682b031644fb9f0d41a489bacb873aa27bd7" name="bitbake" path="sources/oe-core/bitbake">
+		<ignorebaselayer />
+	</project>
+	<project remote="oe" revision="48ce924dc82aa959fb897ec36873db7dc3813b71" name="openembedded-core" path="sources/oe-core">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+	</project>
+	<project remote="oe" revision="8ff12bfffcf0840d5518788a53d88d708ad3aae0" name="meta-openembedded" path="sources/meta-openembedded">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+	</project>
+	<project remote="yocto" revision="refs/tags/08.03.00.005" name="meta-arago" path="sources/meta-arago">
+		<ignorebaselayer />
+		<sublayer path="meta-arago-distro" />
+		<sublayer path="meta-arago-extras" />
+	</project>
+	<project remote="yocto" revision="refs/tags/yocto-3.1.1" name="meta-arm" path="sources/meta-arm">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project remote="github" revision="5ef3a0ffd3324937252790266e2b2e64d33ef34f" name="meta-qt5/meta-qt5" path="sources/meta-qt5" />
+	<project remote="yocto" revision="refs/tags/08.03.00.005" name="meta-ti" path="sources/meta-ti" />
+	<project remote="yocto" revision="f6b88c1d2f515ffac90457c0d649d6c805fff736" name="meta-virtualization" path="sources/meta-virtualization" />
+	<project remote="yocto" name="meta-security" path="sources/meta-security" revision="c62970fda82acf75035243766ecd195243e0f82a">
+		<ignorebaselayer />
+		<sublayer path="meta-tpm" />
+	</project>
+	<project remote="ti" revision="b39d454b1622e53a23a08c5470ba6de2162264df" name="processor-sdk/meta-processor-sdk" path="sources/meta-processor-sdk" />
+</manifest>
