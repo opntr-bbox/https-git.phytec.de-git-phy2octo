@@ -66,6 +66,9 @@ Known Issues/Limitations:
   devices with older certificates, as described in the chapter
   "Switching RAUC Keyrings" in our RAUC manual. Devices in the field should
   not be affected by this, as they should be using a customer-specific PKI.
+- Command "devtool modify linux-imx" returns an error. To workaround this
+  update meta-ampliphy to commit 76adad831cfc ("hardening: linux: Fix
+  non-deterministic behavior")
 
 BSP-Yocto-FSL-i.MX8MP-PD21.1.3            2022-02-22
 ====================================================
