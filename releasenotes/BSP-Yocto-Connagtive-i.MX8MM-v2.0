@@ -1,0 +1,75 @@
+Release Notes BSP-Yocto-Connagtive-i.MX8MM-v2.0
+===============================================
+
+- Based on BSP-Yocto-FSL-i.MX8MM-hardknott
+- Linux Kernel v5.10.72_2.2.0-phy10
+- U-Boot 2021.04_2.2.0-phy7
+- Yocto hardknott
+- Connagtive IoT Device Suite platform support
+- RAUC 1.6
+- rauc-hawkbit-updater 0.1
+
+Tested Yocto Images
+-------------------
+
+phyboard-polis-imx8mm-4 - phytec-connagtive-test-image
+phygate-tauri-l-imx8mm-2 - phytec-connagtive-start-image
+
+Build Environment
+-----------------
+
+- Ubuntu 20.04 64Bit
+
+Changelog v2.0                          2022-11-03
+--------------------------------------------------
+
+- Update to Yocto version hardknott
+- Update from meta-yogurt to meta-ampliphy
+- The partitions "config" and "app" are now also linked to /config and /app for
+  easier access of the corresponding IoT Suite applications.
+- Improve blink-led script by utilizing systemd timers.
+- Various improvements and updates to the phytec-board-config script to
+  accommodate for changes in the IoT Suite platform.
+- Use the device's MAC address for the Common Name and device name in the IoT
+  Suite platform.
+- Update awsclient to version 1.5.0.
+- Enable wireless connectivity.
+- Use meta-phytec's provisioning distro instead of the one provided with this
+  layer.
+- Add a migration image and bundle for updating from zeus to hardknott, to
+  address changes in awsclient's shadow commands.
+
+Changelog v1.1                          2021-07-01
+--------------------------------------------------
+
+- The remotemanager now works. This issue was not related to this BSP, but
+  originated from a misconfigured server component.
+- Added a distribution and image solely used for provisioning of devices at EOL
+  after production.
+- Reduce the time between shadow updates initiated by the awsclient from 30 min
+  to 5 min for a better user experience.
+
+Changelog v1.0                          2021-06-22
+--------------------------------------------------
+
+- Initial release
+- Connagtive IoT Device Suite platform support
+  - phytec-board-config: Initial registration of account and board,
+    authentication configuration and review of terms and conditions of the
+    Connagtive IoT Device Suite
+  - phytec-board-info: Print hardware information relevant for the Connagtive
+    IoT Device Suite
+  - awsclient: Network communication with the Connagtive IoT Device Suite,
+    status exchange with server, configuration deployment
+  - remotemanager: Remote access tunnel to a device via SSH
+- RAUC 1.5.1 for installing update bundles to the device
+- rauc-hawkbit-updater as a translator between the Connagtive IoT Device Suite's
+  hawkBit update server and the device's RAUC update client.
+- blink-led: Example that visually demonstrates the current update status of the
+  device using different colors for each state.
+
+Known Issues:
+
+- The remotemanager may or may not work. This highly depends on the network
+  configuration of the Connagtive IoT Device Suite and the one of the device
+  and the client are operating in.
