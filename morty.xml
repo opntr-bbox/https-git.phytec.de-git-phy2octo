@@ -1,41 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+	<phytec pdn="morty" release_uid="BSP-Yocto-FSL-i.MX8-morty" soc="iMX8"/>
 
-  <default sync-j="2"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="freescale" fetch="https://github.com/Freescale"/>
+	<remote name="oe" fetch="https://github.com/openembedded"/>
+	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
+	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
+	<remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
-  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
-  <remote fetch="https://github.com/Freescale" name="freescale"/>
-  <remote fetch="https://github.com/openembedded" name="oe"/>
-  <remote fetch="https://github.com/OSSystems" name="OSSystems"/>
-  <remote fetch="https://github.com/meta-qt5"  name="QT5"/>
-  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF"/>
-  <remote name="git.phytec" fetch="git://git.phytec.de"/>
-  <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<default revision="morty" remote="git.phytec" sync-j="2"/>
 
-
-  <project remote="yocto" revision="ef888dd58f431866db2472753643f3f848fece21" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="05681fdf8298bb441c15135eae424c7601b07e98" name="meta-freescale" path="sources/meta-freescale"/>
-
-  <project remote="oe" revision="b40116cf457b88a2db14b86fda9627fb34d56ae6" name="meta-openembedded" path="sources/meta-openembedded"/>
-
-  <project remote="freescale" revision="morty" name="fsl-community-bsp-base" path="sources/base">
-	<linkfile dest="README" src="README"/>
-	<linkfile dest="setup-environment" src="setup-environment"/>
-  </project>
-
-  <project remote="freescale" revision="e55167c3c2770c07a475342f99cc2a3a23fbfa0c" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
-  <project remote="freescale" revision="cd5c7a2539f40004f74126e9fdf08254fd9a6390" name="meta-freescale-distro" path="sources/meta-freescale-distro"/>
-
-  <project remote="OSSystems" revision="678706cb43fb8576ff7b88bfb612993b8542724d" name="meta-browser" path="sources/meta-browser" />
-  <project remote="QT5" revision="ff073f04109900fc07bf81e2f1df63c626caf342" name="meta-qt5" path="sources/meta-qt5" />
-
-  <project remote="CAF" name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" revision="morty-4.9.51-8qm_beta2" >
-     <linkfile src="imx/README" dest="README-IMXBSP"/>
-  </project>
-
-  <project name="meta-phytec" path="sources/meta-phytec" revision="morty" remote="git.phytec" >
-    <copyfile dest="tools/init" src="scripts/init-imx8"/>
-    <linkfile src="scripts/fsl-setup-release.sh" dest="fsl-setup-release.sh"/>
-  </project>
-
+	<project name="poky" path="sources/poky" remote="yocto" revision="ef888dd58f431866db2472753643f3f848fece21"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="05681fdf8298bb441c15135eae424c7601b07e98"/>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="b40116cf457b88a2db14b86fda9627fb34d56ae6"/>
+	<project name="fsl-community-bsp-base" path="sources/base" remote="freescale">
+		<linkfile dest="README" src="README"/>
+		<linkfile dest="setup-environment" src="setup-environment"/>
+	</project>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="freescale" revision="e55167c3c2770c07a475342f99cc2a3a23fbfa0c"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="freescale" revision="cd5c7a2539f40004f74126e9fdf08254fd9a6390"/>
+	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="678706cb43fb8576ff7b88bfb612993b8542724d"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="ff073f04109900fc07bf81e2f1df63c626caf342"/>
+	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="morty-4.9.51-8qm_beta2" >
+		 <linkfile src="imx/README" dest="README-IMXBSP"/>
+	</project>
+	<project name="meta-phytec" path="sources/meta-phytec">
+		<copyfile dest="tools/init" src="scripts/init-imx8"/>
+		<linkfile src="scripts/fsl-setup-release.sh" dest="fsl-setup-release.sh"/>
+	</project>
 </manifest>

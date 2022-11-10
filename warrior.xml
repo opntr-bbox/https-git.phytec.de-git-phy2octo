@@ -1,76 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <phytec pdn="warrior" release_uid="BSP-Yocto-FSL-i.MX8-warrior" soc="iMX8" supported_builds="
-    phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
-    phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland"
-    release_type="nightly" bspextension="FSL" build_container="yocto:ubuntu-16.04"/>
-  <default revision="warrior" sync-j="2"/>
+	<phytec pdn="warrior" release_uid="BSP-Yocto-FSL-i.MX8-warrior" soc="iMX8" supported_builds="
+		phycore-imx8-2/phytec-qt5demo-image/yogurt-vendor-xwayland,
+		phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland"
+		release_type="nightly" bspextension="FSL" build_container="yocto:ubuntu-16.04"/>
 
-  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
-  <remote fetch="https://github.com/Freescale" name="community"/>
-  <remote fetch="https://github.com/openembedded" name="oe"/>
-  <remote fetch="https://github.com/OSSystems" name="OSSystems"/>
-  <remote fetch="https://github.com/meta-qt5"  name="QT5"/>
-  <remote fetch="https://github.com/TimesysGit"  name="Timesys"/>
-  <remote fetch="https://github.com/meta-rust"  name="rust"/>
-  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF"/>
-  <remote fetch="https://github.com/rauc"  name="rauc"/>
-  <remote name="git.phytec" fetch="git://git.phytec.de"/>
-  <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="community" fetch="https://github.com/Freescale"/>
+	<remote name="oe" fetch="https://github.com/openembedded"/>
+	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
+	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
+	<remote name="Timesys" fetch="https://github.com/TimesysGit"/>
+	<remote name="rust" fetch="https://github.com/meta-rust"/>
+	<remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+	<remote name="rauc" fetch="https://github.com/rauc"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
-  <project remote="yocto" revision="6d2e12e79211b31cdf5ea824fb9a8be54ba9a9eb" name="poky" path="sources/poky">
-    <ignorebaselayer/>
-    <sublayer path="meta"/>
-    <sublayer path="meta-poky"/>
-  </project>
+	<default revision="warrior" remote="git.phytec" sync-j="2"/>
 
-  <project remote="oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9" name="meta-openembedded" path="sources/meta-openembedded">
-    <ignorebaselayer/>
-    <sublayer path="meta-oe"/>
-    <sublayer path="meta-networking"/>
-    <sublayer path="meta-python"/>
-    <sublayer path="meta-multimedia"/>
-    <sublayer path="meta-filesystems"/>
-    <sublayer path="meta-perl"/>
-    <sublayer path="meta-gnome"/>
-  </project>
-
-  <project remote="CAF" revision="6b237a975521daa1687c5ac49f57da6d32c8c719" name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" upstream="warrior-4.19.35-1.1.0" >
-    <linkfile src="imx/tools/fsl-setup-release.sh" dest="fsl-setup-release.sh"/>
-    <linkfile src="imx/README" dest="README-IMXBSP"/>
-    <ignorebaselayer/>
-    <sublayer path="imx/meta-bsp"/>
-    <sublayer path="imx/meta-sdk"/>
-    <sublayer path="imx/meta-ml"/>
-  </project>
-
-  <project remote="community" revision="fd027d8380cf53beabb6d19db3c4f9c36180ce1c" name="fsl-community-bsp-base" path="sources/base">
-    <linkfile dest="README" src="README"/>
-    <linkfile dest="setup-environment" src="setup-environment"/>
-    <ignorebaselayer/>
-  </project>
-
-  <project remote="OSSystems" revision="5f365ef0f842ba4651efe88787cf9c63bc8b6cb3" name="meta-browser" path="sources/meta-browser" />
-
-  <project remote="yocto" revision="2142f7ded1b3115ccc21f7575fd83e2376247193" name="meta-freescale" path="sources/meta-freescale"/>
-
-  <project remote="community" revision="da422478d38e744283bcf61123c4a526396c7030" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
-
-  <project remote="community" revision="d4e77ea682fa10d0d54a723b3d3099c44fc5e95c" name="meta-freescale-distro" path="sources/meta-freescale-distro"/>
-
-  <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" >
-    <copyfile dest="tools/init" src="scripts/init"/>
-  </project>
-
-  <project remote="QT5" revision="dc2dedef9961950b88f4245ba7499538ec4244ab" name="meta-qt5" path="sources/meta-qt5" />
-
-  <project name="meta-rauc" path="sources/meta-rauc" revision="warrior" remote="rauc" />
-
-  <project remote="rust" revision="11aed43748d7dd194dc6c06a35a16104400d1090" name="meta-rust" path="sources/meta-rust" />
-
-  <project name="meta-yogurt" path="sources/meta-yogurt" remote="git.phytec" />
-
-  <project name="meta-security" path="sources/meta-security" remote="yocto">
-	  <sublayer path="meta-tpm"/>
-  </project>
+	<project name="poky" path="sources/poky" remote="yocto" revision="6d2e12e79211b31cdf5ea824fb9a8be54ba9a9eb">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+		<sublayer path="meta-gnome"/>
+	</project>
+	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="6b237a975521daa1687c5ac49f57da6d32c8c719" upstream="warrior-4.19.35-1.1.0" >
+		<linkfile src="imx/tools/fsl-setup-release.sh" dest="fsl-setup-release.sh"/>
+		<linkfile src="imx/README" dest="README-IMXBSP"/>
+		<ignorebaselayer/>
+		<sublayer path="imx/meta-bsp"/>
+		<sublayer path="imx/meta-sdk"/>
+		<sublayer path="imx/meta-ml"/>
+	</project>
+	<project name="fsl-community-bsp-base" path="sources/base" remote="community" revision="fd027d8380cf53beabb6d19db3c4f9c36180ce1c">
+		<linkfile dest="README" src="README"/>
+		<linkfile dest="setup-environment" src="setup-environment"/>
+		<ignorebaselayer/>
+	</project>
+	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="5f365ef0f842ba4651efe88787cf9c63bc8b6cb3"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2142f7ded1b3115ccc21f7575fd83e2376247193"/>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="da422478d38e744283bcf61123c4a526396c7030"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d4e77ea682fa10d0d54a723b3d3099c44fc5e95c"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="dc2dedef9961950b88f4245ba7499538ec4244ab"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
+	<project name="meta-rust" path="sources/meta-rust" remote="rust" revision="11aed43748d7dd194dc6c06a35a16104400d1090"/>
+	<project name="meta-yogurt" path="sources/meta-yogurt"/>
+	<project name="meta-security" path="sources/meta-security" remote="yocto">
+		<sublayer path="meta-tpm"/>
+	</project>
 </manifest>
