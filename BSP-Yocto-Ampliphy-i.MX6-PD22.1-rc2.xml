@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD22.1-rc2" release_uid="BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc2" soc="iMX6" supported_builds="
+    phyboard-mira-imx6-14/phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-15/phytec-headless-image/ampliphy,
+    phyboard-mira-imx6-3/-c populate_sdk phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-3/barebox-hosttools-native/ampliphy,
+    phyboard-mira-imx6-3/phytec-headless-bundle/ampliphy-rauc,
+    phyboard-mira-imx6-3/phytec-headless-image/ampliphy-rauc,
+    phyboard-mira-imx6-3/phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-3/phytec-security-image/ampliphy-secure,
+    phyboard-mira-imx6-3/phytec-vision-image/ampliphy-x11,
+    phyboard-mira-imx6-3/phytec-vision-image/ampliphy-xwayland,
+    phyboard-mira-imx6-5/phytec-headless-bundle/ampliphy-rauc,
+    phyboard-mira-imx6-5/phytec-headless-image/ampliphy-rauc,
+    phyboard-mira-imx6-5/phytec-provisioning-image/ampliphy-provisioning,
+    phyboard-mira-imx6-5/phytec-qt5demo-image/ampliphy,
+    phyboard-mira-imx6-5/phytec-security-bundle/ampliphy-secure,
+    phyboard-mira-imx6-5/phytec-security-image/ampliphy-secure,
+    phyboard-mira-imx6-6/phytec-headless-image/ampliphy,
+    phyboard-nunki-imx6-1/phytec-qt5demo-image/ampliphy,
+    phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-x11,
+    phyboard-nunki-imx6-1/phytec-vision-image/ampliphy-xwayland,
+    phyflex-imx6-1/phytec-qt5demo-image/ampliphy,
+    phyflex-imx6-2/phytec-qt5demo-image/ampliphy,
+    phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
+    phyflex-imx6-2/phytec-vision-image/ampliphy-xwayland,
+    phyflex-imx6-8/phytec-qt5demo-image/ampliphy
+  " build_container="yocto:ubuntu20.04" />
+
+  <remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="ti" fetch="git://git.ti.com" />
+	<remote name="github" fetch="https://github.com" />
+
+	<default revision="kirkstone" remote="git.phytec" sync-j="8" />
+
+	<project name="poky" path="sources/poky" remote="yocto" revision="c8423297866441055553b378663b5454e63e18b4">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="50d4a8d2a983a68383ef1ffec2c8e21adf0c1a79">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="44d44933200287f7d17cf6981af4b4a0961c308d" />
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="e2a60ded9c08118c17c23aa07cca21df77fb6628" />
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="c79262a30bd385f5dbb009ef8704a1a01644528e">
+		<sublayer path="meta-tpm" />
+	</project>
+	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="bd9ac458bac01b899308ac173444607a10f6cc43" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="fff2af07c08a0e0cbeb702f8cf09aa4a1254a1f8" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="0548c9d08f3a8744e1f88021b3e0b46fef33db46">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+</manifest>
