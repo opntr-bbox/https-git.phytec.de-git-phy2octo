@@ -10,9 +10,9 @@
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="github" fetch="https://github.com"/>
 
-	<project name="poky" remote="yocto" path="sources/poky"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<project name="poky" path="sources/poky" remote="yocto"/>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>

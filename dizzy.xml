@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <phytec pdn="dizzy" release_uid="iMX6-dizzy" soc="iMX6"/>
+	<phytec pdn="dizzy" release_uid="iMX6-dizzy" soc="iMX6"/>
 
-  <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="https://github.com" name="github" />
-  <remote fetch="git://git.openembedded.org" name="oe" />
-  <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
-  <remote fetch="git://git.ti.com" name="ti" />
-  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="github" fetch="https://github.com"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 
-  <default remote="git.phytec" revision="dizzy" sync-j="8" />
+	<default remote="git.phytec" revision="dizzy" sync-j="8" />
 
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
-  <project name="meta-phytec" path="sources/meta-phytec">
-	  <copyfile dest="tools/init" src="meta-phyimx6/scripts/init" />
-  </project>
-  <project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
-  <project name="meta-yogurt" path="sources/meta-yogurt"/>
-  <project name="poky" path="sources/poky" remote="yocto"/>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
+		<copyfile dest="tools/init" src="meta-phyimx6/scripts/init" />
+	</project>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="meta-yogurt" path="sources/meta-yogurt"/>
+	<project name="poky" path="sources/poky" remote="yocto"/>
 </manifest>
