@@ -11,11 +11,11 @@
 
 	<default revision="pyro" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" remote="yocto" path="sources/poky"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="imyller/meta-nodejs" remote="github" path="sources/meta-nodejs" revision="master"/>
-	<project name="dv1/meta-gstreamer1.0" remote="github" path="sources/meta-gstreamer1.0"/>
+	<project name="poky" path="sources/poky" remote="yocto"/>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="master"/>
+	<project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>

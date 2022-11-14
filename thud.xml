@@ -36,12 +36,12 @@
 
 	<default revision="thud" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" remote="yocto" path="sources/poky">
+	<project name="poky" path="sources/poky" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -49,11 +49,11 @@
 		<sublayer path="meta-multimedia"/>
 		<sublayer path="meta-filesystems"/>
 	</project>
-	<project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
-	<project name="meta-rust/meta-rust" remote="github" path="sources/meta-rust" revision="9487b089ea4779c2b494b17b9254219226efa539"/>
-	<project name="Azure/meta-iotedge" remote="github" path="sources/meta-iotedge"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-rust/meta-rust" path="sources/meta-rust" remote="github" revision="9487b089ea4779c2b494b17b9254219226efa539"/>
+	<project name="Azure/meta-iotedge" path="sources/meta-iotedge" remote="github"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>

@@ -2,8 +2,6 @@
 <manifest>
 	<phytec release_uid="AM335x-dizzy" soc="am335x" pdn="dizzy"/>
 
-	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
-
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
@@ -11,9 +9,11 @@
 	<remote name="ti" fetch="git://git.ti.com"/>
 	<remote name="github" fetch="https://github.com"/>
 
-	<project name="poky" remote="yocto" path="sources/poky"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<default revision="dizzy" remote="git.phytec" sync-j="8"/>
+
+	<project path="sources/poky" name="poky" remote="yocto"/>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe"/>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="meta-phyam335x/scripts/init"/>
 	</project>

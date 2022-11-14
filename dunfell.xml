@@ -15,12 +15,12 @@
 
 	<default revision="dunfell" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" remote="yocto" path="sources/poky">
+	<project name="poky" path="sources/poky" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -29,11 +29,11 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-fresh" path="sources/meta-fresh" revision="dunfell"/>
+	<project name="meta-fresh" path="sources/meta-fresh"/>
 </manifest>
