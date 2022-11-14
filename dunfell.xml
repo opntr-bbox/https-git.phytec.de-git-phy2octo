@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="dunfell" release_uid="BSP-Yocto-AM62x-dunfell" soc="AM62x"
-		supported_builds="
-			phyboard-lyra-am62xx-1/phytec-qt5demo-image/yogurt
-	" release_type="nightly" build_container="yocto:ubuntu20.04"/>
+	<phytec pdn="dunfell" release_uid="BSP-Yocto-AM62x-dunfell" soc="AM62x" supported_builds="
+		phyboard-lyra-am62xx-1/phytec-qt5demo-image/yogurt"
+		release_type="nightly" build_container="yocto:ubuntu20.04"/>
 
-	<remote fetch="git://git.yoctoproject.org" name="yocto"/>
-	<remote fetch="git://git.openembedded.org" name="oe"/>
-	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec"/>
-	<remote fetch="https://github.com" name="github"/>
-	<remote fetch="git://git.ti.com" name="ti"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="github" fetch="https://github.com"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
 
 	<default revision="dunfell" remote="git.phytec" sync-j="8"/>
 
@@ -17,12 +16,12 @@
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
 	<project name="meta-yogurt" path="sources/meta-yogurt"/>
-	<project name="poky" remote="yocto" path="sources/poky">
+	<project name="poky" path="sources/poky" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project remote="oe" name="meta-openembedded" path="sources/meta-openembedded">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -32,16 +31,16 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project remote="github" name="rauc/meta-rauc" path="sources/meta-rauc"/>
-	<project remote="yocto" name="meta-arm" path="sources/meta-arm">
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project remote="github" name="meta-qt5/meta-qt5" path="sources/meta-qt5"/>
-	<project remote="yocto" name="meta-ti" path="sources/meta-ti"/>
-	<project remote="yocto" name="meta-virtualization" path="sources/meta-virtualization"/>
-	<project remote="yocto" name="meta-security" path="sources/meta-security">
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-tpm"/>
 	</project>
