@@ -65,11 +65,11 @@
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="cca772a457a75b2661371932ff79c392da3118db"/>
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc"/>
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="41ddf0b33167ea28df0ce5b56583976c20e7f187" upstream="6.3"/>
-	<project name="meta-phytec" path="sources/meta-phytec" revision="kirkstone">
+	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
-	<project name="meta-qt6-phytec-dev" path="sources/meta-qt6-phytec" revision="kirkstone"/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>
