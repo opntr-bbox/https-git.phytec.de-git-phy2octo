@@ -1,0 +1,111 @@
+Release Notes Unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-Ampliphy-i.MX6-PD22.1.0       2022-12-14
+==================================================
+- Linux Kernel v5.15.63 (LTS kernel)
+  * Update from v5.10.48 to v5.15.63
+  * Tag: v5.15.63-phy4
+- barebox v2022.02.0
+  * Tag: v2022.02.0-phy3
+- Yocto 4.0.5 (kirkstone)
+- Qt 5.15.3 from meta-qt5 (kirkstone)
+- RAUC 1.8 from meta-rauc
+
+Supported Machines:
+-------------------
+- phytec-headless-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-6
+  * phyboard-mira-imx6-15
+
+- phytec-qt5demo-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-14
+  * phyboard-nunki-imx6-1
+  * phyflex-imx6-1
+  * phyflex-imx6-2
+  * phyflex-imx6-8
+
+- phytec-vision-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-nunki-imx6-1
+  * phyflex-imx6-2
+
+- phytec-security-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+
+- phytec-provisioning-image on:
+  * phyboard-mira-imx6-5
+
+Note: For decoding Machine Names into hardware ordering please visit our download area and use the machine decoder there.
+https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64Bit
+
+Changes since PD21.1.1:
+-----------------------
+- New Features:
+  * Barebox binary is now added to the targets rootfs, under "/boot" directory.
+
+- Fixes:
+  * Kernel:
+    - Disable rngd service by default which produced high CPU usage.
+    - Reboot with PMIC watchdog, which previously froze the device in rare occasions is now fixed.
+
+  * Barebox:
+    - re-activating the Ethernet interface can now be done without a system freeze.
+
+Known Issues:
+-------------
+- general:
+  * Playing H264 encoded videos with VPU decoding support via QT has limited
+    framerate for higher resolutions.
+  * The internal watchdog of the i.MX 6 cannot be used. We recommend to use
+    the PMIC watchdog as preconfigured.
+  * Building of RAUC casync bundles is disabled due to Issue
+    https://github.com/rauc/rauc/issues/679
+  * In rare cases (< 0.1%) during device softreboot the phyBOARD-Nunki device fails to reboot with
+    the following messages:
+      systemd-journald[192]: Failed to send WATCHDOG=1 notification message: Connection refused
+      systemd-journald[192]: Failed to send WATCHDOG=1 notification message: Transport endpoint is not connected
+
+- kernel:
+  * In rare cases (< 0.1%) during kernel boot the NAND flash fails to be
+    detected with following error:
+    gpmi_reset_block(f0a2a000): module reset timeout.
+  * 1.2 GHz i.MX 6:
+    - Controlling ARM and SOC voltages for DVFS with PMIC is not supported
+      since the 1.2 GHz operating point is not allowed to be operated with
+      the internal i.MX 6 LDO's in bypass mode. So this machine always
+      operates with internal LDO's enabled which results in highly more heat
+      generation on the SOC.
+  * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
+    devicetree and cannot be changed on runtime.
+  * The maximum pixel clock frequency for LVDS is 72 MHz.
+  * The reboot command can cause rarely occurring kernel warnings when a task
+    gets migrated to a CPU that is already offline.
+    A workaround can be achieved by disabling the non-booting CPUs before
+    rebooting. Related to:
+      https://patchwork.kernel.org/project/linux-sh/patch/20200115063410.131692-1-hsinyi@chromium.org/
+      [BSPYOCTOIMX6-1580]
+  * In rare cases, the GPU does not start properly. User space Applications that
+    use graphics fall back to software rendering.
+    Error indicating a failure in the startup of the GPU:
+      etnaviv-gpu 130000.gpu: GPU is not idle
+      etnaviv-gpu 130000.gpu: GPU failed to reset: FE idle, 3D not idle, 2D not idle
+      etnaviv-gpu 130000.gpu: GPU reset failed
+
+- barebox:
+  * If the network is configured as DHCP, the user need to repeat the "dhcp" or "if up" command for
+    the IP to be assigned successfully.
+
+Notes:
+------
+  * For a list of supported boards, see 'Supported Machines' above.
+  * .sdcard image bundles are now replaced with .wic image bundles.
