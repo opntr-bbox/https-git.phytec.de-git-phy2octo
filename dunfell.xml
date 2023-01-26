@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
 	<phytec pdn="dunfell" release_uid="BSP-Yocto-AM62x-dunfell" soc="AM62x" supported_builds="
-		phyboard-lyra-am62xx-1/phytec-qt5demo-image/yogurt"
+		phyboard-lyra-am62xx-1/phytec-qt5demo-image/yogurt,
+		phyboard-lyra-am62xx-1/-c populate_sdk phytec-qt5demo-image/yogurt"
 		release_type="nightly" build_container="yocto:ubuntu20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
