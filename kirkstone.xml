@@ -13,7 +13,7 @@
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8"/>
 
-	<project name="meta-phytec" path="sources/meta-phytec" revision="WIP/w.egorov@phytec.de/kirkstone">
+	<project name="meta-phytec" path="sources/meta-phytec" revision="kirkstone">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
