@@ -1,0 +1,130 @@
+Release Notes STM32MP1 OpenSTLinux BSP:
+=======================================
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD23.1.0 2023-02-27
+==================================================
+- Linux ST Vendor Kernel v5.15.67
+  * Tag v5.15-phy1
+- U-boot ST Vendor v2021.10
+  * Tag v2021.10-phy1
+- TF-A ST Vendor v2.6
+  * Tag v2.6-phy1
+- Linux integration from STM32MP15-ecosystem-v4.1.0: "openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23"
+  (based on Yocto Kirkstone v4.0.4)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.6.0-phy: STM32CubeMP1 v1.6.0 + phyBOARD-Sargas board support
+  https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.6.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- New features provided by OpenSTLinux v4.1.0:
+    * OpenSTLinux layers part:
+      * Add support of Firmware Update feature for NAND memory
+      * Minor fixes
+      Note: From prevous major release OpenSTLinux v4.0.0, FIP configuration is the only packaging format supported for boot loaders:
+      Only TF-A BL2 requires the stm32 header for a ROM code authentication. Others bootloader binaries are embedded in a FIP container.
+      A dedicated fip-utils-stm32mp.bbclass class is provided on meta-st-stm32mp layer side to manage the FIP image configuration, build and update.
+
+    * Linux kernel part:
+      * Real Time ready drivers (RT-Linux)
+      * ADC oversampling support
+      * SPI master driver with dual-qspi mode support
+      * DMA support for CRYP IP (Crypto performance improvement)
+      * Minor fixes
+
+    * U-boot part:
+      * Fix support of STM32MP13x Rev.Y
+      * Device tree alignment with Linux Kernel v5.15-stm32mp-r2
+      * Remove tests on CONFIG_DM_REGULATOR
+      * Fix invalid clock name references in SCMI driver
+      * Make usage of clock/reset bulk() API in USB EHCI driver
+      * Fix the display of protected GPIO in gpio and pinmux command
+      * Display label for gpio in alternate mode in gpio status command
+      * Fixes for stm32prog command:
+          * Correctly handle OTP when SMC is not supported
+          * Support empty flashlayout
+      * Several fixes for STM32MP13 clock
+      * Use correct compatible string to add MTD partitions int ft_board_setup()
+      * Check fdtcontroladdr in label_boot for pxe command parsing, used on extlinux.conf for GENERIC DISTRO support
+      * Use RGB565 for BMP blitting, as panel configuration
+      * Several STM32 I2C corrections
+      * Other minor updates
+
+    * TF-A part:
+      * Firmware update on NAND devices
+      * Improve FIP management on NAND devices
+      * Add GPIO regulators driver
+      * Use FCONF to manage the Chain of Trust
+      * Allow support of non-paged OP-TEE
+      * Skip boot devices initialization when returning from Standby (only with OP-TEE)
+      * Minor fixes
+
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
+
+- New features provided by PHYTEC BSP adaptation:
+    * Rename the "phycore-stm32mp1" device tree files to comply with the upstream device tree style (goal is to upstream the phyCORE-STM32MP1 device tree).
+    * Bootloaders and Kernel device tree files name don't need anymore to have the same name. Examples:
+        U-boot and TF-A = "stm32mp15xx-phycore-som-emmc-1gib.dts" or "stm32mp15xx-phycore-som-nand-512mb.dts"
+        linux = "stm32mp15xx-phyboard-sargas-rdk-emmc.dts" or "stm32mp15xx-phyboard-sargas-rdk-nand.dts"
+    * u-boot: creation of the phytec SOM board "phycore-stm32mp1" (goal is to upstream the board).
+    * Remove support of phyCAM-P VM-010 (this phyCAM is discontinued)
+
+- Existing features (from PD22.1.1 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touch screen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touch screen is not functional)
+    * PEB-WLBT-05 (2.4Ghz and 5Ghz version) support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+    * phyCAM-P VM-016 BW & COL
+
+  * Peripherals suppotrt:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (u-boot/kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel)
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
