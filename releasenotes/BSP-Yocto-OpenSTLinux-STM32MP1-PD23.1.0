@@ -1,7 +1,7 @@
 Release Notes STM32MP1 OpenSTLinux BSP:
 =======================================
 
-BSP-Yocto-OpenSTLinux-STM32MP1-PD23.1.0 2023-02-27
+BSP-Yocto-OpenSTLinux-STM32MP1-PD23.1.0 2023-03-07
 ==================================================
 - Linux ST Vendor Kernel v5.15.67
   * Tag v5.15-phy1
@@ -10,7 +10,7 @@ BSP-Yocto-OpenSTLinux-STM32MP1-PD23.1.0 2023-02-27
 - TF-A ST Vendor v2.6
   * Tag v2.6-phy1
 - Linux integration from STM32MP15-ecosystem-v4.1.0: "openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23"
-  (based on Yocto Kirkstone v4.0.4)
+  (based on Yocto Kirkstone)
 
 STM32CubeMP1 Package for Cortex-M4 development
 ----------------------------------------------
@@ -32,15 +32,18 @@ Build Environment:
 
 Features:
 ---------
-- New features provided by OpenSTLinux v4.1.0:
+- New features provided by OpenSTLinux v4.0.0 and v4.1.0:
     * OpenSTLinux layers part:
-      * Add support of Firmware Update feature for NAND memory
+      * Graphic frameworks user change for security reasons (change from Weston community)
+      * Add support of Firmware Update feature (https://wiki.st.com/stm32mpu/wiki/Secure_Firmware_Update)
       * Minor fixes
-      Note: From prevous major release OpenSTLinux v4.0.0, FIP configuration is the only packaging format supported for boot loaders:
+      Note: FIP configuration is now the only packaging format supported for boot loaders:
       Only TF-A BL2 requires the stm32 header for a ROM code authentication. Others bootloader binaries are embedded in a FIP container.
       A dedicated fip-utils-stm32mp.bbclass class is provided on meta-st-stm32mp layer side to manage the FIP image configuration, build and update.
 
     * Linux kernel part:
+      * FMC nand driver Write Protect (WP) function support
+      * RTC alarm toogle
       * Real Time ready drivers (RT-Linux)
       * ADC oversampling support
       * SPI master driver with dual-qspi mode support
@@ -48,8 +51,19 @@ Features:
       * Minor fixes
 
     * U-boot part:
-      * Fix support of STM32MP13x Rev.Y
       * Device tree alignment with Linux Kernel v5.15-stm32mp-r2
+      * DDR tuning support remove
+      * Activate CONFIG_OF_LIVE
+      * Activate CONFIG_LOG
+      * Deactivate IPCC driver
+      * Add Uclass USB typeC and driver for UCSI
+      * Add USB phy tuning support
+      * Add NAND Write Protect support
+      * Add ADC calibration support
+      * Add TF-A firmware update support
+      * Update SCMI support for OP-TEE transport
+      * Add BSEC and stm32prog support with OP-TEE and TA (Trusted Application)
+      * ADC calibration in U-Boot
       * Remove tests on CONFIG_DM_REGULATOR
       * Fix invalid clock name references in SCMI driver
       * Make usage of clock/reset bulk() API in USB EHCI driver
@@ -58,7 +72,6 @@ Features:
       * Fixes for stm32prog command:
           * Correctly handle OTP when SMC is not supported
           * Support empty flashlayout
-      * Several fixes for STM32MP13 clock
       * Use correct compatible string to add MTD partitions int ft_board_setup()
       * Check fdtcontroladdr in label_boot for pxe command parsing, used on extlinux.conf for GENERIC DISTRO support
       * Use RGB565 for BMP blitting, as panel configuration
@@ -66,7 +79,12 @@ Features:
       * Other minor updates
 
     * TF-A part:
-      * Firmware update on NAND devices
+      * Firmware Update (FWU) support
+      * Early console management
+      * Configurable baudrate for UART
+      * Serial boot (USB/UART): flashlayout is no more loaded by BL2
+      * BL2 always boots at 650MHz
+      * Removal of STM32IMAGE legacy boot
       * Improve FIP management on NAND devices
       * Add GPIO regulators driver
       * Use FCONF to manage the Chain of Trust
@@ -75,7 +93,9 @@ Features:
       * Minor fixes
 
     For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.0.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note_-_v4.0.0
        * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.0.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.0.0
        * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
 
 - New features provided by PHYTEC BSP adaptation:
