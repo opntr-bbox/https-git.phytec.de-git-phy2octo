@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD22.1.1-rc1" release_uid="BSP-Yocto-i.MX8MM-PD22.1.1-rc1" soc="iMX8MM" supported_builds="
+	<phytec pdn="PD22.1.1-rc1" release_uid="BSP-Yocto-NXP-i.MX8MM-PD22.1.1-rc1" soc="iMX8MM" supported_builds="
     phyboard-polis-imx8mm-4/phytec-headless-image/ampliphy-vendor,
     phyboard-polis-imx8mm-4/phytec-qt5demo-image/ampliphy-vendor-xwayland,
     phyboard-polis-imx8mm-5/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland,
