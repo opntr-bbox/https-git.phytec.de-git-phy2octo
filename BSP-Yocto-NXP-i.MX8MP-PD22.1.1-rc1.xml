@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD22.1.1-rc1" release_uid="BSP-Yocto-i.MX8MP-PD22.1.1-rc1" soc="iMX8MP" supported_builds="
+	<phytec pdn="PD22.1.1-rc1" release_uid="BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc1" soc="iMX8MP" supported_builds="
     phyboard-pollux-imx8mp-2/phytec-headless-bundle/ampliphy-vendor-rauc,
     phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor,
     phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor-rauc,
