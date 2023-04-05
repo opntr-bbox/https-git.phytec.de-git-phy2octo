@@ -24,11 +24,11 @@
   <remote name="yocto" fetch="https://git.yoctoproject.org/git" />
   <remote name="community" fetch="https://github.com/Freescale" />
   <remote name="oe" fetch="https://github.com/openembedded" />
-  <remote name="CAF" fetch="https://source.codeaurora.org/external/imx" />
+  <remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
   <remote name="OSSystems" fetch="https://github.com/OSSystems" />
   <remote name="QT5" fetch="https://github.com/meta-qt5" />
   <remote name="clang" fetch="https://github.com/kraj" />
-  <remote name="imx-support" fetch="https://source.codeaurora.org/external/imxsupport" />
+  <remote name="imx-support" fetch="https://github.com/nxp-imx-support" />
   <remote name="python2" fetch="https://git.openembedded.org" />
   <remote name="rauc" fetch="https://github.com/rauc" />
   <remote name="git.phytec" fetch="git://git.phytec.de" />
@@ -53,7 +53,7 @@
     <sublayer path="meta-gnome" />
   </project>
 
-  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="a38040cc159f0ef9fc177358932c2c75257c59e9" upstream="hardknott-5.10.72-2.2.0">
+  <project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="6cdee8e50470b1a5affa7e50139d0d454bfe4012" upstream="hardknott-5.10.72-2.2.0">
     <linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
     <linkfile src="README" dest="README-IMXBSP" />
     <ignorebaselayer />
