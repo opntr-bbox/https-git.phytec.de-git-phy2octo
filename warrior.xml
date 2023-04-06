@@ -15,7 +15,7 @@
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
 	<remote name="Timesys" fetch="https://github.com/TimesysGit"/>
 	<remote name="rust" fetch="https://github.com/meta-rust"/>
-	<remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+	<remote name="nxp-imx "fetch="https://github.com/nxp-imx"/>
 	<remote name="rauc" fetch="https://github.com/rauc"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
@@ -37,7 +37,7 @@
 		<sublayer path="meta-perl"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="6b237a975521daa1687c5ac49f57da6d32c8c719" upstream="warrior-4.19.35-1.1.0">
+	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="6b237a975521daa1687c5ac49f57da6d32c8c719" upstream="warrior-4.19.35-1.1.0">
 		<linkfile src="imx/tools/fsl-setup-release.sh" dest="fsl-setup-release.sh"/>
 		<linkfile src="imx/README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
