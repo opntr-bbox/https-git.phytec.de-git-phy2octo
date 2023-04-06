@@ -25,7 +25,7 @@
   <remote fetch="https://github.com/meta-qt5" name="QT5" />
   <remote fetch="https://github.com/meta-rust" name="rust" />
   <remote fetch="git://git.openembedded.org" name="python2" />
-  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="https://github.com/nxp-imx" name="nxp-imx" />
   <remote fetch="https://github.com/rauc" name="rauc" />
   <remote fetch="https://github.com/kraj" name="clang" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
@@ -48,7 +48,7 @@
     <sublayer path="meta-gnome" />
   </project>
 
-  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="63665ab70ca609451533101cded2a620b340768c" upstream="zeus-5.4.70-2.3.0">
+  <project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="7f0abf664d65ab9f03f85a1d16ab54e0d1134a9b" upstream="zeus-5.4.70-2.3.0">
     <linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh" />
     <linkfile dest="README-IMXBSP" src="README" />
     <ignorebaselayer />

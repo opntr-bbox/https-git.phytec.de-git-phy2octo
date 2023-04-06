@@ -9,7 +9,7 @@
     phyboard-polis-imx8mm-3/phytec-qt5demo-image/yogurt-vendor-xwayland
   " />
 
-  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="https://github.com/nxp-imx" name="nxp-imx" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems" />
   <remote fetch="https://github.com/meta-qt5" name="QT5" />
   <remote fetch="https://github.com/TimesysGit" name="Timesys" />
@@ -31,7 +31,7 @@
   <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2142f7ded1b3115ccc21f7575fd83e2376247193" />
   <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="da422478d38e744283bcf61123c4a526396c7030" />
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d4e77ea682fa10d0d54a723b3d3099c44fc5e95c" />
-  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="bb05c60e6398b374ac49554c642a3bef36452f73">
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="bb05c60e6398b374ac49554c642a3bef36452f73">
     <linkfile dest="fsl-setup-release.sh" src="imx/tools/fsl-setup-release.sh" />
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
