@@ -7,7 +7,7 @@
 	<remote name="oe" fetch="https://github.com/openembedded"/>
 	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
-	<remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+	<remote name="nxp-imx "fetch="https://github.com/nxp-imx"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
@@ -24,7 +24,7 @@
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="freescale" revision="cd5c7a2539f40004f74126e9fdf08254fd9a6390"/>
 	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="678706cb43fb8576ff7b88bfb612993b8542724d"/>
 	<project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="ff073f04109900fc07bf81e2f1df63c626caf342"/>
-	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="morty-4.9.51-8qm_beta2" >
+	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="morty-4.9.51-8qm_beta2">
 		 <linkfile src="imx/README" dest="README-IMXBSP"/>
 	</project>
 	<project name="meta-phytec" path="sources/meta-phytec">

@@ -11,7 +11,7 @@
 	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
 	<remote name="rauc" fetch="https://github.com/rauc"/>
-	<remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+	<remote name="nxp-imx "fetch="https://github.com/nxp-imx"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
@@ -31,7 +31,7 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="238a429e4eedd2f4b26876c2e2a6a9b3ec4e434c">
+	<project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="238a429e4eedd2f4b26876c2e2a6a9b3ec4e434c">
 		<linkfile src="imx/README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
 		<sublayer path="imx/meta-bsp"/>
