@@ -50,7 +50,7 @@
 		<sublayer path="meta-perl"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="6cdee8e50470b1a5affa7e50139d0d454bfe4012" upstream="hardknott-5.10.72-2.2.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="cc4c2d1c845b48fdec989f089aee3c13d2b1e15b" upstream="hardknott-5.10.72-2.2.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
 		<linkfile src="README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
