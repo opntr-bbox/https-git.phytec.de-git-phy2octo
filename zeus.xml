@@ -44,7 +44,7 @@
 		<sublayer path="meta-perl"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="9e0976bd782f4ef933ddfbf1e7832bff7d8b7651" upstream="zeus-5.4.70-2.3.2">
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="d3ef9af6c85ead87bc0e297de21b7e0a25b2aebb" upstream="zeus-5.4.70-2.3.2">
 		<linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh"/>
 		<linkfile dest="README-IMXBSP" src="README"/>
 		<ignorebaselayer/>
