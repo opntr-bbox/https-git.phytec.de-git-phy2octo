@@ -48,7 +48,7 @@
 		<ignorebaselayer/>
 	</project>
 	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="23e206d355e46d6f6e6a5638c574524492f91bc2"/>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="f5c932229c31b612cba38c2ed6f3c3ec6b800e92"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="7c71b9d5cbd5a44f0071f8f4e3cbd9570b01bf0d"/>
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331"/>
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="4a244af3993ae662624c6f615464e6806cc719a2"/>
 	<project name="meta-phytec" path="sources/meta-phytec">
