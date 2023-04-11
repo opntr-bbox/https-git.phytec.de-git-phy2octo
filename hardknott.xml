@@ -15,7 +15,7 @@
 	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
 	<remote name="clang" fetch="https://github.com/kraj"/>
-	<remote name="imx-support" fetch="https://source.codeaurora.org/external/imxsupport"/>
+	<remote name="imx-support" fetch="https://github.com/nxp-imx-support/"/>
 	<remote name="python2" fetch="https://git.openembedded.org"/>
 	<remote name="rauc" fetch="https://github.com/rauc"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
@@ -54,7 +54,7 @@
 	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e"/>
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="7f23af99cb97a12134a46b5b9d497f05b758bf0c"/>
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="46107357abd2d2da9ffd702c87fce3984a422435" upstream="imx_5.10.y" dest-branch="imx_5.10.y"/>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="609a49c51cea3ff114b9b202d8bf7b785b7d01ed" upstream="hardknott-5.10.35-2.0.0" dest-branch="hardknott-5.10.35-2.0.0"/>
 	<project name="meta-python2" path="sources/meta-python2" remote="python2" revision="810d6d842f103eb59f18b06426106462b15de7e2"/>
 	<project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="a00af3eae082b772469d9dd21b2371dd4d237684"/>
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc"/>
