@@ -11,7 +11,7 @@
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
 	<remote name="community" fetch="https://github.com/Freescale"/>
 	<remote name="oe" fetch="https://github.com/openembedded"/>
-	<remote name="nxp-imx "fetch="https://github.com/nxp-imx"/>
+	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
 	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
 	<remote name="clang" fetch="https://github.com/kraj"/>
@@ -51,7 +51,7 @@
 		<sublayer path="meta-chromium"/>
 	</project>
 	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="d797409435d3b0e9f2859992439989ff1d81e66d"/>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="80dbe4bd63bd537fc9cfda2e009f8543464b4698"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e"/>
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="7f23af99cb97a12134a46b5b9d497f05b758bf0c"/>
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
 	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="46107357abd2d2da9ffd702c87fce3984a422435" upstream="imx_5.10.y" dest-branch="imx_5.10.y"/>
