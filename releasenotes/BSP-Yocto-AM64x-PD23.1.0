@@ -1,0 +1,51 @@
+BSP-Yocto-AM64x-PD23.1.0                     2023-04-14
+=======================================================
+
+- Linux TI vendor kernel v5.10.158 (based on TI tag 08.06.00.002)
+- U-Boot v2021.01 (based on TI tag 08.06.00.002)
+- Yocto 3.1.12 (dunfell)
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-electra-am64xx-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- Switched to PHYTEC yogurt distro and phytec-qt5demo-image
+- New device tree overlay for co-processors (RPMSG)
+- u-boot updates
+  * Storage device gets determined based on boot device
+    For SDMMC and EMMC stored on the boot partition (ENV_IS_IN_FAT)
+    For SPI stored on a fixed offset on the SPI NOR flash
+  * SoM hardware detection code in u-boot (not active)
+  * New DDR settings with extended temperature range + lower tREFI
+  * Switched from partition UUIDs to fixed devices usage
+    Booting from EMMC mounts rootfs via /dev/mmcblk0
+    Booting from SDMMC mounts rootfs via /dev/mmcblk1
+  * OSPI NOR flash boot
+
+
+Issues Fixed:
+-------------
+
+- OSPI NOR flash boot
+
+
+Known Issues:
+-------------
+
+- The reboot command delays the reboot process by several seconds in 3% of all boots.
+- USB devices connected to the USB bus on the PCIe connector might not be detected
+  during boot or can fail during operation in some cases.
+- The PCIe card with an I210 was not detected in 5% of all boots.
