@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="kirkstone" release_uid="BSP-Yocto-AM62x-kirkstone" soc="AM62x" supported_builds="
+	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM62x-kirkstone" soc="AM62x" supported_builds="
 		phyboard-lyra-am62xx-1/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62xx-2/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62xx-2/-c populate_sdk phytec-qt5demo-image/ampliphy"
