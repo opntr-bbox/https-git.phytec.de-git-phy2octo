@@ -33,6 +33,7 @@
   <remote name="rauc" fetch="https://github.com/rauc" />
   <remote name="git.phytec" fetch="git://git.phytec.de" />
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+  <remote name="gh.phytec" fetch="https://github.com/phytec" />
 
   <default revision="hardknott" sync-j="2" remote="git.phytec" />
 
@@ -61,6 +62,8 @@
     <sublayer path="meta-sdk" />
     <sublayer path="meta-ml" />
   </project>
+
+  <project name="meta-imx-buildrepair" path="sources/meta-imx-buildrepair" remote="gh.phytec" revision="hardknott-5.10.72-2.2.0" />
 
   <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="8be1d3a0ba0cf32e61144900597207af5698c10d">
     <ignorebaselayer />
