@@ -65,7 +65,7 @@
 
   <project name="meta-clang" path="sources/meta-clang" remote="clang" revision="b0d805060791006d651efd3d7ae3dd5add8f70fe" upstream="hardknott" />
 
-  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="469d6c958c76ea235b3d3c1527e797ce3a7392e3" upstream="hardknott" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e" upstream="hardknott" />
 
   <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="f8150f3b37cb83cba1f9e2378e57bb63e02d4610" upstream="hardknott" />
 
