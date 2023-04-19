@@ -12,8 +12,6 @@
     phyboard-polaris-imx8m-4/phytec-vision-image/yogurt-vendor-xwayland
   " bspextension="FSL" />
 
-  <default revision="zeus" sync-j="2" remote="git.phytec" />
-
   <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote fetch="https://github.com/openembedded" name="oe" />
@@ -26,6 +24,8 @@
   <remote fetch="https://github.com/kraj" name="clang" />
   <remote name="git.phytec" fetch="git://git.phytec.de" />
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+
+  <default revision="zeus" sync-j="2" remote="git.phytec" />
 
   <project name="poky" path="sources/poky" remote="yocto" revision="d88d62c20d7d8da85f02edb170dae0280624ad7e">
     <ignorebaselayer />
