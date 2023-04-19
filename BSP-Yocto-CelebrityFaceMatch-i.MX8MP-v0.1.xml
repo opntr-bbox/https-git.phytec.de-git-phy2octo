@@ -4,8 +4,6 @@
     phyboard-pollux-imx8mp-1/phytec-facematch-image/yogurt-vendor-xwayland
   "/>
 
-  <default remote="git.phytec" revision="zeus" sync-j="2" />
-
   <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote fetch="https://github.com/openembedded" name="oe" />
@@ -13,12 +11,14 @@
   <remote fetch="https://github.com/meta-qt5" name="QT5" />
   <remote fetch="https://github.com/meta-rust" name="rust" />
   <remote fetch="git://git.openembedded.org" name="python2" />
-  <remote fetch="https://source.codeaurora.org/external/imx" name="CAF" />
+  <remote fetch="https://github.com/nxp-imx" name="nxp-imx" />
   <remote fetch="https://github.com/rauc" name="rauc" />
   <remote fetch="https://github.com/kraj" name="clang" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="https://github.com/phytec" name="github.phytec" />
+
+  <default remote="git.phytec" revision="zeus" sync-j="2" />
 
   <project name="poky" path="sources/poky" remote="yocto" revision="5408e48d374fc741fa46b57ddfd8a537843bda6f">
     <ignorebaselayer />
@@ -37,7 +37,7 @@
     <sublayer path="meta-gnome" />
   </project>
 
-  <project name="meta-imx" path="sources/meta-imx" remote="CAF" revision="780b023a4c77ac9c0011d858ad377f4a9593bfea" upstream="zeus-5.4.47-2.2.0">
+  <project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="86af52fc819bd202b2e15b3b1b5519bc016086a8" upstream="zeus-5.4.47-2.2.0">
     <linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh" />
     <linkfile dest="README-IMXBSP" src="README" />
     <ignorebaselayer />
@@ -54,7 +54,7 @@
 
   <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="ee3be3b5986a4aa0e73df2204a625ae1fe5df37e" />
   <project name="meta-clang" path="sources/meta-clang" remote="clang" revision="711e593d5984aad3bf35c51b7ac4482982bc16c7" />
-  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="14f1a630a47375432f93c556927b879b51d84c4e" />
+  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="e56f52e4afdd043c003475fd671cf3f2f497f2e8" />
   <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="dbcc686f52c3c84db8cb86aa8973a4e373651b98" />
 
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="ca27d12e4964d1336e662bcc60184bbff526c857" />

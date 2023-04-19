@@ -11,7 +11,8 @@
 		phygate-tauri-l-imx8mm-2/phytec-connagtive-start-image/ampliphy-vendor-connagtive"
 		release_type="topic" bspextension="Connagtive" build_container="yocto:ubuntu20.04"/>
 
-	<remote name="codeaurora" fetch="https://source.codeaurora.org/external"/>
+	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
+	<remote name="imx-support" fetch="https://github.com/nxp-imx-support"/>
 	<remote name="github" fetch="https://github.com"/>
 	<remote name="openembedded" fetch="git://git.openembedded.org"/>
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
@@ -35,7 +36,7 @@
 		<sublayer path="meta-perl"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="imx/meta-imx" path="sources/meta-imx" remote="codeaurora" revision="refs/tags/rel_imx_5.10.72_2.2.0" upstream="hardknott-5.10.72-2.2.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="6cdee8e50470b1a5affa7e50139d0d454bfe4012" upstream="hardknott-5.10.72-2.2.0">
 		<linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh"/>
 		<linkfile dest="README-IMXBSP" src="README"/>
 		<ignorebaselayer/>
@@ -48,10 +49,10 @@
 		<sublayer path="meta-chromium"/>
 	</project>
 	<project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="b0d805060791006d651efd3d7ae3dd5add8f70fe"/>
-	<project name="Freescale/meta-freescale" path="sources/meta-freescale" remote="github" revision="469d6c958c76ea235b3d3c1527e797ce3a7392e3"/>
+	<project name="Freescale/meta-freescale" path="sources/meta-freescale" remote="github" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e"/>
 	<project name="Freescale/meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="github" revision="f8150f3b37cb83cba1f9e2378e57bb63e02d4610"/>
 	<project name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="e6daa26ba1f748326546063d63a085ae671827d9"/>
-	<project name="imxsupport/meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="codeaurora" revision="9dcc11ea9f525cffedbb28895e0abb443e56c3e0" upstream="imx_5.10.y" dest-branch="imx_5.10.y"/>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="9dcc11ea9f525cffedbb28895e0abb443e56c3e0" upstream="imx_5.10.y" dest-branch="imx_5.10.y"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" remote="git.phytec" revision="b05879629e94accfb9fcdbbd5aacff7ec96c3be8"/>
 	<project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="d24eb4c4a6c2526ab7f7d7f215a95ee14b8e17d2">
 		<copyfile dest="tools/init" src="scripts/init"/>
