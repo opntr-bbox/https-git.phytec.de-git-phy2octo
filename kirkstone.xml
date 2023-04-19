@@ -3,7 +3,7 @@
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM64x-kirkstone" soc="AM64x" supported_builds="
 		phyboard-electra-am64xx-1/phytec-headless-image/ampliphy,
 		phyboard-electra-am64xx-1/-c populate_sdk phytec-headless-image/ampliphy"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
