@@ -1,0 +1,62 @@
+Release Notes BSP-Yocto-Ampliphy-AM335x-PD23.1.0
+================================================
+
+BSP-Yocto-Ampliphy-AM335x-PD23.1.0      2023-04-25
+--------------------------------------------------
+
+- Linux Kernel v5.15.82
+  * Tag: v5.15.82-phy2
+- barebox 2022.09.0
+  * Tag: v2022.09.0-phy1
+- Yocto 4.0.9 (kirkstone)
+- Qt 5.15.7
+
+Tested Yocto Images:
+--------------------
+
+  see machines.txt
+
+Build Environment:
+------------------
+
+  - Ubuntu 20.04 64Bit
+
+New Features:
+-------------
+
+  - Devicetree overlays have been introduced to enable or disable features for
+    the individual machines starting from the upstream devicetrees.
+
+Defeatured:
+-----------
+
+  - Removed the RT kernel branch
+  - Removed RAUC
+  - Removed phycore-am335x-7 support
+  - Removed pcm-958 wifi module support
+
+Known Issues:
+-------------
+
+  - phycore-am335x-som / phycore-r2-am335x-som:
+         * Boot tests showed in about 2 of 2000 boots that the SMSC LAN8710 phy
+	   could not be found. The PHY ID readout is wrong. The generic
+           PHY driver will take over. Ethernet is still functional in this case.
+
+  - phycore-am335x/phycore-r2-am335x:
+         * rtc1 (AM335x RTC) has high deviation
+
+  - CAN tests with 20kbit/s did not run successfully. All other CANopen
+    standard bit rates are working. This can be fixed by switching the clock
+    from 25 to 24 Mhz, but new problems with other components can occur.
+
+  - The demo video runs with a low frame rate during loading within the Qt-Demo.
+
+  - Suspend-to-RAM is not working with PCM-060.
+
+Notes:
+------
+
+  - .sdcard images are now replaced with .wic images.
+  -  The EDT 7,0" display with capacitive touchscreen is supported, all others are
+     untested.
