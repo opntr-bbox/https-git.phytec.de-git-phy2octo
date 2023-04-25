@@ -28,7 +28,7 @@
   <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="fe0744e483ac23c624c6372f40d0e9b099a639d1" />
   <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="82037216280a39957fb4272581637abec734ad50" />
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="f7e2216e93aff14ac32728a13637a48df436b7f4" />
-  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="238a429e4eedd2f4b26876c2e2a6a9b3ec4e434c">
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="eb25cbca07192bd1506e577e17d77b5307c9654a">
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" />
