@@ -58,7 +58,7 @@
 		<sublayer path="meta-sdk"/>
 		<sublayer path="meta-ml"/>
 	</project>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="c82d4634e7aba8bc0de73ce1dfc997b630051571" upstream="kirkstone"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="82cbf4e5adac1017adc1e4a2ce056c57b3148ba0" upstream="kirkstone"/>
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="5977197340c7a7db17fe3e02a4e014ad997565ae" upstream="kirkstone"/>
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d5bbb487b2816dfc74984a78b67f7361ce404253" upstream="kirkstone"/>
 	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="52eaf8bf42f8eda2917a1c8c046003c8c2c8f629" upstream="kirkstone"/>
