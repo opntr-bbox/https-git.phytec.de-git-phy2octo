@@ -31,7 +31,7 @@
   <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2ee3f2a9f254adab6a6d42a6e3085d05fbc8ac07" />
   <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="da422478d38e744283bcf61123c4a526396c7030" />
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d4e77ea682fa10d0d54a723b3d3099c44fc5e95c" />
-  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="bb05c60e6398b374ac49554c642a3bef36452f73">
+  <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="nxp-imx" revision="cb98ff6528fbdb623c71758aee53fee270766f3e">
     <linkfile dest="fsl-setup-release.sh" src="imx/tools/fsl-setup-release.sh" />
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
