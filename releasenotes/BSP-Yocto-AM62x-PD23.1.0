@@ -3,7 +3,7 @@ BSP-Yocto-AM62x-PD23.1.0                        2023-04-21
 
 - Linux TI vendor kernel v5.10.158 (based on TI tag 08.06.00.002)
 - U-Boot v2021.01 (based on TI tag 08.06.00.002)
-- Yocto 3.1.12 (dunfell)
+- Yocto 3.1.23 (dunfell)
 
 
 Tested Yocto Images:
