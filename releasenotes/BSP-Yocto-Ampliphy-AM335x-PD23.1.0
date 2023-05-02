@@ -27,11 +27,14 @@ New Features:
   - Devicetree overlays have been introduced to enable or disable features for
     the individual machines starting from the upstream devicetrees.
 
+  - A phytec-qt5demo-small-image for phyboard-wega-am335x-1 and
+    phyboard-wega-am335x-2 has been added since the regular phytec-qt5demo-image
+    does not fit on 128MB NANDs anymore without adjustments.
+
 Defeatured:
 -----------
 
   - Removed the RT kernel branch
-  - Removed RAUC
   - Removed phycore-am335x-7 support
   - Removed pcm-958 wifi module support
 
@@ -58,5 +61,6 @@ Notes:
 ------
 
   - .sdcard images are now replaced with .wic images.
-  -  The EDT 7,0" display with capacitive touchscreen is supported, all others are
-     untested.
+  - The EDT 7,0" display with capacitive touchscreen is supported, all others are
+    untested.
+  - RAUC has not been prepared for any software machine and is untested.
