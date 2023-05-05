@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM62Ax-kirkstone" soc="AM62Ax" supported_builds="
+	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM62A-kirkstone" soc="AM62A" supported_builds="
 		phyboard-lyra-am62axx-1/phytec-qt5demo-image/yogurt,
 		phyboard-lyra-am62axx-1/-c populate_sdk phytec-qt5demo-image/yogurt"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
