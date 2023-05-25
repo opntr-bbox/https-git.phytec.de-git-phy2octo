@@ -1,0 +1,60 @@
+BSP-Yocto-TISDK-AM68x-ALPHA1                    2023-05-26
+==========================================================
+
+- Linux TI vendor kernel v5.10.158 (based on TI tag 08.06.00.002)
+  * Tag: v5.15.158-phy5
+- U-Boot v2021.01 (based on TI tag 08.06.00.002)
+  * Tag: v2021.01_08.06.00.002-phy6
+- Yocto 3.1 (dunfell)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working or stable. This release will NOT
+be supported after the first full BSP release.
+
+
+Tested Yocto Images:
+--------------------
+
+- tisdk-default-image:
+  * phyboard-izar-am68x-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 18.04 64-bit
+
+
+Features:
+---------
+
+- Added support for new machine:
+  * phyboard-izar-am68x-1
+- Booting from MMC/SD, eMMC and UART (bootloader only) supported
+- Support for the following features:
+  * eMMC Flash
+  * Micro SD Card
+  * OSPI and QSPI Flash
+  * EEPROM (2x SoM, 1x carrier board)
+  * GPU
+  * USB 2.0 + USB 3.0 5 GBit/s
+  * MIPI-CSI with phyCAM-M: VM-016, VM-017 and VM-020
+  * MIPI-DSI -> LVDS transceiver with AC-199 and AC-200 panels
+  * 2x Ethernet
+  * ePWM (including fan support)
+  * I2C (including temperature sensors on SoM)
+  * UART
+  * User LEDs
+  * RTC
+  * CAN
+  * ADC
+  * TPS6594 pmic
+
+Known Issues:
+-------------
+- MMC/SD is limited to 3.3v
+- The MCU ethernet is limited to 100 MBit/s and booting is not possible
+  due to a phy reset triggered from the MCU domain which is unknown to Linux
+- The MIPI DSI interface swaps the RGB colors occasionally
+- Displayport, PCIe and the I2C GPIO expander are not functional
