@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+	This is a notification for an API change in phyLinux when displaying the available
+	release Manifests. We switched the manifest filename to be named after the uid
+	release name. This leads to no entry being visible for old phyLinux version in the
+	switched branches.
+	Please update phyLinux to a recent Version:
+	$ wget https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
+	$ chmod +x phyLinux
+	$ ./phyLinux init
+-->
