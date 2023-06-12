@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="kirkstone" release_uid="BSP-Yocto-NXP-i.MX8X-kirkstone" soc="iMX8X" supported_builds="
+		phycore-imx8x-1/phytec-headless-image/ampliphy-vendor"
+		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+
+	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+	<remote name="community" fetch="https://github.com/Freescale"/>
+	<remote name="oe" fetch="https://github.com/openembedded"/>
+	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
+	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
+	<remote name="QT6" fetch="https://code.qt.io/yocto"/>
+	<remote name="clang" fetch="https://github.com/kraj"/>
+	<remote name="imx-support" fetch="https://github.com/nxp-imx-support"/>
+	<remote name="rauc" fetch="https://github.com/rauc"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+
+	<default revision="kirkstone" remote="git.phytec" sync-j="2"/>
+
+	<project name="poky" path="sources/poky" remote="yocto" revision="24a3f7b3648185e33133f5d96b184a6cb6524f3d" upstream="kirkstone">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="744a4b6eda88b9a9ca1cf0df6e18be384d9054e3" upstream="kirkstone">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+		<sublayer path="meta-gnome"/>
+	</project>
+	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6">
+		<ignorebaselayer/>
+		<sublayer path="meta-chromium"/>
+	</project>
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="c728c3f9168c8a4ed05163a51dd48ca1ad8ac21d" upstream="kirkstone"/>
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_5.15.71_2.2.0" upstream="kirkstone-5.15.71-2.2.0">
+		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
+		<linkfile src="README" dest="README-IMXBSP"/>
+		<ignorebaselayer/>
+		<sublayer path="meta-bsp"/>
+		<sublayer path="meta-sdk"/>
+		<sublayer path="meta-ml"/>
+	</project>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="82cbf4e5adac1017adc1e4a2ce056c57b3148ba0" upstream="kirkstone"/>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="5977197340c7a7db17fe3e02a4e014ad997565ae" upstream="kirkstone"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="d5bbb487b2816dfc74984a78b67f7361ce404253" upstream="kirkstone"/>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="52eaf8bf42f8eda2917a1c8c046003c8c2c8f629" upstream="kirkstone"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="9482648daf0bb42ff3475e7892542cf99f3b8d48"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc"/>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="ed785a25d12e365d1054700d4fc94a053176eb14" upstream="6.3"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="kirkstone">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="kirkstone"/>
+	<project name="meta-security" path="sources/meta-security" remote="yocto">
+		<sublayer path="meta-tpm"/>
+	</project>
+</manifest>
