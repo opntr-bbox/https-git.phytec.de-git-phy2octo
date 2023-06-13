@@ -41,7 +41,7 @@
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
 	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
-	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
+	<project name="meta-ti" path="sources/meta-ti" revision="1899f5ead39d88e18442209f06d23a8c291f978a" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
 		<sublayer path="meta-ti-extras"/>
