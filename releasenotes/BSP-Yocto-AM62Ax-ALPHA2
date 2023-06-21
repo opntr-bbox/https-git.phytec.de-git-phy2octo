@@ -1,0 +1,47 @@
+BSP-Yocto-AM62A-ALPHA2                          2023-06-23
+==========================================================
+
+- Linux TI vendor kernel v5.10.168 (based on TI tag 08.06.00.007)
+- U-Boot v2021.01 (based on TI tag 08.06.00.007)
+- Yocto 3.1.25 (dunfell)
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-qt5demo-image:
+  * phyboard-lyra-am62axx-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+Supported features:
+  * Debug UART
+  * SPI NOR Flash
+  * eMMC
+  * 2x Ethernet
+  * Micro SD card
+  * I2C EEPROM
+  * I2C RTC
+  * GPIO Expander
+  * LEDs
+  * HDMI
+  * USB
+  * GPIO Fan
+  * M.2
+  * Co-processors (RPMSG)
+
+
+Known Issues:
+-------------
+
+- Bluetooth is non functional.
+- The flashcp command occasionally fails during the verification step.
+- Ethernet in U-Boot is non functional.
