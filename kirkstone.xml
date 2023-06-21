@@ -10,7 +10,6 @@
 		phyboard-polis-imx8mm-5/phytec-provisioning-image/ampliphy-vendor-provisioning,
 		phyboard-polis-imx8mm-5/phytec-qt6demo-image/ampliphy-vendor-xwayland,
 		phyboard-polis-imx8mm-5/phytec-vision-image/ampliphy-vendor-xwayland,
-		phyboard-polis-imx8mn-1/phytec-headless-image/ampliphy-vendor,
 		phyboard-polis-imx8mn-2/phytec-headless-image/ampliphy-vendor,
 		phygate-tauri-l-imx8mm-2/phytec-headless-image/ampliphy-vendor,
 		phygate-tauri-l-imx8mm-2/phytec-security-image/ampliphy-vendor-secure,
