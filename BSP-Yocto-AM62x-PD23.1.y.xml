@@ -3,7 +3,8 @@
 	<phytec pdn="PD23.1.y" release_uid="BSP-Yocto-AM62x-PD23.1.y" soc="AM62x" supported_builds="
 		phyboard-lyra-am62xx-1/phytec-qt5demo-image/yogurt,
 		phyboard-lyra-am62xx-2/phytec-qt5demo-image/yogurt,
-		phyboard-lyra-am62xx-2/-c populate_sdk phytec-qt5demo-image/yogurt"
+		phyboard-lyra-am62xx-3/phytec-qt5demo-image/yogurt,
+		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/yogurt"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
