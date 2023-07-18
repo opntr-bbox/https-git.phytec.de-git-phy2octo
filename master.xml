@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX7-master" soc="iMX7" supported_builds="
 		phyboard-zeta-imx7d-1/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
-		release_type="nightly" build_container="yocto:ubuntu20.04"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
@@ -36,5 +36,5 @@
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-fresh-dev" path="sources/meta-fresh">
+	<project name="meta-fresh" path="sources/meta-fresh"/>
 </manifest>
