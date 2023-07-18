@@ -13,7 +13,7 @@
     phygate-tauri-l-imx8mm-2/phytec-headless-image/ampliphy-vendor,
     phygate-tauri-l-imx8mm-2/phytec-security-bundle/ampliphy-vendor-secure,
     phygate-tauri-l-imx8mm-2/phytec-security-image/ampliphy-vendor-secure
-  " bspextension="NXP" build_container="yocto:ubuntu20.04" />
+  " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
   <remote name="yocto" fetch="https://git.yoctoproject.org/git" />
   <remote name="community" fetch="https://github.com/Freescale" />

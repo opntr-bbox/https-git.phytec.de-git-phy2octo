@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX8MM-master" soc="iMX8MM" supported_builds="
 		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
