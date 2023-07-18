@@ -34,7 +34,7 @@
 		phyboard-mira-imx6-3/phytec-vision-image/yogurt-x11,
 		phyboard-nunki-imx6-1/phytec-vision-image/yogurt-x11,
 		phyflex-imx6-2/phytec-vision-image/yogurt-x11"
-		release_type="nightly" build_container="crops/poky:ubuntu-16.04"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-16.04:phy1"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>

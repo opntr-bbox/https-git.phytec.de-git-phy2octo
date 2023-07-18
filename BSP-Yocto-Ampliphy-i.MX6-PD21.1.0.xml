@@ -21,7 +21,7 @@
     phyflex-imx6-2/phytec-vision-image/ampliphy-x11,
     phyflex-imx6-2/phytec-vision-image/ampliphy-xwayland,
     phyflex-imx6-8/phytec-qt5demo-image/ampliphy
-  " build_container="crops/poky:ubuntu-20.04" />
+  " build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
   <remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
