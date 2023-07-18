@@ -25,7 +25,7 @@
 		phycore-r2-am335x-4/phytec-headless-image/ampliphy,
 		phycore-r2-am335x-5/phytec-qt5demo-image/ampliphy,
 		phycore-r2-am335x-6/phytec-qt5demo-image/ampliphy"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
