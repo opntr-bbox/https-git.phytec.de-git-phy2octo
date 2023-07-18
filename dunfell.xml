@@ -5,7 +5,7 @@
 		phyboard-lyra-am62xx-2/phytec-qt5demo-image/yogurt,
 		phyboard-lyra-am62xx-3/phytec-qt5demo-image/yogurt,
 		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/yogurt"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
