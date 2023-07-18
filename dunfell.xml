@@ -3,7 +3,7 @@
 	<phytec pdn="dunfell" release_uid="BSP-Yocto-AM64x-dunfell" soc="AM64x" supported_builds="
 		phyboard-electra-am64xx-1/phytec-headless-image/yogurt,
 		phyboard-electra-am64xx-1/-c populate_sdk phytec-headless-image/yogurt"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy1"/>
+		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
