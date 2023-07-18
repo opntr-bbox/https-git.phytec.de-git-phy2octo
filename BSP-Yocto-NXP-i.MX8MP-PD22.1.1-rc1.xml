@@ -19,7 +19,7 @@
     phyboard-pollux-imx8mp-3/phytec-security-bundle/ampliphy-vendor-secure,
     phyboard-pollux-imx8mp-3/phytec-security-image/ampliphy-vendor-secure,
     phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor-xwayland
-  " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy1" />
+  " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
   <remote name="yocto" fetch="https://git.yoctoproject.org/git" />
 	<remote name="community" fetch="https://github.com/Freescale" />

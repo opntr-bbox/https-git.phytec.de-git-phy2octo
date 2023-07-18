@@ -12,7 +12,7 @@
     phyboard-pollux-imx8mp-3/phytec-headless-image/yogurt-vendor-secure,
     phyboard-pollux-imx8mp-3/phytec-qt5demo-image/yogurt-vendor-xwayland,
     phyboard-pollux-imx8mp-3/phytec-vision-image/yogurt-vendor-xwayland
-  " bspextension="FSL" build_container="yocto:ubuntu16.04" />
+  " bspextension="FSL" build_container="phybuilder/yocto-ubuntu-16.04:phy1" />
 
   <default revision="zeus" sync-j="2" remote="git.phytec" />
 
