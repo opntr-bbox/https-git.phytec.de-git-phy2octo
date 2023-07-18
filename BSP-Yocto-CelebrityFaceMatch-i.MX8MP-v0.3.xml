@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-  <phytec bspextension="CelebrityFaceMatch" build_container="crops/poky:ubuntu-16.04" pdn="PD0.3" release_type="topic" release_uid="BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.3" soc="iMX8MP" supported_builds="
+  <phytec bspextension="CelebrityFaceMatch" build_container="phybuilder/yocto-ubuntu-16.04:phy1" pdn="PD0.3" release_type="topic" release_uid="BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.3" soc="iMX8MP" supported_builds="
     phyboard-pollux-imx8mp-1/phytec-facematch-image/yogurt-vendor-xwayland,
     phyboard-pollux-imx8mp-2/phytec-facematch-image/yogurt-vendor-xwayland
   "/>

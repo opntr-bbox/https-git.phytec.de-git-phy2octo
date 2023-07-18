@@ -3,7 +3,7 @@
 	<phytec pdn="PD0.6" release_uid="BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.6" soc="iMX8MP" supported_builds="
 		phyboard-pollux-imx8mp-2/phytec-facematch-image/ampliphy-vendor-xwayland,
 		phyboard-pollux-imx8mp-3/phytec-facematch-image/ampliphy-vendor-xwayland"
-		release_type="topic" bspextension="CelebrityFaceMatch" build_container="yocto:ubuntu20.04" />
+		release_type="topic" bspextension="CelebrityFaceMatch" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
 	<remote name="community" fetch="https://github.com/Freescale" />

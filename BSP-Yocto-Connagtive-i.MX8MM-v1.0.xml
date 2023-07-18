@@ -6,7 +6,7 @@
     release_uid="BSP-Yocto-Connagtive-i.MX8MM-v1.0"
     bspextension="Connagtive"
     soc="iMX8MM"
-    build_container="crops/poky:ubuntu-18.04"
+    build_container="phybuilder/yocto-ubuntu-18.04:phy1"
     supported_builds="
       phyboard-polis-imx8mm-3/phytec-connagtive-test-image/yogurt-vendor-connagtive,
       phyboard-polis-imx8mm-3/phytec-connagtive-start-image/yogurt-vendor-connagtive,
