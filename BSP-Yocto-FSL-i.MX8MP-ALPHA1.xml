@@ -1,12 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-  <phytec bspextension="FSL" build_container="crops/poky:ubuntu-16.04" pdn="PD-ALPHA1" pollsched="0 0 * * *" release_type="nightly" release_uid="BSP-Yocto-FSL-i.MX8MP-ALPHA1" soc="iMX8MP" supported_builds="
+  <phytec pdn="ALPHA1" release_uid="BSP-Yocto-FSL-i.MX8MP-ALPHA1" soc="iMX8MP" supported_builds="
     phyboard-pollux-imx8mp-1/-c populate_sdk phytec-qt5demo-image/yogurt-vendor-xwayland,
     phyboard-pollux-imx8mp-1/phytec-headless-image/yogurt-vendor,
     phyboard-pollux-imx8mp-1/phytec-qt5demo-image/yogurt-vendor-xwayland
-  " timeout_h="5" />
-
-  <default remote="git.phytec" revision="zeus" sync-j="2" />
+  " bspextension="FSL" build_container="phybuilder/yocto-ubuntu-16.04:phy1" />
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
@@ -20,6 +18,8 @@
   <remote fetch="https://github.com/kraj" name="clang" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
+
+  <default remote="git.phytec" revision="zeus" sync-j="2" />
 
   <project name="poky" path="sources/poky" remote="yocto" revision="5408e48d374fc741fa46b57ddfd8a537843bda6f">
     <ignorebaselayer />
