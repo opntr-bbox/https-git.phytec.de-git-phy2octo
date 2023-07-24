@@ -11,7 +11,7 @@
 	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
 	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
 	<remote name="rauc" fetch="https://github.com/rauc"/>
-	<remote name="nxp-imx "fetch="https://github.com/nxp-imx"/>
+	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
