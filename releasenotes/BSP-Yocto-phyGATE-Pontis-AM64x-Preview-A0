@@ -1,0 +1,35 @@
+BSP-Yocto-phyGATE-Pontis-AM64x-Preview-A0    2023-07-13
+=======================================================
+
+- Linux TI vendor kernel v5.10.158 (based on TI tag 08.06.00.002)
+- U-Boot v2021.01 (based on TI tag 08.06.00.002)
+- Yocto 3.1.23 (dunfell)
+- based on BSP-Yocto-AM64x-PD23.1.0
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phygate-pontis-am64xx-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- USB 3.0
+- USB 2.0
+- 2x Ethernet
+- uSD
+- CAN
+- RS232
+- RS485
+- Temp Sensor
+- FRAM
+- LEDs
+- RTC RV3028
