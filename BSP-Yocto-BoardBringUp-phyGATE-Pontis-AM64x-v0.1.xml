@@ -2,7 +2,8 @@
 <manifest>
 	<phytec pdn="v0.1" release_uid="BSP-Yocto-BoardBringUp-phyGATE-Pontis-AM64x-v0.1" soc="AM64x" supported_builds="
 		phygate-pontis-am64xx-1/phytec-headless-image/yogurt"
-		release_type="topic" bspextension="BoardBringUp" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="topic" bspextension="BoardBringUp" product="phyGATE-Pontis"
+		build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org" />
 	<remote name="oe" fetch="git://git.openembedded.org" />
