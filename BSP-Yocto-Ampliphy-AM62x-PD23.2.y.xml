@@ -2,12 +2,12 @@
 <manifest>
 	<phytec pdn="PD23.2.y" release_uid="BSP-Yocto-Ampliphy-AM62x-PD23.2.y" soc="AM62x" supported_builds="
 		phyboard-lyra-am62xx-1/phytec-headless-image/ampliphy,
-		phyboard-lyra-am62xx-1/phytec-qt5demo-image/ampliphy,
+		phyboard-lyra-am62xx-1/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-2/phytec-headless-image/ampliphy,
-		phyboard-lyra-am62xx-2/phytec-qt5demo-image/ampliphy,
+		phyboard-lyra-am62xx-2/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
-		phyboard-lyra-am62xx-3/phytec-qt5demo-image/ampliphy,
-		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy"
+		phyboard-lyra-am62xx-3/phytec-qt5demo-image/ampliphy-xwayland,
+		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
@@ -24,6 +24,10 @@
 	</project>
 	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="kirkstone"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
+	<project name="phytec/meta-summit-radio" path="sources/meta-summit-radio" remote="github">
+		<ignorebaselayer/>
+		<sublayer path="meta-summit-radio"/>
+	</project>
 	<project name="poky" remote="yocto" path="sources/poky">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
@@ -46,7 +50,7 @@
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
 	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
-	<project name="meta-ti" path="sources/meta-ti" revision="1899f5ead39d88e18442209f06d23a8c291f978a" remote="yocto">
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
 		<sublayer path="meta-ti-extras"/>
