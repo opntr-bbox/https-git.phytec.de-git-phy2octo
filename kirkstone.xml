@@ -4,7 +4,7 @@
 		phyboard-electra-am64xx-1/phytec-headless-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy,
 		phyboard-electra-am64xx-2/-c populate_sdk phytec-headless-image/ampliphy"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
