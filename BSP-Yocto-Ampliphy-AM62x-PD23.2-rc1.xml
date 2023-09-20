@@ -8,7 +8,7 @@
     phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
     phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
     phyboard-lyra-am62xx-3/phytec-qt5demo-image/ampliphy-xwayland
-  " build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
   <remote name="yocto" fetch="git://git.yoctoproject.org" />
 	<remote name="oe" fetch="git://git.openembedded.org" />
