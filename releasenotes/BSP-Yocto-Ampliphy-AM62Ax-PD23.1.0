@@ -1,0 +1,50 @@
+BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0              2023-09-29
+==========================================================
+
+- Linux TI vendor kernel v6.1.33 (based on TI tag 09.00.00.007)
+- U-Boot TI vendor v2021.01 (based on TI tag 09.00.00.007)
+- Yocto 4.0.12 (kirkstone)
+- Qt 5.15
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phyboard-lyra-am62axx-1
+  * phyboard-lyra-am62axx-2
+ - phytec-qt5demo-image:
+  * phyboard-lyra-am62axx-1
+  * phyboard-lyra-am62axx-2
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Change Log:
+-----------
+
+- UART boot source is now available
+- EEPROM SOM detection for Ethernet PHY, SPI-NOR Flash, and RTC populated options
+- TSN support for Ethernet
+- Switched M.2 WiFi/Bluetooth module to Laird LWB5+
+- Add Bluetooth support
+- Default ALSA config to play and record audio with the phyBOARD-Lyra carrier-board
+- Virtualization with Podman/Docker
+
+
+Issues Fixed:
+-------------
+
+- USB support in U-Boot
+
+
+Known Issues:
+-------------
+
+- The flashcp command occasionally fails during the verification step.
+- The reboot command delays the reboot process by several seconds in 3% of all boots.
+- WiFi is currently not working due missing support for the 3rd MMC interface.
