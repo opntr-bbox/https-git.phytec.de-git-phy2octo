@@ -47,4 +47,5 @@ Known Issues:
 
 - The flashcp command occasionally fails during the verification step.
 - The reboot command delays the reboot process by several seconds in 3% of all boots.
+- Read/write operations on USB-C storage devices might fail or don't return to the prompt.
 - WiFi is currently not working due missing support for the 3rd MMC interface.
