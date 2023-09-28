@@ -34,7 +34,7 @@ Change Log:
 - Switched M.2 WiFi/Bluetooth module to Laird LWB5+
 - Add Bluetooth support
 - Default ALSA config to play and record audio with the phyBOARD-Lyra carrier-board
-- phytec-qt5demo-image enables Xwayland
+- Switched to Xwayland
 - LVDS and HDMI can be used in parallel
 - Virtualization with Podman/Docker
 
@@ -49,4 +49,4 @@ Known Issues:
 -------------
 
 - The flashcp command occasionally fails during the verification step.
-- Read/write operations on USB-C storage devices might fail or don't return to the prompt.
+- Read/write performance on the USB-C connector can drop sometimes.
