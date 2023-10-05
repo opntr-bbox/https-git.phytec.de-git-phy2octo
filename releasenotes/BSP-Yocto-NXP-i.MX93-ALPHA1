@@ -1,0 +1,79 @@
+Release Notes unified i.MX 91/93 Linux BSP
+==========================================
+
+BSP-Yocto-NXP-i.MX93-ALPHA1            2023-10-05
+=================================================
+
+- Linux NXP Vendor Kernel v6.1.22_2.0.0-phy1 (based on NXP tag rel_imx_6.1.22_2.0.0)
+- U-boot 2023.04_2.0.0-phy1 (based on NXP tag rel_imx_6.1.22_2.0.0)
+- Yocto 4.2 (Mickledore)
+- Qt 6.5.0
+
+NOTE:
+This is an alpha release and basic testing has been performed prior to release.
+Nevertheless this release is only recommended for prototyping and not for
+productive use. It is possible that some features do not work correct or stable.
+
+Tested Yocto Images:
+--------------------
+ - phytec-headless-image
+ - phytec-qt6demo-image
+
+Build Environment:
+------------------
+ - Ubuntu 20.04 64Bit
+
+Features:
+---------
+ - Support for new machine:
+        * phyboard-segin-imx93-1
+
+ - Added following u-boot feature:
+        * Added SD-Card support
+
+ - Added following kernel features:
+        * Added support for display expansion adapter PEB-AV-02:
+                * AC158 (7" parallel display, capacitive touch)
+        * Added Audio support
+        * Added UART support
+        * Added Ethernet 1 and Ethernet 2 support
+        * Added USB Host support
+        * Added USB OTG support
+        * Added SD-Card support
+        * Added CAN support
+
+Known Issues:
+-------------
+1. The early samples of the i.MX 93 do not have the "industrial" fuse set.
+Therefore the software (u-boot, kernel) will assume a commercial temperature
+range (0°C ... 95° C) for the CPU. This will result in a thermal shutdown
+threshold at 95° C.
+
+2. Device-tree overlays (e.g. for PEB-AV-02 PHYTEC Display Expansion) in
+u-boot have to be applied manually. To activate display support,
+PEB-AV-02 overlay can be added manually with the example script below:
+u-boot > setenv fdtov_addr 0x830c0000
+u-boot > setenv display "echo Booting with PEB-AV-02 overlay...; mmc dev ${mmcdev}; run loadimage; run mmcargs; load mmc 1 ${fdt_addr} ${fdtfile}; load mmc 1 ${fdtov_addr} imx93-peb-av-02.dtb; fdt addr ${fdt_addr}; fdt resize 8192; fdt apply ${fdtov_addr}; booti ${loadaddr} - ${fdt_addr_r};"
+u-boot > saveenv
+u-boot > run display
+
+3. Ethernet doesn't work after the device has woken up from suspend power mode.
+Workarounds:
+a) disable eth0 before suspending, and enable it after it is waken up
+b) disable and enable eth0 after suspend
+NOTE: Enabling/disabling can be done with: "ifconfig eth0 up/down".
+
+4. During iperf3 test in "client mode" of ETH2 (PHY on module), the system
+freezes after some hours which results in a watchdog triggered reboot.
+When iperf3 test is set to "server mode" this effect can not be observed.
+
+5. After the device is reset the device doesn't enter suspend mode until message
+below appear in the console:
+   [   62.590166] cfg80211: failed to load regulatory.db
+
+Notes:
+------
+- Only compressed flash images are built (i.E. only "*.wic.xz" instead of "*.wic").
+Consequently the tool to flash an image to an SD card must be able to handle
+ZIP-compressed "wic.xz" images. That is default for Linux, but not on Windows.
+On Windows use for example: https://etcher.balena.io/
