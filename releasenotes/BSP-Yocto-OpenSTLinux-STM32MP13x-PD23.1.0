@@ -22,7 +22,7 @@ Tested Yocto Images:
   * phyboard-segin-stm32mp13x-2
 
 - st-image-core (DISTRO=openstlinux-eglfs) on:
-  * phyboard-segin-stm32mp13x-1
+  * phyboard-segin-stm32mp13x-2
 
 Build Environment:
 ------------------
