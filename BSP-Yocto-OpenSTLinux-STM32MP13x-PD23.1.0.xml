@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="PD23.1.0" release_uid="BSP-Yocto-OpenSTLinux-STM32MP13x-PD23.1.0" soc="STM32MP13x" supported_builds="
-		phyboard-segin-stm32mp13-1/st-image-weston/openstlinux-weston,
-		phyboard-segin-stm32mp13-2/st-image-weston/openstlinux-weston,
-		phyboard-segin-stm32mp13-2/st-image-core/openstlinux-eglfs"
-		bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		phyboard-segin-stm32mp13x-1/st-image-weston/openstlinux-weston,
+		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston,
+		phyboard-segin-stm32mp13x-2/st-image-core/openstlinux-eglfs"
+		release_type="major" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="github" fetch="https://github.com"/>
 	<remote name="oe" fetch="https://git.openembedded.org"/>
