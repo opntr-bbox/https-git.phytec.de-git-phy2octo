@@ -2,8 +2,6 @@
 <manifest>
 	<phytec pdn="hardknott" release_uid="BSP-Yocto-NXP-i.MX8MP-hardknott" soc="iMX8MP" supported_builds="
 		phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor,
-		phyboard-pollux-imx8mp-2/phytec-headless-image/ampliphy-vendor-rauc,
-		phyboard-pollux-imx8mp-2/phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-pollux-imx8mp-2/phytec-security-image/ampliphy-vendor-secure,
 		phyboard-pollux-imx8mp-2/phytec-security-bundle/ampliphy-vendor-secure,
 		phyboard-pollux-imx8mp-2/phytec-provisioning-image/ampliphy-vendor-provisioning,
