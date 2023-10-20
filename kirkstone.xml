@@ -32,7 +32,7 @@
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="2"/>
 
-	<project name="poky" path="sources/poky" remote="yocto" revision="24a3f7b3648185e33133f5d96b184a6cb6524f3d" upstream="kirkstone">
+	<project name="poky" path="sources/poky" remote="yocto" upstream="kirkstone">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
