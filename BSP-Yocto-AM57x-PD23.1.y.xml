@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD23.1.y" release_uid="BSP-Yocto-Yogurt-AM57x-PD23.1.y" soc="AM57x" supported_builds="
+	<phytec pdn="PD23.1.y" release_uid="BSP-Yocto-AM57x-PD23.1.y" soc="AM57x" supported_builds="
 	phycore-am57xx-1/phytec-headless-image/yogurt,
 	phycore-am57xx-1/phytec-qt5demo-image/yogurt,
 	phycore-am57xx-1/-c populate_sdk phytec-qt5demo-image/yogurt,
