@@ -46,7 +46,7 @@
 		<sublayer path="meta-chromium"/>
 	</project>
 	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="c728c3f9168c8a4ed05163a51dd48ca1ad8ac21d" upstream="kirkstone"/>
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_5.15.71_2.2.0" upstream="kirkstone-5.15.71-2.2.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_5.15.71_2.2.2" upstream="kirkstone-5.15.71-2.2.2">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
 		<linkfile src="README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
