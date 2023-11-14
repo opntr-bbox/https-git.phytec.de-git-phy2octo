@@ -19,18 +19,18 @@
 
 	<default revision="mickledore" remote="git.phytec" sync-j="2" />
 
-	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="0b5724266a8e559cac1724350c1ff2f9e6580326" upstream="mickledore">
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="0e043288fd0b17fbf31cf00ae33045107a991144" upstream="mickledore">
 		<ignorebaselayer />
 		<sublayer path="meta-arm" />
 		<sublayer path="meta-arm-toolchain" />
 	</project>
 
-	<project name="poky" path="sources/poky" remote="yocto" revision="ddb298ce894482467d82699d223c5555baad6591" upstream="mickledore">
+	<project name="poky" path="sources/poky" remote="yocto" revision="0a98281d37b0bd8dc1548c390216cb3978e36e0e" upstream="mickledore">
 		<ignorebaselayer />
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="54b177f4acb3048d21a68f180fc183d0fdf47a94" upstream="mickledore">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="75cf318cef3b4ee81fad2782cf063ecd69ba8842" upstream="mickledore">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
@@ -44,8 +44,8 @@
 		<ignorebaselayer />
 		<sublayer path="meta-chromium" />
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="1e0af2f5bb797d7bb639c2ac03c1248cc8d00bc9" upstream="mickledore" />
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.1.22_2.0.0" upstream="mickledore-6.1.22-2.0.0">
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="af4dcba009ba98250315520f3003fde4ee164cce" upstream="mickledore" />
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.1.36_2.1.0" upstream="mickledore-6.1.36-2.1.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
 		<linkfile src="README" dest="README-IMXBSP" />
 		<ignorebaselayer />
@@ -53,14 +53,14 @@
 		<sublayer path="meta-sdk" />
 		<sublayer path="meta-ml" />
 	</project>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="39d8f0d5ee44aae9932923e9fe95b7f2838563af" upstream="master" />
-	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="48cc5dd42007d09295677bc8bc0377fe96b5b270" upstream="master" />
-	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="a4efa17a9f6b25d8d9290dfee8275059d40b83df" upstream="master" />
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="ec9d5592dc6369622dc027ad456cadb844451226" upstream="mickledore-6.1.22-2.0.0" />
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="2bb4071ad372d4b5a092c872c0d42b261f757681" upstream="mickledore" />
-	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="c0dcec7b1b0d20862806915e12b4f332e5bef58c" />
-	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="1406d0a85525a71fe5d7892d7f915404290a78ad" upstream="6.5" />
-	<project name="meta-phytec" path="sources/meta-phytec" revision="mickledore">
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="9b00d40b787c2b7105ce209f5635cc1a0cab81ca" upstream="master" />
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="93ba05e3a16a028b770fa1e813b13eb87a59ac63" upstream="master" />
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b09c18a3f649f0cf1b40432bb39e76ba16fe94e2" upstream="master" />
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="7f34a32c7877e55e87b6a99e90da4128ed632bf2" upstream="mickledore-6.1.36-2.1.0" />
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="56593e277a377157944a6676e57497066b770a35" upstream="mickledore" />
+	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="1406d0a85525a71fe5d7892d7f915404290a78ad" upstream="6.5.0" />
+	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" />
