@@ -5,7 +5,8 @@
 		phyboard-segin-imx93-1/phytec-qt6demo-image/ampliphy-vendor-wayland"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04" />
 
-	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
+	<remote name="yocto" fetch="https://github.com/yoctoproject" />
+	<remote name="lmp-mirrors" fetch="https://github.com/lmp-mirrors" />
 	<remote name="community" fetch="https://github.com/Freescale" />
 	<remote name="oe" fetch="https://github.com/openembedded" />
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
@@ -19,7 +20,7 @@
 
 	<default revision="mickledore" remote="git.phytec" sync-j="2" />
 
-	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="0e043288fd0b17fbf31cf00ae33045107a991144" upstream="mickledore">
+	<project name="meta-arm" path="sources/meta-arm" remote="lmp-mirrors" revision="0e043288fd0b17fbf31cf00ae33045107a991144" upstream="mickledore">
 		<ignorebaselayer />
 		<sublayer path="meta-arm" />
 		<sublayer path="meta-arm-toolchain" />
@@ -57,7 +58,7 @@
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="93ba05e3a16a028b770fa1e813b13eb87a59ac63" upstream="master" />
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b09c18a3f649f0cf1b40432bb39e76ba16fe94e2" upstream="master" />
 	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="7f34a32c7877e55e87b6a99e90da4128ed632bf2" upstream="mickledore-6.1.36-2.1.0" />
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="56593e277a377157944a6676e57497066b770a35" upstream="mickledore" />
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="lmp-mirrors" revision="56593e277a377157944a6676e57497066b770a35" upstream="mickledore" />
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="1406d0a85525a71fe5d7892d7f915404290a78ad" upstream="6.5.0" />
 	<project name="meta-phytec" path="sources/meta-phytec">
@@ -65,7 +66,7 @@
 	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" />
 	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" />
-	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="d7db0a3bd1a8639df7570483f003ce00cbe274a2" upstream="mickledore">
+	<project name="meta-security" path="sources/meta-security" remote="lmp-mirrors" revision="d7db0a3bd1a8639df7570483f003ce00cbe274a2" upstream="mickledore">
 		<sublayer path="meta-tpm" />
 	</project>
 </manifest>
