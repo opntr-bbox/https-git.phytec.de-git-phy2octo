@@ -2,8 +2,10 @@
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM62Ax-kirkstone" soc="AM62Ax" supported_builds="
 		phyboard-lyra-am62axx-1/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62axx-1/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62axx-1/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62axx-2/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62axx-2/-c populate_sdk phytec-qt5demo-image/ampliphy"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
