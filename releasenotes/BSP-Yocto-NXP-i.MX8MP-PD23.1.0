@@ -1,0 +1,455 @@
+BSP-Yocto-NXP-i.MX8MP-PD23.1.0            2023-12-09
+====================================================
+
+- Linux NXP Vendor Kernel v5.15.71_2.2.2-phy3 (based on NXP tag lf-5.15.71-2.2.2)
+- U-boot v2022.04_2.2.2-phy5 (based on NXP tag lf-5.15.71-2.2.2)
+- Yocto 4.0.13 (Kirkstone)
+- Qt 6.3
+- Op-tee 4.0
+- RAUC 1.10.1
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-provisioning-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-security-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-headless-image:
+  * phyboard-pollux-imx8mp-3
+
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+- Added support for phyCAM VM-020, with phyCAM-M and phyCAM-L support.
+- Add partup 1.0.0 and provide partup packages as an alternative way to
+  traditional WIC images for the initial flashing process. Using partup allows
+  for an easy and fast way to flash and configure eMMC and SD card devices in
+  one step. For instructions on how to use partup, please refer to the first
+  chapters of our BSP manual.
+- With kernel 5.15 the trusted key type trusted caam is supported
+- Updated to upstream OP-TEE support for better maintenance
+- Updated NXP code signing tool (cst) installation source to a git repository
+  instead of a not directly downloadable archive from NXP
+- RTC settings like Backup Switchover Mode are now configured over hwclock and
+  not device tree any more
+- Qt6 support
+- Added support for 2GHz RAM bus frequency on SoMs with revision 1549.3 and newer
+- Audio recording via PEB-AV-10
+
+Issues fixed:
+-------------
+- Fixed U-Boot limited usable RAM size due to OP-TEE
+- Raised audio volume to audible level
+- Disabled eth phy irq due to timing issue of open-drain buffer on SoM
+- Fixed a bug regarding SoM detection.
+  It was possible to read invalid EEPROM data resulting in erroneous changes
+  to the device tree
+
+Defeatured:
+-----------
+- removed phyboard-pollux-imx8mp-2 machine
+- AC168 (Display) support
+- Preempt RT support
+
+Known Issues/Limitations:
+-------------------------
+- The Qt6 demo "qtphy" has its multimedia page disabled, because video playback
+  is not properly hardware accelerated by the VPU currently. This issue may be
+  fixed in a future release. The multimedia page can still be enabled by
+  modifying qtphy's configuration file.
+- Reduction of CMA size to half for 1GiB RAM SoM
+- Chromium does not build successfully
+
+
+BSP-Yocto-NXP-i.MX8MP-PD22.1.1            2023-05-22
+====================================================
+
+- Linux NXP Vendor Kernel v5.10.72_2.2.0-phy17 (based on NXP tag lf-5.10.72-2.2.0)
+- Linux NXP Vendor Kernel with Preempt-RT v5.10.72_2.2.0-rt54-phy8
+  (based on NXP tag lf-5.10.72-2.2.0 and 5.10.73_rt54 rt patch stack)
+- U-boot v2021.04_2.2.0-phy13 (based on NXP tag lf-5.10.72-2.2.0)
+- Yocto 3.3.x (hardknott)
+- QT 5.15
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-provisioning-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-security-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+- added support for new gpio FAN
+- OPTEE is now enabled for all images by default
+- disabling EEPROM SoM detection and setting RAM sizes statically
+  in bootloader is now possible
+
+Issues fixed:
+-------------
+- loading M7 firmware via remoteproc works now
+- "devtool modify linux-imx" has been fixed
+- CAAM initialization during boot time
+- resolved boot issues when PEB-AV-10 overlay is not applied
+- enabled internal pull-up for debug UART
+- removed audio dummy device
+
+Defeatured:
+-----------
+- PWM fan support
+
+Known Issues/Limitations:
+-------------------------
+- when LVDS Channel 1 (connector on the phyBOARD-Pollux) is enabled HDMI
+  does not work.
+- with Yocto version "hardknott" the PKI of our development CA "phytec-dev-ca"
+  changed. This requires a migration bundle to be used when updating existing
+  devices with older certificates, as described in the chapter
+  "Switching RAUC Keyrings" in our RAUC manual. Devices in the field should
+  not be affected by this, as they should be using a customer-specific PKI.
+- the OPTEE feature limits the usable RAM space in U-Boot
+- bridge mode does not work for eQOS interface
+- PEB-AV-12 is not functional with new display ETML1010G3DRA (AC200).
+
+
+BSP-Yocto-NXP-i.MX8MP-PD22.1.0            2022-08-22
+====================================================
+
+- Linux NXP Vendor Kernel v5.10.72_2.2.0-phy9 (based on NXP tag lf-5.10.72-2.2.0)
+- Linux NXP Vendor Kernel with Preempt-RT v5.10.72_2.2.0-rt54-phy2
+  (based on NXP tag lf-5.10.72-2.2.0 and 5.10.73_rt54 rt patch stack)
+- U-boot v2021.04_2.2.0-phy7 (based on NXP tag lf-5.10.72-2.2.0)
+- Yocto 3.3.x (hardknott)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-provisioning-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-security-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added linux-rt support
+- Added ISP support
+  * Bayer Pattern Conversion
+  * Auto White Balance
+  * Auto exposure
+  * Lens Correction
+  * and much more
+- Added phyCAM-L (VZ-018) support
+- Added VM-017 support
+- With PD22.1.0: For systems using Security, a distro got introduced named
+  "ampliphy-vendor-secure" with the image "phytec-security-image". The
+  distro and image is configured with RAUC, Secure Boot, Secure Key Storage
+  (TPM, NXP CAAM), Secure Storage (integrity, encrypted) and Access Control
+  support. For detailed information about setting up a system using Security,
+  please refer to the "Security Manual".
+- With PD22.1.0: For systems using Security or RAUC, a distro got introduced
+  named "ampliphy-vendor-provisioning" with the image "phytec-provisioning-image".
+  The distro and image is configured for installing a image with RAUC and
+  Security support from sd-card to emmc and for configuration of Security
+  features on the board.
+
+Fixed Issues:
+-------------
+- RAM frequency of 2GB is reduced from 2 GHz to 1.5 GHz to achieve a stable
+  operation under all conditions.
+
+Known Issues/Limitations:
+-------------------------
+- When LVDS Channel 1 (connector on the phyBOARD-Pollux) is enabled HDMI
+  does not work.
+- Loading M7 firmware via remoteproc is not working
+
+- With Yocto version "hardknott" the PKI of our development CA "phytec-dev-ca"
+  changed. This requires a migration bundle to be used when updating existing
+  devices with older certificates, as described in the chapter
+  "Switching RAUC Keyrings" in our RAUC manual. Devices in the field should
+  not be affected by this, as they should be using a customer-specific PKI.
+- Command "devtool modify linux-imx" returns an error. To workaround this
+  update meta-ampliphy to commit 76adad831cfc ("hardening: linux: Fix
+  non-deterministic behavior")
+
+BSP-Yocto-FSL-i.MX8MP-PD21.1.3            2022-02-22
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy12 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy10 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added 1GB RAM support
+
+Fixed Issues:
+-------------
+- RAM frequency of 2GB is reduced from 2 GHz to 1.5 GHz to achieve a stable
+  operation under all conditions.
+
+Known Issues/Limitations:
+-------------------------
+
+BSP-Yocto-FSL-i.MX8MP-PD21.1.2            2022-02-01
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy11 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy9 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-3 (phyBOARD-Pollux rev 1552.2)
+- Added 4GB RAM support
+- Added support for TPM (phyboard-pollux-imx8mp-3)
+
+Fixed Issues:
+-------------
+- Polarity of the backlight enable GPIO for LVDS1 is now set correctly
+  on phyBOARD-Pollux rev 1552.2.
+
+Known Issues/Limitations:
+-------------------------
+- Due to PCB layout constraints in PCB revisions until including 1549.2,
+  a RAM frequency of 2 GHz can cause rare instabilities. The instability
+  only shows in hardware variants with 2 GB RAM size.
+  BSP-Yocto-FSL-i.MX8MP-PD21.1.3 sets the RAM frequency to 1.5 GHz to
+  achieve a stable system under all conditions.
+
+
+BSP-Yocto-FSL-i.MX8MP-PD21.1.1            2021-07-12
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy5 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Corrected eMMC boot partition offset for U-Boot to fix
+  RAUC bundle installation
+- Enable PCA9532 driver support to make LEDs on phyBOARD-Pollux-i.MX8MP
+  working
+- Fix temperature rates of thermal shutdown during boot time for
+  industrial temperature grade SoCs
+
+Known Issues/Limitations:
+-------------------------
+- Display on LVDS1 is not working on phyBOARD-Pollux rev 1552.2 due to an
+  inverted enable GPIO. Will be fixed in release BSP-Yocto-FSL-i.MX8MP-PD21.1.2.
+
+
+BSP-Yocto-FSL-i.MX8MP-PD21.1.0            2021-06-21
+====================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- U-boot v2020.04_2.3.2-phy3 (based on NXP tag rel_imx_5.4.70_2.3.2)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+- Added new features (on machine phyboard-pollux-imx8mp-2):
+  * PEB-WLBT-05 WLAN BT support (kernel)
+  * PEB-AV-10 support LVDS Display and Audio (kernel)
+  * VM-016 on second CSI port
+  * Update gstreamer examples
+  * RAUC support
+  * QSPI support (bootloader/kernel)
+  * USB Host support (bootloader)
+  * M7 support
+
+Known Issues/Limitations:
+-------------------------
+- RAUC bundle installation is broken. Will be fixed in release
+  BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+
+
+BSP-Yocto-FSL-i.MX8MP-ALPHA2            2021-03-12
+==================================================
+
+- Linux NXP Vendor Kernel v5.4.70_2.3.0-phy5 (based on NXP tag rel_imx_5.4.70_2.3.0)
+- U-boot v2020.04_2.3.0-phy3 (based on NXP tag rel_imx_5.4.70_2.3.0)
+- Yocto 3.0.4 (zeus)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-1
+  * phyboard-pollux-imx8mp-2
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-2
+- Booting from EMMC and SD-Card is supported
+- Added new features (on machine phyboard-pollux-imx8mp-2):
+  * PEB-WLBT-05 WLAN support (kernel)
+  * mini PCIe (kernel)
+  * FEC Ethernet (bootloader/kernel)
+  * RS232 and RS485 support (kernel)
+  * PEB-AV-10 support LVDS Display and Audio (only playback) (kernel)
+  * CAN FD
+- Added new features (both machines):
+ * gstreamer examples
+
+Known Issues/Limitations:
+-------------------------
+- PEB-AV-10 colours are wrong
+
+
+BSP-Yocto-FSL-i.MX8MP-ALPHA1            2020-10-30
+==================================================
+
+- Linux NXP Vendor Kernel v5.4.47_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- U-boot v2020.04_2.2.0-phy2 (based on NXP tag rel_imx_5.4.47_2.2.0)
+- Yocto 3.0.4 (zeus)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-pollux-imx8mp-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (u-boot/kernel)
+   * 2x USB 3.0 host support (kernel)
+   * EQOS Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * display support with LVDS1 (kernel)
+   * HDMI (kernel)
+   * SPI NOR flash (no booting possible)
+   * GPU + VPU (kernel)
+   * temperatur sensors on module (kernel)
+   * debug UART over USB (bootloader/kernel)
+   * VM-016 camera support on CSI1 interface (kernel)
+
+Known Issues/Limitations:
+-------------------------
+- CAN FD is working but connector pin out is wrong
+
+
+Changelog of Release Notes
+--------------------------
+2020-10-30
+  - initial version
