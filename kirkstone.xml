@@ -2,8 +2,10 @@
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM64x-kirkstone" soc="AM64x" supported_builds="
 		phyboard-electra-am64xx-1/phytec-headless-image/ampliphy,
+		phyboard-electra-am64xx-1/phytec-headless-image/ampliphy-rt,
 		phyboard-electra-am64xx-1/phytec-initramfs-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy,
+		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-electra-am64xx-2/phytec-initramfs-image/ampliphy,
 		phyboard-electra-am64xx-2/-c populate_sdk phytec-headless-image/ampliphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
