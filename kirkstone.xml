@@ -10,7 +10,7 @@
 		phyboard-lyra-am62axx-2/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62axx-2/-c populate_sdk phytec-qt5demo-image/ampliphy"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
