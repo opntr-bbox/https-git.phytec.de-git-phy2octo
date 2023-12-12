@@ -2,12 +2,15 @@
 <manifest>
 	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-Ampliphy-AM62x-PD24.1.y" soc="AM62x" supported_builds="
 		phyboard-lyra-am62xx-1/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62xx-1/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-1/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-1/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-2/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62xx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-2/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-2/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-3/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland"
