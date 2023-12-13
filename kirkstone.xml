@@ -13,7 +13,8 @@
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-3/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt5demo-image/ampliphy-xwayland,
-		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland"
+		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
+		phyboard-lyra-am62xx-4/phytec-qt5demo-image/ampliphy-xwayland"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
