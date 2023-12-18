@@ -4,7 +4,7 @@ Release Notes i.MX8MM Linux BSP:
 BSP-Yocto-NXP-i.MX8MM-PD23.1.0          2023-12-9
 ==================================================
 - Linux NXP Vendor Kernel v5.15.71_2.2.2-phy3 (based on NXP tag lf-5.15.71-2.2.2)
-- U-boot v2021.04_2.2.0-phy5 (based on NXP tag lf-5.15.71-2.2.2)
+- U-boot v2022.04_2.2.2-phy5 (based on NXP tag lf-5.15.71-2.2.2)
 - Yocto 4.0.13 (kirkstone)
 - Qt 6.3
 - Op-tee 4.0
