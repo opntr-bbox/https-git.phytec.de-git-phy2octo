@@ -2,7 +2,8 @@
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-NXP-i.MX7-kirkstone" soc="iMX7" supported_builds="
 		phyboard-zeta-imx7d-1/phytec-headless-image/ampliphy-vendor,
-		phyboard-zeta-imx7d-1/phytec-qt6demo-image/ampliphy-vendor-xwayland"
+		phyboard-zeta-imx7d-1/phytec-qt6demo-image/ampliphy-vendor-xwayland,
+		phyboard-zeta-imx7d-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor-xwayland"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
