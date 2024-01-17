@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX8MM-master" soc="iMX8MM" supported_builds="
-		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
+		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vanilla-master-u-boot-master,
+		phygate-tauri-l-imx8mm-2/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
