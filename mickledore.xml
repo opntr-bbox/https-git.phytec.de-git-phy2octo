@@ -4,7 +4,8 @@
 		phyboard-segin-imx93-1/phytec-headless-image/ampliphy-vendor,
 		phyboard-segin-imx93-1/phytec-qt6demo-image/ampliphy-vendor-wayland,
 		phyboard-segin-imx93-2/phytec-headless-image/ampliphy-vendor,
-		phyboard-segin-imx93-2/phytec-qt6demo-image/ampliphy-vendor-wayland"
+		phyboard-segin-imx93-2/phytec-qt6demo-image/ampliphy-vendor-wayland,
+		phyboard-segin-imx93-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor-wayland"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04" />
 
 	<remote name="yocto" fetch="https://github.com/yoctoproject" />
