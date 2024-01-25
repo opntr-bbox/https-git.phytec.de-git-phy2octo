@@ -66,5 +66,5 @@
 		<sublayer path="meta-arm" />
 		<sublayer path="meta-arm-toolchain" />
 	</project>
-        <project name="meta-kivy-phytec" path="sources/meta-kivy-phytec" remote="github.phytec" revision="521c9cf7ed024804ecdea92eddaa5ef28580a7f3"/>
+        <project name="meta-kivy-phytec" path="sources/meta-kivy-phytec" remote="github.phytec" revision="5b5496feb4bbb1000c731b65e6e3b8ce3336e6cc"/>
 </manifest>
