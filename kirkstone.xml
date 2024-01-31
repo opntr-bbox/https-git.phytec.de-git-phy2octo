@@ -5,7 +5,9 @@
 		phyboard-izar-am68x-1/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-2/phytec-headless-image/ampliphy,
 		phyboard-izar-am68x-2/phytec-qt5demo-image/ampliphy-xwayland,
-		phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland"
+		phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
+		phyboard-izar-am68x-3/phytec-headless-image/ampliphy,
+		phyboard-izar-am68x-3/phytec-qt5demo-image/ampliphy-xwayland"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
