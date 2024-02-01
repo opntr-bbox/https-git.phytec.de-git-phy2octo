@@ -1,0 +1,96 @@
+Release Notes unified i.MX 91/93 Linux BSP
+==========================================
+
+BSP-Yocto-NXP-i.MX93-PD24.1.0          2024-01-31
+=================================================
+
+- Linux NXP Vendor Kernel v6.1.36_2.1.0-phy1 (based on NXP tag lf-6.1.36-2.1.0)
+- U-boot 2023.04_2.1.0-phy1 (based on NXP tag lf-6.1.36-2.1.0)
+- Yocto 4.2.2 (mickledore)
+- Qt 6.5.0
+- RAUC 1.10.1
+
+Tested Yocto Images:
+--------------------
+ - phytec-headless-image
+   * phyboard-segin-imx93-2
+
+ - phytec-qt6demo-image
+   * phyboard-segin-imx93-2
+
+Build Environment:
+------------------
+ - Ubuntu 20.04 64-Bit
+
+Features:
+---------
+- Added support for phyCORE-i.MX 93 SOM with i.MX 93 A1 silicon revision (SOM
+  revision 1607.1, yocto machine phyboard-segin-imx93-2). It replaces previously
+  supported SOM with i.MX 93 A0 silicon revision (SOM revision 1607.0, yocto
+  machine phyboard-segin-imx93-1).
+
+  NOTE: Yocto machine phyboard-segin-imx93-1 is NO LONGER SUPPORTED!
+
+ - Added the following U-Boot features:
+        * Enable redundant environment in MMC
+        * Add overlays support
+        * Add watchdog support
+        * Add Ethernet support
+        * Ethernet MAC addresses are now read from the fuses
+        * Add 2nd DRAM FSP for frequency scaling
+        * Add USB support
+        * Add TMU (thermal) support
+        * Add PHYTEC EEPROM SOM detection
+        * Add eMMC boot support
+        * Add RAUC boot support
+
+ - Added the following Linux kernel features:
+        * Add heartbeat LED support
+        * Add watchdog support
+        * Add PXP (graphics) support
+        * Add PEB-EVAL-01 overlay
+        * Add i.MX 93 LPM (frequency scaling) support
+        * Add RPMsg support
+        * Add eMMC support
+
+Issues fixed:
+-------------
+- Device-tree overlays are now automatically applied. Additional ones can be
+  specified or disabled in /boot/bootenv.txt file by editing overlays variable.
+- Ethernet suspend issue has been fixed. Now, Ethernet works after device has
+  been woken-up from suspend.
+- Device enters suspend mode without any 'cfg80211' dependencies
+- Thermal-Monitoring has been fixed. SoC temperature grade variant (i.e.
+  Consumer, Industrial) is now read from the fuses, and the temperature range
+  is selected accordingly.
+
+Defeatured:
+-----------
+- Support for "phyBOARD-Segin i.MX 93" with A0 silicon revision (SOM revision
+  1607.0 yocto machine phyboard-segin-imx93-1) has been dropped!
+  It is possible to activate support for A0 silicon revision, but this is not
+  recommended by the chip vendor and unstable system behavior can be observed.
+  Please contact PHYTEC sales team to obtain i.MX 93 A1 SOM revision with the
+  new A1 silicon.
+
+Known Issues:
+-------------
+- In rare occasions a system freeze can be observed, which results in a
+  watchdog triggered reboot, during iperf3 stresstest in a "client mode" of
+  ETH2 (PHY on module). When iperf3 stresstest is set to "server mode" this
+  effect can not be observed anymore.
+- SDK built with Yocto does not contain all the tools required to build Qt 6
+  applications. However for building Qt 6 applications using the usual yocto
+  build-flow (i.e. built with bitbake and recipes) everything is in place.
+
+Notes:
+------
+- Only compressed flash images are built (i.E. only "*.wic.xz" instead of
+  "*.wic"). Consequently the tool to flash an image to an SD card must be able
+  to handle ZIP-compressed "wic.xz" images. That is default for Linux, but not
+  on Windows. On Windows use for example: https://etcher.balena.io/
+- Added partup support to provide partup packages as an alternative way to
+  traditional WIC images for the initial flashing process. Using partup allows
+  for an easy and fast way to flash and configure eMMC and SD card devices in
+  one step. For instructions on how to use partup, please refer to the first
+  chapters of our BSP manual.
