@@ -58,6 +58,14 @@ Issues fixed:
 
 Known Issues/Limitations:
 -------------------------
+- eMMC is in some occations not correctly detected during bootup when switching MMC modes.
+  The clock handling during mode switch to higher speed grades has not been done correct
+  in the U-boot fsl_esdhc_imx driver which leads to a violation of the MMC specification.
+  To fix this issue please apply following patches to your u-boot-imx tree:
+        https://git.phytec.de/u-boot-imx/commit/?h=v2021.04_2.2.0-phy16&id=9e71b888f81531bacd346b3f0db8a4d8af8589c4
+        https://git.phytec.de/u-boot-imx/commit/?h=v2021.04_2.2.0-phy16&id=32c9bb4f265e9f4b91c724c6cf8454d8d1837375
+  or update the u-boot-imx recipe to use tag https://git.phytec.de/u-boot-imx/tag/?h=v2021.04_2.2.0-phy16
+  see: https://git.phytec.de/meta-phytec/commit/?h=hardknott&id=4b07ea8c28d3e697e3405f653d9eacbccf6de16c
 - the OPTEE feature limits the usable RAM space in U-Boot.
 - standalone U-Boot build does not work correctly for machine
   phyboard-polis-imx8mm-4
