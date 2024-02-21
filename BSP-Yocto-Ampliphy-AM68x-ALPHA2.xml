@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD-ALPHA2" release_uid="BSP-Yocto-Ampliphy-AM68x-ALPHA2" soc="AM68x" supported_builds="
+    phyboard-izar-am68x-1/phytec-headless-image/ampliphy,
+    phyboard-izar-am68x-1/phytec-qt5demo-image/ampliphy-xwayland,
+    phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
+    phyboard-izar-am68x-2/phytec-headless-image/ampliphy,
+    phyboard-izar-am68x-2/phytec-qt5demo-image/ampliphy-xwayland,
+    phyboard-izar-am68x-3/phytec-headless-image/ampliphy,
+    phyboard-izar-am68x-3/phytec-qt5demo-image/ampliphy-xwayland
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04" />
+
+  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="github" fetch="https://github.com" />
+	<remote name="ti" fetch="git://git.ti.com" />
+
+	<default revision="kirkstone" remote="git.phytec" sync-j="8" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/BSP-Yocto-Ampliphy-AM68x-ALPHA2">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="7ddbf460c22d2994698776c1f262e570c71559c9" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="refs/tags/BSP-Yocto-Ampliphy-AM68x-ALPHA2" />
+	<project name="poky" remote="yocto" path="sources/poky" revision="0b39955d14600257a6eafc211fd68a933c69a0e9">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8609de00952d65bb813a48c535c937324efeb18a">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="ed6dc67ffb143a4c4fac01e0b7e8a60fc6260b85" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="refs/tags/yocto-4.0.3">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="fe0bf7f0e5408aac6cc89ff3b19b1b1941df4f64" />
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/09.02.00.005">
+		<ignorebaselayer />
+		<sublayer path="meta-ti-bsp" />
+		<sublayer path="meta-ti-extras" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="88327090d26955a678c6f8bd2585aad4d802f6c4" />
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="1a3e42cedbd94ca73be45800d0e902fec35d0f0f">
+		<ignorebaselayer />
+		<sublayer path="meta-tpm" />
+	</project>
+</manifest>
