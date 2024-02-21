@@ -6,6 +6,7 @@
 		phyboard-lyra-am62axx-1/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62axx-1/phytec-qt5demo-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-rauc,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62axx-2/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-qt5demo-image/ampliphy,
