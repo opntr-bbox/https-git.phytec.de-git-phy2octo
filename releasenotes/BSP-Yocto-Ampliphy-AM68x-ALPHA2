@@ -1,0 +1,61 @@
+BSP-Yocto-Ampliphy-AM68x-ALPHA2                    2024-02-22
+=============================================================
+
+- Linux TI vendor kernel v6.1.69 (based on TI tag 09.02.00.002)
+  * Tag: v6.1.69_09.02.00.002-phy2
+- U-Boot v2023.04 (based on TI tag 09.02.00.002)
+  * Tag: v2023.04_09.02.00.002-phy2
+- Yocto 4.0 (kirkstone)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working or stable. This release will NOT
+be supported after the first full BSP release.
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-izar-am68x-1
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+- phytec-qt5demo-image:
+  * phyboard-izar-am68x-1
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New Features:
+-------------
+
+- Support for new machines representing 1578.1 and 1582.1 hardware:
+  * phyboard-izar-am68x-2 for GP SoCs
+  * phyboard-izar-am68x-3 for HS-FS SoCs
+- PCIe for -2 and -3 machines
+- 1.8v MMC/SD for -2 and -3 machines
+- RS485 for -2 and -3 machines
+- Bootenv support to select devicetree overlays from Linux
+
+
+Known Issues:
+-------------
+
+For phyboard-izar-am68x-1:
+- MMC/SD is limited to 3.3v
+- The MCU ethernet is limited to 100 MBit/s and booting is not possible
+  due to a phy reset triggered from the MCU domain which is unknown to Linux
+
+For phyboard-izar-am68x-2/3:
+- The display backlight PWM is not set to the default value occasionally
+
+For all:
+- The MIPI DSI interface has the RGB colors flipped occasionally
+- The eMMC is limited to HS200 speed mode
+- VDD_CPU_AVS is running at default 800mV
