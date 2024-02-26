@@ -4,6 +4,7 @@
 		phyboard-izar-am68x-1/phytec-headless-image/ampliphy,
 		phyboard-izar-am68x-1/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-2/phytec-headless-image/ampliphy,
+		phyboard-izar-am68x-2/phytec-headless-image/ampliphy-rauc,
 		phyboard-izar-am68x-2/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-3/phytec-headless-image/ampliphy,
