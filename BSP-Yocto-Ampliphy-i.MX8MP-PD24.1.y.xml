@@ -45,5 +45,4 @@
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-fresh" path="sources/meta-fresh"/>
 </manifest>
