@@ -1,0 +1,83 @@
+BSP-Yocto-AM57x-PD23.1.1                        2024-03-29
+==========================================================
+
+- Linux TI vendor kernel v5.10.168 (based on TI tag 08.06.00.007)
+- U-Boot v2021.01 (based on TI tag 08.06.00.007)
+- Yocto 3.1.32 (dunfell)
+- Qt 5.14
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-3
+ - phytec-qt5demo-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-2
+  * phycore-am57xx-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- Switched to Wayland
+- Added support for hardware H.264 de- and encoder
+- Added support for older SoM autodetection EEPROM layouts
+
+
+BSP-Yocto-AM57x-PD23.1.0                        2023-12-15
+==========================================================
+
+- Linux TI vendor kernel v5.10.168 (based on TI tag 08.06.00.007)
+- U-Boot v2021.01 (based on TI tag 08.06.00.007)
+- Yocto 3.1.28 (dunfell)
+- Qt 5.14
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-3
+ - phytec-qt5demo-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-2
+  * phycore-am57xx-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- Add support for VM-016-P as official replacement for VM-009
+- Switched from TI Arago to PHYTEC Yogurt distro.
+  Supported features:
+   * Debug UART
+   * Heartbeat & CPU activity LEDs
+   * GPIO buttons & LEDs
+   * eMMC
+   * NAND
+   * 2x CAN
+   * 2x Ethernet
+   * SD card
+   * I2C EEPROM
+   * I2C RTC
+   * USB 2.0 + USB 3
+   * HDMI
+   * PCIe
+   * SATA
+   * Audio
