@@ -1,0 +1,112 @@
+BSP-Yocto-Ampliphy-AM64x-PD23.2.1               2024-03-29
+==========================================================
+
+- Linux TI vendor kernel v6.1.69 (based on TI tag 09.02.00.005)
+- U-Boot TI vendor v2023.04 (based on TI tag 09.02.00.005)
+- Yocto 4.0.16 (kirkstone)
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-electra-am64xx-1
+  * phyboard-electra-am64xx-2
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+
+- Adds support for partup [1] to easily flash the eMMC.
+- Integrates a blinky demo for the M4F Co-processor based on TI's MCU+ SDK.
+ * Documentation explains how to build and deploy a custom firmware.
+- New Yocto image `phytec-initramfs-image` to flash and boot a tiny initramfs-based Linux from
+  the OSPI NOR Flash.
+- New Yocto image `phytec-container-image` to provide a BSP with virtualization enabled.
+- New Yocto distro `ampliphy-rt` which enables Linux with PREEMPT_RT patches.
+- New Yocto distro `ampliphy-rauc` for A/B system updates based on RAUC [2].
+
+
+**Linux Kernel**
+
+
+**U-Boot Bootloader**
+
+- New Boot Source available; load and run U-Boot via UART (X49).
+- Supports QSPI SoM option as alternative for OSPI NOR Flashes.
+- Supports standard boot, offering integrated booting for various OSs and devices, including
+  EFI boot and EFI bootmgr.
+
+
+**Issues Fixed**
+
+
+**Known Issues**
+
+- Linux RT worst-case latency can go up to 300us under heavy memory load.
+- The flashcp command occasionally fails during the verification step.
+- The reboot command delays the reboot process by several seconds in 5% of all boots.
+- USB devices connected to the USB bus on the PCIe connector might not be detected during boot or can fail during operation in some cases.
+- The PCIe card with an I210 was not detected in 5% of all boots.
+
+
+1: https://partup.readthedocs.io/en/latest/
+2: https://rauc.io/
+
+
+BSP-Yocto-Ampliphy-AM64x-PD23.2.0               2023-09-29
+==========================================================
+
+- Linux TI vendor kernel v6.1.33 (based on TI tag 09.00.00.007)
+- U-Boot TI vendor v2023.04 (based on TI tag 09.00.00.007)
+- Yocto 4.0.12 (kirkstone)
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-electra-am64xx-1
+  * phyboard-electra-am64xx-2
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Change Log:
+-----------
+
+- UART boot source is now available
+- Inline ECC is enabled by default
+- EEPROM SOM detection for Ethernet PHY, SPI-NOR Flash, and RTC populated options
+- Watchdog support
+- GPIO FAN with pre-set thermal zone
+- TSN support for Ethernet
+- Virtualization with Podman/Docker
+
+
+Issues Fixed:
+-------------
+
+- ADC channels are configured correctly
+- USB support in U-Boot
+
+
+ Known Issues:
+-------------
+
+- The flashcp command occasionally fails during the verification step.
+- The reboot command delays the reboot process by several seconds in 5% of all boots.
+- USB devices connected to the USB bus on the PCIe connector might not be detected during boot or can fail during operation in some cases.
+- The PCIe card with an I210 was not detected in 5% of all boots.
