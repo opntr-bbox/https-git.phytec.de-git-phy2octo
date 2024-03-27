@@ -1,0 +1,131 @@
+BSP-Yocto-Ampliphy-AM62x-PD23.2.1               2024-03-29
+==========================================================
+
+- Linux TI vendor kernel v6.1.69 (based on TI tag 09.02.00.005)
+- U-Boot TI vendor v2023.04 (based on TI tag 09.02.00.005)
+- Yocto 4.0.16 (kirkstone)
+- Qt 5.15
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+ * phyboard-lyra-am62xx-2
+ * phyboard-lyra-am62xx-3
+- phytec-qt5demo-image:
+ * phyboard-lyra-am62xx-2
+ * phyboard-lyra-am62xx-3
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+
+- Drops support for phyboard-lyra-am62xx-1, a machine used for alpha hardware only.
+- Adds support for partup [1] to easily flash the eMMC.
+- Integrates a blinky demo for the M4F Co-processor based on TI's MCU+ SDK.
+ * Documentation explains how to build and deploy a custom firmware.
+- New Yocto image `phytec-initramfs-image` to flash and boot a tiny initramfs-based Linux from
+  the OSPI NOR Flash.
+- New Yocto distro `ampliphy-rt` which enables Linux with PREEMPT_RT patches.
+- New Yocto distro `ampliphy-rauc` for A/B system updates based on RAUC [2].
+- Adds watchdog support by switching to Poky's watchdog.
+
+**Linux Kernel**
+
+- Adds 1.4 GHz Operating Performance Point (OPP).
+- Watchdog is now enabled by default.
+- New overlay for AC200 OLDI display.
+- New overlay for AC209 OLDI display.
+- Reduces the I2C bus frequency, which is routed to the Carrier-board, from 400 to 100 kHz.
+
+**U-Boot Bootloader**
+
+- More Boot Sources available
+ * Boot via Ethernet (Eth0)
+ * Load and run U-Boot via UART (X49)
+* Support for loading U-Boot over USB with Snagboot [3]
+
+- Additional SoM options supported
+ * QSPI as alternative for OSPI NOR Flashes
+ * 1 GB DDR
+ * 4 GB DDR
+
+- Supports standard boot, offering integrated booting for various OSs and devices, including
+  EFI boot and EFI bootmgr.
+
+**Issues Fixed**
+
+* Read/write performance on the USB-C connector can drop sometimes.
+
+**Known Issues**
+
+* Linux RT worst-case latency can go up to 500us under heavy memory load.
+* The flashcp command occasionally fails during the verification step.
+* Weston fails to start when HDMI and LVDS are used during boot.
+
+1: https://partup.readthedocs.io/en/latest/
+2: https://rauc.io/
+3: https://github.com/bootlin/snagboot
+
+
+BSP-Yocto-Ampliphy-AM62x-PD23.2.0               2023-09-29
+==========================================================
+
+- Linux TI vendor kernel v6.1.33 (based on TI tag 09.00.00.007)
+- U-Boot TI vendor v2021.01 (based on TI tag 09.00.00.007)
+- Yocto 4.0.12 (kirkstone)
+- Qt 5.15
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+ * phyboard-lyra-am62xx-2
+ * phyboard-lyra-am62xx-3
+- phytec-qt5demo-image:
+ * phyboard-lyra-am62xx-2
+ * phyboard-lyra-am62xx-3
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Change Log:
+-----------
+
+- UART boot source is now available
+- Inline ECC is available but not enabled
+- EEPROM SOM detection for Ethernet PHY, SPI-NOR Flash, and RTC populated options
+- TSN support for Ethernet
+- Switched M.2 WiFi/Bluetooth module to Laird LWB5+
+- Add Bluetooth support
+- Default ALSA config to play and record audio with the phyBOARD-Lyra carrier-board
+- Switched to Xwayland
+- LVDS and HDMI can be used in parallel
+- Virtualization with Podman/Docker
+
+
+Issues Fixed:
+-------------
+
+- USB support in U-Boot
+
+
+Known Issues:
+-------------
+
+- The flashcp command occasionally fails during the verification step.
+- Read/write performance on the USB-C connector can drop sometimes.
