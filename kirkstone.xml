@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP1-kirkstone" soc="STM32MP1" supported_builds="
+	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP15x-kirkstone-next" soc="STM32MP15x" supported_builds="
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-6/st-image-core/openstlinux-eglfs"
@@ -22,8 +22,8 @@
 	<project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" remote="OpenSTLinux" revision="f1a18b73343afd8dd5f9aa7f5b605d139fb9e4a8"/>
 	<project name="meta-st-scripts" path="layers/meta-st/scripts" remote="OpenSTLinux" revision="69e10d187debb1d4136af1c454b3dffd994c3de7"/>
 	<project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="7949e786cf8e50f716ff1f1c4797136637205e0c"/>
-	<project name="meta-phytec" path="layers/meta-phytec" remote="git.phytec" revision="kirkstone"/>
-	<project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" remote="git.phytec" revision="kirkstone">
+	<project name="meta-phytec" path="layers/meta-phytec" revision="kirkstone"/>
+	<project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" revision="kirkstone">
 		<!-- init script used by phyLinux needs to be in tools directory -->
 		<copyfile dest="tools/init" src="scripts/init"/>
 		<!-- we duplicate the openstlinux phytec init script so user does not need to search for it in the tree -->
