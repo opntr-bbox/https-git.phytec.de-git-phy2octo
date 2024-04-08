@@ -46,3 +46,8 @@ All features included in this release are also upstream available.
 
 Known Issues/Limitations:
 -------------------------
+- Release Manifest does not point to correct branch of meta-phytec,
+  meta-ampliphy and meta-qt6-phytec.
+  Therefore the DISTRO_VERSION is not set correct. This will be corrected
+  with PD24.1.1. Please update to the newer release.
+  No functional issue.
