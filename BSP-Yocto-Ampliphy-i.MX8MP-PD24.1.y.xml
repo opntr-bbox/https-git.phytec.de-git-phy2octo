@@ -32,9 +32,6 @@
 	<project name="meta-freescale" path="sources/meta-freescale" remote="fsl-community"/>
 	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.6" />
-	<project name="meta-security" path="sources/meta-security" remote="yocto">
-		<sublayer path="meta-tpm"/>
-	</project>
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="master">
 		<ignorebaselayer />
 		<sublayer path="meta-arm"/>
