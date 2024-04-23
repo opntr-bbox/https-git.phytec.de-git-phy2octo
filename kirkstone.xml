@@ -22,7 +22,7 @@
 	<project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" remote="OpenSTLinux" revision="f1a18b73343afd8dd5f9aa7f5b605d139fb9e4a8"/>
 	<project name="meta-st-scripts" path="layers/meta-st/scripts" remote="OpenSTLinux" revision="69e10d187debb1d4136af1c454b3dffd994c3de7"/>
 	<project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="7949e786cf8e50f716ff1f1c4797136637205e0c"/>
-	<project name="meta-phytec" path="layers/meta-phytec" revision="kirkstone"/>
+	<project name="meta-phytec" path="layers/meta-phytec"/>
 	<project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec">
 		<!-- init script used by phyLinux needs to be in tools directory -->
 		<copyfile dest="tools/init" src="scripts/init"/>
