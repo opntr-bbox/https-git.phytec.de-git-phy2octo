@@ -1,0 +1,85 @@
+Release Notes unified i.MX 91/93 Linux BSP
+==========================================
+
+BSP-Yocto-NXP-i.MX93-PD24.1.1          2024-05-06
+=================================================
+
+- Linux NXP Vendor Kernel v6.1.55_2.2.0-phy3 (based on NXP tag lf-6.1.55_2.2.0)
+- U-boot 2023.04_2.2.0-phy3 (based on NXP tag lf-6.1.55_2.2.0)
+- Yocto 4.2.3 (mickledore)
+- Qt 6.5.0
+- RAUC 1.10.1
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image
+  * phyboard-nash-imx93-1
+  * phyboard-segin-imx93-2
+
+- phytec-qt6demo-image
+  * phyboard-nash-imx93-1
+  * phyboard-segin-imx93-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-Bit
+
+Features:
+---------
+- Added new machine phyboard-nash-imx93-1 supporting new phyBOARD-Nash-i.MX 93
+  board. The phyBOARD-Nash supports the 1.8V VDD_IO phyCORE-i.MX 93 as well as
+  multiple features of the i.MX93 processor which were technically not possible
+  on the phyBOARD-Segin due to pin compatibility.
+
+  Supported phyBOARD-Nash features:
+  * 2 GB LPDDR4X RAM
+  * 2x Debug UART (1x A55 core, 1x M33 core)
+  * 2x Ethernet (100 Mbit on SOM, 1 Gbit on carrier-board)
+  * eMMC (HS400ES mode)
+  * SD-Card
+  * CAN
+  * RS232/RS485
+  * I2C
+  * EEPROM
+  * RTC
+  * Power-key
+  * ADC
+  * PWM
+  * USB (host and OTG mode)
+  * User LED (heartbeat)
+  * TPM 2.0 chip (via SPI)
+
+- Added support for the PEB-AV-10 Audio/Video adapter on phyBOARD-Nash-i.MX 93.
+  Currently supports LVDS 10" touch-screen display panel (AC200)
+- Added 3rd trip point for frequency scaling
+
+Issues fixed:
+-------------
+- Applied workaround for i.MX 93 silicon errata ERR052021
+- Fixed SD-card pinctrl drive-strength settings for 50/100/200 MHz modes
+- Yocto SDK now contains all the tools required to build Qt6 applications
+- Reduced power consumption during suspend by disabling WoL (Wake-On-Lan) on
+  SOM Ethernet PHY
+
+Known Issues:
+-------------
+- In rare occasions a system freeze can be observed, which results in a
+  watchdog triggered reboot, during iperf3 stresstest in a "client mode" of
+  ETH2 (PHY on module). When iperf3 stresstest is set to "server mode" this
+  effect can not be observed anymore.
+- Qt packages qt3d and qtdatavis3d cannot be build for the SDK and were
+  therefore removed from the i.MX 93 SDK
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), Audio with PEB-AV-10 A/V
+  adapter is broken due to HW bug
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), Backlight with PEB-AV-10
+  A/V adapter is ON by default after power-reset due to HW bug
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), RS232 hardware flow
+  control is broken due to HW bug
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), RS485 is broken due to
+  HW bug
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), jumper J13 is
+  non-functional due to HW bug
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), PWM fan on connector X48
+  is not currently supported in our BSP, however PWM signal (via TPM unit) can
+  be enabled for testing (Note that changing TPM frequency will affect the PWM
+  signal of the display backlight of PEB-AV-10)
