@@ -4,13 +4,13 @@
 		phyboard-lyra-am62axx-1/phytec-headless-image/ampliphy,
 		phyboard-lyra-am62axx-1/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62axx-1/phytec-initramfs-image/ampliphy,
-		phyboard-lyra-am62axx-1/phytec-qt5demo-image/ampliphy,
+		phyboard-lyra-am62axx-1/phytec-qt6demo-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-rauc,
 		phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62axx-2/phytec-initramfs-image/ampliphy,
-		phyboard-lyra-am62axx-2/phytec-qt5demo-image/ampliphy,
-		phyboard-lyra-am62axx-2/-c populate_sdk phytec-qt5demo-image/ampliphy"
+		phyboard-lyra-am62axx-2/phytec-qt6demo-image/ampliphy,
+		phyboard-lyra-am62axx-2/-c populate_sdk phytec-qt6demo-image/ampliphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
@@ -19,13 +19,14 @@
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="github" fetch="https://github.com"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="QT6" fetch="https://code.qt.io/yocto"/>
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
 
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="scarthgap"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="scarthgap"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap"/>
 	<project name="phytec/meta-summit-radio" path="sources/meta-summit-radio" remote="github">
 		<ignorebaselayer/>
@@ -52,11 +53,11 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" revision="master"/>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.6"/>
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
 		<sublayer path="meta-ti-extras"/>
 	</project>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="master"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
 </manifest>
