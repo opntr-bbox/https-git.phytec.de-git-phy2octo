@@ -45,7 +45,7 @@
 		<sublayer path="meta-perl"/>
 	</project>
 	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
-	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="master">
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
