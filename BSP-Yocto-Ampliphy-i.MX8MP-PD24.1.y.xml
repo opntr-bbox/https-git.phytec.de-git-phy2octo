@@ -2,7 +2,8 @@
 <manifest>
 	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y" soc="iMX8MP" supported_builds="
 		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy,
-		phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-xwayland"
+		phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-xwayland,
+		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-xwayland"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
