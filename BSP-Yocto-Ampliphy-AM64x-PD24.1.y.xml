@@ -6,7 +6,7 @@
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-rt,
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-rauc,
 		phyboard-electra-am64xx-2/phytec-initramfs-image/ampliphy,
-		phyboard-electra-am64xx-2/-c populate_sdk phytec-headless-image/ampliphy"
+		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
