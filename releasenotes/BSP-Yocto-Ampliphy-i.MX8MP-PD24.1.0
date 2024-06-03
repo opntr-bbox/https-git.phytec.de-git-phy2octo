@@ -34,7 +34,7 @@ All features included in this release are also upstream available.
 - CPU frequency scaling
 - RAUC update support
 - USB support
-- LVDS2
+- LVDS1
 - CAN
 - UART/RS485
 - watchdog
