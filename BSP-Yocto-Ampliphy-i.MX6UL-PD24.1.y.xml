@@ -8,7 +8,7 @@
 		phyboard-segin-imx6ul-6/phytec-vision-image/ampliphy,
 		phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy-rauc,
 		phyboard-segin-imx6ul-6/phytec-headless-bundle/ampliphy-rauc,
-		phyboard-segin-imx6ul-6/phytec-security-image/ampliphy-secure,
+		phyboard-segin-imx6ul-6/phytec-securiphy-image/securiphy,
 		phyboard-segin-imx6ul-6/-c populate_sdk phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy,
 		phyboard-segin-imx6ul-7/phytec-qt5demo-image/ampliphy,
@@ -17,13 +17,13 @@
 		phyboard-segin-imx6ul-7/phytec-headless-bundle/ampliphy-rauc,
 		phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy,
 		phyboard-segin-imx6ul-8/phytec-qt5demo-image/ampliphy,
-		phyboard-segin-imx6ul-8/phytec-security-image/ampliphy-secure,
-		phyboard-segin-imx6ul-8/phytec-security-bundle/ampliphy-secure,
-		phyboard-segin-imx6ul-8/phytec-provisioning-image/ampliphy-provisioning,
+		phyboard-segin-imx6ul-8/phytec-securiphy-image/securiphy,
+		phyboard-segin-imx6ul-8/phytec-securiphy-bundle/securiphy,
+		phyboard-segin-imx6ul-8/phytec-provisioning-image/securiphy-provisioning,
 		phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy,
-		phygate-tauri-s-imx6ul-1/phytec-security-image/ampliphy-secure,
-		phygate-tauri-s-imx6ul-1/phytec-security-bundle/ampliphy-secure,
-		phygate-tauri-s-imx6ul-1/phytec-provisioning-image/ampliphy-provisioning"
+		phygate-tauri-s-imx6ul-1/phytec-securiphy-image/securiphy,
+		phygate-tauri-s-imx6ul-1/phytec-securiphy-bundle/securiphy,
+		phygate-tauri-s-imx6ul-1/phytec-provisioning-image/securiphy-provisioning"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
