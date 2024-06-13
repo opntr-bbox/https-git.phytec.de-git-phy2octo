@@ -4,7 +4,7 @@
 		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy,
 		phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-xwayland,
 		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-xwayland"
-		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
