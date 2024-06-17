@@ -59,4 +59,5 @@
 		<sublayer path="meta-arago-test" />
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" />
+	<project name="kraj/meta-clang" path="sources/meta-clang" remote="github" />
 </manifest>
