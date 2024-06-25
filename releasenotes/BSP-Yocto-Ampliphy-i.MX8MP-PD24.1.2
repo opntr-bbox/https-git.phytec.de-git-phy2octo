@@ -1,0 +1,123 @@
+BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2    2024-06-26
+=================================================
+- Linux Kernel v6.6.21-phy1
+- U-boot v2024.01-phy4
+- Yocto Scarthgap (5.0.1)
+- Qt 6.6.3
+- RAUC 1.11.3
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-headless-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-bit
+
+Issues fixed:
+-------------
+
+New Features:
+-------------
+- Add support for 1GB, 4GB and 8GB RAM
+- Add support for 1.5GHz and 2GHz RAM timings where supported by hardware
+- Default to compressed generated OS Images via Yocto (wic.xz)
+
+Known Issues/Limitations:
+-------------------------
+- When using UUU, the flash target for an OS image must be hard-coded in U-Boot
+  Kconfig to either eMMC or SD card. By default, it is set to eMMC. This means
+  that flashing an OS image to SD card via the built-in UUU script sd_all will
+  instead flash the eMMC device. U-Boot sources must be altered and thus
+  recompiled to change this behaviour.
+- When setting the backlight brightness to "1" for the AC200 display, the light
+  will flicker.
+- The largest continuous main memory area available in U-Boot is about 1.28 GB.
+  This means that, when flashing an OS image via U-Boot, the image must be
+  smaller than 1.28 GB.
+
+
+BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1    2024-04-08
+=================================================
+- Linux Kernel v6.6.21-phy1
+- U-boot v2024.01-phy3
+- Yocto Scarthgap development state (pre 5.0)
+- Qt 6.6.3
+- RAUC 1.11.3
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-headless-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-bit
+
+Issues fixed:
+-------------
+- Set meta-phytec, meta-ampliphy and meta-qt6-phytec branch to scarthgap
+  instead of master in the manifest.
+  No functional change releated to PD24.1.0.
+
+
+BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0    2024-03-28
+=================================================
+- Linux Kernel v6.6.21-phy1
+- U-boot v2024.01-phy3
+- Yocto Scarthgap development state (pre 5.0)
+- Qt 6.6.3
+- RAUC 1.11.3
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-headless-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-bit
+
+Features:
+---------
+Feature set is limited in comparison to the PD23.1.0 release.
+As this BSP is based on upstream kernel/u-boot and not based on an NXP BSP.
+
+All features included in this release are also upstream available.
+
+- Supporting 2GB RAM only (1,5GHz and 2GHz depending on the SoM revision)
+- eMMC/SD-Card/serial downloader/network boot support
+- ethernet support
+- thermal support
+- SPI NOR flash (no boot support)
+- GPU support
+- CPU frequency scaling
+- RAUC update support
+- USB support
+- LVDS1
+- CAN
+- UART/RS485
+- watchdog
+- RTC
+- PWM
+- Wayland/Weston
+- QT6
+- Video decoding (software only)
+
+Known Issues/Limitations:
+-------------------------
+- Release Manifest does not point to correct branch of meta-phytec,
+  meta-ampliphy and meta-qt6-phytec.
+  Therefore the DISTRO_VERSION is not set correct. This will be corrected
+  with PD24.1.1. Please update to the newer release.
+  No functional issue.
