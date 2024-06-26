@@ -1,0 +1,56 @@
+BSP-Yocto-Ampliphy-AM68x-ALPHA3                    2024-06-28
+=============================================================
+
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+  * Tag: v6.1.80-09.02.00.009-phy3
+- U-Boot v2023.04 (based on TI tag 09.02.00.009)
+  * Tag: v2023.04-09.02.00.009-phy1
+- Yocto 4.0 (kirkstone)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working or stable. This release will NOT
+be supported after the first full BSP release.
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+- phytec-qt5demo-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+
+- VDD_CPU_AVS support
+
+Issues fixed:
+-------------
+
+- The MIPI DSI interface has the RGB colors flipped occasionally
+- The display backlight PWM is not set to the default value occasionally
+- Low eth0 bandwidth was observed on several boards
+- Kernel hanging due to R5 cores powering up in wrong order
+
+Known Issues:
+-------------
+
+For phyboard-izar-am68x-1:
+- MMC/SD is limited to 3.3v
+- The MCU ethernet is limited to 100 MBit/s and booting is not possible
+  due to a phy reset triggered from the MCU domain which is unknown to Linux
+
+For all:
+- The eMMC is limited to HS200 speed mode
+- The PWM fan is set to 0 when the SoC temperature is exceeding 70° during boot
+  time. As workaround set the max duty cycle to 254 in /etc/fancontrol
