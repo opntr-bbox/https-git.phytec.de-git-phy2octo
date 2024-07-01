@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
 	<phytec pdn="PD-ALPHA3" release_uid="BSP-Yocto-Ampliphy-AM68x-ALPHA3" soc="AM68x" supported_builds="
-    phyboard-izar-am68x-1/phytec-headless-image/ampliphy,
-    phyboard-izar-am68x-1/phytec-qt5demo-image/ampliphy-xwayland,
     phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
     phyboard-izar-am68x-2/phytec-headless-image/ampliphy,
     phyboard-izar-am68x-2/phytec-headless-image/ampliphy-rauc,
