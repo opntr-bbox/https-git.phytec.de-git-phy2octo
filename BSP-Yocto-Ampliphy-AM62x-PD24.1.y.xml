@@ -4,6 +4,7 @@
 		phyboard-lyra-am62xx-2/phytec-qt6demo-image/ampliphy-xwayland,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rauc,
+		phyboard-lyra-am62xx-3/phytec-headless-bundle/ampliphy-rauc,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-3/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy-xwayland,
