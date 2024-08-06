@@ -1,0 +1,57 @@
+BSP-Yocto-NXP-i.MX8MP-PD22.1.2            2023-08-06
+====================================================
+
+- Linux NXP Vendor Kernel v5.10.72_2.2.0-phy18 (based on NXP tag lf-5.10.72-2.2.0)
+- Linux NXP Vendor Kernel with Preempt-RT v5.10.72_2.2.0-rt54-phy11
+  (based on NXP tag lf-5.10.72-2.2.0 and 5.10.73_rt54 rt patch stack)
+- U-boot v2021.04_2.2.0-phy17 (based on NXP tag lf-5.10.72-2.2.0)
+- Yocto 3.3.x (hardknott)
+- QT 5.15
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-2
+  * phyboard-pollux-imx8mp-3
+
+- phytec-provisioning-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-security-image:
+  * phyboard-pollux-imx8mp-3
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+- experimental support for RAM detection without EEPROM data
+- add support for PCM-070-0F8443I article (4GiB 2GHz RAM)
+
+Issues fixed:
+-------------
+- eMMC voltage switch could fail resulting in not being able to boot from eMMC
+- Using tpm interrupts on standard modules equipped with 1GiB RAM leads to
+  kernel panic and boot failure
+
+Defeatured:
+-----------
+- none
+
+Known Issues/Limitations:
+-------------------------
+- when LVDS Channel 1 (connector on the phyBOARD-Pollux) is enabled HDMI
+  does not work.
+- with Yocto version "hardknott" the PKI of our development CA "phytec-dev-ca"
+  changed. This requires a migration bundle to be used when updating existing
+  devices with older certificates, as described in the chapter
+  "Switching RAUC Keyrings" in our RAUC manual. Devices in the field should
+  not be affected by this, as they should be using a customer-specific PKI.
+- the OPTEE feature limits the usable RAM space in U-Boot
+- bridge mode does not work for eQOS interface
+- PEB-AV-12 is not functional with new display ETML1010G3DRA (AC200).
