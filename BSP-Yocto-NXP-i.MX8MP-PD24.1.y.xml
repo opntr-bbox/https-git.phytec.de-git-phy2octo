@@ -58,7 +58,7 @@
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="1a547c0aa0d75c4143cbb66de6e653d51cdc8bda" upstream="scarthgap"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6a80f140e387621f62964209a2e07d3bcfb125ce" upstream="scarthgap"/>
 	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.23_2.0.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
 		<linkfile src="README" dest="README-IMXBSP"/>
