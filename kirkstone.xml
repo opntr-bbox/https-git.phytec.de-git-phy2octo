@@ -6,7 +6,9 @@
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-rt,
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-rauc,
 		phyboard-electra-am64xx-2/phytec-initramfs-image/ampliphy,
-		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy"
+		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy,
+		phyboard-electra-am64xx-3/phytec-provisioning-image/ampliphy-provisioning,
+		phyboard-electra-am64xx-3/phytec-security-image/ampliphy-secure"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
