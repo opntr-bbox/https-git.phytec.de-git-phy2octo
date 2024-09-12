@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP15x-kirkstone-next" soc="STM32MP15x" supported_builds="
+		phycore-stm32mp1-3/st-bundle-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
+		phycore-stm32mp1-3/st-image-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-6/st-image-core/openstlinux-eglfs"
 		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
