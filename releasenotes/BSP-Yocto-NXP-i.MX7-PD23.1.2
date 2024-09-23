@@ -1,0 +1,128 @@
+BSP-Yocto-NXP-i.MX7-PD23.1.2                    2024-09-27
+==========================================================
+
+- Linux NXP vendor kernel v5.15.71 (based on NXP tag 2.2.2)
+- U-Boot v2022.04 (based on NXP tag 2.2.2)
+- Yocto 4.0.20 (kirkstone)
+- Qt 6.3
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phyboard-zeta-imx7d-1
+ - phytec-qt6demo-image:
+  * phyboard-zeta-imx7d-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- LTS updates for Yocto layers.
+
+
+Known Issues:
+-------------
+
+- If the processor is stressed with stressapptest or other heavy system
+  loads the system may crash after some period of time under normal
+  operation conditions.
+
+
+BSP-Yocto-NXP-i.MX7-PD23.1.1                    2024-03-29
+==========================================================
+
+- Linux NXP vendor kernel v5.15.71 (based on NXP tag 2.2.2)
+- U-Boot v2022.04 (based on NXP tag 2.2.2)
+- Yocto 4.0.16 (kirkstone)
+- Qt 6.3
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phyboard-zeta-imx7d-1
+ - phytec-qt6demo-image:
+  * phyboard-zeta-imx7d-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- Add missing Linux firmwares for some PCIe WiFi cards.
+- Add support for PEB-AV-06 and the LI-OV5640 MIPI CSI-2 camera.
+
+
+Known Issues:
+-------------
+
+- If the processor is stressed with stressapptest or other heavy system
+  loads the system may crash after some period of time under normal
+  operation conditions.
+
+
+BSP-Yocto-NXP-i.MX7-PD23.1.0                    2023-12-15
+==========================================================
+
+- Linux NXP vendor kernel v5.15.71 (based on NXP tag 2.2.1)
+- U-Boot v2022.04 (based on NXP tag 2.2.1)
+- Yocto 4.0.14 (kirkstone)
+- Qt 6.3
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phyboard-zeta-imx7d-1
+ - phytec-qt6demo-image:
+  * phyboard-zeta-imx7d-1
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Features:
+---------
+
+- Switched to PHYTEC ampliPHY distro
+  Supported features:
+    * Debug UART
+    * Heartbeat & CPU activity LEDs
+    * GPIO buttons & LEDs
+    * eMMC
+    * SPI-Nor flash
+    * 1x CAN
+    * 2x Ethernet
+    * 1x RS232
+    * SD card
+    * I2C EEPROM
+    * I2C RTC
+    * USB 2.0
+    * LVDS
+    * PCIe
+
+
+Known Issues:
+-------------
+
+- If the processor is stressed with stressapptest or other heavy system
+  loads the system may crash after some period of time under normal
+  operation conditions.
