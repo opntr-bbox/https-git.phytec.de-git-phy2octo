@@ -1,0 +1,53 @@
+BSP-Yocto-AM57x-PD24.1.0                        2024-09-27
+==========================================================
+
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+- U-Boot v2023.04 (based on TI tag 09.02.00.009)
+- Yocto 4.0.20 (Kirkstone)
+- Qt 5.15
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-3
+ - phytec-qt5demo-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-2
+  * phycore-am57xx-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 4.0 (Kirkstone).
+* **Virtualization Support**: Yocto now supports containerization via Podman and Docker.
+* **New Distro**: A new Yocto distribution, `ampliphy-rt`, has been introduced. It integrates Linux with PREEMPT_RT patches for real-time performance.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.1.
+* **2D Accelerator**: The Vivante GC320 2D accelerator now utilizes the mainline Etnaviv driver.
+* **RPMSG_RPC Disabled**: The `CONFIG_RPMSG_RPC` option is no longer enabled, which means H.264 decoding via the Ducati GStreamer plugin is no longer available.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2024.04
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* PHYTEC's Qt demo is not running on Wayland anymore. The EGL support in the SGX GPU driver has issues with Wayland. Wayland can still be used for other applications then EGL. TI acknowledged to fix this problem in their 10.x SDK.
