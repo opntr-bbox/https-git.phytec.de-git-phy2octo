@@ -2,7 +2,9 @@
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP13x-kirkstone" soc="STM32MP13x" supported_builds="
 		phyboard-segin-stm32mp13x-1/st-image-weston/openstlinux-weston,
+		phyboard-segin-stm32mp13x-2/st-bundle-weston/openstlinux-weston-rauc,
 		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston,
+		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston-rauc,
 		phyboard-segin-stm32mp13x-2/st-image-core/openstlinux-eglfs"
 		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
