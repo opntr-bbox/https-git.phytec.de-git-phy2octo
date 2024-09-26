@@ -1,0 +1,57 @@
+BSP-Yocto-Ampliphy-AM64x-PD24.1.0              2024-09-27
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tagv10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag v10.00.08)
+- Yocto 5.0.3 (Scarthgap)
+
+
+Tested Yocto Images:
+--------------------
+
+- phytec-headless-image:
+  * phyboard-electra-am64xx-1
+  * phyboard-electra-am64xx-2
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 5.0 (Scarthgap).
+* **OP-TEE 4.2**: Trusted Execution Environment updated to version 4.2.
+* **Kernel Recipe**: Kernel metadata handling with `.scc` (Source Code Control) files, integrating Poky's kernel recipe handling features.
+* **Default Machine**: `phytec-container-image` is now the default image for the |product|.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.6.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2024.04
+* **OSPI Partitions in Device Tree**: Defining OSPI flash partitions directly in the device tree.
+* **Additional SOM Option**: New support for a SOM option with 1GB DDR.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **M4F/R5F Firmware Restart**: Fixed issues with restarting the M4F firmware.
+* **Trickle Charger**: Enabled Trickle Charger to charge the external battery.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Remoteproc Driver**: The `remoteproc` driver might hang when re-starting an R5F core.
