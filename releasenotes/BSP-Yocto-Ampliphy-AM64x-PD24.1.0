@@ -1,17 +1,20 @@
 BSP-Yocto-Ampliphy-AM64x-PD24.1.0              2024-09-27
 ==========================================================
 
-- Linux TI vendor kernel v6.6.32 (based on TI tagv10.00.08)
+- Linux TI vendor kernel v6.6.32 (based on TI tag v10.00.08)
 - U-Boot TI vendor v2024.04 (based on TI tag v10.00.08)
 - Yocto 5.0.3 (Scarthgap)
 
 
-Tested Yocto Images:
---------------------
+Tested Yocto Machines:
+----------------------
 
-- phytec-headless-image:
-  * phyboard-electra-am64xx-1
-  * phyboard-electra-am64xx-2
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
 
 
 Build Environment:
