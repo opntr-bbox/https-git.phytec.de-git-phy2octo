@@ -1,0 +1,122 @@
+Release Notes STM32MP15x OpenSTLinux BSP:
+=========================================
+
+BSP-Yocto-OpenSTLinux-STM32MP1-PD23.1.1 2024-10-07
+====================================================
+- Linux ST Vendor Kernel v5.15.145
+  * Tag v5.15-phy3
+- U-boot ST Vendor v2021.10
+  * Tag v2021.10-phy3
+- TF-A ST Vendor v2.6
+  * Tag v2.6-phy3
+- OP-TEE ST Vendor (not activated by default)
+  * Tag 3.16.0-phy2
+- Linux integration from STM32MP15-ecosystem-v4.1.2: "openstlinux-5.15-yocto-kirkstone-mp1-v24.07.17"
+  (based on Yocto Kirkstone 4.0.19)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.6.0-phy: STM32CubeMP1 v1.6.0 + phyBOARD-Sargas board support
+  https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.6.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+
+- st-image-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phycore-stm32mp1-3
+
+- st-bundle-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phycore-stm32mp1-3
+
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phycore-stm32mp1-6
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Fixes provided by OpenSTLinux v4.1.1 and v4.1.2:
+    * Update to Yocto Project 4.0.19 (2022-04.19-kirkstone)
+    * Update to Linux Kernel 5.15.145
+    * BSP maturation with an amount of 66 fixes delivered in the following BSP components:
+	TF-A, u-Boot, OP-TEE and Linux Kernel
+
+    For more details on those fixes, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
+
+- Fixes provided by PHYTEC BSP adaptation:
+    * eMMC clock frequency was only 31.25 MHz:
+	Internal CPU clock tree has been changed so that eMMC and SD-card clock frequency is now 50Mhz.
+    * SD-card clock frequency was limited to 10Mhz:
+	Remove this limitation set in device tree. SD-card clock frequency is now 50Mhz.
+    * SDK build failure:
+        SDK build was failing because of a yocto fetch error (cmsis-svd recipe).
+	Fetch URL is corrected so that SDK can build again.
+
+Features:
+---------
+- New features provided by OpenSTLinux v4.1.1 and v4.1.2:
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
+
+- New features provided by PHYTEC BSP adaptation:
+     * add OP-TEE support (not activated by default). Only SP-MIN was supported before.
+     * add RAUC support for BSP update solution (https://rauc.io/)
+     * add FIT image support (https://wiki.st.com/stm32mpu/wiki/How_to_create_Signed_FIT_image_from_Distribution_package)
+     * Support new AC158 7” LCD display (ILITEK ILI2130 capacitive touch screen instead of EDT FT5x06 touch)
+     * RTC settings like Backup Switchover Mode are now configured over hwclock and not device tree any more
+
+     Please note that the TF-A firmware update feature is not enabled anymore by default. This feature is enabled
+     only when using our rauc distro. But you can enabled it if necessary without using rauc, just adding the following
+     machine feature in your machine.conf file:
+     MACHINE_FEATURES += "fw-update"
+
+- Existing features (from PD23.1.0 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touch screen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * Raspberry Pi 7" Touch Screen MIPI DSI Display support (touch screen is not functional)
+    * PEB-WLBT-05 (2.4Ghz and 5Ghz version) support (WLAN/Bluetooth expansion)
+    * "RedBear IoT pHAT v1.0" support (WLAN/Bluetooth Raspberry Pi HAT solution)
+    * phyCAM-P VM-016 BW & COL
+
+  * Peripherals suppotrt:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (u-boot/kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel)
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
