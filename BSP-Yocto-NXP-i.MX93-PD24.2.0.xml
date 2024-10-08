@@ -57,7 +57,7 @@
 	<project name="meta-security" path="sources/meta-security" remote="lmp-mirrors" revision="11ea91192d43d7c2b0b95a93aa63ca7e73e38034" upstream="scarthgap">
 		<sublayer path="meta-tpm" />
 	</project>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="lmp-mirrors" revision="1a547c0aa0d75c4143cbb66de6e653d51cdc8bda" upstream="scarthgap" />
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="lmp-mirrors" revision="6a80f140e387621f62964209a2e07d3bcfb125ce" upstream="scarthgap" />
 	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="ae04eecd48e557437ec90366795b8cf202d0ce14">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
 		<linkfile src="README" dest="README-IMXBSP" />
