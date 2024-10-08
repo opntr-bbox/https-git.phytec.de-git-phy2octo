@@ -1,0 +1,74 @@
+Release Notes unified i.MX 91/93 Linux BSP
+==========================================
+
+BSP-Yocto-NXP-i.MX93-PD24.2.0          2024-10-08
+=================================================
+
+- Linux NXP Vendor Kernel v6.6.23-2.0.0-phy8 (based on NXP tag lf-6.6.23-2.0.0)
+- U-boot v2024.04-2.0.0-phy5 (based on NXP tag lf-6.6.23-2.0.0)
+- Yocto 5.0 LTS (scarthgap)
+- Qt 6.7.0
+- RAUC 1.11.3
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image
+  * phyboard-nash-imx93-1
+  * phyboard-segin-imx93-2
+
+- phytec-qt6demo-image
+  * phyboard-nash-imx93-1
+  * phyboard-segin-imx93-2
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-Bit
+
+Features:
+---------
+- Added support for SOMs with low-cost i.MX9302 (900 MHz CPU) SoC variant.
+- Added support for PEB-WLBT-05 (WLAN) adapter on phyBOARD-Segin-i.MX 93 board.
+- Added support for audio when using PEB-AV-10 Audio/Video adapter and the
+  phyBOARD-Nash-i.MX 93 board (rev 1616.1).
+- Added support for VM016 cameras (color and BW) on phyBOARD-Nash-i.MX 93 board.
+- Added support for PWM fan on phyBOARD-Nash-i.MX 93 board.
+- Added JTAG device-tree overlay 'imx93-phyboard-nash-jtag.dtbo' for the
+  phyBOARD-Nash-i.MX 93 board. Customers can load and use this overlay for JTAG
+  debugging.
+- Using common U-Boot 'imx93-phycore_defconfig' for both phyBOARD-Segin-i.MX 93
+  and phyBOARD-Nash-i.MX 93 boards.
+- Using single Linux defconfig 'imx93_phytec_defconfig' instead of config
+  fragments.
+
+Issues fixed:
+-------------
+- Improved signal integrity of eMMC and CAN1 interfaces (drive-strength).
+- PEB-AV-10 Audio/Video adapter device-tree overlays got renamed to
+  'imx93-phyboard-nash-peb-av-10.dtbo'.
+- Occasional system freeze has been mitigated by disabling CPU idle management
+  (by adding cpuidle.off=1 to kernel command line). NXP has also recommended
+  disabling CPU idle management, as especially in extended temperature range
+  (e.g. at -40 C) switching off CPUs can have unexpected effects.
+  Please note, that by disabling CPU idle management power consumption of the
+  SOM increases (10-50 mW average, 300 mW peak).
+
+Known Issues:
+-------------
+- Qt packages qt3d and qtdatavis3d cannot be build for the SDK and were
+  therefore removed from the i.MX 93 SDK.
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), Audio with PEB-AV-10 A/V
+  adapter is broken due to HW bug.
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0 and rev 1616.1), Backlight
+  with PEB-AV-10 A/V adapter is ON by default after power-reset due to HW bug.
+- When using DMA for lpuart1 (Debug console) data loss can be observed. Thus
+  DMA is disabled for lpuart1 UART port.
+
+Notes:
+------
+- In Yocto, kernel recipe was renamed from 'linux-imx' to 'linux-phytec-imx'.
+  Git repository was moved to https://github.com/phytec/linux-phytec-imx.
+- With phyBOARD-Nash-i.MX 93 rev 1616.1 the logic of the the backlight signal for
+  the PEB-AV-10 A/V adapter was inverted (from active-low to active-high).
+  The BSP release PD24.2.0 implements that new logic.
+  When using PD24.2.0 on a phyBOARD-Nash-i.MX 93 rev 1616.0 a customer must change
+  logic again to active-low to get backlight working.
