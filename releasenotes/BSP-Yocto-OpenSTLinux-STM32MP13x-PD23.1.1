@@ -1,0 +1,118 @@
+Release Notes STM32MP13x OpenSTLinux BSP:
+========================================
+
+BSP-Yocto-OpenSTLinux-STM32MP13x-PD23.1.1 2024-10-09
+====================================================
+- Linux ST Vendor Kernel v5.15.145
+  * Tag v5.15-phy3
+- U-boot ST Vendor v2021.10
+  * Tag v2021.10-phy3
+- TF-A ST Vendor v2.6
+  * Tag v2.6-phy3
+- OP-TEE ST Vendor 3.16.0
+  * Tag 3.16.0-phy2
+
+- Linux integration from STM32MP1-ecosystem-v4.1.2: "openstlinux-5.15-yocto-kirkstone-mp1-v24.07.17"
+  (based on Yocto Kirkstone)
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phyboard-segin-stm32mp13x-1
+  * phyboard-segin-stm32mp13x-2
+
+- st-image-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phyboard-segin-stm32mp13x-2
+
+- st-bundle-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phyboard-segin-stm32mp13x-2
+
+- st-image-core (DISTRO=openstlinux-eglfs) on:
+  * phyboard-segin-stm32mp13x-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Fixes provided by OpenSTLinux v4.1.1 and v4.1.2:
+    * Update to Yocto Project 4.0.19 (2022-04.19-kirkstone)
+    * Update to Linux Kernel 5.15.145
+    * BSP maturation with an amount of 66 fixes delivered in the following BSP components:
+	TF-A, u-Boot, OP-TEE and Linux Kernel
+
+    For more details on those fixes, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
+
+- Fixes provided by PHYTEC BSP adaptation:
+    * eMMC clock frequency was only 25 MHz:
+	Internal CPU clock tree has been changed so that eMMC clock frequency is now maximum: 52Mhz.
+
+    * SD-card clock frequency was limited to 10Mhz:
+	Remove this limitation set in device tree. SD-card clock frequency is now 50Mhz.
+
+    * Fix Audio issue (conflict with JTAG):
+        On phyCORE-STM32MP13x with Segin jumper configuration, the JTAG and SAI1 pins are connected together.
+        This sometimes creates issue for the audio feature.
+        To fix this, JTAG is now configured as annalog input when SAI1 driver is probed.
+
+    * Fix Yocto Build warning:
+        The EULA lisence was not added for the new created STM32MP13x yocto machines. This only resulted
+        in a warning during the BSP build. The lisence is now added for those machines.
+
+    * Fix resolution issue with phyCAM-P VM-016:
+        Camera scripts examples have been reworked to match the DCMIPP camera driver features.
+
+    * RAUC: calling "rauc status" after "rauc install" was an issue:
+        When doing this, on next boot, the trial boot to the other partition was not performed by TF-A.
+	Add some fixes to handle correctly the "rauc status" command.
+
+    * Fix SDK build failure:
+        SDK build was failing because of a yocto fetch error (cmsis-svd recipe).
+	Fetch URL is corrected so that SDK can build again.
+
+Features:
+---------
+- New features provided by OpenSTLinux v4.1.1 and v4.1.2:
+  For more details on the features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_ecosystem_release_note_-_v4.1.0
+       * OpenSTLinux v4.1.0: https://wiki.st.com/stm32mpu-ecosystem-v4/wiki/STM32_MPU_OpenSTLinux_release_note_-_v4.1.0
+
+- New features provided by PHYTEC BSP adaptation:
+     * add FIT image support (https://wiki.st.com/stm32mpu/wiki/How_to_create_Signed_FIT_image_from_Distribution_package)
+     * Support new AC158 7” LCD display (ILITEK ILI2130 capacitive touch screen instead of EDT FT5x06 touch)
+
+- Existing features (from PD23.1.0 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Segin addons support:
+    * PEB-EVAL-01 (evaluation board with UART debug console, JTAG, user leds and buttons)
+    * PEB-AV-01 (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touch screen display support
+    * PEB-AV-02 with AC093-T EDT 7" resistive touch screen display support
+    * phyCAM-P VM-016 BW & COL
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (u-boot/kernel)
+    * Ethernet on SOM - 100Mpbs (u-boot/kernel)
+    * Ethernet on Segin board - 100Mpbs (kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support - TLV320AIC3007 (kernel)
+    * RTC - RV-4162-C7 (kernel)
+    * PWM (kernel)
+    * LTDC parralel display interface (kernel)
+    * DCMIPP camera interface (kernel)
+    * GPIOs (u-boot/kernel)
+    * User buttons and leds support (kernel)
