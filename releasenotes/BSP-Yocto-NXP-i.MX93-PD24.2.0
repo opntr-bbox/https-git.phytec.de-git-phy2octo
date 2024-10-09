@@ -62,6 +62,12 @@ Known Issues:
   with PEB-AV-10 A/V adapter is ON by default after power-reset due to HW bug.
 - When using DMA for lpuart1 (Debug console) data loss can be observed. Thus
   DMA is disabled for lpuart1 UART port.
+- partup packages built with the ampliphy-vendor-rauc distro contain a faulty
+  layout configuration. The filesystem of the config (and app) partition is
+  falsely set to null. There is already a fix in meta-phytec, setting the
+  filesystem type of the config and app partitions to ext4 as before, coming in
+  the next release. partup packages built with the distro ampliphy-vendor and
+  ampliphy-vendor-xwayland are not affected.
 
 Notes:
 ------
