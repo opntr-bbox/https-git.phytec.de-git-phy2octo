@@ -8,6 +8,7 @@
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rt,
 		phyboard-lyra-am62xx-3/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy-xwayland,
+		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy-xwayland-linux-mainline,
 		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt6demo-image/ampliphy-xwayland"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
@@ -58,4 +59,5 @@
 		<sublayer path="meta-ti-extras"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
 </manifest>
