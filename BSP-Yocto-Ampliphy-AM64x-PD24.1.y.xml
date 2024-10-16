@@ -3,6 +3,7 @@
 	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-Ampliphy-AM64x-PD24.1.y" soc="AM64x" supported_builds="
 		phyboard-electra-am64xx-1/phytec-container-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy,
+		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-linux-mainline,
 		phyboard-electra-am64xx-2/phytec-initramfs-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rauc,
@@ -50,6 +51,7 @@
 		<sublayer path="meta-ti-extras"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-tpm"/>
