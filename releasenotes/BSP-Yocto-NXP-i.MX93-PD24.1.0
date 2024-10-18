@@ -82,6 +82,8 @@ Known Issues:
 - SDK built with Yocto does not contain all the tools required to build Qt 6
   applications. However for building Qt 6 applications using the usual yocto
   build-flow (i.e. built with bitbake and recipes) everything is in place.
+- BSP provided M33 core demos from NXP are not working on A1 revision of i.MX93
+  due to ROM differences between A0 and A1 silicon revisions.
 
 Notes:
 ------

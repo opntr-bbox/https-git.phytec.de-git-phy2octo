@@ -51,6 +51,9 @@ Issues fixed:
   (e.g. at -40 C) switching off CPUs can have unexpected effects.
   Please note, that by disabling CPU idle management power consumption of the
   SOM increases (10-50 mW average, 300 mW peak).
+- Resource table (rsc_table) offset for i.MX93 M33 core has been updated from
+  0x2021f000 to 0x2021e000 (rev A1 silicon). BSP provided M33 core demos from
+  NXP can now be successfully evaluated on the phyCORE-i.MX 93 SOMs.
 
 Known Issues:
 -------------
