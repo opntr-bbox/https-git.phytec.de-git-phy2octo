@@ -5,7 +5,7 @@ BSP-Yocto-NXP-i.MX93-PD24.2.0          2024-10-08
 =================================================
 
 - Linux NXP Vendor Kernel v6.6.23-2.0.0-phy8 (based on NXP tag lf-6.6.23-2.0.0)
-- U-boot v2024.04-2.0.0-phy5 (based on NXP tag lf-6.6.23-2.0.0)
+- U-boot v2024.04-2.0.0-phy6 (based on NXP tag lf-6.6.23-2.0.0)
 - Yocto 5.0 LTS (scarthgap)
 - Qt 6.7.0
 - RAUC 1.11.3
