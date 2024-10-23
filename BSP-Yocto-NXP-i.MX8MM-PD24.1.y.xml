@@ -47,7 +47,7 @@
 		<ignorebaselayer/>
 		<sublayer path="meta-chromium"/>
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="66414c17ae60e489bef9a97031323e92c247fbe1" upstream="scarthgap" />
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="fe561f41aef0cff9e6f96730ab59f28dca2eb682" upstream="scarthgap" />
 	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="0f8091c63dd8805610c09b08409bc58492a3b16f" upstream="scarthgap" />
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="6c063450d464eb2f380443c7d9af1b94ce9b9d75" upstream="scarthgap" />
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap" />
