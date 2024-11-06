@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD24.1-rc3" release_uid="BSP-Yocto-NXP-i.MX8MP-PD24.1-rc3" soc="iMX8MP" supported_builds="
+    phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor-xwayland,
+    phyboard-pollux-imx8mp-3/phytec-headless-bundle/ampliphy-vendor-rauc,
+    phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
+    phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor-rauc,
+    phyboard-pollux-imx8mp-3/phytec-provisioning-image/securiphy-vendor-provisioning,
+    phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor-xwayland,
+    phyboard-pollux-imx8mp-3/phytec-securiphy-bundle/securiphy-vendor,
+    phyboard-pollux-imx8mp-3/phytec-securiphy-image/securiphy-vendor,
+    phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor-xwayland
+  " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
+
+  <remote name="yocto" fetch="https://git.yoctoproject.org/" />
+	<remote name="community" fetch="https://github.com/Freescale" />
+	<remote name="oe" fetch="https://github.com/openembedded" />
+	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
+	<remote name="OSSystems" fetch="https://github.com/OSSystems" />
+	<remote name="QT6" fetch="https://code.qt.io/yocto" />
+	<remote name="clang" fetch="https://github.com/kraj" />
+	<remote name="imx-support" fetch="https://github.com/nxp-imx-support" />
+	<remote name="rauc" fetch="https://github.com/rauc" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+
+	<default revision="scarthgap" remote="git.phytec" sync-j="4" />
+
+	<project name="poky" path="sources/poky" remote="yocto" upstream="scarthgap" revision="c799f73a47fa35d6059456291328f7ff10fdb273">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" upstream="scarthgap" revision="e318c5df6993ca714c1a56abeeb32c243e4d2cde">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+		<sublayer path="meta-gnome" />
+	</project>
+	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="dc31889c0899971def535dc1c040edf18bc16691">
+		<ignorebaselayer />
+		<sublayer path="meta-chromium" />
+	</project>
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="66414c17ae60e489bef9a97031323e92c247fbe1" upstream="scarthgap" />
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="41b923e59e048b9b2942ff737a4ddac386954c62" upstream="scarthgap" />
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="8b61684f0b1ba8bacdf3a69d993445e9791d4932" upstream="scarthgap" />
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="158cc55b6ee30d09957b380859dba52c0f6af68d" upstream="scarthgap" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="60e31ef2c4983c0bdb8682dee6a6ec5f2e9d5f0a">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="refs/tags/v6.7.0" upstream="6.7.0" />
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="459d837338ca230254baa2994f870bf6eb9d0139">
+		<sublayer path="meta-tpm" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6a80f140e387621f62964209a2e07d3bcfb125ce" upstream="scarthgap" />
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="ae04eecd48e557437ec90366795b8cf202d0ce14">
+		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
+		<linkfile src="README" dest="README-IMXBSP" />
+		<ignorebaselayer />
+		<sublayer path="meta-imx-bsp" />
+		<sublayer path="meta-imx-sdk" />
+		<sublayer path="meta-imx-ml" />
+	</project>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="refs/tags/rel_imx_6.6.23_2.0.0" />
+	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" revision="1e3e6b334defd7fbf95cb43d23975e7b3de4b520" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="a7ccca0b9d32de1938c61ecc7ef0984034a805d8">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="929e749b9f3bbf54f629059c06fe5171da81ce5a" />
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="1b0ec98bfe72f00f36b591cd541ffb3b66f181ec" />
+</manifest>
