@@ -1,0 +1,67 @@
+BSP-Yocto-NXP-i.MX8MP-PD24.1.0            2023-11-06
+====================================================
+
+- Linux NXP Vendor Kernel v6.6.23-2.0.0-phy10 (based on NXP tag lf-6.6.23-2.0.0)
+- U-boot v2024.04-2.0.0-phy7 (based on NXP tag lf-6.6.23-2.0.0)
+- Yocto 5.0.4 (Scarthgap)
+- Qt 6.7
+- OP-TEE 4.1
+- RAUC 1.12
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-vision-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-provisioning-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-securiphy-image:
+  * phyboard-pollux-imx8mp-3
+
+- phytec-headless-image:
+  * phyboard-pollux-imx8mp-3
+
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+- Kernel, Device Tree and Device Tree Overlays are now stored and loaded in a FIT Image Container
+- Switch to U-Boot standard boot for bootflow configuration
+- Support EFI boot
+- Using now poky kernel fragment handling and using new kernel defconfig "imx8_phytec_defconfig"
+- Camera:
+  - Switch to Linux upstream driver for phyCAM-L serializer and deserializer.
+  - The VM-017 (ar0521) via phyCAM-L now runs with a 26.66 MHz input clock due to the switch to
+    the serializer upstream driver.
+  - Overhaul of the existing camera examples:
+    - Consolidation of examples that share the same code base.
+    - More descriptive output, so it is easier for users to reconstruct it
+      to their own needs.
+- Security:
+  - FIT Image verification now uses public keys instead of HAB
+  - FIT Image is build with poky kernel-fitimage class
+  - Only load 'overlays' variable from bootenv.txt
+- RAUC:
+  - U-Boot: Only load RAUC related variables from eMMC environment
+
+Issues fixed:
+-------------
+- Reenabled Qt6 demo "qtphy" multimedia page
+- HDMI audio workes now even when PEB-AV-10 overlay is not applied
+
+Defeatured:
+-----------
+- PEB-AV-12 support
+
+Known Issues/Limitations:
+-------------------------
+- Reduction of CMA size to half for 1GiB RAM SoM
+- Upper USB port on X5 connector doesn't work in host mode in bootloader
+- Increased resume duration during suspend to RAM
