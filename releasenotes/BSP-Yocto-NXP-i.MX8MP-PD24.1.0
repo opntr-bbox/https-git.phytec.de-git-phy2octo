@@ -1,4 +1,4 @@
-BSP-Yocto-NXP-i.MX8MP-PD24.1.0            2023-11-06
+BSP-Yocto-NXP-i.MX8MP-PD24.1.0            2024-11-06
 ====================================================
 
 - Linux NXP Vendor Kernel v6.6.23-2.0.0-phy10 (based on NXP tag lf-6.6.23-2.0.0)
@@ -63,5 +63,6 @@ Defeatured:
 Known Issues/Limitations:
 -------------------------
 - Reduction of CMA size to half for 1GiB RAM SoM
-- Upper USB port on X5 connector doesn't work in host mode in bootloader
+- Upper USB port on X5 connector doesn't work reliable in host mode
+  in bootloader
 - Increased resume duration during suspend to RAM
