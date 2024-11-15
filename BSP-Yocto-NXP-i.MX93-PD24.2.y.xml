@@ -3,11 +3,11 @@
 	<phytec pdn="PD24.2.y" release_uid="BSP-Yocto-NXP-i.MX93-PD24.2.y" soc="iMX93" supported_builds="
 		phyboard-segin-imx93-2/phytec-headless-image/ampliphy-vendor,
 		phyboard-segin-imx93-2/phytec-headless-bundle/ampliphy-vendor-rauc,
-		phyboard-segin-imx93-2/phytec-qt6demo-image/ampliphy-vendor-xwayland,
+		phyboard-segin-imx93-2/phytec-qt6demo-image/ampliphy-vendor,
 		phyboard-nash-imx93-1/phytec-headless-image/ampliphy-vendor,
 		phyboard-nash-imx93-1/phytec-headless-bundle/ampliphy-vendor-rauc,
-		phyboard-nash-imx93-1/phytec-qt6demo-image/ampliphy-vendor-xwayland,
-		phyboard-nash-imx93-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor-xwayland"
+		phyboard-nash-imx93-1/phytec-qt6demo-image/ampliphy-vendor,
+		phyboard-nash-imx93-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-22.04" />
 
 	<remote name="yocto" fetch="https://github.com/yoctoproject" />
