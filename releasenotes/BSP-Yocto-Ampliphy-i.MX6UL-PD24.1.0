@@ -53,6 +53,10 @@ Known Issues:
     phyGATE-Tauri-S. Right now '1x RS232 and 1x RS485' is the default.
 - PEB-WLBT-05-15x modules (5 GHz option) don't work. They are using Sterling-LWB5 chips,
   which is EOL.
+- default kernel CMA allocation of 256MB fails on phyboard-segin-imx6ul-2, -4,
+  -5, -7 and phygate-tauri-s-imx6ul-1 machines with 512MB of RAM. One can fix
+  the issue in runtime by entering Barebox bootloader console and executing the
+  following command: nv linux.bootargs.cma=cma=128M
 
 Notes:
 ------

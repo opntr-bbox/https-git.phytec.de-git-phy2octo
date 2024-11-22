@@ -51,6 +51,10 @@ Known Issues:
 - RS232 / RS485:
   * At the same time only '2x RS232' or '1x RS232 and 1x RS485' can be used
     Right now '1x RS232 and 1x RS485' is the default
+- default kernel CMA allocation of 256MB fails on phyboard-segin-imx6ul-2, -4,
+  -5, -7 and phygate-tauri-s-imx6ul-1 machines with 512MB of RAM. One can fix
+  the issue in runtime by entering Barebox bootloader console and executing the
+  following command: nv linux.bootargs.cma=cma=128M
 
 Notes:
 ------
