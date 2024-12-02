@@ -9,7 +9,10 @@
 		phyboard-lyra-am62xx-3/phytec-initramfs-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy-linux-mainline,
-		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt6demo-image/ampliphy"
+		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt6demo-image/ampliphy,
+		phyboard-lyra-am62xx-4/phytec-headless-image/ampliphy,
+		phyboard-lyra-am62xx-4/phytec-securiphy-image/securiphy,
+		phyboard-lyra-am62xx-4/phytec-securiphy-bundle/securiphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
