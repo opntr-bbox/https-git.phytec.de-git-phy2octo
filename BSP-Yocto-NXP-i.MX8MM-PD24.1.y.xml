@@ -61,7 +61,7 @@
 		<sublayer path="meta-tpm" />
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6a80f140e387621f62964209a2e07d3bcfb125ce" upstream="scarthgap" />
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.36_2.1.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
 		<linkfile src="README" dest="README-IMXBSP" />
 		<ignorebaselayer />
@@ -69,7 +69,7 @@
 		<sublayer path="meta-imx-sdk" />
 		<sublayer path="meta-imx-ml" />
 	</project>
-	<project name="meta-nxp-demo-experience" remote="imx-support" path="sources/meta-nxp-demo-experience" revision="8fd7154c05b716e9635279047f65785399432d88" upstream="scarthgap-6.6.36-2.1.0" />
+	<project name="meta-nxp-demo-experience" remote="imx-support" path="sources/meta-nxp-demo-experience" revision="8fd7154c05b716e9635279047f65785399432d88" upstream="scarthgap-6.6.52-2.2.0" />
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init" />
