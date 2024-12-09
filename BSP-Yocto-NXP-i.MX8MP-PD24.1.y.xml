@@ -7,9 +7,9 @@
 		phyboard-pollux-imx8mp-3/phytec-securiphy-image/securiphy-vendor,
 		phyboard-pollux-imx8mp-3/phytec-securiphy-bundle/securiphy-vendor,
 		phyboard-pollux-imx8mp-3/phytec-provisioning-image/securiphy-vendor-provisioning,
-		phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor-xwayland,
-		phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor-xwayland,
-		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor-xwayland"
+		phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor,
+		phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor,
+		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/"/>
