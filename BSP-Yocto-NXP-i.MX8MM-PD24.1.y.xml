@@ -47,11 +47,11 @@
 		<ignorebaselayer/>
 		<sublayer path="meta-chromium"/>
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="fe561f41aef0cff9e6f96730ab59f28dca2eb682" upstream="scarthgap" />
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="0f8091c63dd8805610c09b08409bc58492a3b16f" upstream="scarthgap" />
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="2b7433611d80f6d0ee1b04156fa91fc73d3c2665" upstream="scarthgap" />
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="0627128b341cfb2bef7a0832ce8cac0ce1127f13" upstream="scarthgap" />
 	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="6c063450d464eb2f380443c7d9af1b94ce9b9d75" upstream="scarthgap" />
 	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap" />
-	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="1b85bbb4cab9658da3cd926c62038b8559c5c64e" upstream="scarthgap">
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="950a4afce46a359def2958bd9ae33fc08ff9bb0d" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta-arm" />
 		<sublayer path="meta-arm-toolchain" />
@@ -60,7 +60,7 @@
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm" />
 	</project>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6a80f140e387621f62964209a2e07d3bcfb125ce" upstream="scarthgap" />
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6f3c1d8f90947408a6587be222fec575a1ca5195" upstream="scarthgap" />
 	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
 		<linkfile src="README" dest="README-IMXBSP" />
@@ -69,7 +69,7 @@
 		<sublayer path="meta-imx-sdk" />
 		<sublayer path="meta-imx-ml" />
 	</project>
-	<project name="meta-nxp-demo-experience" remote="imx-support" path="sources/meta-nxp-demo-experience" revision="8fd7154c05b716e9635279047f65785399432d88" upstream="scarthgap-6.6.52-2.2.0" />
+	<project name="meta-nxp-demo-experience" remote="imx-support" path="sources/meta-nxp-demo-experience" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="scarthgap-6.6.52-2.2.0" />
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init" />
