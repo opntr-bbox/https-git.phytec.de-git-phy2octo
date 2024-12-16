@@ -6,6 +6,7 @@
 		phyboard-polis-imx8mm-5/phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-polis-imx8mm-5/phytec-provisioning-image/securiphy-vendor-provisioning,
 		phyboard-polis-imx8mm-5/phytec-vision-image/ampliphy-vendor,
+		phyboard-polis-imx8mm-5/phytec-qt6demo-image/ampliphy-vendor,
 		phyboard-polis-imx8mm-5/phytec-securiphy-image/securiphy-vendor,
 		phyboard-polis-imx8mm-5/phytec-securiphy-bundle/securiphy-vendor,
 		phyboard-polis-imx8mm-5/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
