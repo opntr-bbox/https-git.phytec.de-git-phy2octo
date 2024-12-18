@@ -1,0 +1,125 @@
+BSP-Yocto-Ampliphy-AM64x-PD24.1.0              2024-12-30
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag v10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag v10.00.08)
+- Yocto 5.0.5 (Scarthgap)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
+- phyboard-electra-am64xx-2
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-image/securiphy
+  * phytec-securiphy-bundle/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Secure Boot**: Secure Boot is now officially supported. A new machine, `phyboard-electra-am64xx-3`, has been introduced to automatically sign all bootloader images for Secure Boot enforced devices. All images supported by `phyboard-electra-am64xx-2` are compatible with this new machine. Additionally, the `phytec-securiphy-image` is now available with the `securiphy` distribution, providing a full chain-of-trust Secure Boot implementation from BOOTROM to Linux. This distribution also enables additional security features.
+
+* **Linux Mainline**: A new distribution, `ampliphy-linux-mainline`, has been added. This distribution selects the latest Linux mainline kernel, allowing users to experience the most recent Linux version on the phyCORE-AM64x.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Remoteproc**:The remoteproc interface is now enabled in U-Boot. This allows co-processors to be started and firmware to be loaded directly from U-Boot. Additionally, Code Composer Studio can now be used with U-Boot insead of Linux to debug firmware via JTAG.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Partup Layout Configuration**: Corrected a faulty layout configuration in Partup packages built with the ampliphy-rauc distro. The filesystem type for the config and app partitions is now properly set to ext4, ensuring functionality and compatibility.
+* **GPIO Sysfs**: The missing GPIO directory in the Linux sysfs has been restored.
+* **LEDs**: LED functionality has been resolved and is now operational.
+* **Fan Hysteresis**: The GPIO fan hysteresis issue has been fixed. Hysteresis is now enabled, preventing the fan from toggling on and off continuously.
+* **PRU Ethernet Performance**: Enhanced Ethernet performance for PRU_ICSSG-based interfaces, now achieving over 850 Mbit/s.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Remoteproc Driver**: The `remoteproc` driver might hang when re-starting an R5F core.
+* **PRU Ethernet Crashes**: PRU_ICSSG-based Ethernet interfaces may experience crashes when operating at 10 Mbit/s. This issue has been resolved in the Linux mainline and will be integrated into a future PHYTEC release.
+
+
+BSP-Yocto-Ampliphy-AM64x-PD24.1.0              2024-09-27
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag v10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag v10.00.08)
+- Yocto 5.0.3 (Scarthgap)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
+
+
+Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 5.0 (Scarthgap).
+* **OP-TEE 4.2**: Trusted Execution Environment updated to version 4.2.
+* **Kernel Recipe**: Kernel metadata handling with `.scc` (Source Code Control) files, integrating Poky's kernel recipe handling features.
+* **Default Machine**: `phytec-container-image` is now the default image for the |product|.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.6.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2024.04
+* **OSPI Partitions in Device Tree**: Defining OSPI flash partitions directly in the device tree.
+* **Additional SOM Option**: New support for a SOM option with 1GB DDR.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **M4F/R5F Firmware Restart**: Fixed issues with restarting the M4F firmware.
+* **Trickle Charger**: Enabled Trickle Charger to charge the external battery.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Remoteproc Driver**: The `remoteproc` driver might hang when re-starting an R5F core.
