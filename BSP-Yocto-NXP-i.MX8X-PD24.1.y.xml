@@ -7,7 +7,6 @@
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="https://github.com/yoctoproject"/>
-	<remote name="lmp-mirrors" fetch="https://github.com/lmp-mirrors"/>
 	<remote name="community" fetch="https://github.com/Freescale"/>
 	<remote name="oe" fetch="https://github.com/openembedded"/>
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
@@ -21,12 +20,12 @@
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="2"/>
 
-	<project name="poky" path="sources/poky" remote="yocto" revision="02eacd385eca7aa9cf25aaaa61427aa9c126e0bc" upstream="scarthgap">
+	<project name="poky" path="sources/poky" remote="yocto" upstream="scarthgap" revision="200d12b6a58ad961d60a7774ca0f7a9d29498724">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="a72010b414ee3d73888ac9cb4e310e8f05e13aea" upstream="scarthgap">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" upstream="scarthgap" revision="72018ca1b1a471226917e8246e8bbf9a374ccf97">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -40,21 +39,21 @@
 		<ignorebaselayer/>
 		<sublayer path="meta-chromium"/>
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="66414c17ae60e489bef9a97031323e92c247fbe1" upstream="scarthgap"/>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="41b923e59e048b9b2942ff737a4ddac386954c62" upstream="scarthgap"/>
-	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="8b61684f0b1ba8bacdf3a69d993445e9791d4932" upstream="scarthgap"/>
-	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="158cc55b6ee30d09957b380859dba52c0f6af68d" upstream="scarthgap"/>
-	<project name="meta-arm" path="sources/meta-arm" remote="lmp-mirrors" revision="8aa8a1f17f5b64bc691544f989f04fc83df98adb" upstream="scarthgap">
+	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="2b7433611d80f6d0ee1b04156fa91fc73d3c2665" upstream="scarthgap"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="0627128b341cfb2bef7a0832ce8cac0ce1127f13" upstream="scarthgap"/>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="6c063450d464eb2f380443c7d9af1b94ce9b9d75" upstream="scarthgap"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap"/>
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="dc13e1bfda4a4757a08c2d6673bc4bac012c4a80" upstream="6.7.0"/>
-	<project name="meta-security" path="sources/meta-security" remote="lmp-mirrors" revision="11ea91192d43d7c2b0b95a93aa63ca7e73e38034" upstream="scarthgap">
+	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="lmp-mirrors" upstream="scarthgap"/>
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.23_2.0.0">
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6f3c1d8f90947408a6587be222fec575a1ca5195" upstream="scarthgap"/>
+	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
 		<linkfile src="README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
@@ -62,7 +61,7 @@
 		<sublayer path="meta-imx-sdk"/>
 		<sublayer path="meta-imx-ml"/>
 	</project>
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="scarthgap-6.6.23-2.0.0"/>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="scarthgap-6.6.52-2.2.0" />
 	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init"/>
