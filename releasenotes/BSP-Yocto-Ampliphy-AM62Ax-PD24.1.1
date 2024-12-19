@@ -1,0 +1,126 @@
+BSP-Yocto-Ampliphy-AM62Ax-PD24.1.1              2024-12-20
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag 10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.00.08)
+- Yocto 5.0.5 (Scarthgap)
+- Qt 6.6
+
+
+Tested Yocto Machines:
+----------------------
+
+ - phyboard-lyra-am62axx-1
+  * phytec-qt6demo-image/ampliphy-xwayland
+ - phyboard-lyra-am62axx-2
+  * phytec-headless-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
+  * phytec-headless-image/ampliphy-rt
+  * phytec-qt6demo-image/ampliphy
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Xwayland**: XWayland is now integrated by default into the ampliphy distribution. As a result, the ampliphy-xwayland distribution has been consolidated into ampliphy.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Remoteproc**:The remoteproc interface is now enabled in U-Boot. This allows co-processors to be started and firmware to be loaded directly from U-Boot. Additionally, Code Composer Studio can now be used with U-Boot insead of Linux to debug firmware via JTAG.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Partup Layout Configuration**: Corrected a faulty layout configuration in Partup packages built with the ampliphy-rauc distro. The filesystem type for the config and app partitions is now properly set to ext4, ensuring functionality and compatibility.
+* **GPIO Sysfs**: The missing GPIO directory in the Linux sysfs has been restored.
+* **LEDs**: LED functionality has been resolved and is now operational.
+* **Fan Hysteresis**: The GPIO fan hysteresis issue has been fixed. Hysteresis is now enabled, preventing the fan from toggling on and off continuously.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **USB I/O Errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+* **Boot Hang Issue**: The first-stage bootloader occasionally hangs in about 1% of all boot attempts on High Secure devices.
+
+
+BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0              2024-09-27
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag 10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.00.08)
+- Yocto 5.0.3 (Scarthgap)
+- Qt 6.6
+
+
+Tested Yocto Machines:
+----------------------
+
+ - phyboard-lyra-am62axx-1
+  * phytec-qt6demo-image/ampliphy-xwayland
+ - phyboard-lyra-am62axx-2
+  * phytec-headless-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
+  * phytec-headless-image/ampliphy-rt
+  * phytec-qt6demo-image/ampliphy-xwayland
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 5.0 (Scarthgap).
+* **OP-TEE 4.2**: Trusted Execution Environment updated to version 4.2.
+* **Watchdog**: Switched from Poky to using `systemd` watchdog, which would handle system restarts or shutdowns in case of failure.
+* **Kernel Recipe**: Kernel metadata handling with `.scc` (Source Code Control) files, integrating Poky's kernel recipe handling features.
+* **Qt Update**: Update to Qt6 and switch to `phytec-qt6demo-image`.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.6.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2024.04
+* **OSPI Partitions in Device Tree**: Defining OSPI flash partitions directly in the device tree.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Poweroff Fix**: The board now shuts down properly without triggering a reset via the watchdog.
+* **R5F Firmware Restart**: Fixed issues with restarting the M4F firmware.
+* **Bootloader via Ethernet**: Booting the bootloader through Ethernet is now functional.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **USB I/O Errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+* **Boot Hang Issue**: The first-stage bootloader occasionally hangs in about 1% of all boot attempts on High Secure devices.
