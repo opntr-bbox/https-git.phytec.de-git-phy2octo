@@ -6,7 +6,7 @@
 		phycore-imx8x-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
-	<remote name="yocto" fetch="https://github.com/yoctoproject"/>
+	<remote name="yocto" fetch="https://git.yoctoproject.org/"/>
 	<remote name="community" fetch="https://github.com/Freescale"/>
 	<remote name="oe" fetch="https://github.com/openembedded"/>
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
