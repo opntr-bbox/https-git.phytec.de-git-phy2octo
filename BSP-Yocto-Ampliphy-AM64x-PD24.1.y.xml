@@ -3,11 +3,11 @@
 	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-Ampliphy-AM64x-PD24.1.y" soc="AM64x" supported_builds="
 		phyboard-electra-am64xx-1/phytec-container-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-container-image/ampliphy,
-		phyboard-electra-am64xx-2/phytec-container-image/ampliphy-linux-mainline,
 		phyboard-electra-am64xx-2/phytec-initramfs-image/ampliphy,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rt,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rauc,
 		phyboard-electra-am64xx-2/phytec-headless-bundle/ampliphy-rauc,
+		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-linux-mainline,
 		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy,
 		phyboard-electra-am64xx-3/phytec-headless-image/ampliphy,
 		phyboard-electra-am64xx-3/phytec-securiphy-image/securiphy,
