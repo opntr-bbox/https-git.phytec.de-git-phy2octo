@@ -66,3 +66,11 @@ Known Issues/Limitations:
 - Upper USB port on X5 connector doesn't work reliable in host mode
   in bootloader
 - Increased resume duration during suspend to RAM
+- With Linux 6.6.23, a change in the MMC stack occasionally prevents switching
+  the eMMC boot partitions after a RAUC bundle update. A fix is already included
+  upstream, see the following link for an overview:
+  https://github.com/rauc/rauc/discussions/1363
+  A patch for linux-phytec-imx was backported after this release, and is
+  available through
+  https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy
+  The fix will be automatically included with upcoming BSP releases.
