@@ -66,7 +66,7 @@ New in this Release
 * **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
 * **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
 * **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
-
+* **MCU MCAN**: Enabling MCAN interfaces located in the MCU domain (mcu_mcan) causes boot hangs. The issue is resolved in kernel tag ``v6.6.58-10.01.10-phy``.
 
 BSP-Yocto-Ampliphy-AM62x-PD24.1.0               2024-09-27
 ==========================================================
