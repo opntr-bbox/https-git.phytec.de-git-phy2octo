@@ -30,7 +30,7 @@
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="4" />
 
-	<project name="poky" path="sources/poky" remote="yocto" upstream="scarthgap">
+	<project name="poky" path="sources/poky" remote="yocto" upstream="scarthgap" revision="0043e07c6c6e7502933e1669229e4979aee55e83">
 		<ignorebaselayer />
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
