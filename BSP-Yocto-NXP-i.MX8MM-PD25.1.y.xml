@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-NXP-i.MX8MM-PD24.1.y" soc="iMX8MM" supported_builds="
+	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-NXP-i.MX8MM-PD25.1.y" soc="iMX8MM" supported_builds="
 		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vendor,
 		phyboard-polis-imx8mm-5/phytec-headless-image/ampliphy-vendor-rauc,
 		phyboard-polis-imx8mm-5/phytec-headless-bundle/ampliphy-vendor-rauc,
