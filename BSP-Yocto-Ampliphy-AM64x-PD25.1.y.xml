@@ -8,6 +8,7 @@
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-rauc,
 		phyboard-electra-am64xx-2/phytec-headless-bundle/ampliphy-rauc,
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-linux-mainline,
+		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy,
 		phyboard-electra-am64xx-3/phytec-headless-image/ampliphy,
 		phyboard-electra-am64xx-3/phytec-securiphy-image/securiphy,
 		phyboard-electra-am64xx-3/phytec-securiphy-bundle/securiphy"
