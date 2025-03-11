@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX8MP-master" soc="iMX8MP" supported_builds="
-		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy"
+		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy,
+		imx8mp-libra-fpsc-1/phytec-headless-image/ampliphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-24.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
