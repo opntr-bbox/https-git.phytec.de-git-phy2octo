@@ -22,12 +22,12 @@
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="2" />
 
-	<project name="poky" path="sources/poky" remote="yocto" revision="200d12b6a58ad961d60a7774ca0f7a9d29498724" upstream="scarthgap">
+	<project name="poky" path="sources/poky" remote="yocto" revision="dc4827b3660bc1a03a2bc3b0672615b50e9137ff" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="72018ca1b1a471226917e8246e8bbf9a374ccf97" upstream="scarthgap">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="6c9f1f8d4538119803bf793747b65e4d23c33544" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
