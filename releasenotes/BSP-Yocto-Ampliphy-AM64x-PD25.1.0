@@ -1,0 +1,67 @@
+BSP-Yocto-Ampliphy-AM64x-PD25.1.0               2024-03-28
+==========================================================
+
+- Linux kernel v6.12.8
+- U-Boot v2025.01
+- Yocto 5.0.7 (Scarthgap)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-initramfs-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-image/ampliphy-rauc
+  * phytec-headless-bundle/ampliphy-rauc
+- phyboard-electra-am64xx-2
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-image/securiphy
+  * phytec-securiphy-bundle/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+This is the first mainline release for the AM64x. It includes the same feature set as the previous release, with some additional changes.
+
+**Yocto**
+^^^^^^^^^
+
+* **CAN FD**: Now enabled by default.
+* **Inline-ECC**: Inline-ECC is now a machine feature and can be easily disabled via Yocto.
+* **EEPROM Flashtool**: Updated with a new command to store serial numbers.
+* **Meta TI**: Removed all dependencies on TI’s meta layer (meta-ti) to simplify the phyCORE-AM64x BSP.
+* **Initramfs**: Updated to include udev and network support.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.12 and transitioned from TI's branch to an upstream branch with minimal patches.
+* **Industrial Communication**: Added a new overlay for the PEB-C-010 expansion board, which supports industrial communication protocols.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.01 and transitioned from TI's branch to an upstream branch with minimal patches.
+* **EFI Capsule Updates**: Added support for updating U-Boot images using the EFI Firmware Management Protocol (FMP).
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **PRU Ethernet Crashes**: PRU_ICSSG-based Ethernet interfaces may experience crashes when operating at 10 Mbit/s. This issue has been resolved in the Linux mainline and will be integrated into a future PHYTEC release.
+* **PRU Ethernet Performance**: Enhanced the receive performance of PRU_ICSSG-based Ethernet interfaces from approximately 700 Mbit/s to 900 Mbit/s.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Remoteproc Driver**: The `remoteproc` driver might hang when re-starting an R5F core.
