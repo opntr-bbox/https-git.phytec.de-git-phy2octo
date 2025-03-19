@@ -1,0 +1,243 @@
+BSP-Yocto-Ampliphy-AM62x-PD24.1.2               2025-03-28
+==========================================================
+
+- Linux TI vendor kernel v6.6.58 (based on TI tag 10.01.10)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.01.10)
+- Yocto 5.0.7 (Scarthgap)
+- Qt 6.6
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am62xx-3
+ * phytec-headless-image/ampliphy
+ * phytec-initramfs-image/ampliphy
+ * phytec-headless-image/ampliphy-rauc
+ * phytec-headless-bundle/ampliphy-rauc
+ * phytec-headless-image/ampliphy-rt
+ * phytec-qt6demo-image/ampliphy
+- phyboard-lyra-am62xx-4
+ * phytec-headless-image/ampliphy
+ * phytec-securiphy-image/securiphy
+ * phytec-securiphy-bundle/securiphy
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **CAN FD**: Now enabled by default.
+* **Inline-ECC**: Inline-ECC is now a machine feature and can be easily enabled via Yocto.
+* **EEPROM Flashtool**: Updated with a new command to store serial numbers.
+* **Initramfs**: Updated to include udev and network support.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **MCU MCAN**: Enabling MCAN interfaces located in the MCU domain (mcu_mcan) causes boot hangs. The issue is resolved in kernel tag ``v6.6.58-10.01.10-phy``.
+* **Podman**: Podman now works when the root filesystem is mounted via NFS.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
+* **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
+* **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+
+
+BSP-Yocto-Ampliphy-AM62x-PD24.1.1               2024-12-20
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag 10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.00.08)
+- Yocto 5.0.5 (Scarthgap)
+- Qt 6.6
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am62xx-3
+ * phytec-headless-image/ampliphy
+ * phytec-initramfs-image/ampliphy
+ * phytec-headless-image/ampliphy-rauc
+ * phytec-headless-bundle/ampliphy-rauc
+ * phytec-headless-image/ampliphy-rt
+ * phytec-qt6demo-image/ampliphy
+- phyboard-lyra-am62xx-4
+ * phytec-headless-image/ampliphy
+ * phytec-securiphy-image/securiphy
+ * phytec-securiphy-bundle/securiphy
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Secure Boot**: Secure Boot is now officially supported. A new machine, `phyboard-lyra-am62xx-4`, has been introduced to automatically sign all bootloader images for Secure Boot enforced devices. All images supported by `phyboard-lyra-am62xx-3` are compatible with this new machine. Additionally, the `phytec-securiphy-image` is now available with the `securiphy` distribution, providing a full chain-of-trust Secure Boot implementation from BOOTROM to Linux. This distribution also enables additional security features.
+* **Xwayland**: XWayland is now integrated by default into the ampliphy distribution. As a result, the ampliphy-xwayland distribution has been consolidated into ampliphy.
+* **Linux Mainline**: A new distribution, `ampliphy-linux-mainline`, has been added. This distribution selects the latest Linux mainline kernel, allowing users to experience the most recent Linux version on the phyCORE-AM62x.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Remoteproc**:The remoteproc interface is now enabled in U-Boot. This allows co-processors to be started and firmware to be loaded directly from U-Boot. Additionally, Code Composer Studio can now be used with U-Boot insead of Linux to debug firmware via JTAG.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Partup Layout Configuration**: Corrected a faulty layout configuration in Partup packages built with the ampliphy-rauc distro. The filesystem type for the config and app partitions is now properly set to ext4, ensuring functionality and compatibility.
+* **GPIO Sysfs**: The missing GPIO directory in the Linux sysfs has been restored.
+* **LEDs**: LED functionality has been resolved and is now operational.
+* **Fan Hysteresis**: The GPIO fan hysteresis issue has been fixed. Hysteresis is now enabled, preventing the fan from toggling on and off continuously.
+* **Display Overlays**: Resolved issues with the PHYTEC AC200 and AC209a display overlays. Both overlays now function correctly, restoring full display capabilities.
+* **Ethernet Boot (1GB DDR)**: Resolved an issue preventing Ethernet boot on the phyCORE-AM62x SOM with the 1GB DDR option. Boot functionality is now fully operational.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
+* **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
+* **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+* **MCU MCAN**: Enabling MCAN interfaces located in the MCU domain (mcu_mcan) causes boot hangs. The issue is resolved in kernel tag ``v6.6.58-10.01.10-phy``.
+
+
+BSP-Yocto-Ampliphy-AM62x-PD24.1.0               2024-09-27
+==========================================================
+
+- Linux TI vendor kernel v6.6.32 (based on TI tag 10.00.08)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.00.08)
+- Yocto 5.0.3 (Scarthgap)
+- Qt 6.6
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am62xx-2
+ * phytec-headless-image/ampliphy
+ * phytec-initramfs-image/ampliphy
+ * phytec-headless-image/ampliphy-rauc
+ * phytec-headless-bundle/ampliphy-rauc
+ * phytec-headless-image/ampliphy-rt
+ * phytec-qt6demo-image/ampliphy-xwayland
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 5.0 (Scarthgap).
+* **OP-TEE 4.2**: Trusted Execution Environment updated to version 4.2.
+* **Watchdog**: Switched from Poky to using `systemd` watchdog, which would handle system restarts or shutdowns in case of failure.
+* **Kernel Recipe**: Kernel metadata handling with `.scc` (Source Code Control) files, integrating Poky's kernel recipe handling features.
+* **Qt Update**: Update to Qt6 and switch to `phytec-qt6demo-image`.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.6.
+* **R5F as General-Purpose Core**: New support for R5F cores being usable as general-purpose processors along with DM firmware.
+* **Low-Power Mode Overlay**: A new device tree overlay to manage low-power operations.
+* **PEB-X-005 Overlay**: Device-tree overlay support for a new expansion board related to EVSE (Electric Vehicle Supply Equipment) communication.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2024.04
+* **OSPI Partitions in Device Tree**: Defining OSPI flash partitions directly in the device tree.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Poweroff Fix**: The board now shuts down properly without triggering a reset via the watchdog.
+* **M4F Firmware Restart**: Fixed issues with restarting the M4F firmware.
+* **Bootloader via Ethernet**: Booting the bootloader through Ethernet is now functional.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
+* **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
+* **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+
+Updated PMIC Enables 1.4 GHz Performance
+----------------------------------------
+
+The AM62x A53 supports multiple Operating Performance Points (OPP) to optimize between energy efficie
+ncy and maximum performance. Since different CPU frequencies require different core voltages, Linux c
+an adjust the PMIC output accordingly.
+
+The PMIC originally installed on the phyCORE-AM62x provides a default voltage of 0.75V. However, PHYT
+EC has updated the PMIC to supply 0.85V, which is essential for operating at 1.4 GHz.
+
+With this updated PMIC supporting the 1.4 GHz OPP, we have enabled it by default in our BSP. For SOMs
+ equipped with the older PMIC version, the VDD_CORE output rail voltage must be adjusted. The followi
+ng U-Boot commands can be used to modify the voltage, though this change is not permanent and can be
+reverted.
+
+1. Select the I2C bus device 0:
+
+uboot:~# i2c dev 0
+
+2. Read the current voltage setting from register 0A on the PMIC:
+
+uboot:~# i2c md 30 0A 1
+
+3. Write the new voltage setting (0.85V) to the register:
+
+uboot:~#  i2c mw 30 0A 8A
+
+4. Set the necessary voltage steps in registers 34:
+
+uboot:~# i2c mw 30 34 0A
+uboot:~# i2c mw 30 34 07
+
+5. Verify the new voltage setting:
+
+uboot:~#  i2c md 30 0A 1
+
+
+PHYTEC customers will receive a Product Change Notification (PCN) regarding this update. If you haven't received yours, please reach out to us.
