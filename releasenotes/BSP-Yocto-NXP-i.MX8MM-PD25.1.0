@@ -1,0 +1,483 @@
+Release Notes i.MX8MM Linux BSP:
+================================
+
+BSP-Yocto-NXP-i.MX8MM-PD25.1.0          2025-3-28
+==================================================
+- Linux NXP Vendor Kernel v6.6.52-2.2.0-phy9 (based on NXP tag lf-6.6.52-2.2.0)
+- U-boot v2024.04-2.2.0-phy10 (based on NXP tag lf-6.6.52-2.2.0)
+- Yocto 5.0.8 LTS (scarthgap)
+- Qt 6.7.0
+- Op-tee 4.4.0
+- RAUC 1.13
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * phyboard-polis-imx8mm-5
+
+- phytec-provisioning-image:
+  * phyboard-polis-imx8mm-5
+  * phygate-tauri-l-imx8mm-2
+
+- phytec-securiphy-image:
+  * phyboard-polis-imx8mm-5
+  * phygate-tauri-l-imx8mm-2
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-5
+
+- phytec-headless-image:
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Kernel, Device Tree and Device Tree Overlays are now stored and loaded in a FIT Image Container
+- Switch to U-Boot standard boot for bootflow configuration
+- Support EFI boot
+- Using now poky kernel fragment handling and using new kernel defconfig "imx8_phytec_defconfig"
+- Added Qt6 demo "qtphy" multimedia support. Video playback now uses VPU
+  acceleration properly.
+
+Defeatured:
+-----------
+- removed phyboard-polis-imx8mm-4 machine
+- no Kernel and U-Boot update for phyboard-polis-imx8mn-2 machine
+- drop support for Toshiba tc358775 mipi-dsi bridge, populated on
+  phyCORE i.MX8MM. We now only support TI sn65dsi83 mipi-dsi bridge.
+- dropped support for PEB-AV-13
+- dropped support for ADIN1300 ethernet PHY
+
+Known Issues/Limitations:
+-------------------------
+- Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with
+  Scarthgap NXP-based BSPs can cause issues when building U-Boot or Linux kernel
+  tools for host use. If you encounter an "undefined reference" error, a
+  workaround is to prepend the host's binutils to the PATH
+  (i.e. 'export PATH=/usr/bin:$PATH'). Do this after sourcing the SDK
+  "environment-setup" file.
+- Reduction of CMA size to half for 1GiB RAM SoMs
+- Chromium does not build successfully.
+- Video playback on 1GiB RAM SoMs is not supported.
+- Modifying U-boot with Yocto's devtool can only be done by specifying
+  "--no-overrides" option.
+
+
+BSP-Yocto-NXP-i.MX8MM-PD23.1.0          2023-12-9
+==================================================
+- Linux NXP Vendor Kernel v5.15.71_2.2.2-phy3 (based on NXP tag lf-5.15.71-2.2.2)
+- U-boot v2021.04_2.2.0-phy5 (based on NXP tag lf-5.15.71-2.2.2)
+- Yocto 4.0.13 (kirkstone)
+- Qt 6.3
+- Op-tee 4.0
+- RAUC 1.10.1
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-4
+  * phyboard-polis-imx8mm-5
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-5
+
+- phytec-headless-image:
+  * phyboard-polis-imx8mn-2
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added support for phyCAM VM-020, with phyCAM-M and phyCAM-L support.
+- Overhaul of the existing camera examples:
+  - Consolidation of examples that share the same code base.
+  - More descriptive output, so it is easier for users to reconstruct it
+    to their own needs.
+- Add partup 1.0.0 and provide partup packages as an alternative way to
+  traditional WIC images for the initial flashing process. Using partup allows
+  for an easy and fast way to flash and configure eMMC and SD card devices in
+  one step. For instructions on how to use partup, please refer to the first
+  chapters of our BSP manual.
+- With kernel 5.15 the trusted key type trusted caam is supported
+- Updated to upstream OP-TEE support for better maintenance
+- Updated NXP code signing tool (cst) installation source to a git repository
+  instead of a not directly downloadable archive from NXP
+- RTC settings like Backup Switchover Mode are now configured over hwclock
+  and not device tree any more
+- Qt6 support
+- Update sn65dsi83 to upstream driver
+
+Issues fixed:
+-------------
+- Fixed U-Boot limited usable RAM size due to OPTEE
+- Fixed U-Boot standalone build for machine phyboard-polis-imx8mm-4
+- Raised audio volume to audible level
+- Disabled eth phy irq due to timing issue of open-drain buffer on SoM
+- Fixed a bug regarding SoM detection.
+  It was possible to read invalid eeprom data resulting in erroneous
+  changes to the device tree
+
+Defeatured:
+-----------
+- removed phyboard-polis-imx8mn-1 machine (carrier-board revision 1532.1)
+- AC168 (Display) support
+
+Known Issues/Limitations:
+-------------------------
+- The Qt6 demo "qtphy" has its multimedia page disabled, because video playback
+  is not properly hardware accelerated by the VPU currently. This issue may be
+  fixed in a future release. The multimedia page can still be enabled by
+  modifying qtphy's configuration file. Hardware accelerated video playback does
+  work using gstreamer pipeline.
+- Video playback on 1GiB RAM SoMs is not supported
+- ethernet auto-negotiation does not work when connecting two Polis boards
+  (only phyboard-polis-imx8mm-4 affected)
+- Bluetooth doesn't work after suspending/resuming the device.
+- SD card mmc mode for phyBOARD-Polis i.MX 8M Mini is limited to High Speed in U-Boot
+  for compatibility with older hardware.
+- Reduction of CMA size to half for 1GiB RAM SoMs
+- Chromium does not build successfully.
+
+
+BSP-Yocto-NXP-i.MX8MM-PD22.1.1		2022-05-22
+==================================================
+- Linux NXP Vendor Kernel v5.10.72_2.2.0-phy17 (based on NXP tag lf-5.10.72-2.2.0)
+- U-boot v2021.04_2.2.0-phy13 (based on NXP tag lf-5.10.72-2.2.0)
+- Yocto 3.3.x (hardknott)
+- Qt 5.15
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-4
+  * phyboard-polis-imx8mm-5
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-5
+
+- phytec-headless-image:
+  * phyboard-polis-imx8mn-1
+  * phyboard-polis-imx8mn-2
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added support for new machines:
+  * phyboard-polis-imx8mm-5 (Supports new carrier-board revision 1532.2)
+  * phyboard-polis-imx8mn-2 (Supports new carrier-board revision 1532.2)
+
+- Added new features:
+  * UUU Tool support for machine phyboard-polis-imx8mn-2 and phyboard-polis-imx8mm-5
+  * USB Support is now working correctly for phyboard-polis-imx8mn-2
+  * gpio-fan is now supported for phyboard-polis-imx8mn-2
+  * OPTEE is now enabled for all images by default
+  * phygate-tauri-l-imx8mm Analog-IO Adapter
+  * phyboard-polis-imx8mm-5 and phyboard-polis-imx8mn-2 CANFD uses now a
+    40MHz OCR
+  * added SD-Card reset to phyboard-polis-imx8mm-5 and phyboard-polis-imx8mn-2
+  * disabling EEPROM SoM detection and setting RAM sizes statically in
+    bootloader is now possible (see BSP manual)
+  * updated RAM Timings to the latest NXP Spreadsheet version (i.MX8MM)
+
+Issues fixed:
+-------------
+- camera support works now even when no display is connected
+- enabled internal pull-ups for debug UART
+- removed mouse cursor from QT5 demo on touch display
+- the TPM provision is now supported in the phytec-provisioning-image
+  and the trusted TPM key is usable for secure storage
+  (file encryption and integrity)
+- fixed suspend to ram on phygate-tauri-l-imx8mm
+- removed audio dummy device
+
+Known Issues/Limitations:
+-------------------------
+- the OPTEE feature limits the usable RAM space in U-Boot.
+- standalone U-Boot build does not work correctly for machine
+  phyboard-polis-imx8mm-4
+- ethernet auto-negotiation does not work when connecting two Polis boards
+  (only phyboard-polis-imx8mm-4 affected)
+- UUU Tool does not work with phyboard-polis-imx8mn-1
+- USB Type-A port only works with OTG cable plugged in with
+  phyboard-polis-imx8mn-1
+
+BSP-Yocto-NXP-i.MX8MM-PD22.1.0		2022-04-08
+==================================================
+- Linux NXP Vendor Kernel v5.10.72_2.2.0-phy4 (based on NXP tag lf-5.10.72-2.2.0)
+- U-boot v2021.04_2.2.0-phy5 (based on NXP tag lf-5.10.72-2.2.0)
+- Yocto 3.3.x (hardknott)
+- QT 5.15
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-4
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-4
+
+- phytec-headless-image:
+  * phyboard-polis-imx8mn-1
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Features:
+---------
+- Added new features:
+	- Devicetree overlay support
+	 * Convert PEB Adapter to devicetree overlay
+	 * use devicetree overlay for Tauri-L variants
+	- Flash eMMC from UUU (i.MX8M Mini)
+	- Add support for VM-017
+	- Add support for phyCAM-L
+	- 4GB RAM support (bootloader i.MX8M Mini)
+	- USB Host support (bootloader i.MX8M Mini)
+	- Add support for LTE Modem for Tauri-L
+	- The new RAUC bundle format "verity" was introduced. Verity bundles
+	  cannot be installed with previous releases. It is recommended to
+	  install the old "plain" bundle first to update existing systems and
+          then use the new "verity" bundle format. See
+	 https://rauc.readthedocs.io/en/latest/integration.html#bundle-format-migration		 for detailed information on changing the bundle format
+	- With PD22.1.0 RAUC systems make use of a new partitioning layout
+	  including a "config" partition. This partition can store persistent
+	  program configuration data which has to remain untouched across updates of
+	  the root filesystem. It is recommended to adapt this layout only for new
+	  devices. Existing devices already operating in the field may have to
+	  re-setup their flash layout in order to incorporate this change, if the
+	  default layout is being used.
+
+
+Defeatured:
+-----------
+- remove phyboard-polis-imx8mm-3
+- remove phygate-tauri-l-imx8mm-1
+
+Issues Fixed:
+-------------
+- Fix docker build
+- Tauri-L use DE pin for RS485
+
+Known Issues/Limitations:
+-------------------------
+- The Trusted TPM key initialisation is in the phytec-provisioning-image not working.
+  The NXP CAAM black key and Trusted Tee Key are supported in the
+  phytec-provisioning-image and can be used for file encryption and integrity.
+- UUU Tool does not work with phyboard-polis-imx8mn-1
+- USB Type-A port only works with OTG cable plugged in with phyboard-polis-imx8mn-1
+
+BSP-Yocto-FSL-i.MX8MM-PD21.1.0		2021-10-03
+==================================================
+- Linux NXP Vendor Kernel v5.4.70_2.3.0-phy4 (based on NXP tag rel_imx_v5.4.70_2.3.0)
+- U-boot v2020.04_2.3.0-phy3 (based on NXP tag rel_imx_v5.4.70_2.3.0)
+- Yocto 3.0.4 (zeus)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-3
+  * phyboard-polis-imx8mm-4
+
+- phytec-vision-image:
+  * phyboard-polis-imx8mm-3
+  * phyboard-polis-imx8mm-4
+
+- phytec-headless-image:
+  * phyboard-polis-imx8mn-1
+  * phygate-tauri-l-imx8mm-1
+  * phygate-tauri-l-imx8mm-2
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-4 (phyCORE-i.MX8MM 1518.2) with PEB-AV-10 Audio
+  * phygate-tauri-l-imx8mm-1
+  * phygate-tauri-l-imx8mm-2
+  * phyboard-polis-imx8mn-1
+
+- Added new features:
+	- Camera VM-016 Support (kernel)
+	- Secure boot (bootloader + kernel)
+	- Update PMIC driver to mainline (kernel)
+	- UUU Tool support (bootloader)
+	- PEB-AV-10 Rev.1 Audio support (kernel)
+	- 1GB RAM Support (bootloader)
+	- Add gstreamer examples
+	- Update RAUC to 1.5.1 to fix CVE-2020-25860
+
+
+Defeatured:
+-----------
+- remove phyboard-polis-imx8mm-2
+
+Issues Fixed:
+-------------
+- Backtrace after playing video in qt5
+
+Known Issues/Limitations:
+-------------------------
+- UUU Tool does not work with phyboard-polis-imx8mn-1
+- USB Type-A port only works with OTG cable plugged in with phyboard-polis-imx8mn-1
+
+BSP-Yocto-FSL-i.MX8MM-PD20.1.0		2020-26-06
+==================================================
+- Linux NXP Vendor Kernel v4.19.35_1.1.0-phy4 (based on NXP tag rel_imx_4.19.35_1.1.0)
+- U-boot v2019.04_1.1.0-phy5 (based on NXP tag rel_imx_4.19.35_1.1.0)
+- Yocto 2.7.1 (warrior)
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-2
+  * phyboard-polis-imx8mm-3
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-3 (phyCORE-i.MX8MM 1518.2)
+- Added new features:
+	- CANfd support (kernel)
+	- Booting from SPI NOR flash (bootloader)
+	- Watchdog support (bootloader + kernel)
+	- basic suspend & resume support (kernel)
+	- RAUC support (bootloader + kernel)
+	- USB Host support (bootloader)
+
+Defeatured:
+-----------
+- TPM support has been removed for this release
+
+Issues Fixed:
+-------------
+- Display dimming works now without noise
+
+Known Issues/Limitations:
+-------------------------
+- Backtrace after playing video in qt5
+
+BSP-Yocto-FSL-i.MX8MM-ALPHA2            2019-12-11
+==================================================
+- Linux NXP Vendor Kernel v4.19.35_1.0.0-phy2 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- U-boot v2019.04_1.0.0-phy2 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- Yocto 2.6.2 (thud)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+
+Tested Yocto Images:
+--------------------
+- phytec-qt5demo-image:
+  * phyboard-polis-imx8mm-2
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-2 (phyCORE-i.MX8MM 1518.1a)
+- Added new features:
+   * VPU support (kernel)
+   * GPU support (kernel)
+   * Enabled bluetooth support (kernel)
+   * display support with PEB-AV-10 (display extension board)
+
+
+Issues Fixed:
+-------------
+- Fixed PMIC issue which created constant load on one CPU while frequency
+  scaling
+
+
+Known Issues/Limitations:
+-------------------------
+- PEB-AV-10 creates noise when backlight is being dimmed
+- Backtrace after playing video
+- There is no userspace tools for TPM available yet
+- CAN FD is not fuctional
+
+
+BSP-Yocto-FSL-i.MX8MM-ALPHA1            2019-10-25
+==================================================
+
+- Linux NXP Vendor Kernel v4.19.35_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- U-boot v2019.04_1.0.0-phy1 (based on NXP tag rel_imx_4.19.35_1.0.0)
+- Yocto 2.6.2 (thud)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correct or stable.
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image:
+  * phyboard-polis-imx8mm-1
+
+
+Build Environment:
+------------------
+- Ubuntu 16.04 64-bit
+
+
+Features:
+---------
+- Added support for new machine:
+  * phyboard-polis-imx8mm-1
+- Booting from EMMC and SD-Card is supported
+- Added new features:
+   * EEPROM support (kernel)
+   * USB host support 2.0 (kernel)
+   * USB OTG support 2.0 (kernel)
+   * Ethernet 1 GBit (u-boot-imx/kernel)
+   * SD-card support (u-boot-imx/kernel)
+   * Support for RTC (kernel)
+   * basic display support with PEB-AV-09
+     (MIPI to LVDS bridge Texas Instruments SN65DSI83)
+   * SPI NOR flash (no booting possible)
+   * USER LED (kernel)
+   * mPCIe (kernel)
+   * wifi Serling-LWB (kernel)
+   * UART/RS485 (kernel)
+   * TPM (kernel)
+
+
+Known Issues/Limitations:
+-------------------------
+- Bluetooth is not fuctional
+- CAN FD is not fuctional
+- Software Reset does not work
+- There is no userspace tools for TPM available yet
+- graphic acceleration status unknown
+
+Changelog of Release Notes
+--------------------------
+2019-10-25
+  - initial version
+
