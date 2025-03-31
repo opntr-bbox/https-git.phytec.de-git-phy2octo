@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD-ALPHA1" release_uid="BSP-Yocto-Ampliphy-AM62Px-ALPHA1" soc="AM62Px" supported_builds="
+    phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04:phy5" />
+
+  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="github" fetch="https://github.com" />
+	<remote name="ti" fetch="git://git.ti.com" />
+	<remote name="QT6" fetch="https://code.qt.io/yocto" />
+
+	<default revision="scarthgap" remote="git.phytec" sync-j="8" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/BSP-Yocto-Ampliphy-AM62Px-ALPHA1">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="refs/tags/BSP-Yocto-Ampliphy-AM62Px-ALPHA1" />
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="534fc2cbd9f50e7ece802a0f9dd5847380ca7832" />
+	<project name="poky" remote="yocto" path="sources/poky" revision="9036bc090c771c710796e3690da59d3ebb96dcf1">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="67ad83dd7c2485dae0c90eac345007af6195b84d">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" revision="76b97796be1d0303436835e56d85d7316a1029d9" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="3cadb81ffaa9f03b92e302843cb22a9cd41df34b">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="92019beed22aed8847c585c568cfcf41ef4dc8b7" />
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/11.00.09">
+		<ignorebaselayer />
+		<sublayer path="meta-ti-bsp" />
+		<sublayer path="meta-ti-extras" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="0c191912421adff2f753e470056a9a525fbce760" />
+</manifest>
