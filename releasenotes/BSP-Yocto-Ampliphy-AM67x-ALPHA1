@@ -1,0 +1,36 @@
+BSP-Yocto-Ampliphy-AM67x-ALPHA1                 2025-03-31
+==========================================================
+
+- Linux TI vendor kernel v6.6.58 (based on TI tag 10.01.10)
+- U-Boot TI vendor v2024.04 (based on TI tag 10.01.10)
+- Yocto 5.0.7 (Scarthgap)
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am67xx-1
+ * phytec-headless-image/ampliphy-vendor
+
+Note: As this is an alpha release, the listed Yocto machine is supported but has not been tested.
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+This is the first alpha release for the phyCORE-AM67x. The following interfaces are currently working:
+
+* SD-Card
+* eMMC
+* RTC
+* EEPROM
+* I2C
+* Ethernet
+* USB 2.0
+* USB 3.0
+* PCIe
