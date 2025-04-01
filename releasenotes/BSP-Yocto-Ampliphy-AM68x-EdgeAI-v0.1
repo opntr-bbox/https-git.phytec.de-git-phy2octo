@@ -1,0 +1,38 @@
+BSP-Yocto-Ampliphy-AM68x-EdgeAI-v0.1                    2025-04-01
+==================================================================
+
+- Based on BSP-Yocto-Ampliphy-AM68x-PD24.1.0 and TI SDK-LINUX-AM68A 9.2
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+- U-Boot TI v2023.04 (based on TI tag 09.02.00.009)
+- Yocto Kirkstone
+- meta-edgeai-phytec (tag 09.02.01.00-phy1)
+
+Tested Yocto images:
+--------------------
+
+- ampliphy-xwayland/phytec-edgeai-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+Features:
+---------
+
+- Initial release including the phytec-edgeai-image based on the phytec-vision-image
+  to support the TI SDK EdgeAI on the phyCORE-AM68x/TDA4x.
+
+Known Issues
+------------
+
+- USB3 devices are not detected when connected to the dual role hub in case USB
+  is limited to 2.0 only.
+
+Changelog v0.1 2025-04-01
+-------------------------
+
+- Initial release
