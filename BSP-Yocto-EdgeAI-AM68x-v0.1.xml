@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD0.1" release_uid="BSP-Yocto-Ampliphy-AM68x-EdgeAI-v0.1" soc="AM68x" supported_builds="
+	<phytec pdn="PD0.1" release_uid="BSP-Yocto-EdgeAI-AM68x-v0.1" soc="AM68x" supported_builds="
 		phyboard-izar-am68x-2/phytec-edgeai-image/ampliphy-xwayland,
 		phyboard-izar-am68x-3/phytec-edgeai-image/ampliphy-xwayland"
-		release_type="topic" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04:phy2"/>
+		release_type="topic" bspextension="EdgeAI" build_container="phybuilder/yocto-ubuntu-22.04:phy2"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
