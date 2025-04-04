@@ -14,8 +14,10 @@
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 	<remote name="community" fetch="https://github.com/Freescale" />
 	<remote name="oe" fetch="https://github.com/openembedded" />
+	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
 	<remote name="OSSystems" fetch="https://github.com/OSSystems" />
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
@@ -27,12 +29,12 @@
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="4" />
 
-	<project name="poky" path="sources/poky" remote="yocto" upstream="scarthgap">
+	<project name="poky" path="sources/poky" remote="github.yocto" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" upstream="scarthgap">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />

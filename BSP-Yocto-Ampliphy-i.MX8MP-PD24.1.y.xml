@@ -11,19 +11,21 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
 	<remote name="fsl-community" fetch="https://github.com/Freescale"/>
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" path="sources/poky" remote="yocto">
+	<project name="poky" path="sources/poky" remote="github.yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -33,7 +35,7 @@
 		<sublayer path="meta-perl"/>
 	</project>
 	<project name="meta-freescale" path="sources/meta-freescale" remote="fsl-community"/>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.6" />
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer />
