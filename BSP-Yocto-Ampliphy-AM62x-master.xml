@@ -4,7 +4,7 @@
 		phyboard-lyra-am62xx-3/-c populate_sdk phytec-qt6demo-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-qt6demo-image/ampliphy"
-		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04" />
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-24.04" />
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
