@@ -5,7 +5,7 @@
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
-		phycore-stm32mp1-6/st-image-core/openstlinux-eglfs"
+		phycore-stm32mp1-6/st-image-core/openstlinux-weston"
 		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="github" fetch="https://github.com"/>
