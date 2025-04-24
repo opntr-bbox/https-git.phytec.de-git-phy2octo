@@ -5,7 +5,7 @@
 		phyboard-segin-stm32mp13x-2/st-bundle-weston/openstlinux-weston-rauc,
 		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston,
 		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston-rauc,
-		phyboard-segin-stm32mp13x-2/st-image-core/openstlinux-eglfs"
+		phyboard-segin-stm32mp13x-2/st-image-core/openstlinux-weston"
 		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="github" fetch="https://github.com"/>
