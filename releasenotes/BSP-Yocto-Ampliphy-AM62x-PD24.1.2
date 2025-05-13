@@ -61,6 +61,7 @@ New in this Release
 * **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
 * **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
 * **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+* **HS-SE Watchdog Reset**: On HS-SE devices, U-Boot is unable to configure the watchdog as a valid reset source in the Error Signaling Module (ESM). To work around this issue, enable ``CONFIG_ESM_K3`` in the A53 U-Boot defconfig (``configs/phycore_am62x_a53_defconfig``).
 
 
 BSP-Yocto-Ampliphy-AM62x-PD24.1.1               2024-12-20
