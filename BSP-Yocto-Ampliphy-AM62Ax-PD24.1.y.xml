@@ -58,4 +58,5 @@
 		<sublayer path="meta-ti-extras"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
 </manifest>
