@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="PD24.2.y" release_uid="BSP-Yocto-NXP-i.MX91-PD24.2.y" soc="iMX91" supported_builds="
-		phyboard-segin-imx91-1/phytec-headless-image/ampliphy-vendor,
+		phyboard-segin-imx91-1/phytec-headless-image phytec-mfg-image/ampliphy-vendor,
 		phyboard-segin-imx91-1/phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-segin-imx91-1/phytec-qt6demo-image/ampliphy-vendor,
 		phyboard-segin-imx91-1/phytec-provisioning-image/securiphy-vendor-provisioning,
