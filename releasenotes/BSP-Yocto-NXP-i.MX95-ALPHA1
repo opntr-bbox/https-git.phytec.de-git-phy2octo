@@ -1,7 +1,7 @@
-BSP-Yocto-NXP-i.MX95-ALPHA1                                           2025-05-28
+BSP-Yocto-NXP-i.MX95-ALPHA1                                           2025-06-02
 ================================================================================
 - Linux kernel v6.6.52-2.2.0-phy13 (LTS kernel)
-- U-Boot v2024.04-2.2.0-phy6
+- U-Boot v2024.04-2.2.0-phy14
 - System Manager 6.6.52-2.2.0-phy1
 - Optional Executable Image 6.6.52-2.2.0-phy1
 - Yocto 5.0.9 (scarthgap)
@@ -32,6 +32,7 @@ Features:
 - LVDS display support
 - GPU support
 - RTC support
+- USB 2.0 support (Linux)
 - Debug UART support
 - GBit Ethernet support (SoM + Carrier board)
 - Power Management support (suspend + frequency scaling)
@@ -52,5 +53,5 @@ Known Issues and Limitations:
 
 Changelog
 ---------
-2025-5-28
+2025-06-02
   - initial version
