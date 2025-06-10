@@ -15,11 +15,12 @@
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
-	<remote name="github" fetch="https://github.com"/>
-	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github.betafive" fetch="https://github.com/betafive"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc"/>
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
@@ -29,12 +30,12 @@
 	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap"/>
 	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="scarthgap"/>
-	<project name="poky" remote="yocto" path="sources/poky">
+	<project name="poky" remote="github.yocto" path="sources/poky">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -44,7 +45,7 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-arm"/>
@@ -57,5 +58,5 @@
 		<sublayer path="meta-ti-extras"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
-	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
+	<project name="meta-linux-mainline" path="sources/meta-linux-mainline" remote="github.betafive"/>
 </manifest>
