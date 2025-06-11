@@ -3,7 +3,8 @@
 	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-NXP-i.MX95-PD25.1.y" soc="iMX95" supported_builds="
 		imx95-libra-fpsc-1/phytec-headless-image/ampliphy-vendor,
 		imx95-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor,
-		imx95-libra-fpsc-1/phytec-vision-image/ampliphy-vendor"
+		imx95-libra-fpsc-1/phytec-vision-image/ampliphy-vendor,
+		imx95-libra-fpsc-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-22.04" />
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
