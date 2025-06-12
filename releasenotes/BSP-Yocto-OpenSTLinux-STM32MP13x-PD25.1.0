@@ -1,0 +1,96 @@
+Release Notes STM32MP13x OpenSTLinux BSP:
+========================================
+
+BSP-Yocto-OpenSTLinux-STM32MP13x-PD25.1.0 2025-06-12
+====================================================
+- Linux ST Vendor Kernel v6.6.48
+  * Tag v6.6-phy1
+- U-boot ST Vendor v2023.10
+  * Tag v2023.10-phy1
+- TF-A ST Vendor v2.10
+  * Tag v2.10-phy1
+- OP-TEE ST Vendor 4.0.0
+  * Tag 4.0.0-phy1
+
+- Linux integration from STM32MP1-ecosystem-v6.0.2: "openstlinux-6.6-yocto-scarthgap-mpu-v25.03.19"
+  (based on Yocto Scarthgap 5.0.3)
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phyboard-segin-stm32mp13x-1
+  * phyboard-segin-stm32mp13x-2
+
+- st-image-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phyboard-segin-stm32mp13x-2
+
+- st-image-core (DISTRO=openstlinux-weston) on:
+  * phyboard-segin-stm32mp13x-2
+
+NOTES:
+1) eglfs DISTRO is not supported anymore. But it can still be used if necessary as ST provides the distro file as sample in meta-st-openstlinux.
+2) meta-qt5 is not part of the BSP anymore. The layer has to be added manually if needed.
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Fixes provided by OpenSTLinux v5.x and v6.0:
+  For more details on those fixes, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note
+       * OpenSTLinux v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note
+
+- Fixes provided by PHYTEC BSP adaptation:
+    * BSP build env initialization:
+    The first created build directory name is now named "build" by default instead of "build-<DISTRO>-<MACHINE>".
+    The old name was quite long and the build could fail because file names exceed the maximum size supported by the file system
+    (as Yocto is using absolute directory path to give names to intermediate files).
+
+Features:
+---------
+- New features provided by OpenSTLinux v5.x and v6.0:
+  For more details on the features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note
+       * OpenSTLinux v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note
+
+- Existing features (from PD23.1.1 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Segin addons support:
+    * PEB-EVAL-01 (evaluation board with UART debug console, JTAG, user leds and buttons)
+    * PEB-AV-01 (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touch screen display support
+    * PEB-AV-02 with AC093-T EDT 7" resistive touch screen display support
+    * phyCAM-P VM-016 BW & COL
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (u-boot/kernel)
+    * Ethernet on SOM - 100Mpbs (u-boot/kernel)
+    * Ethernet on Segin board - 100Mpbs (kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support - TLV320AIC3007 (kernel)
+    * RTC - RV-4162-C7 (kernel)
+    * PWM (kernel)
+    * LTDC parralel display interface (kernel)
+    * DCMIPP camera interface (kernel)
+    * GPIOs (u-boot/kernel)
+    * User buttons and leds support (kernel)
+
+  * Software Update support:
+    RAUC support through our "openstlinux-weston-rauc" distribution (https://rauc.io/). Support is based on TF-A firmware update feature.
+
+    Note: TF-A firmware update feature is not enabled by default. This feature is only enabled with our rauc distro.
+    If necessary, it can be enabled without using rauc, just adding the following machine feature in the machine.conf file:
+    MACHINE_FEATURES += "fw-update"
