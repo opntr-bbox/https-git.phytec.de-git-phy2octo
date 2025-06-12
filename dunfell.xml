@@ -12,6 +12,7 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5"/>
 	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 
@@ -42,7 +43,7 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto"/>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">

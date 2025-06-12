@@ -17,6 +17,8 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.phytec" fetch="https://github.com/phytec"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5"/>
 	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 
@@ -27,7 +29,7 @@
 	</project>
 	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="kirkstone"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
-	<project name="phytec/meta-summit-radio" path="sources/meta-summit-radio" remote="github">
+	<project name="meta-summit-radio" path="sources/meta-summit-radio" remote="github.phytec">
 		<ignorebaselayer/>
 		<sublayer path="meta-summit-radio"/>
 	</project>
@@ -52,7 +54,7 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
