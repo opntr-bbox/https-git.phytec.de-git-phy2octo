@@ -49,7 +49,7 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.6"/>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.8"/>
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
