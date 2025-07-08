@@ -1,0 +1,54 @@
+BSP-Yocto-Ampliphy-AM62Lx-ALPHA1                2025-07-11
+==========================================================
+
+- Linux TI vendor kernel v6.12.33 (based on TI tag 11.01.02)
+- U-Boot TI vendor v2025.01 (based on TI tag 11.01.02)
+- Yocto 5.0.10 (Scarthgap)
+
+Tested Yocto Machines:
+----------------------
+
+- am62lxx-libra-fpsc-1
+ * phytec-qt6demo-image/ampliphy-vendor
+- am62lxx-libra-fpsc-2
+ * phytec-qt6demo-image/ampliphy-vendor
+
+Note: As this is an alpha release, the listed Yocto machine is supported but has not been tested.
+
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release:
+--------------------
+
+This is the first alpha release for the phyCORE-AM62Lx FPSC. The following interfaces are currently working:
+
+* SD-Card
+* eMMC
+* QSPI-Flash
+* RTC
+* EEPROM
+* Temperature sensors
+* RS232
+* RS485
+* CAN FD
+* 2x GBit Ethernet
+* LVDS 10" Display
+* ADC (onboard)
+* USB 2.0
+
+Booting is supported from:
+
+* SD-Card
+* eMMC (UDA with filesystem mode only)
+* USB DFU
+* UART
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* CAN bit rates >= 1 Mbit/s don't work
