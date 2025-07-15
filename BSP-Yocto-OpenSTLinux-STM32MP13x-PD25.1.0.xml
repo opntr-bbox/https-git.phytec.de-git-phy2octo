@@ -6,7 +6,7 @@
 		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston,
 		phyboard-segin-stm32mp13x-2/st-image-weston/openstlinux-weston-rauc,
 		phyboard-segin-stm32mp13x-2/st-image-core/openstlinux-weston"
-		release_type="major" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="major" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy5"/>
 
 	<remote name="github" fetch="https://github.com"/>
 	<remote name="oe" fetch="https://github.com/openembedded"/>
