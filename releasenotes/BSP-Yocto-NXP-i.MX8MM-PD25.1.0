@@ -64,6 +64,11 @@ Known Issues/Limitations:
 - Video playback on 1GiB RAM SoMs is not supported.
 - Modifying U-boot with Yocto's devtool can only be done by specifying
   "--no-overrides" option.
+- 4GB RAM SoM will not boot with following message:
+  "Insufficient RAM for page table: 0x21000 > 0x20000. Please increase the size in get_page_table_size() resetting ..."
+  A Fix is available in our u-boot-phytec-imx repo:
+    fbde0b0b35f board: phycore-imx8mm: fix paging boot panic on 4GiB RAM variant
+    https://github.com/phytec/u-boot-phytec-imx/commit/fbde0b0b35f0d89c80177282a31984bea69042ba
 
 
 BSP-Yocto-NXP-i.MX8MM-PD23.1.0          2023-12-9
