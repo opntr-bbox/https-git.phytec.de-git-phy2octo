@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
-	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-Ampliphy-AM62x-PD24.1.y" soc="AM62x" supported_builds="
+	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-Ampliphy-AM62x-PD25.1.y" soc="AM62x" supported_builds="
 		phyboard-lyra-am62xx-2/phytec-qt6demo-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy,
 		phyboard-lyra-am62xx-3/phytec-headless-image/ampliphy-rauc,
