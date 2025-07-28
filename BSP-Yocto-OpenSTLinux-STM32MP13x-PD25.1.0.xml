@@ -25,7 +25,7 @@
 	<project name="meta-st-scripts" path="layers/meta-st/scripts" remote="OpenSTLinux" revision="27b8b0df3b2f3515d5e51de65f54eff00ddacb82"/>
 	<project name="meta-rauc" path="layers/meta-rauc" remote="rauc" revision="a0f4a8b9986954239850b9d4256c003c91e6b931"/>
 	<project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="336eec6808710f260a5336ca8ca98139a80ccb14"/>
-	<project name="meta-phytec" path="layers/meta-phytec" revision="202f5699f1a6dd03521abfdf9b4a7252562beb5c"/>
+	<project name="meta-phytec" path="layers/meta-phytec" revision="0f3c4923328ac0a19427e77382a472cccd34a34c"/>
 	<project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" revision="8230b66580dea0463a599b578c82b2c7ae2cbb3e">
 		<!-- init script used by phyLinux needs to be in tools directory -->
 		<copyfile dest="tools/init" src="scripts/init"/>
