@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <phytec pdn="PD25.1.y" release_uid="BSP-Yocto-NXP-i.MX8MP-PD25.1.y" soc="iMX8MP" supported_builds="
+    phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
+    phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor,
+    phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
+    imx8mp-libra-fpsc-1/phytec-headless-image/ampliphy-vendor,
+    imx8mp-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor,
+    imx8mp-libra-fpsc-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
+    release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04"/>
+
+  <remote name="git.phytec"     fetch="git://git.phytec.de"/>
+  <remote name="ssh.phytec"     fetch="ssh://git@git.phytec.de"/>
+  <remote name="yocto"          fetch="git://git.yoctoproject.org"/>
+  <remote name="github.yocto"   fetch="https://github.com/yoctoproject"/>
+  <remote name="oe"             fetch="git://git.openembedded.org"/>
+  <remote name="clang"          fetch="https://github.com/kraj" />
+  <remote name="OSSystems"      fetch="https://github.com/OSSystems" />
+  <remote name="github.oe"      fetch="https://github.com/openembedded"/>
+  <remote name="github.rauc"    fetch="https://github.com/rauc"/>
+  <remote name="QT6"            fetch="https://code.qt.io/yocto" />
+  <remote name="fsl-community"  fetch="https://github.com/Freescale"/>
+  <remote name="imx"            fetch="https://github.com/nxp-imx"/>
+  <remote name="imx-support"    fetch="https://github.com/nxp-imx-support"/>
+
+  <default revision="walnascar" remote="git.phytec" sync-j="8"/>
+
+  <project name="poky" path="sources/poky" remote="github.yocto">
+    <ignorebaselayer/>
+    <sublayer path="meta"/>
+    <sublayer path="meta-poky"/>
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
+    <ignorebaselayer/>
+    <sublayer path="meta-oe"/>
+    <sublayer path="meta-networking"/>
+    <sublayer path="meta-python"/>
+    <sublayer path="meta-multimedia"/>
+    <sublayer path="meta-filesystems"/>
+    <sublayer path="meta-perl"/>
+  </project>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="fsl-community" revision="7431918c86ac6d3be2a273e091227157446960a7" upstream="master"/>
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="fsl-community" revision="b9c3536b68271c420fe5de36fc284781ceaa32ab" upstream="master" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
+  <project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.9" />
+  <project name="meta-arm" path="sources/meta-arm" remote="yocto">
+    <ignorebaselayer />
+    <sublayer path="meta-arm"/>
+    <sublayer path="meta-arm-toolchain"/>
+  </project>
+  <project name="meta-clang" path="sources/meta-clang" remote="clang" revision="2c9678cce413fa6c6c84a8a631f4635a4f862f11"/>
+  <project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="f988d616d37ddf160d3d747ed54d0a66d549f499">
+    <ignorebaselayer />
+    <sublayer path="meta-chromium"/>
+  </project>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="784ca4b6584101e971b2d5d76ec7b716ad1301b5">
+    <sublayer path="meta-parsec"/>
+    <sublayer path="meta-tpm"/>
+  </project>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="4fedb61ebf60745a367d857af255006bd3509a39"/>
+  <project name="meta-imx" path="sources/meta-imx" remote="imx" revision="refs/tags/rel_imx_6.12.20_2.0.0" upstream="walnascar-6.12.20.2.0.0">
+    <ignorebaselayer />
+    <sublayer path="meta-imx-bsp"/>
+    <sublayer path="meta-imx-sdk"/>
+    <linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
+    <linkfile src="README" dest="README-IMXBSP" />
+  </project>
+  <project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+  <project name="meta-phytec" path="sources/meta-phytec">
+    <copyfile dest="tools/init" src="scripts/init"/>
+  </project>
+  <project name="meta-qt6-phytec" path="sources/meta-qt6-phytec"/>
+</manifest>
