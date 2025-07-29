@@ -1,0 +1,135 @@
+Release Notes STM32MP15x OpenSTLinux BSP:
+=========================================
+
+BSP-Yocto-OpenSTLinux-STM32MP15x-PD25.1.0 2025-06-12
+====================================================
+- Linux ST Vendor Kernel v6.6.48
+  * Tag v6.6-phy1
+- U-boot ST Vendor v2023.10
+  * Tag v2023.10-phy1
+- TF-A ST Vendor v2.10
+  * Tag v2.10-phy1
+- OP-TEE ST Vendor 4.0.0
+  * Tag 4.0.0-phy1
+- Linux integration from STM32MP1-ecosystem-v6.0.2: "openstlinux-6.6-yocto-scarthgap-mpu-v25.03.19"
+  (based on Yocto Scarthgap 5.0.3)
+
+STM32CubeMP1 Package for Cortex-M4 development
+----------------------------------------------
+- v1.6.0-phy1: STM32CubeMP1 v1.6.0 + phyBOARD-Sargas board support
+  https://wiki.st.com/stm32mpu/wiki/STM32CubeMP1_Package_release_note_-_v1.6.0
+
+Note:
+This is still the same STM32CubeMP1 version as previous BSP PD23.1.1.
+However a newer version "v1.7.0" bring by  STM32MP1-ecosystem-v6.0 could be used for newer developpment.
+STM32CubeMP1 v1.7.0 release note: https://wiki.st.com/stm32mpu/wiki/STM32CubeMP15_Package_release_note_-_v1.7.0
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-3
+  * phycore-stm32mp1-4
+
+- st-image-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phycore-stm32mp1-3
+
+- st-bundle-weston (DISTRO=openstlinux-weston-rauc) on:
+  * phycore-stm32mp1-3
+
+- st-image-core (DISTRO=openstlinux-weston) on:
+  * phycore-stm32mp1-6
+
+NOTES:
+1) eglfs DISTRO is not supported anymore. But it can still be used if necessary as ST provides the distro file as sample in meta-st-openstlinux.
+2) meta-qt5 is not part of the BSP anymore. The layer has to be added manually if needed (meta-qt5 or meta-qt6).
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+Fixes Issues:
+-------------
+- Fixes provided by OpenSTLinux v5.x and v6.0:
+  For more details on those fixes, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note
+       * OpenSTLinux v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note
+
+- Fixes provided by PHYTEC BSP adaptation:
+    * Fix ONFI nand initialization:
+       Some NAND device failed to boot (at TF-A boot stage) due to corrupted NAND parameter page.
+       Add a fix to comply with the ONFI specification reading the redundant parameter page copies.
+
+    * BSP build env initialization:
+       The first created build directory name is now named "build" by default instead of "build-<DISTRO>-<MACHINE>".
+       With the old name, the build could fails because file names exceed the maximum size supported
+       by the file system (as Yocto is using absolute directory path to give names to intermediate files).
+
+Features:
+---------
+- New features provided by OpenSTLinux v5.x and v6.0:
+    For more details on those new features, please refer to the following ST relase notes:
+       * STM32MP1-ecosystem-v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note
+       * OpenSTLinux v6.0: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_ecosystem_release_note
+
+- New features provided by PHYTEC BSP adaptation:
+     * OP-TEE is now activated by default. SP-MIN is not supported anymore.
+
+- Existing features (from PD23.1.1 PHYTEC BSP release):
+  * Boot support:
+    * Boot from SD-card / eMMC / NAND / NOR-eMMC (Linux boot on eMMC)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * NAND (u-boot/kernel)
+    * SPI NOR (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+
+  * phyBOARD-Sargas addons support:
+    * PEB-AV-01 support (HDMI module)
+    * PEB-AV-02 with AC158 EDT 7" capacitive touch screen display support
+    * MB1407 MIPI DSI screen support (4" touch screen display from STMicroelectronics)
+    * PEB-WLBT-05 (2.4Ghz and 5Ghz version) support (WLAN/Bluetooth expansion)
+    * phyCAM-P VM-016 BW & COL
+
+  * Peripherals support:
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel)
+    * RS485 (kernel)
+    * EEPROM (u-boot/kernel)
+    * USB-Host (u-boot/kernel)
+    * USB-OTG (u-boot/kernel)
+    * Ethernet - 100Mpbs/1Gbps (u-boot/kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * Audio codec support (Line IN/OUT, Headphone) - TLV320AIC3007 (kernel)
+    * RTC - RV-3028-C7 (kernel)
+    * LED dimmer - PCA9533/01 (kernel)
+    * User buttons support (kernel)
+    * TIMERs (kernel)
+    * ADCs (kernel)
+
+  * Software Update support:
+    RAUC support through our "openstlinux-weston-rauc" distribution (https://rauc.io/). Support is based on TF-A firmware update feature.
+
+    Note: TF-A firmware update feature is not enabled by default. This feature is only enabled with our rauc distro.
+    If necessary, it can be enabled without using rauc, just adding the following machine feature in the machine.conf file:
+    MACHINE_FEATURES += "fw-update"
+
+Known Issues/Limitations:
+-------------------------
+- Linux:
+  * With "st-image-weston" and "phycore-stm32mp-x" yocto machines, following errors appears at the end of the boot on phyBOARD-Sargas:
+
+    [ xxx ] st,stm32-sai-sub 4400a024.audio-controller: ASoC: error at snd_soc_dai_hw_params on 4400a024.audio-controller: -22
+    [ xxx ] st,stm32-sai-sub 4400a024.audio-controller: Data size 32 larger than slot width
+
+    Those errors appears several time when "wireplumber" is starting but sound is working correctly.
+    On "st-image-core", there is no issue as "pipewire" and "wireplumber" are not part of the image (only ALSA).
+
+- BSP build:
+  * Following qualily checks warnings can appear at build time, but you can ignore them:
+    "... uses 32-bit api ... Suppress with INSANE_SKIP ..."
+
+- STM32CubeMP1 (Cortex-M4):
+  * OpenAMP compilation issue with MDK-ARM when code generated through CubeMx:
+    To avoid compiling errors in OpenAMP when compiling in MDK-ARM IDE, you have to disable the « Use MicroLIB » in « Target » tab.
