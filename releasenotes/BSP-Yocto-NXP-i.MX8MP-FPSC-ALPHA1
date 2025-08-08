@@ -1,0 +1,59 @@
+BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1         2025-08-08
+====================================================
+
+- Linux NXP Vendor Kernel v6.6.52-2.2.0-phy20 (based on NXP tag lf-6.6.52-2.2.0)
+- U-boot v2024.04-2.0.0-phy21 (based on NXP tag lf-6.6.52-2.2.0)
+- Yocto 5.0.11 (Scarthgap)
+- Qt 6.7
+- OP-TEE 4.4
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phytec-qt6demo-image:
+  * imx8mp-libra-fpsc-1
+
+- phytec-vision-image:
+  * imx8mp-libra-fpsc-1
+
+- phytec-headless-image:
+  * imx8mp-libra-fpsc-1
+
+Build Environment:
+------------------
+- Ubuntu 20.04 64-bit
+
+New Features:
+-------------
+- Boot via USB serial download (uuu)
+- Boot from e.MMC
+- Boot from SD card
+- Ethernet Boot support
+- U-Boot standard boot (https://docs.u-boot.org/en/v2024.04/develop/bootstd.html#u-boot-standard-boot)
+- Overlay handling support
+- Debug UART support
+- Watchdog support
+- GBit Ethernet support (SoM + Carrier board)
+- i2c EEPROM
+- i2c LEDs
+- i2c RTC support
+- i2c GPIO expander
+- USB 3.0 Host support
+- USB C peripheral support (device only)
+- PCIe support
+- RS232 (no flow control)
+- CANfd
+- LVDS display on board support AC209
+- GPU support
+- SPI NOR flash (no booting possible yet)
+- Camera support
+    * VM-016 phyCAM-M / phyCAM-L
+    * VM-017 phyCAM-M / phyCAM-L
+    * VM-020 phyCAM-M / phyCAM-L
+- ISP support
+
+Known Issues/Limitations:
+-------------------------
+- RS232 hardware flow control is not working due to swapped pins on SoM
+- Video in Qt6 Demo hangs for few seconds before plays correctly using
+  hardware acceleration
