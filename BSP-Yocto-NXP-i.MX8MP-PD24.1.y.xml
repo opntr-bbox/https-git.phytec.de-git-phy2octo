@@ -11,7 +11,8 @@
 		phyboard-pollux-imx8mp-3/phytec-vision-image/ampliphy-vendor,
 		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
 		imx8mp-libra-fpsc-1/phytec-headless-image/ampliphy-vendor,
-		imx8mp-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor"
+		imx8mp-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor,
+		imx8mp-libra-fpsc-1/phytec-vision-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
