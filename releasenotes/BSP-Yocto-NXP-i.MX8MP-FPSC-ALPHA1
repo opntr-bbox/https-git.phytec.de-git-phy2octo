@@ -21,7 +21,7 @@ Tested Yocto Images:
 
 Build Environment:
 ------------------
-- Ubuntu 20.04 64-bit
+- Ubuntu 22.04 64-bit
 
 New Features:
 -------------
