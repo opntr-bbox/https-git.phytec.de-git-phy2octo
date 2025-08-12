@@ -46,3 +46,13 @@ Features:
    * PCIe
    * SATA
    * Audio
+
+Known Issues:
+-------------
+
+- Booting on ECC DRAM enabled SoMs fails due to missing CONFIG_TI_EDMA3
+  option in U-Boot bootloader. To fix the issue rebuild U-Boot with the
+  CONFIG_TI_EDMA3=y enabled or apply fix patch from u-boot-phytec-ti
+  repository:
+
+  https://github.com/phytec/u-boot-phytec-ti/commit/912262dfe518d16ca7ccea8e0fcb90cd74f0aa38

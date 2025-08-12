@@ -51,3 +51,4 @@ New in this Release
 ^^^^^^^^^^^^^^^^
 
 * PHYTEC's Qt demo is not running on Wayland anymore. The EGL support in the SGX GPU driver has issues with Wayland. Wayland can still be used for other applications then EGL. TI acknowledged to fix this problem in their 10.x SDK.
+* Booting on ECC DRAM enabled SoMs fails due to missing *CONFIG_TI_EDMA3* option in U-Boot bootloader. To fix the issue rebuild U-Boot with the *CONFIG_TI_EDMA3=y* enabled or apply fix patch from *u-boot-phytec-ti* repository: https://github.com/phytec/u-boot-phytec-ti/commit/e091c81f545ea28402cfdeb3b22813995d34b2c0
