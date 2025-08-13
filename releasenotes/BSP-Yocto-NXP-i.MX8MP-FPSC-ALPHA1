@@ -6,7 +6,6 @@ BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1         2025-08-11
 - Yocto 5.0.11 (Scarthgap)
 - Qt 6.7
 - OP-TEE 4.4
-- RAUC 1.14
 
 Tested Yocto Images:
 --------------------
