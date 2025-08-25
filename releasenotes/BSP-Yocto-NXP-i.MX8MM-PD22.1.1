@@ -58,6 +58,10 @@ Issues fixed:
 
 Known Issues/Limitations:
 -------------------------
+- When integrating new displays, issues may occur due to limited support for the LVDS
+  interface drivers in this release. This can affect compatibility with certain LVDS display panel
+  configurations. Customers experiencing problems are advised to update to a recent BSP release or
+  contact the PHYTEC FAE team for support and possible workarounds.
 - eMMC is in some occations not correctly detected during bootup when switching MMC modes.
   The clock handling during mode switch to higher speed grades has not been done correct
   in the U-boot fsl_esdhc_imx driver which leads to a violation of the MMC specification.
