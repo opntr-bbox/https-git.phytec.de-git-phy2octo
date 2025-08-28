@@ -2,6 +2,8 @@
 <manifest>
 	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-Ampliphy-AM67x-PD25.1.y" soc="AM67x" supported_builds="
 		phyboard-rigel-am67xx-1/phytec-headless-image/ampliphy-vendor,
+		phyboard-rigel-am67xx-1/phytec-headless-bundle/ampliphy-vendor-rauc,
+		phyboard-rigel-am67xx-1/phytec-headless-image/ampliphy-vendor-rt,
 		phyboard-rigel-am67xx-1/phytec-qt6demo-image/ampliphy-vendor,
 		phyboard-rigel-am67xx-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
