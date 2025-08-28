@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
 	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-Ampliphy-AM62Px-PD25.1.y" soc="AM62Px" supported_builds="
-		phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor"
+		phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor,
+		phyboard-lynx-am62pxx-1/phytec-headless-bundle/ampliphy-vendor-rauc,
+		phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor-rt,
+		phyboard-lynx-am62pxx-1/phytec-qt6demo-image/ampliphy-vendor,
+		phyboard-lynx-am62pxx-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
