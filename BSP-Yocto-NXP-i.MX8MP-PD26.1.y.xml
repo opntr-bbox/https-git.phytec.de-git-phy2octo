@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <phytec pdn="PD25.1.y" release_uid="BSP-Yocto-NXP-i.MX8MP-PD25.1.y" soc="iMX8MP" supported_builds="
+  <phytec pdn="PD26.1.y" release_uid="BSP-Yocto-NXP-i.MX8MP-PD26.1.y" soc="iMX8MP" supported_builds="
     phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
     phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor,
     phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
