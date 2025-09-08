@@ -2,7 +2,7 @@ BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1         2025-08-11
 ====================================================
 
 - Linux NXP Vendor Kernel v6.6.52-2.2.0-phy20 (based on NXP tag lf-6.6.52-2.2.0)
-- U-boot v2024.04-2.0.0-phy21 (based on NXP tag lf-6.6.52-2.2.0)
+- U-boot v2024.04-2.2.0-phy21 (based on NXP tag lf-6.6.52-2.2.0)
 - Yocto 5.0.11 (Scarthgap)
 - Qt 6.7
 - OP-TEE 4.4
