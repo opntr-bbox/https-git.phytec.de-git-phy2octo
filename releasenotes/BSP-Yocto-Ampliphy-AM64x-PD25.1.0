@@ -1,8 +1,8 @@
 BSP-Yocto-Ampliphy-AM64x-PD25.1.0               2024-03-28
 ==========================================================
 
-- Linux kernel v6.12.8
-- U-Boot v2025.01
+- Linux kernel v6.12.8-phy4
+- U-Boot v2025.01-phy2
 - Yocto 5.0.7 (Scarthgap)
 
 
