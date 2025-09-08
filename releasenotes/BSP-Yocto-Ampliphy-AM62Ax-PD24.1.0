@@ -1,8 +1,8 @@
 BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0              2024-09-27
 ==========================================================
 
-- Linux TI vendor kernel v6.6.32 (based on TI tag 10.00.08)
-- U-Boot TI vendor v2024.04 (based on TI tag 10.00.08)
+- Linux TI vendor kernel v6.6.32-10.00.08-phy2 (based on TI tag 10.00.08)
+- U-Boot TI vendor v2024.04-10.00.08-phy2 (based on TI tag 10.00.08)
 - Yocto 5.0.3 (Scarthgap)
 - Qt 6.6
 
