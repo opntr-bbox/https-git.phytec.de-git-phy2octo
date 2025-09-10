@@ -57,5 +57,3 @@ Booting is supported from:
 
 **Known Issues**
 ^^^^^^^^^^^^^^^^
-
-* CAN bit rates >= 1 Mbit/s don't work
