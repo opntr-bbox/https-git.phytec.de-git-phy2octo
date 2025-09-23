@@ -4,6 +4,7 @@
 		phyboard-segin-imx6ul-2/phytec-headless-image/ampliphy,
 		phyboard-segin-imx6ul-2/phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy,
+		phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy-linux-mainline,
 		phyboard-segin-imx6ul-6/phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-6/phytec-vision-image/ampliphy,
 		phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy-rauc,
@@ -11,16 +12,19 @@
 		phyboard-segin-imx6ul-6/phytec-securiphy-image/securiphy,
 		phyboard-segin-imx6ul-6/-c populate_sdk phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy,
+		phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy-linux-mainline,
 		phyboard-segin-imx6ul-7/phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-7/phytec-vision-image/ampliphy,
 		phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy-rauc,
 		phyboard-segin-imx6ul-7/phytec-headless-bundle/ampliphy-rauc,
 		phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy,
+		phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy-linux-mainline,
 		phyboard-segin-imx6ul-8/phytec-qt5demo-image/ampliphy,
 		phyboard-segin-imx6ul-8/phytec-securiphy-image/securiphy,
 		phyboard-segin-imx6ul-8/phytec-securiphy-bundle/securiphy,
 		phyboard-segin-imx6ul-8/phytec-provisioning-image/securiphy-provisioning,
 		phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy,
+		phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy-linux-mainline,
 		phygate-tauri-s-imx6ul-1/phytec-securiphy-image/securiphy,
 		phygate-tauri-s-imx6ul-1/phytec-securiphy-bundle/securiphy,
 		phygate-tauri-s-imx6ul-1/phytec-provisioning-image/securiphy-provisioning"
@@ -58,6 +62,7 @@
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
 	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="scarthgap"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
