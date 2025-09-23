@@ -1,0 +1,62 @@
+BSP-Yocto-Ampliphy-AM64x-PD25.2.0               2025-09-30
+==========================================================
+
+- Linux kernel v6.12.8-phy7
+- U-Boot v2025.07-phy5
+- Yocto 5.0.12 (Scarthgap)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-bundle/ampliphy-rauc
+- phyboard-electra-am64xx-3
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-bundle/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to Scarthgap (5.0.12).
+* **Ethernet Names**: Ethernet interfaces have now predictable names with endX. Previous names with ethX are still supported as alternative names.
+* **Introduce Ampliphy-Boot**: PHYTEC's new boot flow based on U-Boot Standard Boot.
+* **Remoteproc Udev Rules**: Added udev rules for remoteproc cores.
+* **Initramfs**: An initramfs image is now deployed automatically alongside the container image.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.12.8 (tag: v6.12.8-phy7) with various improvements and bug fixes.
+* **PEB-C-010 Overlay**: Add PEB-C-010 overlay with support for two additional Ethernet interfaces.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.07 (tag: v2025.07-phy5) with various improvements and bug fixes.
+* **Watchdog Update**: Start watchdog during the Linux boot process to capture boot failures.
+* **RAUC**: Use U-Boot’s bootmeth-rauc for handling RAUC updates.
+* **Capsule Updates**: Began deploying binaries to support U-Boot’s capsule update mechanism.
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Remoteproc Driver**: The `remoteproc` driver no longer hangs when when re-starting an R5F core.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
