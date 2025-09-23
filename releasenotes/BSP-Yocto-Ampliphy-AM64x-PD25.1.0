@@ -15,7 +15,7 @@ Tested Yocto Machines:
   * phytec-headless-image/ampliphy-rt
   * phytec-headless-image/ampliphy-rauc
   * phytec-headless-bundle/ampliphy-rauc
-- phyboard-electra-am64xx-2
+- phyboard-electra-am64xx-3
   * phytec-headless-image/ampliphy
   * phytec-securiphy-image/securiphy
   * phytec-securiphy-bundle/securiphy
