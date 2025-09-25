@@ -1,0 +1,45 @@
+BSP-Yocto-Ampliphy-AM67x-PD25.1.0              2025-09-30
+=========================================================
+
+- Linux TI vendor kernel v6.12.35-11.01.05-phy6 (based on TI tag 11.01.05)
+- U-Boot v2025.07-phy6
+- Yocto 5.0.12 (Scarthgap)
+- Qt 6.6
+
+
+Tested Yocto Machines:
+----------------------
+ - phyboard-rigel-am67xx-1
+  * phytec-headless-image/ampliphy-vendor
+  * phytec-headless-bundle/ampliphy-vendor-rauc
+  * phytec-headless-image/ampliphy-vendor-rt
+  * phytec-qt6demo-image/ampliphy-vendor
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+This is the first release for the phyCORE-AM67x. The following interfaces are currently working:
+
+* SD-Card
+* eMMC
+* RTC
+* EEPROM
+* I2C
+* Ethernet
+* USB 2.0
+* PCIe
+
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **USB 0**: usb0 works as a DFP (host) only on .1 carrierboards.
+* **USB 1**: usb1 is only capable of USB 2.0 on .1 carrierboards.
+* **Audio**: recording with the microphone does not work.
