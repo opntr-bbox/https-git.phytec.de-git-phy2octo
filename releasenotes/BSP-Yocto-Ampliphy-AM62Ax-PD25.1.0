@@ -1,0 +1,65 @@
+BSP-Yocto-Ampliphy-AM62Ax-PD25.1.0              2025-09-30
+==========================================================
+
+- Linux TI vendor kernel v6.12.35-11.01.05-phy6 (based on TI tag 11.01.05)
+- U-Boot v2025.07-phy6
+- Yocto 5.0.12 (Scarthgap)
+- Qt 6.8
+
+
+Tested Yocto Machines:
+----------------------
+
+ - phyboard-lyra-am62axx-1
+  * phytec-qt6demo-image/ampliphy-xwayland
+ - phyboard-lyra-am62axx-2
+  * phytec-headless-image/ampliphy
+  * phytec-headless-bundle/ampliphy-rauc
+  * phytec-headless-image/ampliphy-rt
+  * phytec-qt6demo-image/ampliphy
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+In this release we switched away from the vendor bootloader.
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to Scarthgap (5.0.12)
+* **Ethernet Names**: Ethernet interfaces have now predictable names with endX. Previous names with ethX are still supported as alternative names.
+* **Introduce Ampliphy-Boot**: PHYTEC's new boot flow based on U-Boot Standard Boot.
+* **Remoteproc Udev Rules**: Added udev rules for remoteproc cores.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to v6.12.35 (tag: v6.12.35-11.01.05-phy6)
+* **New Wifi/BL Overlay** Introduced the M2-CC3351 overlay for the new M.2 WiFi/BT module.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.07 (tag: v2025.07-phy6) with various improvements and bug fixes.
+* **Watchdog Update**: Start watchdog during the Linux boot process to capture boot failures.
+* **RAUC Boot Update**: Use U-Boot's bootmeths RAUC
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **USB I/O Errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+* **Boot Hang Issue**: The first-stage bootloader occasionally hangs in about 1% of all boot attempts on High Secure devices.
+* **/dev/watchdog1**: A wrong interrupt source is configured in the Error Signaling Module (ESM) for ``/dev/watchdog1``, which should not be used. Systemd uses /dev/watchdog0 and is therefore unaffected by this issue.
+
