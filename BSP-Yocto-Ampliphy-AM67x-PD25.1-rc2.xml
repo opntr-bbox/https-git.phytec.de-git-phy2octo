@@ -21,7 +21,7 @@
 	<project name="meta-phytec" path="sources/meta-phytec" revision="538a43311cd7448d5f68f49b3420e198d443da1d">
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="705f4b09a7148ca39b37afbc178b88a60474af7e" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="a9f5e03a51f7ec2a3ba80df4bc5cd23852f1d7cb" />
 	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="b3e31d1ae604cb1d7bc4bcd6463cb180034b1f57" />
 	<project name="poky" remote="yocto" path="sources/poky" revision="6400741e0c11d1620a5ebe394d24deec295236f9">
 		<ignorebaselayer />
