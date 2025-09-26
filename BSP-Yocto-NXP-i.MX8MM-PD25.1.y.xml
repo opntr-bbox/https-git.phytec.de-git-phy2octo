@@ -14,7 +14,7 @@
 		phygate-tauri-l-imx8mm-2/phytec-provisioning-image/securiphy-vendor-provisioning,
 		phygate-tauri-l-imx8mm-2/phytec-securiphy-image/securiphy-vendor,
 		phygate-tauri-l-imx8mm-2/phytec-securiphy-bundle/securiphy-vendor"
-		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04" />
+		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-22.04" />
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
 	<remote name="community" fetch="https://github.com/Freescale" />
