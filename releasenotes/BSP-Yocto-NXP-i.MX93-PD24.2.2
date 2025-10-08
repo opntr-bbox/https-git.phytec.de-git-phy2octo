@@ -80,6 +80,12 @@ Known Issues:
   workaround is to prepend the host's binutils to the PATH
   (i.e. 'export PATH=/usr/bin:$PATH'). Do this after sourcing the SDK
   "environment-setup" file.
+- On phyCORE-i.MX 93 SoM PCB rev 4, SoM PHY LEDs functionality is swapped on
+  PD24.2.2 release - the RJ45 green LED is blinking for TX/RX network activity
+  and an orange LED is indicating Link status. It should be vice-versa. This
+  happens because on SoM PCB rev 4, PHY is reset via the reset GPIO when the
+  kernel driver probes the Ethernet PHY causing all register values to be set
+  to default values.
 
 Notes:
 ------
