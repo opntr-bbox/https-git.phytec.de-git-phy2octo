@@ -46,5 +46,5 @@
 	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-qt6-phytec-dev" path="sources/meta-qt6-phytec" revision="master-next"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec"/>
 </manifest>
