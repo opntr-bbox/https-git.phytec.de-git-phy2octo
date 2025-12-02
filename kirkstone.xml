@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP15x-kirkstone-next" soc="STM32MP15x" supported_builds="
+	<phytec pdn="kirkstone" release_uid="BSP-Yocto-OpenSTLinux-STM32MP15x-kirkstone" soc="STM32MP15x" supported_builds="
 		phycore-stm32mp1-3/st-bundle-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-6/st-image-core/openstlinux-eglfs"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
 	<remote name="oe" fetch="https://git.openembedded.org"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
-	<remote name="OpenSTLinux" fetch="https://github.com/STMicroelectronics"/>
-	<remote name="rauc" fetch="https://github.com/rauc"/>
+	<remote name="github.OpenSTLinux" fetch="https://github.com/STMicroelectronics"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8"/>
 
 	<project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="5a90927f31c4f9fccbe5d9d07d08e6e69485baa8"/>
 	<project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="402affcc073db39f782c1ebfd718edd5f11eed4c"/>
-	<project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="ae8a97f79364bed1abc297636f7933d0e35f22be"/>
-	<project name="meta-st-openstlinux" path="layers/meta-st/meta-st-openstlinux" remote="OpenSTLinux" revision="613b158e6ee5b575e7de1251eae389c72e376043"/>
-	<project name="meta-st-stm32mp" path="layers/meta-st/meta-st-stm32mp" remote="OpenSTLinux" revision="b7accec80a2903c75d4129cf2b3bf6e15f5410c0"/>
-	<project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" remote="OpenSTLinux" revision="f1a18b73343afd8dd5f9aa7f5b605d139fb9e4a8"/>
-	<project name="meta-st-scripts" path="layers/meta-st/scripts" remote="OpenSTLinux" revision="69e10d187debb1d4136af1c454b3dffd994c3de7"/>
-	<project name="meta-rauc" path="layers/meta-rauc" remote="rauc"/>
+	<project name="meta-qt5" path="layers/meta-qt5" remote="github.qt5" revision="ae8a97f79364bed1abc297636f7933d0e35f22be"/>
+	<project name="meta-st-openstlinux" path="layers/meta-st/meta-st-openstlinux" remote="github.OpenSTLinux" revision="613b158e6ee5b575e7de1251eae389c72e376043"/>
+	<project name="meta-st-stm32mp" path="layers/meta-st/meta-st-stm32mp" remote="github.OpenSTLinux" revision="b7accec80a2903c75d4129cf2b3bf6e15f5410c0"/>
+	<project name="meta-st-stm32mp-addons" path="layers/meta-st/meta-st-stm32mp-addons" remote="github.OpenSTLinux" revision="f1a18b73343afd8dd5f9aa7f5b605d139fb9e4a8"/>
+	<project name="meta-st-scripts" path="layers/meta-st/scripts" remote="github.OpenSTLinux" revision="69e10d187debb1d4136af1c454b3dffd994c3de7"/>
+	<project name="meta-rauc" path="layers/meta-rauc" remote="github.rauc"/>
 	<project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="ab2649ef6c83f0ae7cac554a72e6bea4dcda0e99"/>
 	<project name="meta-phytec" path="layers/meta-phytec" revision="kirkstone"/>
 	<project name="meta-st-openstlinux-phytec" path="layers/meta-st-openstlinux-phytec" revision="kirkstone">
