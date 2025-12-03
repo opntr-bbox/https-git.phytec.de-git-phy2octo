@@ -4,7 +4,7 @@
 		stm32mp25x-phyflex-libra-rdk-1/st-image-weston/openstlinux-weston,
 		stm32mp25x-phyflex-libra-rdk-1/st-image-core/openstlinux-weston,
 		stm32mp25x-phyflex-libra-rdk-2/st-image-weston/openstlinux-weston"
-		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
