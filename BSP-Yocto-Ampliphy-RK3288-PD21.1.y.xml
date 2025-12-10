@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<phytec pdn="PD21.1.y" release_uid="BSP-Yocto-Ampliphy-RK3288-PD21.1.y" soc="RK3288" supported_builds="
+		phycore-rk3288-3/phytec-headless-image/ampliphy-vanilla-master-u-boot-master"
+		release_type="archived" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
+
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
+
+	<default revision="hardknott" remote="git.phytec" sync-j="8"/>
+
+	<project name="poky" remote="yocto" path="sources/poky">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+	</project>
+	<project name="meta-rauc" remote="github.rauc" path="sources/meta-rauc"/>
+	<project name="meta-qt5" remote="github.qt5" path="sources/meta-qt5"/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="hardknott"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-fresh" path="sources/meta-fresh" revision="gatesgarth"/>
+</manifest>
