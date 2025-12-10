@@ -8,14 +8,14 @@
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-22.04" />
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git" />
-	<remote name="community" fetch="https://github.com/Freescale" />
-	<remote name="oe" fetch="https://github.com/openembedded" />
-	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
-	<remote name="OSSystems" fetch="https://github.com/OSSystems" />
+	<remote name="github.community" fetch="https://github.com/Freescale" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
+	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx" />
+	<remote name="github.OSSystems" fetch="https://github.com/OSSystems" />
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
-	<remote name="clang" fetch="https://github.com/kraj" />
-	<remote name="imx-support" fetch="https://github.com/nxp-imx-support" />
-	<remote name="rauc" fetch="https://github.com/rauc" />
+	<remote name="github.clang" fetch="https://github.com/kraj" />
+	<remote name="github.imx-support" fetch="https://github.com/nxp-imx-support" />
+	<remote name="github.rauc" fetch="https://github.com/rauc" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 
@@ -26,7 +26,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" upstream="scarthgap">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
@@ -35,14 +35,14 @@
 		<sublayer path="meta-filesystems" />
 		<sublayer path="meta-perl" />
 	</project>
-	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="dc31889c0899971def535dc1c040edf18bc16691">
+	<project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="dc31889c0899971def535dc1c040edf18bc16691">
 		<ignorebaselayer />
 		<sublayer path="meta-chromium" />
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="2b7433611d80f6d0ee1b04156fa91fc73d3c2665" upstream="scarthgap" />
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="0627128b341cfb2bef7a0832ce8cac0ce1127f13" upstream="scarthgap" />
-	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="6c063450d464eb2f380443c7d9af1b94ce9b9d75" upstream="scarthgap" />
-	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap" />
+	<project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="2b7433611d80f6d0ee1b04156fa91fc73d3c2665" upstream="scarthgap" />
+	<project name="meta-freescale" path="sources/meta-freescale" remote="github.community" revision="0627128b341cfb2bef7a0832ce8cac0ce1127f13" upstream="scarthgap" />
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="github.community" revision="6c063450d464eb2f380443c7d9af1b94ce9b9d75" upstream="scarthgap" />
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.community" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap" />
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="950a4afce46a359def2958bd9ae33fc08ff9bb0d" upstream="scarthgap">
 		<ignorebaselayer />
 		<sublayer path="meta-arm" />
@@ -51,7 +51,7 @@
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="dc13e1bfda4a4757a08c2d6673bc4bac012c4a80" upstream="6.7.0" />
 	<project name="meta-security" path="sources/meta-security" remote="yocto" />
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="6f3c1d8f90947408a6587be222fec575a1ca5195" upstream="scarthgap" />
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="github.nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh" />
 		<linkfile src="README" dest="README-IMXBSP" />
 		<ignorebaselayer />
@@ -59,8 +59,8 @@
 		<sublayer path="meta-imx-sdk" />
 		<sublayer path="meta-imx-ml" />
 	</project>
-	<project name="meta-nxp-demo-experience" remote="imx-support" path="sources/meta-nxp-demo-experience" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="scarthgap-6.6.52-2.2.0" />
-	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc" />
+	<project name="meta-nxp-demo-experience" remote="github.imx-support" path="sources/meta-nxp-demo-experience" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="scarthgap-6.6.52-2.2.0" />
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" />
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
