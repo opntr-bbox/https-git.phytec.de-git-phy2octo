@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD0.2" release_uid="BSP-Yocto-EdgeAI-AM68x-v0.2" soc="AM68x" supported_builds="
+		phyboard-izar-am68x-2/phytec-edgeai-image/ampliphy-xwayland,
+		phyboard-izar-am68x-2/-c populate_sdk phytec-edgeai-image/ampliphy-xwayland,
+		phyboard-izar-am68x-3/phytec-edgeai-image/ampliphy-xwayland,
+		phyboard-izar-am68x-3/-c populate_sdk phytec-edgeai-image/ampliphy-xwayland"
+		release_type="topic" bspextension="EdgeAI" build_container="phybuilder/yocto-ubuntu-22.04:phy8"/>
+
+	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="git.phytec" fetch="git://git.phytec.de"/>
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
+	<remote name="github.phytec" fetch="https://github.com/phytec"/>
+
+	<default revision="kirkstone" remote="git.phytec" sync-j="8"/>
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="322515f893ded25303adc64d94fd79de26474851">
+		<copyfile dest="tools/init" src="scripts/init"/>
+	</project>
+	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="4601ec8a2f4f4d9907aeb211995aa4b10fb64112"/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="63076abd538010ea7735946173fd377cbbd9c8ca"/>
+	<project name="poky" remote="yocto" path="sources/poky" revision="c76f44b1da3563b8acd364ea0c632265aa3f7e83">
+		<ignorebaselayer/>
+		<sublayer path="meta"/>
+		<sublayer path="meta-poky"/>
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="07ac1890c843b374c27e150f1a2e53ad3db2a8e4">
+		<ignorebaselayer/>
+		<sublayer path="meta-oe"/>
+		<sublayer path="meta-networking"/>
+		<sublayer path="meta-python"/>
+		<sublayer path="meta-gnome"/>
+		<sublayer path="meta-multimedia"/>
+		<sublayer path="meta-filesystems"/>
+		<sublayer path="meta-perl"/>
+	</project>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="b5fc74e4c94c2f0a0ec92f2283168125a723c6bf"/>
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="936c02ec13661bd86a05f7f90e1b920d5092d670">
+		<ignorebaselayer/>
+		<sublayer path="meta-arm"/>
+		<sublayer path="meta-arm-toolchain"/>
+	</project>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5" revision="644ebf220245bdc06e7696ccc90acc97a0dd2566"/>
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="417233481d8daa46633045fac358260d07cf1670">
+		<ignorebaselayer/>
+		<sublayer path="meta-ti-bsp"/>
+		<sublayer path="meta-ti-extras"/>
+	</project>
+	<project name="meta-arago" path="sources/meta-arago" remote="yocto" revision="f8ad2232a4e52b50aecc6c847ee7cfa24fc84070">
+		<ignorebaselayer/>
+		<sublayer path="meta-arago-extras"/>
+	</project>
+	<project name="meta-edgeai-phytec" path="sources/meta-edgeai-phytec" remote="github.phytec" revision="refs/tags/09.02.01.00-phy2"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="55209831c2d4bdc2fe57e82b8ea878e1da0d20d1"/>
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="b9cf9cd639bc8d1b4828eb0bd012b71486d35176">
+		<ignorebaselayer/>
+		<sublayer path="meta-tpm"/>
+	</project>
+</manifest>
