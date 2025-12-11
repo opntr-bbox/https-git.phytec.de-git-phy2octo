@@ -1,0 +1,41 @@
+BSP-Yocto-EdgeAI-AM68x-v0.2                    2025-12-10
+==================================================================
+
+- Based on BSP-Yocto-Ampliphy-AM68x-PD24.1.0 and TI SDK-LINUX-AM68A 9.2
+- Update poky (Yocto 4.0.31+) and meta-openembedded to recent
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+- U-Boot TI v2023.04 (based on TI tag 09.02.00.009)
+- Yocto Kirkstone
+- meta-edgeai-phytec (tag 09.02.01.00-phy2)
+
+Tested Yocto images:
+--------------------
+
+- ampliphy-xwayland/phytec-edgeai-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+Features:
+---------
+
+- Add fdplink-3 pipeline examples to use PHYTEC phycam-L, including DT overlays.
+- Patch edgeai-tiovx-apps to have PHYTEC phycam support and add an example config.
+- Add extension script to setup environment variable in SDK with common environment 
+  setup script to compile TI EdgeAI examples with nearly no changes (see Known issues).
+- Due to issues with git tags in TI repositories and PHYTEC's use of repo-tool for
+  metalayer setup, switch ti-vision-apps to use git fetcher (so URLs and revisions
+  in receipe) instead of TI manifest.
+
+Known Issues
+------------
+
+- SDK: 'make' is not part of the SDK. Therefore, set
+  'CMAKE_FIND_ROOT_PATH_MODE_PROGRAM' to 'BOTH' in i.e.
+  https://github.com/TexasInstruments/edgeai-tiovx-apps/blob/develop/cmake/cross_compile_aarch64.cmake
+  to cross-compile example.
