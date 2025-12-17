@@ -2,7 +2,6 @@
 <manifest>
 	<phytec pdn="PD0.2" release_uid="BSP-Yocto-EdgeAI-AM68x-v0.2" soc="AM68x" supported_builds="
 		phyboard-izar-am68x-2/phytec-edgeai-image/ampliphy-xwayland,
-		phyboard-izar-am68x-2/-c populate_sdk phytec-edgeai-image/ampliphy-xwayland,
 		phyboard-izar-am68x-3/phytec-edgeai-image/ampliphy-xwayland,
 		phyboard-izar-am68x-3/-c populate_sdk phytec-edgeai-image/ampliphy-xwayland"
 		release_type="topic" bspextension="EdgeAI" build_container="phybuilder/yocto-ubuntu-22.04:phy8"/>
