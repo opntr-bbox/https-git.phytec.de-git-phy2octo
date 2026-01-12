@@ -1,0 +1,40 @@
+BSP-Yocto-phyCONTROL-Nova-i.MX8MP-v0.1    2026-01-12
+====================================================
+
+- Linux NXP Vendor Kernel v6.6.52-2.2.0-phy24 (based on NXP tag lf-6.6.52-2.2.0)
+- U-boot v2024.04-2.2.0-phy23 (based on NXP tag lf-6.6.52-2.2.0)
+- Yocto 5.0.4 (Scarthgap)
+- OP-TEE 4.1
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phycontrol-image:
+  * phycontrol-nova-imx8mp-1
+- phycontrol-bundle:
+  * phycontrol-nova-imx8mp-1
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-bit
+
+Features:
+---------
+- Node-RED with support for GPIO, RS232/RS485 and CAN nodes
+- Cockpit interface
+  - User management
+  - Network configuration
+  - Containers (podman)
+- Package management
+  - DNF package manager
+  - RPM packages
+- ThingsBoard gateway
+- Fully redundant update system A/B with RAUC
+
+Known Issues/Limitations:
+-------------------------
+- This is a pre-release. Expect bugs and incomplete configuration.
+- No Secure Boot support. This is planned for a future release.
+- Package management requires a package feed server to be configured manually.
+- Node-RED and required nodes for the IO connector must be installed on the
+  target via NPM.
