@@ -1,0 +1,41 @@
+BSP-Yocto-IndComms-AM64x-v0.1                    2026-01-05
+==================================================================
+
+- Based on BSP-Yocto-Ampliphy-AM64x-PD25.2.0 and IBV IndComms SDK v1.2 (based on
+  TI INDUSTRIAL-COMMUNICATIONS-SDK-AM64X 11.00.00.13)
+- Linux kernel v6.12.8-phy7
+- U-Boot v2025.07-phy5
+- Yocto 5.0.15 (Scarthgap)
+- meta-indcomms-ibv (tag v1.2-phy1)
+
+
+Tested Yocto images:
+--------------------
+
+- ampliphy/phytec-indcomms-image
+  * phyboard-electra-am64xx-2
+
+
+Build environment:
+------------------
+
+- Ubuntu 24.04 64-bit
+
+
+Features:
+---------
+
+- support of phyCORE-AM64x Industrial Communication Kit
+- demo firmware for EtherCAT, PROFINET und EtherNet/IP (running on R5F/PRU)
+- using either carrier board PHY or extension board PHY
+- ADC input to/LED output from R5F
+- sharing information from/to Linux using a helper software
+
+
+Known Issues
+------------
+
+- adding/enabling DT overlays via '/boot/overlays.txt' does work in principle,
+  yet the Yocto build step for this is broken. One needs to create the file manually.
+- OE welcome message only lists 'phytec-headless-image' as tested build target;
+  message generally broken in scarthgap
