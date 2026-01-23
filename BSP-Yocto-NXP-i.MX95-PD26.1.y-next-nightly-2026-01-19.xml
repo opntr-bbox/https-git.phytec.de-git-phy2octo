@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <phytec pdn="PD2026-01-19" release_uid="BSP-Yocto-NXP-i.MX95-PD26.1.y-nightly-2026-01-19" soc="iMX95" supported_builds="
+    imx95-phyflex-libra-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
+    imx95-phyflex-libra-2/phytec-headless-image/ampliphy-vendor,
+    imx95-phyflex-libra-2/phytec-qt6demo-image/ampliphy-vendor,
+    imx95-phyflex-libra-2/phytec-vision-image/ampliphy-vendor
+  " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04" />
+
+  <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+  <remote name="github.yocto" fetch="https://github.com/yoctoproject" />
+  <remote name="github.clang" fetch="https://github.com/kraj" />
+  <remote name="github.OSSystems" fetch="https://github.com/OSSystems" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
+  <remote name="github.rauc" fetch="https://github.com/rauc" />
+  <remote name="QT6" fetch="https://code.qt.io/yocto" />
+  <remote name="github.fsl-community" fetch="https://github.com/Freescale" />
+  <remote name="github.imx" fetch="https://github.com/nxp-imx" />
+  <remote name="github.imx-support" fetch="https://github.com/nxp-imx-support" />
+
+  <default revision="walnascar" remote="git.phytec" sync-j="8" />
+
+  <project name="poky" path="sources/poky" remote="github.yocto" revision="refs/tags/yocto-5.2.4">
+    <ignorebaselayer />
+    <sublayer path="meta" />
+    <sublayer path="meta-poky" />
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="07330a98cf93806b7a4e0170a541b94962ff3960">
+    <ignorebaselayer />
+    <sublayer path="meta-oe" />
+    <sublayer path="meta-networking" />
+    <sublayer path="meta-python" />
+    <sublayer path="meta-multimedia" />
+    <sublayer path="meta-filesystems" />
+    <sublayer path="meta-perl" />
+  </project>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="github.fsl-community" revision="167ff4ddb79299cf5477e94620a9e598659c407b" />
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.fsl-community" revision="b9c3536b68271c420fe5de36fc284781ceaa32ab" />
+  <project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="a0b83842d131093e89fa4fefaaa1997f05afdf62" />
+  <project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="refs/tags/v6.8.3" upstream="6.8.3" />
+  <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="refs/tags/5.2.1">
+    <ignorebaselayer />
+    <sublayer path="meta-arm" />
+    <sublayer path="meta-arm-toolchain" />
+  </project>
+  <project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="003cba92e982bdd565a6889f28799f8bba14957e" />
+  <project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="f988d616d37ddf160d3d747ed54d0a66d549f499">
+    <ignorebaselayer />
+    <sublayer path="meta-chromium" />
+  </project>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="784ca4b6584101e971b2d5d76ec7b716ad1301b5">
+    <sublayer path="meta-parsec" />
+    <sublayer path="meta-tpm" />
+  </project>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="898239e810acbb7db93299f20deec8afe434f11b" />
+  <project name="meta-imx" path="sources/meta-imx" remote="github.imx" revision="5fe9cc9d449af5482c49d6b57e0c5fbd3809e380" upstream="walnascar-6.12.34-2.1.0">
+    <ignorebaselayer />
+    <sublayer path="meta-imx-bsp" />
+    <sublayer path="meta-imx-sdk" />
+  </project>
+  <project name="meta-ampliphy" path="sources/meta-ampliphy" revision="8c267bdc3f544fef00a702cccaf118844826876f" />
+  <project name="meta-phytec" path="sources/meta-phytec" revision="cefbefba363ad669008df551d34d2f1be299628f">
+    <copyfile dest="tools/init" src="scripts/init" />
+  </project>
+  <project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="8d4220df25aaeda255e493c3c654082d7e203e7e" />
+</manifest>
