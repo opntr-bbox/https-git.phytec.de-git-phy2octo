@@ -8,6 +8,7 @@
   " bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04" />
 
   <remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+  <remote name="git.phytec" fetch="git://git.phytec.de" />
   <remote name="yocto" fetch="git://git.yoctoproject.org" />
   <remote name="github.yocto" fetch="https://github.com/yoctoproject" />
   <remote name="github.clang" fetch="https://github.com/kraj" />
