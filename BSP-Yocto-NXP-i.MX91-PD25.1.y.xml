@@ -15,6 +15,7 @@
 	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx" />
 	<remote name="github.OSSystems" fetch="https://github.com/OSSystems" />
+	<remote name="github.Ezurio" fetch="https://github.com/Ezurio" />
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
 	<remote name="github.clang" fetch="https://github.com/kraj" />
 	<remote name="github.imx-support" fetch="https://github.com/nxp-imx-support" />
@@ -68,6 +69,10 @@
 	</project>
 	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="walnascar-6.12.34-2.1.0" />
 	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" />
+	<project name="meta-summit-radio" path="sources/meta-summit-radio" remote="github.Ezurio" revision="0de43a88f7e88d4fabe114ece96a81cc87b8af34" upstream="lrd-13.24.0.x">
+		<ignorebaselayer />
+		<sublayer path="meta-summit-radio"/>
+	</project>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="walnascar">
 		<copyfile dest="tools/init" src="scripts/init" />
 	</project>
