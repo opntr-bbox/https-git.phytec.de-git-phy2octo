@@ -21,17 +21,19 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.yp" fetch="https://github.com/yoctoproject/"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded/"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
 
-	<project name="yoctoproject/poky" path="sources/poky" remote="github">
+	<project name="poky" path="sources/poky" remote="github.yp">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -41,7 +43,7 @@
 		<sublayer path="meta-perl"/>
 	</project>
 	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="refs/tags/v6.7.3" upstream="6.7.3" />
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>

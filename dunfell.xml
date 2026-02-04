@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<phytec pdn="dunfell" release_uid="BSP-Yocto-i.MX6-dunfell" soc="iMX6" supported_builds="
+	<phytec pdn="dunfell" release_uid="BSP-Yocto-Yogurt-i.MX6-dunfell" soc="iMX6" supported_builds="
 		phyboard-mira-imx6-10/phytec-qt5demo-image/yogurt,
 		phyboard-mira-imx6-11/-c populate_sdk phytec-qt5demo-image/yogurt,
 		phyboard-mira-imx6-11/barebox-hosttools-native/yogurt,
@@ -34,14 +34,15 @@
 		phyboard-mira-imx6-3/phytec-vision-image/yogurt-x11,
 		phyboard-nunki-imx6-1/phytec-vision-image/yogurt-x11,
 		phyflex-imx6-2/phytec-vision-image/yogurt-x11"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-16.04:phy1"/>
+		release_type="archived" bspextension="Yogurt" build_container="phybuilder/yocto-ubuntu-16.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
 
 	<default revision="dunfell" remote="git.phytec" sync-j="8"/>
 
@@ -60,11 +61,11 @@
 		<sublayer path="meta-perl"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto"/>
-	<project name="meta-yogurt" path="sources/meta-yogurt"/>
-	<project name="meta-phytec" path="sources/meta-phytec">
+	<project name="meta-yogurt" path="sources/meta-yogurt" revision="dunfell"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="dunfell">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
 </manifest>
