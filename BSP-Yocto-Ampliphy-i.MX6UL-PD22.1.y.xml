@@ -6,14 +6,15 @@
 		phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy-5.15.y-phynext,
 		phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy-5.15.y-phynext,
 		phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy-5.15.y-phynext"
-		release_type="nightly" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
 	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="ti" fetch="git://git.ti.com"/>
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8"/>
 
@@ -31,9 +32,8 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization"/>
-	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5"/>
-	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-security" remote="yocto" path="sources/meta-security">
 		<sublayer path="meta-tpm"/>
 	</project>
@@ -42,6 +42,7 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
+	<project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="kirkstone">
 		<copyfile dest="tools/init" src="scripts/init"/>

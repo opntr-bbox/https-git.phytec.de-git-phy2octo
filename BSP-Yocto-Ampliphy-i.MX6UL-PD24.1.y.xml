@@ -33,16 +33,20 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
-	<remote name="github" fetch="https://github.com"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc/"/>
+	<remote name="github.yp" fetch="https://github.com/yoctoproject/"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded/"/>
+	<remote name="github.betafive" fetch="https://github.com/betafive/"/>
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
 
-	<project name="yoctoproject/poky" path="sources/poky" remote="github">
+	<project name="poky" path="sources/poky" remote="github.yp">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -51,8 +55,8 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>
@@ -62,7 +66,7 @@
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
-	<project name="betafive/meta-linux-mainline" path="sources/meta-linux-mainline" remote="github"/>
+	<project name="meta-linux-mainline" path="sources/meta-linux-mainline" remote="github.betafive"/>
 	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="scarthgap"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
