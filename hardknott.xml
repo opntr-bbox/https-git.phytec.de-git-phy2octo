@@ -6,18 +6,18 @@
 		phyboard-polaris-imx8m-3/phytec-provisioning-image/ampliphy-vendor-provisioning,
 		phyboard-polaris-imx8m-3/phytec-vision-image/ampliphy-vendor-xwayland,
 		phyboard-polaris-imx8m-3/-c populate_sdk phytec-vision-image/ampliphy-vendor-xwayland"
-		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="archived" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
-	<remote name="community" fetch="https://github.com/Freescale"/>
-	<remote name="oe" fetch="https://github.com/openembedded"/>
-	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
-	<remote name="OSSystems" fetch="https://github.com/OSSystems"/>
-	<remote name="QT5" fetch="https://github.com/meta-qt5"/>
-	<remote name="clang" fetch="https://github.com/kraj"/>
-	<remote name="imx-support" fetch="https://github.com/nxp-imx-support/"/>
+	<remote name="github.community" fetch="https://github.com/Freescale"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx"/>
+	<remote name="github.OSSystems" fetch="https://github.com/OSSystems"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5"/>
+	<remote name="github.clang" fetch="https://github.com/kraj"/>
+	<remote name="github.imx-support" fetch="https://github.com/nxp-imx-support/"/>
 	<remote name="python2" fetch="https://git.openembedded.org"/>
-	<remote name="rauc" fetch="https://github.com/rauc"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 
@@ -28,7 +28,7 @@
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="c3a36263f91e42302ad7c347e051cf1cd83e39f6">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="c3a36263f91e42302ad7c347e051cf1cd83e39f6">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -38,7 +38,7 @@
 		<sublayer path="meta-perl"/>
 		<sublayer path="meta-gnome"/>
 	</project>
-	<project name="meta-imx" path="sources/meta-imx" remote="nxp-imx" revision="76245add93755289a334feab6b135835de188d1a" upstream="hardknott-5.10.35-2.0.0">
+	<project name="meta-imx" path="sources/meta-imx" remote="github.nxp-imx" revision="76245add93755289a334feab6b135835de188d1a" upstream="hardknott-5.10.35-2.0.0">
 		<linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
 		<linkfile src="README" dest="README-IMXBSP"/>
 		<ignorebaselayer/>
@@ -46,22 +46,22 @@
 		<sublayer path="meta-sdk"/>
 		<sublayer path="meta-ml"/>
 	</project>
-	<project name="meta-browser" path="sources/meta-browser" remote="OSSystems" revision="cb3278e31340c7f081e8deb0683df2145da515c9">
+	<project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="cb3278e31340c7f081e8deb0683df2145da515c9">
 		<ignorebaselayer/>
 		<sublayer path="meta-chromium"/>
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="clang" revision="d797409435d3b0e9f2859992439989ff1d81e66d"/>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e"/>
-	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="community" revision="7f23af99cb97a12134a46b5b9d497f05b758bf0c"/>
-	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="imx-support" revision="609a49c51cea3ff114b9b202d8bf7b785b7d01ed" upstream="hardknott-5.10.35-2.0.0" dest-branch="hardknott-5.10.35-2.0.0"/>
+	<project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="d797409435d3b0e9f2859992439989ff1d81e66d"/>
+	<project name="meta-freescale" path="sources/meta-freescale" remote="github.community" revision="f0be684f01b53482cb43e016a5c5c1faf3ae448e"/>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="github.community" revision="7f23af99cb97a12134a46b5b9d497f05b758bf0c"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.community" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="609a49c51cea3ff114b9b202d8bf7b785b7d01ed" upstream="hardknott-5.10.35-2.0.0" dest-branch="hardknott-5.10.35-2.0.0"/>
 	<project name="meta-python2" path="sources/meta-python2" remote="python2" revision="810d6d842f103eb59f18b06426106462b15de7e2"/>
-	<project name="meta-qt5" path="sources/meta-qt5" remote="QT5" revision="a00af3eae082b772469d9dd21b2371dd4d237684"/>
-	<project name="meta-rauc" path="sources/meta-rauc" remote="rauc"/>
-	<project name="meta-phytec" path="sources/meta-phytec">
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5" revision="a00af3eae082b772469d9dd21b2371dd4d237684"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
+	<project name="meta-phytec" path="sources/meta-phytec" revision="hardknott">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="hardknott"/>
 	<project name="meta-security" path="sources/meta-security" remote="yocto">
 		<sublayer path="meta-tpm"/>
 	</project>
