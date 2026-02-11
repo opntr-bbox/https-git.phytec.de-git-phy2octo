@@ -16,7 +16,9 @@
 	<remote name="oe" fetch="git://git.openembedded.org" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
-	<remote name="github" fetch="https://github.com" />
+	<remote name="github.rauc" fetch="https://github.com/rauc/" />
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/" />
+	<remote name="github.kraj" fetch="https://github.com/kraj/" />
 	<remote name="ti" fetch="git://git.ti.com" />
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8" />
@@ -41,13 +43,13 @@
 		<sublayer path="meta-filesystems" />
 		<sublayer path="meta-perl" />
 	</project>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github" />
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" />
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer />
 		<sublayer path="meta-arm" />
 		<sublayer path="meta-arm-toolchain" />
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github" />
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5" />
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
@@ -59,5 +61,5 @@
 		<sublayer path="meta-arago-test" />
 	</project>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" />
-	<project name="kraj/meta-clang" path="sources/meta-clang" remote="github" />
+	<project name="meta-clang" path="sources/meta-clang" remote="github.kraj" />
 </manifest>
