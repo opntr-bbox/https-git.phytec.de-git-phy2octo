@@ -6,7 +6,7 @@
 		phycore-stm32mp1-3/st-image-weston/openstlinux-weston-rauc,
 		phycore-stm32mp1-4/st-image-weston/openstlinux-weston,
 		phycore-stm32mp1-6/st-image-core/openstlinux-eglfs"
-		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
+		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="github.qt5" fetch="https://github.com/meta-qt5/"/>
 	<remote name="oe" fetch="https://git.openembedded.org"/>
