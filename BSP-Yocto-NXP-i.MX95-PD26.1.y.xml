@@ -3,14 +3,12 @@
 	<phytec pdn="PD26.1.y" release_uid="BSP-Yocto-NXP-i.MX95-PD26.1.y" soc="iMX95" supported_builds="
 		imx95-phyflex-libra-rdk-2/phytec-chromium-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-vendor,
-		imx95-phyflex-libra-rdk-2/phytec-ml-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/phytec-vision-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04"/>
 
 	<remote name="ssh.phytec"           fetch="ssh://git@git.phytec.de"/>
-	<remote name="github.phytec"        fetch="https://github.com/phytec"/>
 	<remote name="git.phytec"           fetch="git://git.phytec.de"/>
 	<remote name="yocto"                fetch="git://git.yoctoproject.org"/>
 	<remote name="github.yocto"         fetch="https://github.com/yoctoproject"/>
@@ -61,14 +59,11 @@
 	<project name="meta-imx" path="sources/meta-imx" remote="github.imx" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="walnascar-6.12.34-2.1.0">
 		<ignorebaselayer />
 		<sublayer path="meta-imx-bsp"/>
-		<sublayer path="meta-imx-ml"/>
 		<sublayer path="meta-imx-sdk"/>
 	</project>
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="walnascar-6.12.34-2.1.0" />
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="walnascar"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="walnascar">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-phytec-ai" path="sources/meta-phytec-ai" remote="github.phytec" revision="walnascar"/>
 	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="walnascar"/>
 </manifest>
