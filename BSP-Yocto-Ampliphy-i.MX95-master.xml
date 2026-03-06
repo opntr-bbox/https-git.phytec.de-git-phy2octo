@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="master" release_uid="BSP-Yocto-Ampliphy-i.MX95-master" soc="iMX95" supported_builds="
-		imx95-phyflex-libra-2/phytec-headless-image/ampliphy,
-		imx95-phyflex-libra-2/phytec-qt6demo-image/ampliphy"
+		imx95-phyflex-libra-rdk-2/phytec-headless-image/ampliphy,
+		imx95-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-24.04"/>
 
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
