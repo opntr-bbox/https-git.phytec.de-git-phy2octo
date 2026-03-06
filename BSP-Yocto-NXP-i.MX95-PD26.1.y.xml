@@ -20,6 +20,7 @@
 	<remote name="github.fsl-community" fetch="https://github.com/Freescale"/>
 	<remote name="github.imx"           fetch="https://github.com/nxp-imx"/>
 	<remote name="github.imx-support"   fetch="https://github.com/nxp-imx-support"/>
+	<remote name="github.timesys"       fetch="https://github.com/TimesysGit"/>
 
 	<default revision="walnascar" remote="git.phytec" sync-j="8"/>
 
@@ -55,12 +56,20 @@
 		<sublayer path="meta-parsec"/>
 		<sublayer path="meta-tpm"/>
 	</project>
+	<project name="meta-timesys" path="sources/meta-timesys" remote="github.timesys" revision="3c362eeeb68523a88c2301e29ab1fd4802284e50" upstream="master"/>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="898239e810acbb7db93299f20deec8afe434f11b"/>
 	<project name="meta-imx" path="sources/meta-imx" remote="github.imx" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="walnascar-6.12.34-2.1.0">
 		<ignorebaselayer />
 		<sublayer path="meta-imx-bsp"/>
+		<sublayer path="meta-imx-ml"/>
 		<sublayer path="meta-imx-sdk"/>
 	</project>
+	<project name="meta-nxp-connectivity" path="sources/meta-nxp-connectivity" remote="github.imx" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="imx_matter_2025_q1-post">
+		<ignorebaselayer />
+		<sublayer path="meta-nxp-matter-baseline"/>
+		<sublayer path="meta-nxp-openthread"/>
+	</project>
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="refs/tags/rel_imx_6.12.34_2.1.0" upstream="walnascar-6.12.34-2.1.0" />
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="walnascar"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="walnascar">
 		<copyfile dest="tools/init" src="scripts/init"/>
