@@ -1,0 +1,87 @@
+BSP-Yocto-NXP-i.MX95-ALPHA2                                           2025-03-06
+================================================================================
+- Linux kernel v6.12.34-2.1.0-phy9 (LTS kernel)
+- U-Boot v2025.04-2.1.0-phy8
+- System Manager 6.12.34-2.1.0-phy1
+- Optional Executable Image 6.12.34-2.1.0-phy1
+- Yocto 5.2.4 (walnascar)
+
+NOTE:
+This is an ALPHA release and has not been tested for full functionality. It is
+possible that some features are not working correctly.
+
+Tested Yocto Images:
+--------------------
+- phytec-chromium-image
+- phytec-headless-image
+- phytec-qt6demo-image
+- phytec-vision-image
+
+Build Environment:
+------------------
+- Ubuntu 24.04 64-bit
+
+Supported Machines:
+-------------------
+imx95-phyflex-libra-rdk-2
+
+Changes:
+--------
+- New naming scheme for product (dts, yocto machine, Kconfig names)
+- Update machine revision (new hardware)
+- boot flow (ampliphy-boot; changes to U-Boot environment variables)
+- changed from Ax SoC revision support to B0 SoC revision support
+- USB Host is now supported in U-Boot
+
+Defeatured:
+-----------
+- imx95-libra-fpsc-1
+- support for Ax SoC revision
+
+New Features:
+-------------
+- Camera support
+  * VM-024 phyCAM-M
+- Chromium support (chromium image)
+- Introduction of ampliphy-boot
+- RS232/485 support
+- PWM fan support
+- TPM support
+- USB-C device and host mode support
+- VPU support
+
+Other Features:
+---------------
+- Boot from e.MMC
+- Boot from SD card
+- Boot via USB serial download (uuu)
+- LVDS display support
+- GPU support
+- RTC support
+- USB 2.0 support (Linux)
+- Debug UART support
+- GBit Ethernet support (SoM + Carrier board)
+- Power Management support (suspend + frequency scaling)
+- U-Boot standard boot (https://docs.u-boot.org/en/v2025.04/develop/bootstd.html#u-boot-standard-boot)
+- NPU support
+- Camera support
+    * VM-016 phyCAM-M / phyCAM-L
+    * VM-017 phyCAM-M / phyCAM-L
+    * VM-020 phyCAM-M / phyCAM-L
+- ISP support (Debayer, AEC, AWB)
+
+Known Issues and Limitations:
+-----------------------------
+- GPU performance may be very low; As of release date, NXP is investigating
+  this issue as it is present on their EVK as well. Our BSP documentation explains a workaround that
+  yields better performance.
+- Sporadic artifacts when capturing camera images with yavta
+- Video provided with the qt6demo is decoded with CPU (due to incompatible coding with VPU) and thus
+  may not play smoothly.
+- network boot only works with connection on ETH1 by default. Changes to the U-Boot environment are
+  necessary to boot via nfs on ETH2
+
+Changelog
+---------
+2026-03-06
+  - initial version
