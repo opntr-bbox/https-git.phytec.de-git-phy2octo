@@ -1,0 +1,103 @@
+Release Notes unified i.MX 91/93 Linux BSP
+==========================================
+
+BSP-Yocto-NXP-i.MX93-PD26.1.0          2026-03-13
+BSP-Yocto-NXP-i.MX91-PD26.1.0          2026-03-13
+=================================================
+- Linux NXP Vendor Kernel v6.12.34-2.1.0-phy9 (based on NXP tag lf-6.12.34-2.1.0)
+- U-boot v2025.04-2.1.0-phy9 (based on NXP tag lf-6.12.34-2.1.0)
+- Yocto 5.2.2 (walnascar)
+- Qt 6.8.3
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image
+* imx93-phyflex-libra-rdk-1
+* phyboard-nash-imx93-1
+* phyboard-segin-imx93-2
+* phyboard-segin-imx91-1
+
+- phytec-qt6demo-image
+* imx93-phyflex-libra-rdk-1
+* phyboard-nash-imx93-1
+* phyboard-segin-imx93-2
+* phyboard-segin-imx91-1
+
+Build Environment:
+------------------
+- Ubuntu 24.04 64-Bit
+
+Features:
+---------
+- Added support for phyFLEX-i.MX93 Libra RDK board.
+- Switched to ampliphy-boot which means FIT booting is now enabled by default.
+  See BSP documentation for implications and more details about ampliphy-boot.
+- On phyBOARD-Nash-i.MX93, PWM fan is now controlled entirely by the kernel drivers.
+  The userspace application fancontrol is thus not pre-installed in the BSP anymore.
+- Ethernet interface names and order are now set by systemd's Predictable Network
+  Interface Names. Classic kernel interface naming "ethX" has thus been replaced by
+  the systemd's "endX" scheme.
+- The ADC is now handled by the IIO rescale and hwmon subsystem which automatically
+  handle conversion to physical units (mA, mV).
+- SoM options are now entirely handled by the U-Boot board code (no more overlays).
+- Added support for phyCAM-VM020 camera on phyBOARD-Nash-i.MX93.
+- phyBOARD-Segin-i.MX91/93 AC158 display is EOL. New replacement display is AC220 in
+  combination with the PEB-AV-18 A/V adapter.
+- System reset on phyCORE-i.MX91/93 SoMs is now performed via the system PMIC rather
+  than the watchdog reset line.
+
+Issues fixed:
+-------------
+- Occasional data loss observed when using DMA with i.MX 93 UART ports is not
+  present anymore.
+
+Known Issues:
+-------------
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0), Audio with PEB-AV-10 A/V
+  adapter is broken due to HW bug.
+- On phyBOARD-Nash-i.MX 93 carrier-board (rev 1616.0 and rev 1616.1), Backlight
+  with PEB-AV-10 A/V adapter is ON by default after power-reset due to HW bug.
+- Suspend/resume is broken on phyFLEX-i.MX93 Libra RDK board. As a workaround,
+  it is possible to disable PM async operations with the command:
+    echo 0 > /sys/power/pm_async
+  to get a working suspend/resume.
+- On the phyFLEX-i.MX93 Libra RDK board (Rev. 1618.2), RS485 and USB-C (X18) mode
+  switching during operation (Device to Host) do not work due to a hardware bug.
+  To use USB-C in Host mode (e.g., with a USB stick), the USB device must be
+  connected before the system boots.
+
+Notes:
+------
+- With phyBOARD-Nash-i.MX 93 rev 1616.2 the polarity of the SOM Ethernet
+  PHY-LEDs has changed from active-low to active-high. This is since the
+  PHY-LED pins have also bootstrap functionality:
+    (LED0 == RX_DV_En, and LED1 == ANeg_Dis)
+  The changed polarity assures that those bootstraps get to the required
+  voltage level.
+  Since release PD24.2.1 the BSP implements this change of the LED polarity in
+  the ethernet drivers of u-boot and Linux kernel.
+
+  Customers using custom carrier board designs are advised to make the same
+  change, by adding MOSFETs between ENET2 LED signals and LEDs of RJ45
+  connector as in the schematics of the phyBOARD-Nash-i.MX 93 rev 1616.2.
+
+  For those carrier boards that dont have the PHY LEDs polarity change
+  (to active-high) one can use the kernels device-tree property
+  "ti,leds-polarity". It restores the old kernel behavior of the PHY LEDs
+  (active-low). See device-tree for phyBOARD-Segin-i.MX 93
+  (imx93-phyboard-segin.dts) as example.
+- Due to NXP errata ERR052675:
+    "I/O: High frequency operation impacted due voltage
+     stress when operating at 3.3V."
+  the display pixel clock and camera pixel clock are limited to 52MHz @ 3.3V
+  since BSP release PD24.2.1.
+  When one of the clocks is configured with more than 52MHz in the device-tree,
+  the display driver or camera driver will stop with ERANGE error.
+- Occasional system freeze had been observed under certain temperature and load
+  conditions. The issue is mitigated by disabling CPU idle management (by
+  adding cpuidle.off=1 to kernel command line). NXP has also recommended
+  disabling CPU idle management, as especially in extended temperature range
+  (e.g. at -40 C) switching off CPUs can have unexpected effects. Please note,
+  that by disabling CPU idle management, power consumption of the SOM increases
+  (10-50 mW average, 300 mW peak).
