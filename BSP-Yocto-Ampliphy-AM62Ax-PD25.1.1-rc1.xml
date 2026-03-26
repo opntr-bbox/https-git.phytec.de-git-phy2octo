@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD25.1.1-rc1" release_uid="BSP-Yocto-Ampliphy-AM62Ax-PD25.1.1-rc1" soc="AM62Ax" supported_builds="
+    phyboard-lyra-am62axx-2/-c populate_sdk phytec-qt6demo-image/ampliphy,
+    phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy,
+    phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-linux-mainline,
+    phyboard-lyra-am62axx-2/phytec-headless-image/ampliphy-rt,
+    phyboard-lyra-am62axx-2/phytec-headless-image phytec-headless-bundle/ampliphy-rauc,
+    phyboard-lyra-am62axx-2/phytec-qt6demo-image/ampliphy
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04:phy8" />
+
+  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
+	<remote name="github.rauc" fetch="https://github.com/rauc" />
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject" />
+	<remote name="github.betafive" fetch="https://github.com/betafive" />
+	<remote name="QT6" fetch="https://code.qt.io/yocto" />
+
+	<default revision="scarthgap" remote="git.phytec" sync-j="8" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="0687b6754f5a3595c9c2108877ea7cfa598a1c96">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="92f5ba4030fa25fb09237e980ca44ef3be61514b" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="ed4edf6b4e074521060d45e9046b8aef36caca24" />
+	<project name="poky" remote="github.yocto" path="sources/poky" revision="b68050f511efa8c4f3b24d05c8168d1ad23e9a2e">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="06f846a325fde423bb0a6d49d771d8c1e144d7eb">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="a687885f3f3ebfcab5865a587a2f0ac8e591899e" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="refs/tags/5.0.3">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="c58fdf7af5d92f5dc0a3446a9865580511ae8691" />
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/cicd.scarthgap.202603231002">
+		<ignorebaselayer />
+		<sublayer path="meta-ti-bsp" />
+		<sublayer path="meta-ti-extras" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="3dd635f613f7299d986a8ab6bc9f584370f8ed1d" />
+	<project name="meta-linux-mainline" path="sources/meta-linux-mainline" remote="github.betafive" revision="7007ba9ecaed3fe8ab5b8f7a5784c7feb3cb6af4" />
+</manifest>
