@@ -23,9 +23,15 @@
 
 	<default revision="master" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" path="sources/poky" remote="yocto">
+	<project name="openembedded-core" path="sources/oe-core" remote="oe">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
+	</project>
+	<project name="bitbake" path="sources/oe-core/bitbake" remote="oe">
+		<ignorebaselayer/>
+	</project>
+	<project name="meta-yocto" path="sources/meta-yocto" remote="yocto">
+		<ignorebaselayer/>
 		<sublayer path="meta-poky"/>
 	</project>
 	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
