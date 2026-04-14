@@ -13,7 +13,7 @@
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx"/>
 	<remote name="github.OSSystems" fetch="https://github.com/OSSystems"/>
-	<remote name="github.QT6" fetch="https://code.qt.io/yocto"/>
+	<remote name="QT6" fetch="https://code.qt.io/yocto"/>
 	<remote name="github.clang" fetch="https://github.com/kraj"/>
 	<remote name="github.imx-support" fetch="https://github.com/nxp-imx-support"/>
 	<remote name="github.rauc" fetch="https://github.com/rauc"/>
@@ -56,7 +56,7 @@
 	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" upstream="kirkstone"/>
 	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
 	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
-	<project name="meta-qt6" path="sources/meta-qt6" remote="github.QT6" revision="ed785a25d12e365d1054700d4fc94a053176eb14" upstream="6.3"/>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="ed785a25d12e365d1054700d4fc94a053176eb14" upstream="6.3"/>
 	<project name="meta-phytec" path="sources/meta-phytec" revision="kirkstone">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
