@@ -1,0 +1,43 @@
+BSP-Yocto-Ampliphy-AM62Px-PD26.1.0                2026-04-15
+==========================================================
+
+- Linux TI vendor kernel v6.12.57-11.02.11-phy6 (based on TI tag 11.02.11)
+- U-Boot TI vendor v2025.01-phy6 (based on TI tag 11.02.11)
+- Yocto 5.0.16 (Scarthgap)
+- Qt 6.8
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lynx-am62pxx-1
+ * phytec-headless-image/ampliphy-vendor
+ * phytec-headless-bundle/ampliphy-vendor-rauc
+ * phytec-headless-image/ampliphy-vendor-rt
+ * phytec-qt6demo-image/ampliphy-vendor
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+This is the first official release for the phyCORE-AM6Px. The following interfaces are currently working:
+
+* SD-Card
+* eMMC
+* SPI-Flash
+* RTC
+* EEPROM
+* I2C
+* RS232
+* CAN FD
+* Ethernet
+* USB
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **CAN FD**: CAN does not work at 125KHz.
