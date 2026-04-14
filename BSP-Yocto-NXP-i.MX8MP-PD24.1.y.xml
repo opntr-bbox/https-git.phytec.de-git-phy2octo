@@ -2,7 +2,6 @@
 <manifest>
 	<phytec pdn="PD24.1.y" release_uid="BSP-Yocto-NXP-i.MX8MP-PD24.1.y" soc="iMX8MP" supported_builds="
 		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
-		phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor-rauc,
 		phyboard-pollux-imx8mp-3/phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-pollux-imx8mp-3/phytec-securiphy-image/securiphy-vendor,
 		phyboard-pollux-imx8mp-3/phytec-securiphy-bundle/securiphy-vendor,
