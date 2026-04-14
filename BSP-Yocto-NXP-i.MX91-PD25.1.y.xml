@@ -1,6 +1,6 @@
 <!-- * This release "PD25.1.y" was renamed to "PD26.1.y".
      * This file is only kept for a grace period to make developers aware of the renaming.
-     * The file will be removed soon. Use BSP-Yocto-NXP-i.MX91-PD26.1.y-next.xml instead.
+     * The file will be removed soon. Use BSP-Yocto-NXP-i.MX91-PD26.1.y.xml instead.
      * -->
 <manifest>
         <remote name="git.phytec" fetch="git://git.phytec.de"/>
