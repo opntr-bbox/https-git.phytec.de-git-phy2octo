@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <phytec pdn="PD26.1.y" release_uid="BSP-Yocto-NXP-i.MX8MP-PD26.1.y" soc="iMX8MP" supported_builds="
+    phyboard-pollux-imx8mp-3/phytec-chromium-image/ampliphy-vendor,
     phyboard-pollux-imx8mp-3/phytec-headless-image/ampliphy-vendor,
     phyboard-pollux-imx8mp-3/phytec-qt6demo-image/ampliphy-vendor,
-    phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
-    imx8mp-libra-fpsc-1/phytec-headless-image/ampliphy-vendor,
-    imx8mp-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor,
-    imx8mp-libra-fpsc-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
+    phyboard-pollux-imx8mp-3/phytec-headless-bundle/ampliphy-vendor-rauc,
+    phyboard-pollux-imx8mp-3/phytec-provisioning-image/securiphy-vendor-provisioning,
+    phyboard-pollux-imx8mp-3/phytec-securiphy-bundle/securiphy-vendor,
+    imx8mp-phyflex-libra-rdk-2/phytec-chromium-image/ampliphy-vendor,
+    imx8mp-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-vendor,
+    imx8mp-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy-vendor,
+    imx8mp-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
+    imx8mp-phyflex-libra-rdk-2/phytec-headless-bundle/ampliphy-vendor-rauc,
+    imx8mp-phyflex-libra-rdk-2/phytec-provisioning-image/securiphy-vendor-provisioning,
+    imx8mp-phyflex-libra-rdk-2/phytec-securiphy-bundle/securiphy-vendor"
     release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04"/>
 
   <remote name="git.phytec"     fetch="git://git.phytec.de"/>
@@ -39,7 +46,8 @@
     <sublayer path="meta-filesystems"/>
     <sublayer path="meta-perl"/>
   </project>
-  <project name="meta-freescale" path="sources/meta-freescale" remote="github.fsl-community" revision="7431918c86ac6d3be2a273e091227157446960a7" upstream="master"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="github.fsl-community" revision="3d2781ad200846183ee3f3391f49512d0ef1b529" upstream="master"/>
+
   <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.fsl-community" revision="b9c3536b68271c420fe5de36fc284781ceaa32ab" upstream="master" />
   <project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
   <project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="00c3bd954341a2a755fdee6b978af952f51793e7" upstream="6.8.3" />
@@ -48,17 +56,17 @@
     <sublayer path="meta-arm"/>
     <sublayer path="meta-arm-toolchain"/>
   </project>
-  <project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="2c9678cce413fa6c6c84a8a631f4635a4f862f11"/>
+  <project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="003cba92e982bdd565a6889f28799f8bba14957e"/>
   <project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="f988d616d37ddf160d3d747ed54d0a66d549f499">
     <ignorebaselayer />
     <sublayer path="meta-chromium"/>
   </project>
-  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="784ca4b6584101e971b2d5d76ec7b716ad1301b5">
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="1f7eeb8e84811fa79b98f236ade42dc52d44cfc6">
     <sublayer path="meta-parsec"/>
     <sublayer path="meta-tpm"/>
   </project>
-  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="4fedb61ebf60745a367d857af255006bd3509a39"/>
-  <project name="meta-imx" path="sources/meta-imx" remote="github.nxp-imx" revision="refs/tags/rel_imx_6.12.20_2.0.0" upstream="walnascar-6.12.20-2.0.0">
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="38008d99d5bedc7d9769b9e95e3d6019a2df1698"/>
+  <project name="meta-imx" path="sources/meta-imx" remote="github.nxp-imx" revision="refs/tags/rel_imx_6.12.49_2.2.0" upstream="walnascar-6.12.49-2.2.0">
     <ignorebaselayer />
     <sublayer path="meta-imx-bsp"/>
     <sublayer path="meta-imx-sdk"/>
