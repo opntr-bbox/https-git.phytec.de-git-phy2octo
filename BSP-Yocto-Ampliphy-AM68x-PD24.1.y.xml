@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="kirkstone" release_uid="BSP-Yocto-Ampliphy-AM68x-PD24.1.y" soc="AM68x" supported_builds="
 		phyboard-izar-am68x-2/phytec-headless-image/ampliphy,
-		phyboard-izar-am68x-2/phytec-headless-image/ampliphy-rauc,
+		phyboard-izar-am68x-2/phytec-headless-image phytec-headless-bundle/ampliphy-rauc,
 		phyboard-izar-am68x-2/phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-2/-c populate_sdk phytec-qt5demo-image/ampliphy-xwayland,
 		phyboard-izar-am68x-3/phytec-headless-image/ampliphy,
@@ -10,11 +10,12 @@
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
 	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
-	<remote name="github" fetch="https://github.com"/>
-	<remote name="ti" fetch="git://git.ti.com"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded"/>
+	<remote name="github.rauc" fetch="https://github.com/rauc"/>
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5"/>
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8"/>
 
@@ -23,12 +24,12 @@
 	</project>
 	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="kirkstone"/>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="kirkstone"/>
-	<project name="poky" remote="yocto" path="sources/poky">
+	<project name="poky" remote="github.yocto" path="sources/poky">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -38,13 +39,13 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="rauc/meta-rauc" path="sources/meta-rauc" remote="github"/>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
 	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt5/meta-qt5" path="sources/meta-qt5" remote="github"/>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5"/>
 	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
