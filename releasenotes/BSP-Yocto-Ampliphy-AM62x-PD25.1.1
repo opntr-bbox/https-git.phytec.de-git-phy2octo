@@ -1,0 +1,68 @@
+BSP-Yocto-Ampliphy-AM62x-PD25.1.1               2026-04-15
+==========================================================
+
+- Linux TI vendor kernel v6.12.57-11.02.11-phy6 (based on TI tag 11.02.11)
+- U-Boot v2025.07-phy9
+- Yocto 5.0.16 (Scarthgap)
+- Qt 6.8
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am62xx-3
+ * phytec-headless-image/ampliphy
+ * phytec-headless-bundle/ampliphy-rauc
+ * phytec-headless-image/ampliphy-rt
+ * phytec-qt6demo-image/ampliphy
+- phyboard-lyra-am62xx-4
+ * phytec-headless-image/ampliphy
+ * phytec-securiphy-bundle/securiphy
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+
+**Yocto**
+^^^^^^^^^
+
+* **TI Firmware Update**: Update TI firmware to v11.02.11
+* **Camera Support**: Added phycam-setup package and udev rules for phyBOARD-Lyra camera
+* **Vulkan**: Enabled Vulkan distro feature
+* **partup**: Updated to v3.0.0 with SPI-NOR flash layout configs
+* **Serial Names**: Serial interfaces now have predicable aliases in /dev/serial/by-label/ based on the device-tree node name. The behavior of /dev/ttyS devices has not been changed.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to v6.12.57 (tag: v6.12.57-11.02.11-phy6)
+* **TI SDK Update**: Bump from TI Processor SDK v11.01.05 to v11.02.11
+* **AR0144 Camera Fixes**: Fixed frame rate calculation, blanking control representation, and disallowed dynamic pixel correction changes while streaming
+* **I2C Bus Frequency Fix**: Corrected I2C bus frequency for cameras on phyBOARD-Lyra
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.07 (tag: v2025.07-phy9)
+* **RAUC Bootmeth**: Merged upstream RAUC A/B bootmeth with memory handling fixes
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Securiphy**: There was a regression in the chain of trust while booting. When switching to u-boot standard boot we added an unsigned boot script, which is a violation of the chain of trust. This only applies to the securiphy distro.
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
+* **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
+* **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
+* **USB I/O errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+
