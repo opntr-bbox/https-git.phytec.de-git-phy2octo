@@ -1,0 +1,60 @@
+BSP-Yocto-Ampliphy-AM64x-PD25.2.1               2026-04-15
+==========================================================
+
+- Linux kernel v6.12.79-phy1
+- U-Boot v2025.07-phy9
+- Yocto 5.0.16 (Scarthgap)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-bundle/ampliphy-rauc
+- phyboard-electra-am64xx-3
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-bundle/securiphy
+  * phytec-securiphy-image/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **PRU Support**: Added PRU PRP firmware binaries and updated machine essentials for AM64x
+* **partup**: Updated to v3.0.0 with SPI-NOR flash layout configs
+* **eeprom-flashtool**: Updated to v3.4.0
+* **Serial Names**: Serial interfaces now have predicable aliases in /dev/serial/by-label/ based on the device-tree node name. The behavior of /dev/ttyS devices has not been changed.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.12.79 (tag: v6.12.79-phy1)
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.07 (tag: v2025.07-phy9)
+* **DDR Timings**: Updated DDR timings to increase stability in higher temperature ranges
+* **RAUC Bootmeth**: Merged upstream RAUC A/B bootmeth with memory handling fixes
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Securiphy**: There was a regression in the chain of trust while booting. When switching to u-boot standard boot we added an unsigned boot script, which is a violation of the chain of trust. This only applies to the securiphy distro.
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Flashcp Command Failures**: Occasional failures during verification in `flashcp`.
