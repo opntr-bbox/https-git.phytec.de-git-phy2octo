@@ -1,0 +1,62 @@
+BSP-Yocto-Ampliphy-AM67x-PD25.1.1              2026-04-15
+=========================================================
+
+- Linux TI vendor kernel v6.12.57-11.02.11-phy6 (based on TI tag 11.02.11)
+- U-Boot TI vendor v2025.01-phy6 (based on TI tag 11.02.11)
+- Yocto 5.0.16 (Scarthgap)
+- Qt 6.8
+
+
+Tested Yocto Machines:
+----------------------
+ - phyboard-rigel-am67xx-1
+  * phytec-headless-image/ampliphy-vendor
+  * phytec-headless-bundle/ampliphy-vendor-rauc
+  * phytec-headless-image/ampliphy-vendor-rt
+  * phytec-qt6demo-image/ampliphy-vendor
+
+
+  Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **TI Firmware Update**: Bumped TI firmware to v11.02.11
+* **Vulkan**: Enabled Vulkan distro feature
+* **partup**: Updated to v3.0.0 with SPI-NOR flash layout configs
+* **Serial Names**: Serial interfaces now have predicable aliases in /dev/serial/by-label/ based on the device-tree node name. The behavior of /dev/ttyS devices has not been changed.
+* **Ethernet Names**: Ethernet interfaces now have predictable names with endX. Previous names with ethX are still supported as alternative names, but support will be removed in a future release.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to v6.12.57 (tag: v6.12.57-11.02.11-phy6) based on TI SDK v11.02.11
+* **TI SDK Update**: Bump from TI Processor SDK v11.01.05 to v11.02.11
+* **phyBOARD-Rigel Device Tree Updates**: Updated compatible string, added vdd-supply to light sensor, renamed pinmux nodes
+* **USB Role Switching**: Added support for USB role switching on phyBOARD-Rigel
+* **SPI0 Overlay**: Added SPI0 overlay for phyBOARD-Rigel X37 connector
+* **DDR Size Update**: Update the DDR timings for the phyCORE-AM67x to use a 4GB module with an effective size of 4GB.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.01 (tag: v2025.01-11.02.11-phy6)
+* **TI SDK Update**: Bump from TI Processor SDK v11.01.05 to v11.02.11
+* **Device Tree Sync**: Synced U-Boot device trees with kernel v6.12.57-11.02.11
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **USB 0**: usb0 works as a DFP (host) only on .1 carrierboards.
+* **USB 1**: usb1 is only capable of USB 2.0 on .1 carrierboards.
+* **Audio**: recording with the microphone does not work.
+* **CAN FD**: CAN does not work at 125KHz.
