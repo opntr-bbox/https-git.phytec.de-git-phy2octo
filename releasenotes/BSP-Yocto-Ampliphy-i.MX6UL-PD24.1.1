@@ -1,0 +1,72 @@
+Release Notes unified i.MX 6UL/ULL Linux BSP:
+=============================================
+
+BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.1             2026-04-23
+==========================================================
+- Linux Mainline Kernel v6.6.129 (LTS kernel)
+  * Update from v6.6.31 to v6.6.129
+  * Tag: v6.6.129-phy1
+- barebox v2024.03.0
+  * Tag: v2024.03.0-phy1
+- Yocto 5.0.16 (scarthgap)
+- Qt 5.15.13 from meta-qt5 (scarthgap)
+
+Supported Images/Machines:
+--------------------------
+- phytec-headless-image on:
+  * phyboard-segin-imx6ul-2
+  * phyboard-segin-imx6ul-6
+  * phyboard-segin-imx6ul-7
+  * phyboard-segin-imx6ul-8
+  * phygate-tauri-s-imx6ul-1
+
+- phytec-qt5demo-image on:
+  * phyboard-segin-imx6ul-2
+  * phyboard-segin-imx6ul-6
+  * phyboard-segin-imx6ul-7
+  * phyboard-segin-imx6ul-8
+
+- phytec-vision-image on:
+  * phyboard-segin-imx6ul-6
+  * phyboard-segin-imx6ul-7
+
+- phytec-securiphy-image on:
+  * phyboard-segin-imx6ul-6
+  * phyboard-segin-imx6ul-8
+  * phygate-tauri-s-imx6ul-1
+
+Note: For decoding Machine Names into hardware ordering please visit our download area and use the machine decoder there.
+https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.1
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64Bit
+
+Changes since PD24.1.0:
+-----------------------
+- New Features:
+  * Add support for PEB-AV-18 with AC220
+
+Known Issues:
+-------------
+- kernel:
+  * Small performance drop on IO-operations with external devices when
+    LOW-POWER-IDLE state is active (CONFIG_CPUIDLE)
+- phyGATE-Tauri-S RS232 / RS485:
+  * At the same time only '2x RS232' or '1x RS232 and 1x RS485' can be used on
+    phyGATE-Tauri-S. Right now '1x RS232 and 1x RS485' is the default.
+- PEB-WLBT-05-15x modules (5 GHz option) don't work. They are using Sterling-LWB5 chips,
+  which is EOL.
+- default kernel CMA allocation of 256MB fails on phyboard-segin-imx6ul-2, -4,
+  -5, -7 and phygate-tauri-s-imx6ul-1 machines with 512MB of RAM. One can fix
+  the issue in runtime by entering Barebox bootloader console and executing the
+  following command: nv linux.bootargs.cma=cma=128M
+
+Notes:
+------
+- 'phytec-security-image' is renamed to 'phytec-securiphy-image'.
+- 'security' distro is renamed to 'securiphy'.
+- .wic image support is dropped. Users should use .partup image format with partup
+  tool for SD-Card/eMMC update.
+
+- For a list of changes in former releases, please read release note of PD22.1.1
