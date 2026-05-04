@@ -14,7 +14,7 @@
   <remote fetch="https://github.com/rauc" name="rauc" />
   <remote fetch="https://github.com/meta-rust" name="rust" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
-  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  <remote fetch="https://git.yoctoproject.org" name="yocto" />
   
   <default remote="git.phytec" sync-j="2" />
   
