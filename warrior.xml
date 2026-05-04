@@ -5,7 +5,7 @@
 		phycore-imx8-2/fsl-image-qt5-validation-imx/fsl-imx-wayland"
 		release_type="archived" bspextension="FSL" build_container="phybuilder/yocto-ubuntu-16.04"/>
 
-	<remote name="yocto" fetch="git://git.yoctoproject.org"/>
+	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
 	<remote name="github.community" fetch="https://github.com/Freescale"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="github.OSSystems" fetch="https://github.com/OSSystems"/>
