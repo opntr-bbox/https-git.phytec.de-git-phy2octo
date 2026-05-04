@@ -15,7 +15,7 @@
     phyboard-lyra-am62xx-4/phytec-securiphy-image/securiphy
   " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04:phy2" />
 
-  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+  <remote name="yocto" fetch="https://git.yoctoproject.org" />
 	<remote name="oe" fetch="git://git.openembedded.org" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
