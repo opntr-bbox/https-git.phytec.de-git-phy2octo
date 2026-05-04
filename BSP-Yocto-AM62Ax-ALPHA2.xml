@@ -5,7 +5,7 @@
     phyboard-lyra-am62axx-1/phytec-qt5demo-image/yogurt
   " build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
-  <remote name="yocto" fetch="git://git.yoctoproject.org" />
+  <remote name="yocto" fetch="https://git.yoctoproject.org" />
 	<remote name="oe" fetch="git://git.openembedded.org" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
