@@ -5,7 +5,7 @@
     phyboard-electra-am64xx-1/tisdk-default-image/arago
   " />
 
-  <remote fetch="git://git.yoctoproject.org" name="yocto" />
+  <remote fetch="https://git.yoctoproject.org" name="yocto" />
 	<remote fetch="git://git.openembedded.org" name="oe" />
 	<remote fetch="git://git.phytec.de" name="git.phytec" />
 	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
