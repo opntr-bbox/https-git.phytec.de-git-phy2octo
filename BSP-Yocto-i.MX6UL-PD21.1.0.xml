@@ -7,7 +7,7 @@
 
   <remote fetch="git://git.phytec.de" name="git.phytec" />
 	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
-	<remote fetch="git://git.yoctoproject.org" name="yocto" />
+	<remote fetch="https://git.yoctoproject.org" name="yocto" />
 	<remote fetch="git://git.openembedded.org" name="oe" />
 	<remote fetch="git://git.ti.com" name="ti" />
 	<remote fetch="https://github.com" name="github" />
