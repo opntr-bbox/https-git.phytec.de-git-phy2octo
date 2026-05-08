@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<phytec pdn="PD26.1.y" release_uid="BSP-Yocto-OpenSTLinux-STM32MP2-PD26.1.y" soc="STM32MP2" supported_builds="
-		stm32mp25x-phyflex-libra-rdk-1/st-image-weston/openstlinux-weston,
-		stm32mp25x-phyflex-libra-rdk-1/st-image-core/openstlinux-weston,
-		stm32mp25x-phyflex-libra-rdk-2/st-image-weston/openstlinux-weston"
+		stm32mp23x-phyflex-libra-rdk-1/st-image-weston/openstlinux-weston,
+		stm32mp25x-phyflex-libra-rdk-3/st-bundle-weston/openstlinux-weston-rauc,
+		stm32mp25x-phyflex-libra-rdk-3/st-image-core/openstlinux-weston,
+		stm32mp25x-phyflex-libra-rdk-3/st-image-weston/openstlinux-weston,
+		stm32mp25x-phyflex-libra-rdk-3/st-image-weston/openstlinux-weston-rauc,
+		stm32mp25x-phyflex-libra-rdk-3-m33td/st-image-weston/openstlinux-weston"
 		release_type="nightly" bspextension="OpenSTLinux" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
