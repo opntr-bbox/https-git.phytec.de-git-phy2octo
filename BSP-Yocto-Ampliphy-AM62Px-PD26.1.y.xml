@@ -2,7 +2,7 @@
 <manifest>
 	<phytec pdn="PD26.1.y" release_uid="BSP-Yocto-Ampliphy-AM62Px-PD26.1.y" soc="AM62Px" supported_builds="
 		phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor,
-		phyboard-lynx-am62pxx-1/phytec-headless-bundle/ampliphy-vendor-rauc,
+		phyboard-lynx-am62pxx-1/phytec-headless-image phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-lynx-am62pxx-1/phytec-headless-image/ampliphy-vendor-rt,
 		phyboard-lynx-am62pxx-1/phytec-qt6demo-image/ampliphy-vendor,
 		phyboard-lynx-am62pxx-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
