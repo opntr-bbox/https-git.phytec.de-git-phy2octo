@@ -9,6 +9,7 @@
 		phyboard-nash-imx93-1/phytec-headless-image/ampliphy-vendor,
 		phyboard-nash-imx93-1/phytec-headless-bundle/ampliphy-vendor-rauc,
 		phyboard-nash-imx93-1/phytec-qt6demo-image/ampliphy-vendor,
+		phyboard-nash-imx93-1/phytec-qt6demo-image/ampliphy-linux-mainline,
 		phyboard-nash-imx93-1/phytec-provisioning-image/securiphy-vendor-provisioning,
 		phyboard-nash-imx93-1/phytec-securiphy-bundle/securiphy-vendor,
 		phyboard-nash-imx93-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
@@ -17,6 +18,7 @@
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject" />
 	<remote name="github.lmp-mirrors" fetch="https://github.com/lmp-mirrors" />
 	<remote name="github.community" fetch="https://github.com/Freescale" />
+	<remote name="github.betafive" fetch="https://github.com/betafive"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx" />
 	<remote name="github.OSSystems" fetch="https://github.com/OSSystems" />
@@ -77,4 +79,5 @@
 	</project>
 	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap" />
 	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="scarthgap" />
+	<project name="meta-linux-mainline" path="sources/meta-linux-mainline" remote="github.betafive"/>
 </manifest>
