@@ -33,7 +33,7 @@
 
   <remote fetch="git://git.phytec.de" name="git.phytec" />
   <remote fetch="https://github.com" name="github" />
-  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="git://git.ti.com" name="ti" />
   <remote fetch="https://git.yoctoproject.org" name="yocto" />
@@ -42,7 +42,7 @@
   
   <project name="dv1/meta-gstreamer1.0" path="sources/meta-gstreamer1.0" remote="github" revision="802a5db727edf0ec1d142122241c857bffab8667" />
   <project name="imyller/meta-nodejs" path="sources/meta-nodejs" remote="github" revision="eec531e97a17bfd406f3bf76dee4057dcf5286a4" />
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8" />
   <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/2.4.4-phy4">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
