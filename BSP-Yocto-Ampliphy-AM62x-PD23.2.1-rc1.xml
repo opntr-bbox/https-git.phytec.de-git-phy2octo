@@ -11,7 +11,7 @@
   " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-20.04" />
 
   <remote name="yocto" fetch="https://git.yoctoproject.org" />
-	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="github" fetch="https://github.com" />
@@ -33,7 +33,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8bb16533532b6abc2eded7d9961ab2a108fd7a5b">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="8bb16533532b6abc2eded7d9961ab2a108fd7a5b">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
