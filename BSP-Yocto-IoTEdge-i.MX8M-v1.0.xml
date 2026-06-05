@@ -9,7 +9,7 @@
   <remote fetch="https://git.yoctoproject.org" name="yocto"/>
   <remote fetch="https://github.com" name="github" />
   <remote fetch="https://github.com/Freescale" name="community"/>
-  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems"/>
   <remote fetch="https://github.com/meta-qt5"  name="QT5"/>
   <remote fetch="https://github.com/rauc"  name="rauc"/>
@@ -20,7 +20,7 @@
   <project remote="yocto" revision="c9bd4984f8f471ca2c43052714f4413ba99cf171" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="27ca94f8a4336790ba117b4298566f6820e7e74c" name="meta-freescale" path="sources/meta-freescale"/>
 
-  <project remote="oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="github.oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" name="meta-openembedded" path="sources/meta-openembedded"/>
 
   <project remote="community" revision="70535e13dd2aabbad53243518f4cc5064d284592" name="fsl-community-bsp-base" path="sources/base">
     <linkfile dest="README" src="README"/>

@@ -7,7 +7,7 @@
 		" release_type="topic" bspextension="IndComms-IBV" build_container="phybuilder/yocto-ubuntu-24.04:phy5" />
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org" />
-	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="github.phytec" fetch="https://github.com/phytec"/>
@@ -25,7 +25,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="2b26d30fc7f478f5735d514f0c1bc28f6a4148b6">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="2b26d30fc7f478f5735d514f0c1bc28f6a4148b6">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />

@@ -8,14 +8,14 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="ti" fetch="git://git.ti.com"/>
 	<remote name="github" fetch="https://github.com"/>
 
 	<default revision="rocko" remote="git.phytec" sync-j="8"/>
 
 	<project name="poky" remote="yocto" path="sources/poky" revision="c3dd2826dd1cd940203609133ecea58ef450d813"/>
-	<project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8"/>
+	<project name="meta-openembedded" remote="github.oe" path="sources/meta-openembedded" revision="eae996301d9c097bcbeb8046f08041dc82bb62f8"/>
 	<project name="meta-qt5/meta-qt5" remote="github" path="sources/meta-qt5" revision="d8b531530fa42b59aa0a5b123d87a30d749cbcc4" />
 	<project name="rauc/meta-rauc" remote="github" path="sources/meta-rauc" revision="e9c3928d6c24bd58c613bd8334066021946d6347"/>
 	<project name="dv1/meta-gstreamer1.0" remote="github" path="sources/meta-gstreamer1.0" revision="802a5db727edf0ec1d142122241c857bffab8667"/>
