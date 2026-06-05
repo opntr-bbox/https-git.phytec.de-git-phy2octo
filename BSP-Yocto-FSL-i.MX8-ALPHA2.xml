@@ -9,7 +9,7 @@
   <remote fetch="https://github.com/meta-qt5" name="QT5" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="https://github.com/openembedded" name="oe" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/rauc" name="rauc" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="https://git.yoctoproject.org" name="yocto" />
@@ -27,7 +27,7 @@
   <project name="meta-fsl-bsp-release" path="sources/meta-fsl-bsp-release" remote="CAF" revision="238a429e4eedd2f4b26876c2e2a6a9b3ec4e434c">
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="8760facba1bceb299b3613b8955621ddaa3d4c3f" />
   <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="refs/tags/2.5.3-phy8">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>
