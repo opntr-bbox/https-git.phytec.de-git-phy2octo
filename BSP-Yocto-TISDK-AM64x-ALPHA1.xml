@@ -6,7 +6,7 @@
   " />
 
   <remote fetch="https://git.yoctoproject.org" name="yocto" />
-	<remote fetch="git://git.openembedded.org" name="oe" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote fetch="git://git.phytec.de" name="git.phytec" />
 	<remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
 	<remote fetch="git://arago-project.org/git" name="arago" />
@@ -21,14 +21,14 @@
 	<project revision="refs/tags/BSP-Yocto-TISDK-AM64x-ALPHA1" name="meta-yogurt" path="sources/meta-yogurt" />
 
 	<project remote="github" name="rauc/meta-rauc" path="sources/meta-rauc" revision="2fe17af894b82cd2b0d0203478d4924fa916b440" />
-	<project remote="oe" revision="d22cc1e587c650fd5f90cda32f5720f8a3105aac" name="bitbake" path="sources/oe-core/bitbake">
+	<project remote="github.oe" revision="d22cc1e587c650fd5f90cda32f5720f8a3105aac" name="bitbake" path="sources/oe-core/bitbake">
 		<ignorebaselayer />
 	</project>
-	<project remote="oe" revision="f61fcb6e176f19f1e768ce63a693f238713c8887" name="openembedded-core" path="sources/oe-core">
+	<project remote="github.oe" revision="f61fcb6e176f19f1e768ce63a693f238713c8887" name="openembedded-core" path="sources/oe-core">
 		<ignorebaselayer />
 		<sublayer path="meta" />
 	</project>
-	<project remote="oe" name="meta-openembedded" path="sources/meta-openembedded" revision="0722ff6f021df91542b5efa1ff5b5f6269f66add">
+	<project remote="github.oe" name="meta-openembedded" path="sources/meta-openembedded" revision="0722ff6f021df91542b5efa1ff5b5f6269f66add">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
