@@ -13,7 +13,7 @@
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
-  <remote fetch="https://github.com/openembedded" name="oe" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems" />
   <remote fetch="https://github.com/meta-qt5" name="QT5" />
   <remote fetch="https://github.com/meta-rust" name="rust" />
@@ -30,7 +30,7 @@
     <sublayer path="meta-poky" />
   </project>
 
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="2b5dd1eb81cd08bc065bc76125f2856e9383e98b">
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="2b5dd1eb81cd08bc065bc76125f2856e9383e98b">
     <ignorebaselayer />
     <sublayer path="meta-oe" />
     <sublayer path="meta-networking" />

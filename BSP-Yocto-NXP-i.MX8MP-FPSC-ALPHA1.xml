@@ -10,7 +10,6 @@
   <remote name="yocto" fetch="https://git.yoctoproject.org/git" />
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject" />
 	<remote name="community" fetch="https://github.com/Freescale" />
-	<remote name="oe" fetch="https://github.com/openembedded" />
 	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
 	<remote name="OSSystems" fetch="https://github.com/OSSystems" />

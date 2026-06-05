@@ -12,7 +12,6 @@
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />

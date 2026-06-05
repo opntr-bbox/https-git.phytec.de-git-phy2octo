@@ -23,7 +23,7 @@
 
   <remote name="yocto" fetch="https://git.yoctoproject.org/git" />
   <remote name="community" fetch="https://github.com/Freescale" />
-  <remote name="oe" fetch="https://github.com/openembedded" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
   <remote name="OSSystems" fetch="https://github.com/OSSystems" />
   <remote name="QT5" fetch="https://github.com/meta-qt5" />
@@ -43,7 +43,7 @@
     <sublayer path="meta-poky" />
   </project>
 
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="f44e1a2b575826e88b8cb2725e54a7c5d29cf94a" upstream="hardknott">
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="f44e1a2b575826e88b8cb2725e54a7c5d29cf94a" upstream="hardknott">
     <ignorebaselayer />
     <sublayer path="meta-oe" />
     <sublayer path="meta-networking" />
