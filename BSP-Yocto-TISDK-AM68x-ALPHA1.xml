@@ -5,7 +5,7 @@
   " build_container="yocto:tisdk-ubuntu18.04" />
 
   <remote name="yocto" fetch="https://git.yoctoproject.org" />
-	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="github" fetch="https://github.com" />
@@ -22,14 +22,14 @@
 		<sublayer path="meta-arago-distro" />
 		<sublayer path="meta-arago-extras" />
         </project>
-        <project remote="oe" name="openembedded-core" path="sources/oe-core" revision="e4b98a42970574296e0da06842691b9fc1ffc9a1">
+        <project remote="github.oe" name="openembedded-core" path="sources/oe-core" revision="e4b98a42970574296e0da06842691b9fc1ffc9a1">
                 <ignorebaselayer />
                 <sublayer path="meta" />
 	</project>
-	<project remote="oe" name="bitbake" path="sources/oe-core/bitbake" revision="e16a9ca7e9286790ac37a067fdc8fde3a35a1c44">
+	<project remote="github.oe" name="bitbake" path="sources/oe-core/bitbake" revision="e16a9ca7e9286790ac37a067fdc8fde3a35a1c44">
 		<ignorebaselayer />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="116bfe8d5e5851e7fc5424f40da8691a19c5b5ee">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="116bfe8d5e5851e7fc5424f40da8691a19c5b5ee">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
