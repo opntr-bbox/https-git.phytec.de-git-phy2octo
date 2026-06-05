@@ -15,7 +15,7 @@
   <remote fetch="https://github.com/TimesysGit" name="Timesys" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote fetch="git://git.phytec.de" name="git.phytec" />
-  <remote fetch="https://github.com/openembedded" name="oe" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/rauc" name="rauc" />
   <remote fetch="https://github.com/meta-rust" name="rust" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
@@ -35,7 +35,7 @@
     <linkfile dest="fsl-setup-release.sh" src="imx/tools/fsl-setup-release.sh" />
     <linkfile dest="README-IMXBSP" src="imx/README" />
   </project>
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="3bdbf72e3a4bf18a4a2c7afbde4f7ab773aeded9" />
   <project name="meta-phytec" path="sources/meta-phytec" remote="git.phytec" revision="d9fa9882f2a3105817d8750bed5c0e84bd603ecc">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>

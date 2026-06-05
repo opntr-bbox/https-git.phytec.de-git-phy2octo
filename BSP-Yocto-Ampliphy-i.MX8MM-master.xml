@@ -8,7 +8,6 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de"/>
 	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
-	<remote name="oe" fetch="git://git.openembedded.org"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="github.rauc" fetch="https://github.com/rauc"/>
 	<remote name="github.fsl-community" fetch="https://github.com/Freescale"/>
@@ -26,7 +25,7 @@
 		<ignorebaselayer/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
