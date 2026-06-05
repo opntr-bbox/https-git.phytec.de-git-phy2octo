@@ -10,7 +10,7 @@
   <remote name="yocto" fetch="https://github.com/yoctoproject" />
 	<remote name="lmp-mirrors" fetch="https://github.com/lmp-mirrors" />
 	<remote name="community" fetch="https://github.com/Freescale" />
-	<remote name="oe" fetch="https://github.com/openembedded" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx" />
 	<remote name="OSSystems" fetch="https://github.com/OSSystems" />
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
@@ -33,7 +33,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="75cf318cef3b4ee81fad2782cf063ecd69ba8842" upstream="mickledore">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="75cf318cef3b4ee81fad2782cf063ecd69ba8842" upstream="mickledore">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
