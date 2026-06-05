@@ -10,7 +10,7 @@
   " bspextension="Yogurt" build_container="phybuilder/yocto-ubuntu-20.04:phy2" />
 
   <remote name="yocto" fetch="https://git.yoctoproject.org" />
-	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="github" fetch="https://github.com" />
@@ -27,7 +27,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="c74ebbddfd9dbe02d3f7422016324451eb218e1e">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="c74ebbddfd9dbe02d3f7422016324451eb218e1e">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
