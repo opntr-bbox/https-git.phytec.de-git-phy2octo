@@ -4,13 +4,13 @@
 
   <remote fetch="git://git.phytec.de" name="git.phytec" />
   <remote fetch="https://github.com" name="github" />
-  <remote fetch="git://git.openembedded.org" name="oe" />
+  <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
   <remote fetch="https://git.yoctoproject.org" name="yocto" />
   
   <default remote="git.phytec" revision="fido" sync-j="8" />
   
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="df2f700d66bace65f5d802225232d01cf511fe81" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="df2f700d66bace65f5d802225232d01cf511fe81" />
   <project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/1.8.1-phy2-fix1" upstream="1.8.1-phy2-fix">
     <copyfile dest="tools/init" src="scripts/init" />
   </project>

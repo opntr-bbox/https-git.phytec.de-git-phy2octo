@@ -30,7 +30,7 @@
   <remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="yocto" fetch="https://git.yoctoproject.org" />
-	<remote name="oe" fetch="git://git.openembedded.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="ti" fetch="git://git.ti.com" />
 	<remote name="github" fetch="https://github.com" />
 
@@ -41,7 +41,7 @@
 		<sublayer path="meta" />
 		<sublayer path="meta-poky" />
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="82c75b466e55d7dca7a2364986ecb704cf63d141">
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="82c75b466e55d7dca7a2364986ecb704cf63d141">
 		<ignorebaselayer />
 		<sublayer path="meta-oe" />
 		<sublayer path="meta-networking" />
