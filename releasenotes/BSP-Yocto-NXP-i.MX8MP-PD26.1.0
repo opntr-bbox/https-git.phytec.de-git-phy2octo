@@ -1,0 +1,67 @@
+BSP-Yocto-NXP-i.MX8MP-PD26.1.0            2026-06-08
+====================================================
+
+- Linux NXP Vendor Kernel v6.12.49-2.2.0-phy11 (based on NXP tag lf-6.12.49-2.2.0)
+- U-boot v2025.04-2.2.0-phy9 (based on NXP tag lf-6.12.49-2.2.0)
+- Yocto 5.2.4 (Walnascar)
+- Qt 6.8
+- OP-TEE 4.8
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phytec-chromium-image
+- phytec-qt6demo-image
+- phytec-vision-image
+- phytec-provisioning-image
+- phytec-securiphy-image
+- phytec-headless-image
+
+Supported Machines:
+-------------------
+- phyboard-pollux-imx8mp-3
+- imx8mp-phyflex-libra-rdk-2
+
+Build Environment:
+------------------
+- Ubuntu 24.04 64-bit
+
+Changes:
+--------
+- Move OP-TEE to end of 1GiB addressable RAM (0x7e000000) BSPIMX8M-4034
+- replaced imx8mp-libra-fpsc-1 with imx8mp-phyflex-libra-rdk-2 machine
+- i.MX8MP-FPSC release is integrated into the i.MX8MP releases.
+
+New Features:
+-------------
+- Chromium image
+- ampliphy-boot
+- 4GiB RAM support on phyFLEX Libra (ALPHA)
+- EEPROM detection support in U-Boot on phyFLEX Libra
+- VPU support on phyFLEX Libra
+- thermal management on phyFLEX Libra (U-Boot and Linux)
+
+Issues fixed:
+-------------
+- Fixed RS232 flow control on phyFLEX Libra
+- Fixed video playback issue
+
+Defeatured:
+-----------
+legacyboot support in built-in U-Boot environment for phyBOARD Pollux
+
+Known Issues/Limitations:
+-------------------------
+- No audio support
+- No wireless support (Bluetooth, WiFi)
+- No NPU support
+- No support for 8GiB RAM variant
+- no EFI support
+- No LED support on phyBOARD Pollux
+- No USB-C support for phyFLEX Libra
+- 4GiB RAM Timings on phyFLEX Libra not fully validated yet
+- phyboard-pollux-imx8mp-3: Upper USB port on X5 connector doesn't
+  work reliable in host mode in bootloader
+- shutdown from Linux might sometimes take longer due to systemd stop job running
+- Reduction of CMA size to half for phyBOARD Pollux 1GiB RAM SoM
+- Increased resume duration during suspend to RAM
