@@ -80,8 +80,12 @@ Known Issues and Limitations:
   may not play smoothly.
 - network boot only works with connection on ETH1 by default. Changes to the U-Boot environment are
   necessary to boot via nfs on ETH2
+- when trying to write to non-optimal aligned blocks, e.MMC becomes unresponsive. Cause of this
+  behaviour has not been determined, yet.
 
 Changelog
 ---------
 2026-03-06
   - initial version
+2026-06-08
+  - add e.MMC non-optimal aligned block issue
