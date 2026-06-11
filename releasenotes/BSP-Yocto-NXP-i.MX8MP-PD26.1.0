@@ -40,6 +40,7 @@ New Features:
 - EEPROM detection support in U-Boot on phyFLEX Libra
 - VPU support on phyFLEX Libra
 - thermal management on phyFLEX Libra (U-Boot and Linux)
+- support for VM-024 phyCAM-M
 
 Issues fixed:
 -------------
