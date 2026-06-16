@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD24.1.2-rc1" release_uid="BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.2-rc1" soc="iMX6UL" supported_builds="
+    phyboard-segin-imx6ul-2/phytec-headless-image/ampliphy,
+    phyboard-segin-imx6ul-2/phytec-qt5demo-image/ampliphy,
+    phyboard-segin-imx6ul-6/-c populate_sdk phytec-qt5demo-image/ampliphy,
+    phyboard-segin-imx6ul-6/phytec-headless-bundle/ampliphy-rauc,
+    phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy,
+    phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy-linux-mainline,
+    phyboard-segin-imx6ul-6/phytec-headless-image/ampliphy-rauc,
+    phyboard-segin-imx6ul-6/phytec-qt5demo-image/ampliphy,
+    phyboard-segin-imx6ul-6/phytec-securiphy-image/securiphy,
+    phyboard-segin-imx6ul-6/phytec-vision-image/ampliphy,
+    phyboard-segin-imx6ul-7/phytec-headless-bundle/ampliphy-rauc,
+    phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy,
+    phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy-linux-mainline,
+    phyboard-segin-imx6ul-7/phytec-headless-image/ampliphy-rauc,
+    phyboard-segin-imx6ul-7/phytec-qt5demo-image/ampliphy,
+    phyboard-segin-imx6ul-7/phytec-vision-image/ampliphy,
+    phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy,
+    phyboard-segin-imx6ul-8/phytec-headless-image/ampliphy-linux-mainline,
+    phyboard-segin-imx6ul-8/phytec-provisioning-image/securiphy-provisioning,
+    phyboard-segin-imx6ul-8/phytec-qt5demo-image/ampliphy,
+    phyboard-segin-imx6ul-8/phytec-securiphy-bundle/securiphy,
+    phyboard-segin-imx6ul-8/phytec-securiphy-image/securiphy,
+    phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy,
+    phygate-tauri-s-imx6ul-1/phytec-headless-image/ampliphy-linux-mainline,
+    phygate-tauri-s-imx6ul-1/phytec-provisioning-image/securiphy-provisioning,
+    phygate-tauri-s-imx6ul-1/phytec-securiphy-bundle/securiphy,
+    phygate-tauri-s-imx6ul-1/phytec-securiphy-image/securiphy
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04:phy8" />
+
+  <remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="yocto" fetch="https://git.yoctoproject.org" />
+	<remote name="github.qt5" fetch="https://github.com/meta-qt5/" />
+	<remote name="github.rauc" fetch="https://github.com/rauc/" />
+	<remote name="github.yp" fetch="https://github.com/yoctoproject/" />
+	<remote name="github.oe" fetch="https://github.com/openembedded/" />
+	<remote name="github.betafive" fetch="https://github.com/betafive/" />
+
+	<default revision="scarthgap" remote="git.phytec" sync-j="8" />
+
+	<project name="poky" path="sources/poky" remote="github.yp" revision="b56134ff90dec996e8aae45ed7e6ad6b1d5a84a0">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="d8cc4e44001c7257273d290ce8c4496e93d32841">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-qt5" path="sources/meta-qt5" remote="github.qt5" revision="227cf5e7b64c93dfc1a45f235c466db8c3fd8707" />
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="d63878f20eba7a85ecf53566e7a3377e78bb46ac" />
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="b13f1705d723650de61277670c8a76aadea4cfdd">
+		<sublayer path="meta-tpm" />
+	</project>
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="c4fd56386ee30f8b46f8e4eb1220edaf510d2ac0">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="9d0007a369deb4a6346f5ab7a9e6d432a8ed14fe" />
+	<project name="meta-linux-mainline" path="sources/meta-linux-mainline" remote="github.betafive" revision="76f7ca890d7711a797d796688ff6c2eef6d91f6c" />
+	<project name="meta-qt5-phytec" path="sources/meta-qt5-phytec" revision="32606dd8e2dd2abede0b62bf8f91e6e5d5778674" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="d8228677a19d7c027dd4c65f3f0daf18abf23359" />
+	<project name="meta-phytec" path="sources/meta-phytec" revision="769bfcd316b933df87aa70e4d9d734ca96096326">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+</manifest>
