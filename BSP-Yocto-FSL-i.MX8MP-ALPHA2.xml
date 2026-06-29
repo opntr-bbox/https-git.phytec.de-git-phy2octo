@@ -11,7 +11,7 @@
 
   <default remote="git.phytec" revision="zeus" sync-j="2" />
 
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
+  <remote fetch="https://git.yoctoproject.org" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems" />

@@ -8,7 +8,7 @@
     phyboard-pollux-imx8mp-2/phytec-vision-image/yogurt-vendor-xwayland
   " release_type="nightly" bspextension="FSL" />
 
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
+  <remote fetch="https://git.yoctoproject.org" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems" />

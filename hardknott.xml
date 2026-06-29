@@ -19,7 +19,7 @@
 		phyboard-pollux-imx8mp-3/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04"/>
 
-	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
 	<remote name="github.community" fetch="https://github.com/Freescale"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded"/>
 	<remote name="github.nxp-imx" fetch="https://github.com/nxp-imx"/>
