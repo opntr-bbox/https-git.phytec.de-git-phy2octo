@@ -16,7 +16,7 @@
     phygate-tauri-l-imx8mm-2/phytec-headless-image/yogurt-vendor
   " />
 
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto" />
+  <remote fetch="https://git.yoctoproject.org" name="yocto" />
   <remote fetch="https://github.com/Freescale" name="community" />
   <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="https://github.com/OSSystems" name="OSSystems" />

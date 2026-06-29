@@ -20,7 +20,7 @@
 		phyboard-polis-imx8mm-5/-c populate_sdk phytec-qt5demo-image/ampliphy-vendor-xwayland"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-20.04:phy2"/>
 
-	<remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
 	<remote name="community" fetch="https://github.com/Freescale"/>
 	<remote name="github.oe" fetch="https://github.com/openembedded" />
 	<remote name="nxp-imx" fetch="https://github.com/nxp-imx"/>
