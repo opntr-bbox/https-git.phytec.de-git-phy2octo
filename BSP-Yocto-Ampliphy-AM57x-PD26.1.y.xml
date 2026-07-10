@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD26.1.y" release_uid="BSP-Yocto-Ampliphy-AM57x-PD26.1.y" soc="AM57x" supported_builds="
+	phycore-am57xx-1/phytec-headless-image/ampliphy,
+	phycore-am57xx-1/phytec-headless-image/ampliphy-rt,
+	phycore-am57xx-1/phytec-qt6demo-image/ampliphy,
+	phycore-am57xx-1/-c populate_sdk phytec-qt6demo-image/ampliphy,
+	phycore-am57xx-2/phytec-headless-image/ampliphy,
+	phycore-am57xx-2/phytec-headless-image/ampliphy-rt,
+	phycore-am57xx-3/phytec-headless-image/ampliphy,
+	phycore-am57xx-3/phytec-headless-image/ampliphy-rt,
+	phycore-am57xx-3/phytec-qt6demo-image/ampliphy"
+	release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04" />
+
+	<remote name="yocto" fetch="https://git.yoctoproject.org" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="github.rauc" fetch="https://github.com/rauc/" />
+	<remote name="QT6"            fetch="https://code.qt.io/yocto" />
+	<remote name="github.kraj" fetch="https://github.com/kraj/" />
+	<remote name="ti" fetch="git://git.ti.com" />
+
+	<default revision="scarthgap" remote="git.phytec" sync-j="8" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="scarthgap" />
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap" />
+	<project name="poky" path="sources/poky" remote="yocto">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+		<sublayer path="meta-poky" />
+	</project>
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="e39348d4cc9c7b3d4dbc7d961d32441942dce185" upstream="6.9.3" />
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
+		<ignorebaselayer/>
+		<sublayer path="meta-ti-bsp"/>
+		<sublayer path="meta-ti-extras"/>
+	</project>
+	<project name="meta-arago" path="sources/meta-arago" remote="yocto">
+		<ignorebaselayer />
+		<sublayer path="meta-arago-extras" />
+		<sublayer path="meta-arago-test" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" />
+	<project name="meta-clang" path="sources/meta-clang" remote="github.kraj" />
+</manifest>
