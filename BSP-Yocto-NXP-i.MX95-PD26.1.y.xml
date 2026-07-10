@@ -22,14 +22,21 @@
 	<remote name="github.imx-support"   fetch="https://github.com/nxp-imx-support"/>
 	<remote name="github.timesys"       fetch="https://github.com/TimesysGit"/>
 
-	<default revision="walnascar" remote="git.phytec" sync-j="8"/>
+	<default revision="wrynose" remote="git.phytec" sync-j="8"/>
 
-	<project name="poky" path="sources/poky" remote="github.yocto">
+	<project name="bitbake" path="sources/oe-core/bitbake" remote="github.oe" revision="a2dd9be788274d9c7280be5b1be5eb5c3990cf54" upstream="2.18">
+		<ignorebaselayer/>
+	</project>
+	<project name="openembedded-core" path="sources/oe-core" remote="github.oe" revision="42fa856a00ac16b2a7a83d7ecfa60a5be192b16c" upstream="wrynose">
 		<ignorebaselayer/>
 		<sublayer path="meta"/>
+	</project>
+	<project name="meta-yocto" path="sources/meta-yocto" remote="yocto" revision="904846ae078ee20de073040ebb77c86e19250f56" upstream="wrynose">
+		<ignorebaselayer/>
 		<sublayer path="meta-poky"/>
 	</project>
-	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
+	<project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="78c5e12f08198f4f257a9348516d2103cd617c1d" upstream="wrynose" />
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="420222862f5a6d95023b8f5f3b7e1808b2264ef9" upstream="wrynose">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
 		<sublayer path="meta-networking"/>
@@ -38,42 +45,46 @@
 		<sublayer path="meta-filesystems"/>
 		<sublayer path="meta-perl"/>
 	</project>
-	<project name="meta-freescale" path="sources/meta-freescale" remote="github.fsl-community" revision="3d2781ad200846183ee3f3391f49512d0ef1b529"/>
-	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.fsl-community" revision="b9c3536b68271c420fe5de36fc284781ceaa32ab"/>
-	<project name="meta-freescale-ml" path="sources/meta-freescale-ml" remote="github.fsl-community" revision="e55df3c0f515ba62fcc2cc4c8ddee80b99706a40" upstream="walnascar" />
-	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
-	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="00c3bd954341a2a755fdee6b978af952f51793e7" upstream="6.8.3" />
-	<project name="meta-arm" path="sources/meta-arm" remote="yocto">
+	<project name="meta-freescale" path="sources/meta-freescale" remote="github.fsl-community" revision="3949624f36cbc5b7fd4033ce5ef001d83fc1a3e9" upstream="master"/>
+	<project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="github.fsl-community" revision="3358b11ef81d52b9c9972d454dd43c120cbbdaf5" upstream="master"/>
+	<project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.fsl-community" revision="70b7591ecaa99cb6366f93ee05df7c38d94d724b" upstream="master"/>
+	<project name="meta-freescale-ml" path="sources/meta-freescale-ml" remote="github.fsl-community" revision="1330790bc6cdd3808260a16383d928e05a0e0eeb" upstream="master"/>
+
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="4112fda50b814ad6e3cfaefe5cad78a83114599a" upstream="master" >
 		<ignorebaselayer />
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="003cba92e982bdd565a6889f28799f8bba14957e"/>
-	<project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="f988d616d37ddf160d3d747ed54d0a66d549f499">
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="3cd8b59a1303b3c079f5345c6b2555d1037925f6" upstream="6.11.0" />
+	<project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="407e3ac990f5ed466cb76e5002f918860503799c" upstream="wrynose">
 		<ignorebaselayer />
 		<sublayer path="meta-chromium"/>
 	</project>
-	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="1f7eeb8e84811fa79b98f236ade42dc52d44cfc6">
+	<project name="meta-security" path="sources/meta-security" remote="yocto" revision="9265f142f3890df2d00d71d13b19e95a082707ed" upstream="wrynose">
 		<sublayer path="meta-parsec"/>
 		<sublayer path="meta-tpm"/>
 	</project>
-	<project name="meta-timesys" path="sources/meta-timesys" remote="github.timesys" revision="3adeff0c300011fb7e4130dac5c54dc2e6e4fb2b" upstream="master"/>
-	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="38008d99d5bedc7d9769b9e95e3d6019a2df1698"/>
-	<project name="meta-imx" path="sources/meta-imx" remote="github.imx" revision="refs/tags/rel_imx_6.12.49_2.2.0" upstream="walnascar-6.12.49-2.2.0">
+	<project name="meta-timesys" path="sources/meta-timesys" remote="github.timesys" revision="240d59556180ff72efbfd105393abdee544f7282" upstream="master"/>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="022f4356d4a9b389f51472d40a9330aa59f6bb9a" upstream="master"/>
+
+	<project name="meta-imx" path="sources/meta-imx" remote="github.imx"  revision="refs/tags/rel_imx_6.18.20_2.0.0" upstream="wrynose-6.18.20-2.0.0">
 		<ignorebaselayer />
 		<sublayer path="meta-imx-bsp"/>
 		<sublayer path="meta-imx-ml"/>
 		<sublayer path="meta-imx-sdk"/>
 	</project>
-	<project name="meta-nxp-connectivity" path="sources/meta-nxp-connectivity" remote="github.imx" revision="refs/tags/rel_imx_6.12.49_2.2.0" upstream="imx_matter_2025_q3-post">
+	<project name="meta-nxp-connectivity" path="sources/meta-nxp-connectivity" remote="github.imx" revision="refs/tags/rel_imx_6.18.20_2.0.0" upstream="imx_matter_2026_q1-post">
 		<ignorebaselayer />
 		<sublayer path="meta-nxp-matter-baseline"/>
 		<sublayer path="meta-nxp-openthread"/>
 	</project>
-	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="refs/tags/rel_imx_6.12.49_2.2.0" upstream="walnascar-6.12.49-2.2.0" />
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="walnascar"/>
-	<project name="meta-phytec" path="sources/meta-phytec" revision="walnascar">
+	<project name="meta-nxp-demo-experience" path="sources/meta-nxp-demo-experience" remote="github.imx-support" revision="refs/tags/rel_imx_6.18.20_2.0.0" upstream="wrynose-6.18.20-2.0.0"/>
+
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc"/>
+
+	<project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="walnascar"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec"/>
 </manifest>
