@@ -1,0 +1,53 @@
+BSP-Yocto-AM57x-PD26.1.0                        2026-07-28
+==========================================================
+
+- Linux TI vendor kernel v6.12.57 (based on TI tag 11.02.11)
+- U-Boot v2025.01 (based on TI tag 11.02.11)
+- Yocto 5.0.17 (Scarthgap)
+- Qt 6.9.3
+
+
+Tested Yocto Images:
+--------------------
+
+ - phytec-headless-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-3
+ - phytec-qt6demo-image:
+  * phycore-am57xx-1
+  * phycore-am57xx-2
+  * phycore-am57xx-3
+
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 5.0 (Scarthgap).
+* **Switch to Qt6**: Switched from Qt5 to Qt6 since Qt5 is EOL.
+* **Wayland GPU HW acceleration**: SGX GPU drivers now work correctly with Wayland EGL backend.
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.12.
+* **ICSSM Support**: The AM57x ICSSM support is available again utilizing mainline drivers.
+* **Switch to bang_bang governor**: Switched by default to BANG_BANG thermal governor `CONFIG_THERMAL_DEFAULT_GOV_BANG_BANG` instead of using downstream two_stage implementation. Drivers for two_stage governor have been removed.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2025.01
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* The kernel config `CONFIG_BLK_DEV_NVME` is not set. Thus automated tests for PCIe with attached NVMe fail.
