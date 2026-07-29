@@ -17,7 +17,7 @@
     "/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="git://git.openembedded.org" name="openembedded"/>
+  <remote fetch="https://git.openembedded.org" name="openembedded"/>
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="https://github.com/nxp-imx" name="nxp-imx" />
   <remote name="git.phytec" fetch="git://git.phytec.de"/>
