@@ -12,6 +12,7 @@
 	<remote fetch="git://arago-project.org/git" name="arago" />
 	<remote fetch="git://arago-project.org/git/projects" name="arago-projects" />
 	<remote fetch="https://github.com" name="github" />
+	<remote fetch="https://git.ti.com/git/" name="ti" />
 
 	<default revision="dunfell" remote="git.phytec" sync-j="8" />
 
@@ -54,5 +55,5 @@
 		<ignorebaselayer />
 		<sublayer path="meta-tpm" />
 	</project>
-	<project remote="arago-projects" revision="ea2e8505fdf9948c0e2881af9dacb07e801c9037" name="meta-processor-sdk" path="sources/meta-processor-sdk" />
+	<project remote="ti" revision="ea2e8505fdf9948c0e2881af9dacb07e801c9037" name="processor-sdk/meta-processor-sdk" path="sources/meta-processor-sdk" />
 </manifest>
