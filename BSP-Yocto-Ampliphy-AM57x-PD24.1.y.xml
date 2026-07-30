@@ -19,7 +19,6 @@
 	<remote name="github.rauc" fetch="https://github.com/rauc/" />
 	<remote name="github.qt5" fetch="https://github.com/meta-qt5/" />
 	<remote name="github.kraj" fetch="https://github.com/kraj/" />
-	<remote name="ti" fetch="git://git.ti.com" />
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8" />
 

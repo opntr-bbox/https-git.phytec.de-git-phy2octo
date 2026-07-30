@@ -19,7 +19,6 @@
 	<remote name="github.rauc" fetch="https://github.com/rauc/" />
 	<remote name="QT6"            fetch="https://code.qt.io/yocto" />
 	<remote name="github.kraj" fetch="https://github.com/kraj/" />
-	<remote name="ti" fetch="git://git.ti.com" />
 
 	<default revision="scarthgap" remote="git.phytec" sync-j="8" />
 
