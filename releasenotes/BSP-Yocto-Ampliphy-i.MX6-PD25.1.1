@@ -1,0 +1,85 @@
+Release Notes Unified i.MX6 Linux BSP:
+======================================
+
+BSP-Yocto-Ampliphy-i.MX6-PD25.1.1       2026-07-30
+==================================================
+- Linux Kernel v6.6.137 (LTS kernel)
+  * Update from v6.6.58 to v6.6.137
+  * Tag: v6.6.137-phy1
+- barebox v2024.03.0
+  * Tag: v2024.03.0-phy1
+- Yocto 5.0.19 (scarthgap)
+- Qt 6.10.3 from meta-qt6
+- RAUC 1.15.2 from meta-rauc
+
+Supported Machines:
+-------------------
+- phytec-headless-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-14
+
+- phytec-qt6demo-image on:
+  * phyboard-mira-imx6-3
+  * phyboard-mira-imx6-5
+  * phyboard-mira-imx6-14
+
+Note: For decoding Machine Names into hardware ordering please visit our download area and use the machine decoder there.
+https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX6-PD25.1.1
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64Bit
+
+Changes since PD25.1.0:
+-----------------------
+- New Features:
+  * Add support for PEB-AV-18 with AC220
+
+Known Issues:
+-------------
+- general:
+  * Playing H264 encoded videos with VPU decoding support via QT has limited
+    framerate for higher resolutions.
+  * In PD25.1.0 release, the default 720p VP9 encoded video from qtphy (qt6
+    demo) has been replaced by the 480p VP8 encoded video from phyRDKDemo (qt5
+    demo) due to low performance (VPU does not support VP9 encoded videos).
+  * The internal watchdog of the i.MX 6 cannot be used. We recommend to use
+    the PMIC watchdog as preconfigured.
+  * Building of RAUC casync bundles is disabled due to Issue
+    https://github.com/rauc/rauc/issues/679
+
+- kernel:
+  * In rare cases (< 0.1%) during kernel boot the NAND flash fails to be
+    detected with following error:
+    gpmi_reset_block(f0a2a000): module reset timeout.
+  * 1.2 GHz i.MX 6:
+    - Controlling ARM and SOC voltages for DVFS with PMIC is not supported
+      since the 1.2 GHz operating point is not allowed to be operated with
+      the internal i.MX 6 LDO's in bypass mode. So this machine always
+      operates with internal LDO's enabled which results in highly more heat
+      generation on the SOC.
+  * The LDB_DI0_SEL and LDB_DI1_SEL mux can only be set in the
+    devicetree and cannot be changed on runtime.
+  * The maximum pixel clock frequency for LVDS is 72 MHz.
+  * The reboot command can cause rarely occurring kernel warnings when a task
+    gets migrated to a CPU that is already offline.
+    A workaround can be achieved by disabling the non-booting CPUs before
+    rebooting. Related to:
+      https://patchwork.kernel.org/project/linux-sh/patch/20200115063410.131692-1-hsinyi@chromium.org/
+      [BSPYOCTOIMX6-1580]
+  * In rare cases, the GPU does not start properly. User space Applications that
+    use graphics fall back to software rendering.
+    Error indicating a failure in the startup of the GPU:
+      etnaviv-gpu 130000.gpu: GPU is not idle
+      etnaviv-gpu 130000.gpu: GPU failed to reset: FE idle, 3D not idle, 2D not idle
+      etnaviv-gpu 130000.gpu: GPU reset failed
+
+- barebox:
+  * If the network is configured as DHCP, the user need to repeat the "dhcp" or "if up" command for
+    the IP to be assigned successfully.
+
+Notes:
+------
+- Only phyCAMs VM-010 and VM-016 have been tested. Other phyCAM cameras are
+  still supported but not tested with the BSP.
