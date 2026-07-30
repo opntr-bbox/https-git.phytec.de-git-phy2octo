@@ -6,7 +6,6 @@
   <remote fetch="https://github.com" name="github" />
   <remote name="github.oe" fetch="https://github.com/openembedded" />
   <remote fetch="ssh://git@git.phytec.de" name="ssh.phytec" />
-  <remote fetch="git://git.ti.com" name="ti" />
   <remote fetch="https://git.yoctoproject.org" name="yocto" />
   
   <default remote="git.phytec" revision="dizzy" sync-j="8" />
