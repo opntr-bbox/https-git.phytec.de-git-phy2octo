@@ -14,7 +14,6 @@
 	<remote name="git.phytec" fetch="git://git.phytec.de" />
 	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
 	<remote name="github" fetch="https://github.com" />
-	<remote name="ti" fetch="git://git.ti.com" />
 
 	<default revision="kirkstone" remote="git.phytec" sync-j="8" />
 
