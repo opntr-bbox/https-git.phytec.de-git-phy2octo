@@ -7,6 +7,7 @@
 		phyboard-electra-am64xx-2/phytec-headless-image/ampliphy-linux-mainline,
 		phyboard-electra-am64xx-2/-c populate_sdk phytec-container-image/ampliphy,
 		phyboard-electra-am64xx-3/phytec-headless-image/ampliphy,
+		phyboard-electra-am64xx-3/phytec-provisioning-image/securiphy-provisioning,
 		phyboard-electra-am64xx-3/phytec-securiphy-image phytec-securiphy-bundle/securiphy"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-26.04"/>
 
