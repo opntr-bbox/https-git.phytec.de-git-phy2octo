@@ -15,7 +15,9 @@
     imx8mp-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
     imx8mp-phyflex-libra-rdk-2/phytec-headless-bundle/ampliphy-vendor-rauc,
     imx8mp-phyflex-libra-rdk-2/phytec-provisioning-image/securiphy-vendor-provisioning,
-    imx8mp-phyflex-libra-rdk-2/phytec-securiphy-bundle/securiphy-vendor"
+    imx8mp-phyflex-libra-rdk-2/phytec-securiphy-bundle/securiphy-vendor,
+    imx8mp-phyflex-phyvip-1/phytec-headless-image/ampliphy-vendor,
+    imx8mp-phyflex-phyvip-1/phytec-vision-image/ampliphy-vendor"
     release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-24.04"/>
 
   <remote name="git.phytec"     fetch="git://git.phytec.de"/>
