@@ -1,0 +1,32 @@
+Release Notes phyGATE-M Topic release
+==========================================
+
+BSP-Yocto-phyGATE-Tauri-M-i.MX93-v1.0   2026-08-28
+=================================================
+- Based on PD26.1.0 for imx93
+- Linux NXP Vendor Kernel v6.12.34-2.1.0-phy9 (based on NXP tag lf-6.12.34-2.1.0)
+- U-boot v2025.04-2.1.0-phy9 (based on NXP tag lf-6.12.34-2.1.0)
+- Yocto 5.2.2 (walnascar)
+- Qt 6.8.3
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phytec-headless-image
+
+Build Environment:
+------------------
+- Ubuntu 24.04 64-Bit
+
+Features:
+---------
+- Added support for phyGATE-Tauri-M-i.MX93
+- USB 2.0
+- 2x Ethernet
+- uSD
+- CAN
+- RS232
+- RS486
+- Temp Sensor
+- LEDs
+- RTC RV3020
