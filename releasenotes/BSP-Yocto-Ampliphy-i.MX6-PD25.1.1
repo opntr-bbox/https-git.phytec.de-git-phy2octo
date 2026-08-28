@@ -48,6 +48,11 @@ Known Issues:
     the PMIC watchdog as preconfigured.
   * Building of RAUC casync bundles is disabled due to Issue
     https://github.com/rauc/rauc/issues/679
+  * RAUC support is broken due to not enabled kernel features. Trying to
+    install a RAUC bundle will fail with "Failed mounting bundle: Failed to
+    open /dev/mapper/control: No such file or directory". Applying the kernel
+    configs from meta-ampliphy/recipes-kernel/linux/features/rauc.cfg to a
+    custom kernel will make RAUC work again.
 
 - kernel:
   * In rare cases (< 0.1%) during kernel boot the NAND flash fails to be
