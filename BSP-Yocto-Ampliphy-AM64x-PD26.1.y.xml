@@ -56,7 +56,7 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/12.01.00.05">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
 		<sublayer path="meta-ti-extras"/>
