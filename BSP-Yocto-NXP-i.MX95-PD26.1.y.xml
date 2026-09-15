@@ -6,9 +6,9 @@
 		imx95-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/phytec-vision-image/ampliphy-vendor,
 		imx95-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
-		imx95-phyflex-libra-rdk-2/phytec-headless-bundle/ampliphy-vendor-rauc,
+		imx95-phyflex-libra-rdk-2/phytec-headless-image phytec-headless-bundle/ampliphy-vendor-rauc,
 		imx95-phyflex-libra-rdk-2/phytec-provisioning-image/securiphy-vendor-provisioning,
-		imx95-phyflex-libra-rdk-2/phytec-securiphy-bundle/securiphy-vendor"
+		imx95-phyflex-libra-rdk-2/phytec-securiphy-image phytec-securiphy-bundle/securiphy-vendor"
 		release_type="nightly" bspextension="NXP" build_container="phybuilder/yocto-ubuntu-26.04"/>
 
 	<remote name="ssh.phytec"           fetch="ssh://git@git.phytec.de"/>
