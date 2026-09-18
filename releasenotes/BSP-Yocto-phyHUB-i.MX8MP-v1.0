@@ -1,0 +1,26 @@
+Release Notes BSP-Yocto-phyHUB-i.MX8MP-v1.0
+=======================================================
+
+- Based on BSP-Yocto-NXP-i.MX8MP-PD24.1.y
+- Linux Kernel v6.6.52-2.2.2-phy1
+- U-Boot 2024.04-2.2.2-phy1
+- Yocto 5.0.20 "scarthgap"
+- RAUC 1.15.2
+- snapd v5.1.0+up2.75.2.1
+
+Tested Yocto Images:
+--------------------
+
+phyboard-pollux-imx8mp-3 - phytec-liot-image
+phyboard-pollux-imx8mp-3 - phytec-liot-bundle
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64Bit
+
+Changenotes v1.0                        2026-09-18
+--------------------------------------------------
+
+- Initial release
+- Support for phyHUB update and device management platform
