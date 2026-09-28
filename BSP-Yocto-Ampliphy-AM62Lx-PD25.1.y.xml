@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest>
 	<phytec pdn="PD25.1.y" release_uid="BSP-Yocto-Ampliphy-AM62Lx-PD25.1.y" soc="AM62Lx" supported_builds="
-		am62lxx-libra-fpsc-1/phytec-headless-image/ampliphy-vendor,
-		am62lxx-libra-fpsc-2/phytec-headless-image/ampliphy-vendor,
-		am62lxx-libra-fpsc-1/phytec-qt6demo-image/ampliphy-vendor,
-		am62lxx-libra-fpsc-2/phytec-qt6demo-image/ampliphy-vendor,
-		am62lxx-libra-fpsc-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
+		am62lxx-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-vendor,
+		am62lxx-phyflex-libra-rdk-2/phytec-headless-image phytec-headless-bundle/ampliphy-rauc,
+		am62lxx-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-rt,
+		am62lxx-phyflex-libra-rdk-1/phytec-qt6demo-image/ampliphy-vendor,
+		am62lxx-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy-vendor,
+		am62lxx-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
 		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
