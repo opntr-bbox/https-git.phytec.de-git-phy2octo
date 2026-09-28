@@ -1,0 +1,70 @@
+BSP-Yocto-Ampliphy-AM62x-PD26.1.0               2026-09-30
+==========================================================
+
+- Linux TI vendor kernel v6.18.38-12.01.00.05-phy5 (based on TI tag 12.01.00.05)
+- U-Boot v2026.01-phy3
+- Yocto 6.0.3 (Wrynose)
+- Qt 6.11
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lyra-am62xx-3
+  * phytec-headless-image/ampliphy
+  * phytec-headless-image/ampliphy-linux-mainline
+  * phytec-headless-bundle/ampliphy-rauc
+  * phytec-headless-image/ampliphy-rt
+  * phytec-qt6demo-image/ampliphy
+- phyboard-lyra-am62xx-4
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-bundle/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 26.04 64-bit
+
+
+New in this Release
+-------------------
+
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 6.0.3 (Wrynose)
+* **TI Firmware Update**: Update TI firmware to v12.01.02
+* **Ethernet Names**: Previously, ethernet interfaces had alternate names in the form of ethX. These alternate names have been removed and interfaces can only be referred to by endX names.
+* **Partup**: partup is now v4.0.0 (updated from v3.0.0)
+* **Securiphy SBOM**: Added CycloneDX SBOM support for the securiphy distro
+* **Securiphy Login**: Password login over serial is disabled in the securiphy distro. Access is SSH certificate authentication only.
+
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to v6.18.38 (tag: v6.18.38-12.01.00.05-phy5) based on TI SDK v12.01.00.05
+* **TI SDK Update**: Bump from TI Processor SDK v11.02.11 to v12.01.00.05
+* **OLDI Overlays**: OLDI device tree bindings have changed, so the contents of the OLDI overlays has been reworked. The overlay names and functionality are unchanged.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2026.01 (tag: v2026.01-phy3)
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Securiphy Chain of Trust**: Fixed an issue with the chain of trust while booting using the securiphy distro. Previously there was a boot script that was unsigned which violated chain of trust.
+* **eMMC Backup Boot Mode**: Fixed an issue where eMMC as a backup boot mode was not detected.
+* **Flashcp Command**: Fixed an issue where OSPI reads would be corrupted immediately after writing.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
+* **Weston Startup Issues**: Failure to start Weston when both HDMI and LVDS are active at boot.
+* **Low-Power Mode MCU Issue**: MCU-only low-power mode is non-functional when M4F firmware is loaded.
+* **USB I/O Errors**: There may be I/O errors with **/dev/sdb** during the boot process from eMMC. However, no issues have been observed when reading from or writing to the drive after booting.
+
