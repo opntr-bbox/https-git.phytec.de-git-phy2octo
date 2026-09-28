@@ -4,10 +4,9 @@
 		am62lxx-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-vendor,
 		am62lxx-phyflex-libra-rdk-2/phytec-headless-image phytec-headless-bundle/ampliphy-rauc,
 		am62lxx-phyflex-libra-rdk-2/phytec-headless-image/ampliphy-rt,
-		am62lxx-phyflex-libra-rdk-1/phytec-qt6demo-image/ampliphy-vendor,
 		am62lxx-phyflex-libra-rdk-2/phytec-qt6demo-image/ampliphy-vendor,
 		am62lxx-phyflex-libra-rdk-2/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor"
-		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-22.04"/>
+		release_type="nightly" bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-26.04"/>
 
 	<remote name="yocto" fetch="https://git.yoctoproject.org"/>
 	<remote name="git.phytec" fetch="git://git.phytec.de"/>
@@ -17,18 +16,28 @@
 	<remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
 	<remote name="QT6" fetch="https://code.qt.io/yocto" />
 
-	<default revision="scarthgap" remote="git.phytec" sync-j="8"/>
+	<default revision="wrynose" remote="git.phytec" sync-j="8"/>
 
-	<project name="meta-phytec" path="sources/meta-phytec" revision="scarthgap">
+	<project name="meta-phytec" path="sources/meta-phytec">
 		<copyfile dest="tools/init" src="scripts/init"/>
 	</project>
-	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="scarthgap"/>
-	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="scarthgap"/>
-	<project name="poky" remote="github.yocto" path="sources/poky">
-		<ignorebaselayer/>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy"/>
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec"/>
+
+	<project name="openembedded-core" path="sources/oe-core" remote="github.oe">
+		<ignorebaselayer />
 		<sublayer path="meta"/>
+	</project>
+
+	<project name="bitbake" path="sources/oe-core/bitbake" remote="github.oe" revision="2.18">
+		<ignorebaselayer />
+	</project>
+
+	<project name="meta-yocto" path="sources/meta-yocto" remote="yocto">
+		<ignorebaselayer/>
 		<sublayer path="meta-poky"/>
 	</project>
+
 	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe">
 		<ignorebaselayer/>
 		<sublayer path="meta-oe"/>
@@ -45,8 +54,8 @@
 		<sublayer path="meta-arm"/>
 		<sublayer path="meta-arm-toolchain"/>
 	</project>
-	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.8"/>
-	<project name="meta-ti" path="sources/meta-ti" remote="yocto">
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="6.11"/>
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/12.01.00.05">
 		<ignorebaselayer/>
 		<sublayer path="meta-ti-bsp"/>
 		<sublayer path="meta-ti-extras"/>
