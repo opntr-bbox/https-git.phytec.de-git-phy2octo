@@ -1,0 +1,62 @@
+BSP-Yocto-Ampliphy-AM62Px-PD26.2.0              2026-09-30
+==========================================================
+
+- Linux TI vendor kernel v6.18.38-12.01.00.05-phy6 (based on TI tag 12.01.00.05)
+- U-Boot TI vendor v2026.01-12.01.00.05-phy6 (based on TI tag 12.01.00.05)
+- Yocto 6.0.3 (Wrynose)
+- Qt 6.11
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-lynx-am62pxx-1
+  * phytec-headless-image/ampliphy-vendor
+  * phytec-headless-bundle/ampliphy-vendor-rauc
+  * phytec-headless-image/ampliphy-vendor-rt
+  * phytec-qt6demo-image/ampliphy-vendor
+- am62pxx-phyflex-libra-rdk-1
+  * phytec-headless-image/ampliphy-vendor
+  * phytec-qt6demo-image/ampliphy-vendor
+
+
+Build Environment:
+------------------
+
+- Ubuntu 26.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 6.0.3 (Wrynose)
+* **TI Firmware Update**: Update TI firmware to v12.01.02
+* **Ethernet Names**: Previously, ethernet interfaces had alternate names in the form of ethX. These alternate names have been removed and interfaces can only be referred to by endX names.
+* **Partup**: partup is now v4.0.0 (updated from v3.0.0)
+
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to v6.18.38 (tag: v6.18.38-12.01.00.05-phy6) based on TI SDK v12.01.00.05
+* **TI SDK Update**: Bump from TI Processor SDK v11.02.11 to v12.01.00.05
+* **OLDI Overlays**: OLDI device tree bindings have changed, so the contents of the OLDI overlays has been reworked. The overlay names and functionality are unchanged.
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2026.01-12.01.00.05 (tag: v2026.01-12.01.00.05-phy6)
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **eMMC Backup Boot Mode**: Fixed an issue where eMMC as a backup bootmode was not detected.
+* **Flashcp Command**: Fixed an issue where OSPI reads would be corrupted immediately after writing.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **CAN FD**: CAN does not work at 125KHz.
