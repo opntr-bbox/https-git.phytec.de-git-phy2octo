@@ -1,0 +1,62 @@
+BSP-Yocto-Ampliphy-AM64x-PD26.1.0               2026-09-30
+==========================================================
+
+- Linux kernel v6.18.35-phy3
+- U-Boot v2026.01-phy3
+- Yocto 6.0.3 (Wrynose)
+
+
+Tested Yocto Machines:
+----------------------
+
+- phyboard-electra-am64xx-2
+  * phytec-container-image/ampliphy
+  * phytec-headless-image/ampliphy-linux-mainline
+  * phytec-headless-image/ampliphy-rt
+  * phytec-headless-bundle/ampliphy-rauc
+- phyboard-electra-am64xx-3
+  * phytec-headless-image/ampliphy
+  * phytec-securiphy-bundle/securiphy
+  * phytec-securiphy-image/securiphy
+
+
+Build Environment:
+------------------
+
+- Ubuntu 26.04 64-bit
+
+
+New in this Release
+-------------------
+
+**Yocto**
+^^^^^^^^^
+
+* **Yocto Update**: Update to 6.0.3 (Wrynose)
+* **TI Firmware Update**: Update TI firmware to v12.01.02
+* **Ethernet Names**: Previously, ethernet interfaces had alternate names in the form of ethX. These alternate names have been removed and interfaces can only be referred to by endX names.
+* **Partup**: partup is now v4.0.0 (updated from v3.0.0)
+* **Securiphy SBOM**: Added CycloneDX SBOM support for the securiphy distro
+* **Securiphy Login**: Password login over serial is disabled in the securiphy distro. Access is SSH certificate authentication only.
+
+
+**Linux Kernel**
+^^^^^^^^^^^^^^^^
+
+* **Kernel Update**: Update to Linux v6.18.35 (tag: v6.18.35-phy3)
+
+**U-Boot Bootloader**
+^^^^^^^^^^^^^^^^^^^^^
+
+* **Bootloader Update**: Update to U-Boot v2026.01 (tag: v2026.01-phy3)
+
+**Issues Fixed**
+^^^^^^^^^^^^^^^^
+
+* **Securiphy Chain of Trust**: Fixed an issue with the chain of trust while booting using the securiphy distro. Previously there was a boot script that was unsigned which violated chain of trust.
+* **Flashcp Command**: Fixed an issue where OSPI reads would be corrupted immediately after writing.
+
+**Known Issues**
+^^^^^^^^^^^^^^^^
+
+* **Linux RT Latency**: Real-time Linux can have worst-case latencies up to 600 microseconds under heavy memory load.
