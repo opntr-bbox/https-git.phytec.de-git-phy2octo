@@ -71,6 +71,6 @@
   <project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="175520098eeb61e0fe0fc296cd1ee779ce813325"/>
   <project name="meta-snapd" path="sources/meta-snapd" remote="github.mlpa" revision="57875e2d6507a2062ceaf439fb9dad87237b3f16"/>
   <project name="meta-lts-mixins" path="sources/go-mixin" remote="yocto" revision="12112daf97ec982cf0ae4afe32d9066420c7d523" upstream="scarthgap/go"/>
-  <project name="meta-liot" path="sources/meta-liot" remote="github.phytec" revision="75657bbe7531e9f2f76dafd5761ee4b60b70eb83"/>
+  <project name="meta-liot" path="sources/meta-liot" remote="github.phytec" revision="1ddf8188462143066ec71eee580f53db6863e2ae"/>
   <project name="meta-cyclonedx" path="sources/meta-cyclonedx" remote="github.iris" revision="04169a737a4041be9fc01d9281b1484d9f77932d"/>
 </manifest>
