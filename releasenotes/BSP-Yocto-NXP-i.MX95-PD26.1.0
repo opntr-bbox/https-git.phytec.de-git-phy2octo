@@ -1,0 +1,94 @@
+BSP-Yocto-NXP-i.MX95-PD26.1.0                                         2026-10-01
+================================================================================
+- Linux kernel v6.18.20-2.0.0-phy7 (LTS kernel)
+- U-Boot v2026.04-2.0.0-phy4
+- System Manager 6.18.20-2.0.0-phy1
+- Optional Executable Image 6.18.20-2.0.0-phy1
+- Yocto 6.0 (wrynose)
+
+Tested Yocto Images:
+--------------------
+- phytec-chromium-image
+- phytec-headless-image
+- phytec-mfg-image
+- phytec-provisioning-image
+- phytec-qt6demo-image
+- phytec-securiphy-image
+- phytec-vision-image
+
+Build Environment:
+------------------
+- Ubuntu 26.04 64-bit
+
+Supported Machines:
+-------------------
+imx95-phyflex-libra-rdk-2
+
+Changes:
+--------
+- ON/OFF button can now be used to shut down the system from Linux
+  (bug from ALPHA2 has been fixed)
+
+New Features:
+-------------
+- Watchdog support (U-Boot and Linux)
+- Suspend to RAM support
+- CPU core deactivation (sleep) support
+- Audio support (PEB-AV-10)
+- SoM detection: read out and evaluates the factory EEPROM data on the
+  SoM in OEI and U-Boot (prerequisite for the support of multiple RAM configurations)
+- CAN (CAN FD) support
+- USB-A 2.0 Host Ports (X16) in U-Boot
+- ISP (Dewarping)
+- UMS via USB-C Port (X18) in U-Boot
+- Security support
+  * Secure Boot
+  * Secure Storage (Integrity, Encryption)
+  * Secure Key Storage (TPM, TEE)
+- RAUC update support
+
+Other Features:
+---------------
+- Boot from e.MMC
+- Boot from SD card
+- Boot via USB serial download (uuu)
+- LVDS display support (onboard and PEB-AV-10)
+- GPU support
+- VPU support
+- RTC support
+- USB-A 2.0 host mode support
+- Debug UART support
+- GBit Ethernet support (SoM + Carrier board)
+- Power Management support (frequency scaling)
+- Thermal Management support
+- U-Boot standard boot (https://docs.u-boot.org/en/v2026.04/develop/bootstd.html#u-boot-standard-boot)
+- Camera support
+    * VM-016 phyCAM-M / phyCAM-L
+    * VM-017 phyCAM-M / phyCAM-L
+    * VM-020 phyCAM-M / phyCAM-L
+    * VM-024 phyCAM-M
+- ISP support (Debayer, AEC, AWB)
+- Chromium support (chromium image)
+- ampliphy-boot
+- RS232/485 support
+- TPM support
+- PWM fan support
+- USB-C (X18) device and host mode support
+- JTAG support (J-Link; A55 & M33)
+- ON/OFF + Reset button support
+- i2c device support (EEPROM, LEDs, GPIO expanders, temperature sensors)
+
+Known Issues and Limitations:
+-----------------------------
+- GPU performance may be very low; As of release date, NXP is investigating
+  this issue as it is present on their EVK as well. Our BSP documentation explains a workaround that
+  yields better performance.
+- Sporadic artifacts when capturing camera images with yavta
+- when trying to write to non-optimal aligned blocks, e.MMC becomes unresponsive. Cause of this
+  behaviour has not been determined, yet.
+- writing to EEPROM needs 5ms delay between page writes, otherwise i2c transfer errors may be seen
+
+Changelog
+---------
+2026-10-01
+  - initial version
