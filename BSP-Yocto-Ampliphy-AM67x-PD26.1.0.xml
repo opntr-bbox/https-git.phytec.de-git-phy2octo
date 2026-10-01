@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+	<phytec pdn="PD26.1.0" release_uid="BSP-Yocto-Ampliphy-AM67x-PD26.1.0" soc="AM67x" supported_builds="
+    phyboard-rigel-am67xx-1/-c populate_sdk phytec-qt6demo-image/ampliphy-vendor,
+    phyboard-rigel-am67xx-1/phytec-headless-image/ampliphy-vendor,
+    phyboard-rigel-am67xx-1/phytec-headless-image/ampliphy-vendor-rt,
+    phyboard-rigel-am67xx-1/phytec-headless-image phytec-headless-bundle/ampliphy-vendor-rauc,
+    phyboard-rigel-am67xx-1/phytec-qt6demo-image/ampliphy-vendor
+  " bspextension="Ampliphy" build_container="phybuilder/yocto-ubuntu-26.04:phy1" />
+
+  <remote name="yocto" fetch="https://git.yoctoproject.org" />
+	<remote name="git.phytec" fetch="git://git.phytec.de" />
+	<remote name="ssh.phytec" fetch="ssh://git@git.phytec.de" />
+	<remote name="github.oe" fetch="https://github.com/openembedded" />
+	<remote name="github.rauc" fetch="https://github.com/rauc" />
+	<remote name="github.yocto" fetch="https://github.com/yoctoproject" />
+	<remote name="QT6" fetch="https://code.qt.io/yocto" />
+
+	<default revision="wrynose" remote="git.phytec" sync-j="8" />
+
+	<project name="meta-phytec" path="sources/meta-phytec" revision="refs/tags/BSP-Yocto-Ampliphy-AM67x-PD26.1.0">
+		<copyfile dest="tools/init" src="scripts/init" />
+	</project>
+	<project name="meta-ampliphy" path="sources/meta-ampliphy" revision="refs/tags/BSP-Yocto-Ampliphy-AM67x-PD26.1.0" />
+	<project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="b665a04333c9ebe14e0eaa964cc89641b99003c7" />
+
+	<project name="openembedded-core" path="sources/oe-core" remote="github.oe" revision="cc4695f65beb6e5069fbecc16475fa5a27c768e9">
+		<ignorebaselayer />
+		<sublayer path="meta" />
+	</project>
+
+	<project name="bitbake" path="sources/oe-core/bitbake" remote="github.oe" revision="84a8d046593840df460c1312365031c817eb8918">
+		<ignorebaselayer />
+	</project>
+
+	<project name="meta-yocto" path="sources/meta-yocto" remote="yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0">
+		<ignorebaselayer />
+		<sublayer path="meta-poky" />
+	</project>
+
+	<project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="47d7dbdd10890bbd429bc0cccbe14435c37e5af1">
+		<ignorebaselayer />
+		<sublayer path="meta-oe" />
+		<sublayer path="meta-networking" />
+		<sublayer path="meta-python" />
+		<sublayer path="meta-gnome" />
+		<sublayer path="meta-multimedia" />
+		<sublayer path="meta-filesystems" />
+		<sublayer path="meta-perl" />
+	</project>
+	<project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="38da0e5866a953e664001ba90b5edad68d68cd5d" />
+	<project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="673e8d7c5dcd14de58092eb73e6ecc5eee5c1735">
+		<ignorebaselayer />
+		<sublayer path="meta-arm" />
+		<sublayer path="meta-arm-toolchain" />
+	</project>
+	<project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="62e6eb6003f2ad3a8952519e7a3dd7df700c26fc" />
+	<project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="refs/tags/12.01.00.05">
+		<ignorebaselayer />
+		<sublayer path="meta-ti-bsp" />
+		<sublayer path="meta-ti-extras" />
+	</project>
+	<project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="a07bf78dab0d46099a7e6ca8b2aadb07535efc13" />
+</manifest>
