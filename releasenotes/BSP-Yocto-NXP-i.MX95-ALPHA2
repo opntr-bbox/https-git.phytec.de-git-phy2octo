@@ -61,7 +61,7 @@ Other Features:
 - USB 2.0 support (Linux)
 - Debug UART support
 - GBit Ethernet support (SoM + Carrier board)
-- Power Management support (suspend + frequency scaling)
+- Power Management support (frequency scaling)
 - U-Boot standard boot (https://docs.u-boot.org/en/v2025.04/develop/bootstd.html#u-boot-standard-boot)
 - NPU support
 - Camera support
