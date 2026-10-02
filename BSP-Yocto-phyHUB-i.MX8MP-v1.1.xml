@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <phytec pdn="v1.1" release_uid="BSP-Yocto-phyHUB-i.MX8MP-v1.1" soc="iMX8MP" supported_builds="
+    phyboard-pollux-imx8mp-3/phytec-liot-image phytec-liot-bundle/ampliphy-vendor-rauc"
+    release_type="topic" bspextension="phyHUB" build_container="phybuilder/yocto-ubuntu-22.04:phy8"/>
+
+  <remote name="yocto" fetch="https://git.yoctoproject.org"/>
+  <remote name="github.yocto" fetch="https://github.com/yoctoproject"/>
+  <remote name="github.community" fetch="https://github.com/Freescale"/>
+  <remote name="github.oe" fetch="https://github.com/openembedded"/>
+  <remote name="github.nxp-imx" fetch="https://github.com/nxp-imx"/>
+  <remote name="github.OSSystems" fetch="https://github.com/OSSystems"/>
+  <remote name="QT6" fetch="https://code.qt.io/yocto"/>
+  <remote name="github.clang" fetch="https://github.com/kraj"/>
+  <remote name="github.imx-support" fetch="https://github.com/nxp-imx-support"/>
+  <remote name="github.rauc" fetch="https://github.com/rauc"/>
+  <remote name="git.phytec" fetch="git://git.phytec.de"/>
+  <remote name="github.mlpa" fetch="https://github.com/ML-PA-Consulting-GmbH"/>
+  <remote name="github.iris" fetch="https://github.com/iris-GmbH"/>
+  <remote name="github.phytec" fetch="https://github.com/phytec"/>
+
+  <default revision="scarthgap" remote="git.phytec" sync-j="4"/>
+
+  <project name="poky" path="sources/poky" remote="github.yocto" revision="3a3d07f625aee7b87ea1026526b756447c357652">
+    <ignorebaselayer/>
+    <sublayer path="meta"/>
+    <sublayer path="meta-poky"/>
+  </project>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="github.oe" revision="0f00f8b9a21950640da8c5707343e5540133f86e">
+    <ignorebaselayer/>
+    <sublayer path="meta-oe"/>
+    <sublayer path="meta-networking"/>
+    <sublayer path="meta-python"/>
+    <sublayer path="meta-multimedia"/>
+    <sublayer path="meta-filesystems"/>
+    <sublayer path="meta-perl"/>
+  </project>
+  <project name="meta-lts-mixins" path="sources/rust-mixin" remote="yocto" revision="eedcdc7486ff15c3510c2ceff68c87d9db141312" upstream="scarthgap/rust"/>
+  <project name="meta-browser" path="sources/meta-browser" remote="github.OSSystems" revision="85eeb6b50883d22c977396f5e8fe211a7961cf2e">
+    <ignorebaselayer/>
+    <sublayer path="meta-chromium"/>
+  </project>
+  <project name="meta-clang" path="sources/meta-clang" remote="github.clang" revision="cc29beb210ab94eacc53bbd67e287e4e33ede342"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="github.community" revision="e82db4ef75d390cd9e4a06b8caf0f67668ddea94"/>
+  <project name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty" remote="github.community" revision="ce10c065119c2d4e359235c77aae7e0d843533ef"/>
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="github.community" revision="2642b34e4c66ec1419e7f3a7a77a20b09e49e26b"/>
+  <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="0a4b911d9fd63ab29c4532a907fae3282dbdcfe4">
+    <ignorebaselayer/>
+    <sublayer path="meta-arm"/>
+    <sublayer path="meta-arm-toolchain"/>
+  </project>
+  <project name="meta-qt6" path="sources/meta-qt6" remote="QT6" revision="refs/tags/v6.8.3" upstream="6.8.3"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="b13f1705d723650de61277670c8a76aadea4cfdd">
+    <sublayer path="meta-tpm"/>
+  </project>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="ee1ec1ee542389a3fc3692fdd232f9dd86c849a5"/>
+  <project name="meta-imx" path="sources/meta-imx" remote="github.nxp-imx" revision="refs/tags/rel_imx_6.6.52_2.2.2">
+    <linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
+    <linkfile src="README" dest="README-IMXBSP"/>
+    <ignorebaselayer/>
+    <sublayer path="meta-imx-bsp"/>
+    <sublayer path="meta-imx-sdk"/>
+    <sublayer path="meta-imx-ml"/>
+  </project>
+  <project name="meta-nxp-demo-experience" remote="github.imx-support" path="sources/meta-nxp-demo-experience" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="scarthgap-6.6.52-2.2.0"/>
+  <project name="meta-rauc" path="sources/meta-rauc" remote="github.rauc" revision="d63878f20eba7a85ecf53566e7a3377e78bb46ac"/>
+  <project name="meta-phytec" path="sources/meta-phytec" revision="9f4a2d4b82431a2e23c8782a5064abe5d8cb4fd2">
+    <copyfile dest="tools/init" src="scripts/init"/>
+  </project>
+  <project name="meta-ampliphy" path="sources/meta-ampliphy" revision="d24d21136be71ebdd8911a69f11f25c018a15979"/>
+  <project name="meta-qt6-phytec" path="sources/meta-qt6-phytec" revision="175520098eeb61e0fe0fc296cd1ee779ce813325"/>
+  <project name="meta-snapd" path="sources/meta-snapd" remote="github.mlpa" revision="57875e2d6507a2062ceaf439fb9dad87237b3f16"/>
+  <project name="meta-lts-mixins" path="sources/go-mixin" remote="yocto" revision="12112daf97ec982cf0ae4afe32d9066420c7d523" upstream="scarthgap/go"/>
+  <project name="meta-liot" path="sources/meta-liot" remote="github.phytec" revision="1d1ccdab27b56cddf6a00e3b0b03e80c55ec7bb3"/>
+  <project name="meta-cyclonedx" path="sources/meta-cyclonedx" remote="github.iris" revision="04169a737a4041be9fc01d9281b1484d9f77932d"/>
+</manifest>
