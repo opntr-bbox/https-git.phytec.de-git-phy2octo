@@ -1,0 +1,90 @@
+BSP-Yocto-Ampliphy-AM68x-PD24.1.1                    2026-10-20
+===============================================================
+
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+  * Tag: v6.1.80-09.02.00.009-phy8
+- U-Boot v2023.04 (based on TI tag 09.02.00.009)
+  * Tag: v2023.04-09.02.00.009-phy8
+- Yocto 4.0.31 (kirkstone)
+- QT 5.15
+
+Tested Yocto images:
+--------------------
+
+- ampliphy-xwayland/phytec-qt5demo-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+
+Issues fixed:
+-------------
+
+- The TPS6594 internal watchdog which got enabled starting with
+  firmware revision 5 gets turned off by default again.
+- The SD-Card IO voltage is limited to 3.3V after issues showed up
+  with certain SD-Cards when using 1.8V modes.
+
+Known issues:
+-------------
+
+
+BSP-Yocto-Ampliphy-AM68x-PD24.1.0                    2024-11-28
+===============================================================
+
+- Linux TI vendor kernel v6.1.80 (based on TI tag 09.02.00.009)
+  * Tag: v6.1.80-09.02.00.009-phy6
+- U-Boot v2023.04 (based on TI tag 09.02.00.009)
+  * Tag: v2023.04-09.02.00.009-phy5
+- Yocto 4.0.23 (kirkstone)
+- QT 5.15
+
+Tested Yocto images:
+--------------------
+
+- ampliphy-rauc/phytec-headless-image:
+  * phyboard-izar-am68x-2
+- ampliphy-xwayland/phytec-qt5demo-image:
+  * phyboard-izar-am68x-2
+  * phyboard-izar-am68x-3
+
+
+Build environment:
+------------------
+
+- Ubuntu 20.04 64-bit
+
+New features:
+-------------
+
+- eMMC HS400 speed mode
+- EEPROM based SoM detection to support both 4GB and 8GB ram configurations
+- RAUC support
+- Watchdog support
+- Booting from OSPI Flash
+- USB drive support in U-Boot
+
+Issues fixed:
+-------------
+
+- The PWM fan is set to 0 when the SoC temperature is exceeding 70° during boot
+  time
+- The eMMC is limited to HS200 speed mode
+
+Known issues:
+-------------
+
+- DFS (Dynamic Frequency Scaling) for the A72 cores is broken and has been
+  disabled in the Kernel config.
+- Without the SD-Card reset connected some SD-Cards are not detected
+  occasionally when booting from other sources.
+- As the eMMC reset pin is not connected a power cycle is needed in order to
+  reboot using the eMMC boot partitions. (for hw rev 1578.1)
+- When booting from the eMMC User Data Area (UDA) an error message is printed
+  since the configuration for RAW boot is set too.
+- The flashcp command occasionally fails during the verification step.
