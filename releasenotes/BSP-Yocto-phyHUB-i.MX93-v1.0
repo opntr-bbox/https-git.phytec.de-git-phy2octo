@@ -1,0 +1,28 @@
+Release Notes BSP-Yocto-phyHUB-i.MX93-v1.0
+=======================================================
+
+- Based on BSP-Yocto-NXP-i.MX93-PD24.2.y
+- Linux Kernel v6.6.52-2.2.0-phy26
+- U-Boot 2024.04-2.2.0-phy25
+- Yocto 5.0.20 "scarthgap"
+- RAUC 1.15.2
+- snapd v5.1.0+up2.75.2.1
+
+Tested Yocto Images:
+--------------------
+
+phyboard-nash-imx93-1 - phytec-liot-image
+phyboard-nash-imx93-1 - phytec-liot-bundle
+phyboard-segin-imx93-2 - phytec-liot-image
+phyboard-segin-imx93-2 - phytec-liot-bundle
+
+Build Environment:
+------------------
+
+- Ubuntu 22.04 64Bit
+
+Changenotes v1.0                        2026-10-16
+--------------------------------------------------
+
+- Initial release
+- Support for phyHUB update and device management platform
