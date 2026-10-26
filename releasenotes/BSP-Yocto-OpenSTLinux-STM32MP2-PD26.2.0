@@ -1,0 +1,153 @@
+Release Notes STM32MP2 OpenSTLinux Yocto BSP:
+=============================================
+
+BSP-Yocto-OpenSTLinux-STM32MP2-PD26.2.0 2026-02-11
+==================================================
+For ARM Cortex-A35:
+- Linux ST Vendor Kernel v6.6.129
+  * Tag v6.6-stm32mp-r3.1-phy3
+- U-boot ST Vendor v2023.10
+  * Tag v2023.10-stm32mp-r3.1-phy3
+- TF-A ST Vendor v2.10 (LTS tag lts-v2.10.24)
+  * Tag v2.10-stm32mp-r3.1-phy2
+- OP-TEE ST Vendor 4.0.0
+  * Tag 4.0.0-stm32mp-r3.1-phy2
+
+For ARM Cortex-M33/M0+:
+- TF-M ST Vendor v2.1.4 (for "M33-TD" boot flavor)
+  * Tag v2.1.4-stm32mp-r2.1-phy2
+- STM32CubeMP2 v1.3.1 (for "M33-TD" or "M33-TD" boot flavor)
+  * Tag v1.3.1-phy1
+
+Additional Device Tree for ARM Cortex-A35 & ARM Cortex-M33 used for "M33-TD" boot flavor:
+- dt-stm32mp ST Vendor v6
+  * Tag v6-stm32mp-r3.1-phy1
+
+- Linux integration from STM32MPU-ecosystem-v6.2.1: "openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10"
+  (based on Yocto Scarthgap)
+
+Tested Yocto Images:
+--------------------
+- st-image-weston (DISTRO=openstlinux-weston) on:
+  * stm32mp23x-phyflex-libra-rdk-1
+  * stm32mp23x-phyflex-libra-rdk-1-m33td ("stm32mp23x-phyflex-libra-rdk-1" for "M33-TD" boot flavor)
+  * stm32mp25x-phyflex-libra-rdk-3
+  * stm32mp25x-phyflex-libra-rdk-3-m33td ("stm32mp25x-phyflex-libra-rdk-3" for "M33-TD" boot flavor)
+
+- st-image-weston (DISTRO=openstlinux-weston-rauc) on:
+  * stm32mp23x-phyflex-libra-rdk-1
+  * stm32mp25x-phyflex-libra-rdk-3
+
+- st-bundle-weston (DISTRO=openstlinux-weston-rauc) on:
+  * stm32mp23x-phyflex-libra-rdk-1
+  * stm32mp25x-phyflex-libra-rdk-3
+
+- st-image-core (DISTRO=openstlinux-weston) on:
+  * stm32mp23x-phyflex-libra-rdk-1
+  * stm32mp25x-phyflex-libra-rdk-3
+  * stm32mp25x-phyflex-tauri-m-1
+
+- st-image-core (DISTRO=openstlinux-weston-rauc) on:
+  * stm32mp25x-phyflex-tauri-m-1
+
+- st-bundle-core (DISTRO=openstlinux-weston-rauc) on:
+  * stm32mp25x-phyflex-tauri-m-1
+
+Build Environment:
+------------------
+- Ubuntu 22.04 64-bit
+
+Fixes and New Features provided by OpenSTLinux v6.2.0 and v6.2.1:
+-----------------------------------------------------------------
+Those release brings mainly fixes and improvements for M33-TD flavor for STM32MP2 series.
+They also bring stabilization and improvements for A35-TD flavor (particulary for low power domains).
+
+* Major fix:
+Fixes MMC driver freez observed after resuming from LP-LVStop2 low power mode.
+
+* Major functional change:
+New stsplitpartitions class allows to split an unique image requested on several partitions/pieces
+like WIC does (for e.MMC storage). It's still possible to add annex image building support.
+
+For details of the fixes and new features, please refer to the following ST relase notes:
+* Yocto OpenSTLinux ecosystem:
+    https://wiki.st.com/stm32mpu/wiki/Yocto-based_OpenSTLinux_ecosystem_release_note_-_v6.2.0
+    https://wiki.st.com/stm32mpu/wiki/Yocto-based_OpenSTLinux_ecosystem_release_note_-_v6.2.1
+* OpenSTLinux :
+    https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v6.2.0
+    https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v6.2.1
+
+New features provided by PHYTEC BSP adaptation:
+-----------------------------------------------
+  * FIT Image is now used by default (Kernel, Device Tree and Device Tree Overlays now stored and loaded in a fitImage Container)
+    Syntax to apply overlays in /boot/overlays.txt is now adapted to the U-boot bootm overlay FIT syntax.
+  * Boot from v is supported
+  * PHYTEC Hardware introspection feature extended:
+    Multiple phyFLEX-STM32MP23x or phyFLEX-STM32MP25x SoM configuration (RAM size, STM32MP2 Processor version, PCie/USB3 SS, ...)
+    is now full  supported within one yocto image. The SoM configuration is writen by PHYTEC in the SoM EEPROM.
+  * Support of phyFLEX-Tauri-M-STM32MP25
+  * Support of phyFLEX-STM32MP23x M33-TD boot flavor
+
+Features already supported by previous BSP and NEW features:
+------------------------------------------------------------
+  * Boot support:
+    * Boot from SD-card / eMMC
+    * Boot from QSPI NOR (NEW)
+
+  * Flash devices support:
+    * eMMC (u-boot/kernel)
+    * SD-card (u-boot/kernel)
+    * QSPI NOR populated on Libra board (u-boot/kernel) (NEW)
+
+  * Libra carrier board addons support:
+    * AC209 LVDS display support (1280x800 LVDS 10" PH128800T-006-ZHC01 with USB touch)
+    * PEB-AV-10 (Audio/Video-LVDS Adapter)
+    * PEB-AV-12 (MIPI DSI to LVDS Adaper)
+    * phyCAM-M (MIPI CSI) VM-016 BW & COL
+    * KSP-0221-0 (M.2 Key-E WiFi/Bluetooth Murata Type 2AE - Wi-Fi® 11a/b/g/n/ac + Bluetooth 5.2)
+
+  * Peripherals support:
+    * USB Host 2.0 (kernel)
+    * USB 2.0/3.0 Dual Role (kernel) (forced 2.0 peripheral on u-boot)
+    * Dual LVDS display interface (kernel)
+    * MIPI DSI dsiplay interface  (kernel)
+    * MIPI CSI camera interface (kernel)
+    * Ethernet on SOM - 1Gpbs (u-boot/kernel)
+    * Ethernet on Libra board - 1Gpbs (kernel)
+    * PCIe (kernel)
+    * CAN FD (kernel)
+    * SPI (kernel)
+    * SDIO (u-boot/kernel)
+    * I2C (u-boot/kernel)
+    * UARTs (u-boot/kernel) - RS232/RS485 support
+    * GPIOs (u-boot/kernel)
+    * PWM (kernel)
+    * ADC (kernel)
+    * MCP3208 SPI ADC (kernel)
+    * TLV320AIC3007 Audio codec support throught SAI on PEB-AV-10 (kernel)
+    * I2C RGB leds support (kernel)
+    * EEPROMs on Libra board (kernel)
+    * TPM SLB 9670 (kernel driver only - TPM2 software stack not installed)
+
+  * Software Update support:
+    RAUC support through our "openstlinux-weston-rauc" distribution (https://rauc.io/). Support is based on TF-A firmware update feature.
+
+    Note: TF-A firmware update feature is not enabled by default. This feature is only enabled with our rauc distro.
+    If necessary, it can be enabled without using rauc, just adding the following machine feature in the machine.conf file:
+    MACHINE_FEATURES += "fw-update"
+
+Known Issues/Limitations:
+-------------------------
+- With "st-image-weston", following errors appears at the end of the boot on Libra board when PEB-AV-10 is used:
+
+    [xxx] st,stm32-sai-sub 402a0024.audio-controller: ASoC: error at snd_soc_dai_hw_params on 402a0024.audio-controller: -22
+    [xxx] 402a0024.audio-controller-tlv320aic3x-hifi: ASoC: error at __soc_pcm_hw_params on 402a0024.audio-controller-tlv320aic3x-hifi: -22
+    [xxx] st,stm32-sai-sub 402a0024.audio-controller: Data size 32 larger than slot width
+
+    Those errors appears several time when "wireplumber" is starting but sound is working correctly.
+    On "st-image-core", there is no issue as "pipewire" and "wireplumber" are not part of the image (only ALSA).
+
+-  TF-M for Arm® Cortex®-M33 - "M33-TD" boot flavor (issue from STM32 MPU ecosystem release note):
+   * A real time application running on Arm Cortex®-M33 can be disturbed an by Arm® Cortex®-A35 resource request.
+     The customer has to handle the task priority in its application.
+   * Run1, Run2 Low Power modes (ie Arm® Cortex®-A35 can go in low power) are supported, other low power modes are no yet supported.
