@@ -1,0 +1,83 @@
+BSP-Yocto-NXP-i.MX8MP-PD26.1.1            2026-11-03
+====================================================
+
+- Linux NXP Vendor Kernel v6.12.49-2.2.0-phy15 (based on NXP tag lf-6.12.49-2.2.0)
+- U-boot v2025.04-2.2.0-phy10 (based on NXP tag lf-6.12.49-2.2.0)
+- Yocto 5.2.4 (Walnascar)
+- Qt 6.8
+- OP-TEE 4.8
+- RAUC 1.14
+
+Tested Yocto Images:
+--------------------
+- phytec-chromium-image
+- phytec-qt6demo-image
+- phytec-vision-image
+- phytec-provisioning-image
+- phytec-securiphy-image
+- phytec-headless-image
+
+Supported Machines:
+-------------------
+- phyboard-pollux-imx8mp-3
+- imx8mp-phyflex-libra-rdk-2
+- imx8mp-phyflex-phyvip-1
+
+Build Environment:
+------------------
+- Ubuntu 24.04 64-bit
+
+Changes:
+--------
+
+New Features:
+-------------
+- Add support for imx8mp-phyflex-phyvip-1
+  Supported phyFLEX-SoM:
+    * EEPROM
+    * eMMC
+    * Ethernet
+    * GPIOs
+    * GPU/VPU
+    * PMIC
+    * RTC
+  Supported phyVIP platform:
+    * EEPROM
+    * PCIe AI accelerator (Hailo-8)
+    * SD-card
+    * TPM2.0
+    * Thermal sensors
+    * UART (Console)
+    * WiFi
+    * Cameras (VM016, VM017, VM020, VM024)
+  Supported PEB-B-006 interfaces:
+    * Audio
+    * CAN
+    * EEPROM
+    * HDMI
+    * ON/OFF button
+    * RS485
+    * USB
+- Add PEB-WLBT-07 support for phyboard-pollux
+- Add NPU support on phyboard-pollux
+- Add support for pca9632 on phyboard-pollux
+
+Issues fixed:
+-------------
+- Fixed LED support on phyboard-pollux
+- Fixed Audio support for phyboard-pollux
+- 4GiB RAM Timings on phyFLEX Libra fully validated
+
+Defeatured:
+-----------
+
+Known Issues/Limitations:
+-------------------------
+- No support for 8GiB RAM variant
+- no EFI support
+- No USB-C support for phyFLEX Libra
+- phyboard-pollux-imx8mp-3: Upper USB port on X5 connector doesn't
+  work reliable in host mode in bootloader
+- shutdown from Linux might sometimes take longer due to systemd stop job running
+- Reduction of CMA size to half for phyBOARD Pollux 1GiB RAM SoM
+- Increased resume duration during suspend to RAM
